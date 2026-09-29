@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@import "@fontsource/noto-sans-bengali/400.css";
+@import "@fontsource/noto-sans-bengali/700.css";
+
+@theme {
+  --font-sans: "Noto Sans Bengali", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --color-brand-50: #ecfdf5;
+  --color-brand-100: #d1fae5;
+  --color-brand-600: #047857;
+  --color-brand-700: #065f46;
+  --color-brand-800: #064e3b;
+  --color-ink: #111827;
+  --color-muted: #4b5563;
+  --color-status-new: #1d4ed8;
+  --color-status-verified: #6d28d9;
+  --color-status-assigned: #b45309;
+  --color-status-cleared: #15803d;
+  --color-status-not_found: #4b5563;
+  --color-status-rejected: #9ca3af;
+  --color-risk-green: #22c55e;
+  --color-risk-yellow: #eab308;
+  --color-risk-orange: #f97316;
+  --color-risk-red: #dc2626;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #f9fafb;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+/* Visible focus for keyboard users */
+:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+@utility btn {
+  @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-5 py-3 text-base font-bold transition disabled:opacity-50;
+}
+@utility btn-primary {
+  @apply btn bg-brand-700 text-white hover:bg-brand-800;
+}
+@utility btn-secondary {
+  @apply btn border-2 border-brand-700 bg-white text-brand-700 hover:bg-brand-50;
+}
+@utility btn-ghost {
+  @apply btn text-brand-700 hover:bg-brand-50;
+}
+@utility btn-danger {
+  @apply btn bg-red-700 text-white hover:bg-red-800;
+}
+@utility card {
+  @apply rounded-2xl bg-white p-4 shadow-sm ring-1 ring-gray-200;
+}
+@utility field-label {
+  @apply mb-1 block text-sm font-bold text-ink;
+}
+@utility input {
+  @apply block min-h-12 w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-base text-ink focus:border-brand-700;
+}
+@utility chip {
+  @apply inline-flex min-h-11 cursor-pointer items-center justify-center rounded-full border-2 border-gray-300 bg-white px-4 text-sm font-bold text-ink has-[:checked]:border-brand-700 has-[:checked]:bg-brand-50 has-[:checked]:text-brand-800;
+}
+.sr-only-focusable:not(:focus) {
+  @apply sr-only;
+}

@@ -1,0 +1,121 @@
+# DengueWatch BD · ডেঙ্গুওয়াচ বিডি
+
+Citizens photo-report possible **Aedes mosquito breeding sites** (standing water in tires, buckets, drums, AC drip trays, construction sites, rooftops, flower tubs, drains). Reports merge into **sites**; city-corporation **ward inspectors** work a queue and close each site with an on-site **after photo**. A public map shows sites, ward-level **environmental risk** and official case counts. Pilot: Dhaka (DNCC 54 wards, DSCC 75 wards).
+
+Bangla first, English second. Open source under **AGPL-3.0**. Product spec: [`docs/SPEC.md`](docs/SPEC.md) · decisions log: [`DECISIONS.md`](DECISIONS.md).
+
+> Satellites do **not** detect breeding sites. They only rank wards by environmental risk so teams know where to look first.
+
+## Repository layout
+
+| Path | What |
+| --- | --- |
+| `apps/web` | Next.js 16 (App Router, TypeScript strict, Tailwind v4) installable PWA, deployed on Vercel |
+| `messages/` | All user-facing strings: `bn.json` (default), `en.json` |
+| `supabase/migrations` | Postgres + PostGIS schema, RLS, triggers, views, storage, cron |
+| `supabase/functions` | Deno Edge Functions: `submit-report`, `screen-report`, `notify-status`, `weekly-digest`, `export` |
+| `supabase/tests` | pgTAP tests for RLS, triggers and views |
+| `supabase/seed` | Ward seed, OSM boundary fetcher, dev demo data |
+| `workers/cases` | DGHS dengue bulletin scraper (daily) |
+| `workers/satellite` | Sentinel-2/Landsat ward risk (weekly) |
+| `workers/thumbs` | Face/number-plate blurring for public thumbnails (every 5 min) |
+| `workers/detector` | P3: YOLO classifier trained on moderator labels |
+| `docs/` | Spec, credits, copy review, operations (backup/restore, load test) |
+
+## Local setup (under 10 commands)
+
+Needs Node 22, pnpm 10, Docker, and the [Supabase CLI](https://supabase.com/docs/guides/local-development/cli/getting-started).
+
+```bash
+git clone https://github.com/scornik/Dengue-Watch-BD && cd Dengue-Watch-BD
+pnpm install
+supabase start                                   # Postgres+PostGIS, Auth, Storage, Edge runtime
+psql postgresql://postgres:postgres@127.0.0.1:54322/postgres -f supabase/seed/dev_demo.sql   # optional demo data
+cp supabase/functions/.env.example supabase/functions/.env
+supabase functions serve --env-file supabase/functions/.env &
+supabase status -o env | awk -F= '/^API_URL/{print "NEXT_PUBLIC_SUPABASE_URL="$2} /^ANON_KEY/{print "NEXT_PUBLIC_SUPABASE_ANON_KEY="$2}' | tr -d '"' > apps/web/.env.local
+pnpm dev                                          # http://localhost:3000
+```
+
+Staff sign-in locally: invite yourself (`insert into staff_invites (email, role) values ('you@example.org','superadmin');` in psql), then sign in at `/staff/login`; the magic link arrives in Mailpit at http://127.0.0.1:54324.
+
+### Checks
+
+```bash
+pnpm lint && pnpm typecheck && pnpm test          # web: ESLint, tsc, Vitest
+supabase test db                                  # pgTAP: RLS, triggers, views
+pnpm test:e2e                                     # Playwright, 360×740 Android viewport
+cd workers/<name> && uv run --extra dev pytest    # each Python worker
+```
+
+CI (`.github/workflows/ci.yml`) runs all of the above on every push and PR.
+
+## Configuration
+
+Every variable is documented in [`.env.example`](.env.example). Summary:
+
+| Where | Variables |
+| --- | --- |
+| Vercel (web) | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_MAP_STYLE_URL`, `NEXT_PUBLIC_VAPID_PUBLIC_KEY`, `NEXT_PUBLIC_CLIP_MODEL_ID`, `NEXT_PUBLIC_SOURCE_URL` |
+| Supabase function secrets | `DEVICE_HASH_SALT`, `ALLOWED_ORIGINS`, `OTP_REQUIRED_AFTER`, `PHONE_OTP_ENABLED`, `PAID_AI_ENABLED`, `VISION_PROVIDER`, `VISION_MODEL`, `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, `GEMINI_MODEL`, `DETECTOR_URL`, `DETECTOR_TOKEN`, `AI_DAILY_CAP`, `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT`, `SITE_URL`, `RESEND_API_KEY`, `DIGEST_FROM` |
+| Northflank (workers) | `DATABASE_URL`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, plus per-worker settings in each worker README |
+
+The web app never receives a service-role key.
+
+## Deployment
+
+### Supabase
+
+```bash
+supabase link --project-ref <ref>
+supabase db push                                   # apply migrations
+psql "$DATABASE_URL" -f supabase/seed.sql          # 129 ward rows (idempotent)
+DATABASE_URL=... bash supabase/seed/load_wards.sh  # ward boundaries (see supabase/seed/README.md)
+supabase secrets set --env-file supabase/functions/.env.production
+supabase functions deploy submit-report --no-verify-jwt
+supabase functions deploy screen-report notify-status weekly-digest export
+```
+
+In the dashboard: enable **Anonymous sign-ins** (Auth → Providers), set the Site URL and redirect URLs to your Vercel domain, and (optionally) configure an SMS provider for phone OTP.
+
+#### Scheduled jobs
+
+Migrations register pg_cron jobs (`notify-status` every 5 min, `screen-backlog` hourly, `weekly-digest` Monday 08:00 Asia/Dhaka). They call Edge Functions using two Vault secrets you create once:
+
+```sql
+select vault.create_secret('https://<ref>.supabase.co', 'project_url');
+select vault.create_secret('<service-role-key>', 'service_role_key');
+```
+
+### Vercel
+
+Import the repo, set **Root Directory** to `apps/web` (framework: Next.js; keep "Include files outside the root directory" on, since `/messages` lives at the repo root), and add the `NEXT_PUBLIC_*` variables above.
+
+### Northflank
+
+One **cron job** per worker, built from its Dockerfile (build context = the worker directory):
+
+| Worker | Schedule (UTC) | Asia/Dhaka |
+| --- | --- | --- |
+| `workers/cases` | `0 4 * * *` | daily 10:00 |
+| `workers/satellite` | `0 21 * * 0` | Monday 03:00 |
+| `workers/thumbs` | `*/5 * * * *` | every 5 min |
+| `workers/detector` | service (P3, optional) | — |
+
+Environment variables per worker are listed in each worker's README.
+
+## Photo screening (tiers)
+
+1. **On-device (free, default):** blur/darkness check + zero-shot CLIP in a Web Worker (lazy, cached, skipped on weak devices). Never blocks submission.
+2. **Rules (free):** rate limits (10/h, 30/day per device), duplicate merge (25 m, 7 days), phone OTP after 5 reports when an SMS provider is configured.
+3. **Human (free):** moderator queue, pending/unclear first, keyboard shortcuts; every decision is saved as a training label.
+4. **Paid API (optional, off):** `screen-report` Edge Function (Anthropic or Gemini) only for unclear/pending, hard daily cap, zod-validated JSON.
+5. **Own model (P3):** `workers/detector` behind the same provider interface.
+
+## Privacy
+
+EXIF is stripped from every stored photo (GPS is kept only in the `geom` column). Public thumbnails are created only after faces and number plates are blurred; if blurring fails, nothing is published. Public points are snapped to ~50 m. Reporter identity is never shown.
+
+## License
+
+[AGPL-3.0-only](LICENSE). Credits for ideas, data and methods: [`docs/credits.md`](docs/credits.md).
