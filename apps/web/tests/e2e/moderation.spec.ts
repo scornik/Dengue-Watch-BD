@@ -13,6 +13,8 @@ test("moderator approves a pending report with the keyboard", async ({ page }) =
       device_hash: `e2e-mod-${Date.now()}`,
       ai_label: "pending",
       site_type: "bucket_drum",
+      // Oldest pending report => first in the queue, whatever else is pending.
+      created_at: "2020-01-01T00:00:00Z",
     })
     .select("id, site_id")
     .single();
@@ -23,7 +25,7 @@ test("moderator approves a pending report with the keyboard", async ({ page }) =
   await page.goto("/staff/moderate");
   await expect(page.getByTestId("mod-queue")).toBeVisible();
   // Pending reports come first; ours is the newest pending one, find it by stepping.
-  for (let i = 0; i < 60; i++) {
+  for (let i = 0; i < 10; i++) {
     const { data } = await sb.from("reports").select("ai_source").eq("id", rep!.id).single();
     if (data?.ai_source === "human") break;
     const text = await page.getByTestId("mod-type").innerText();
