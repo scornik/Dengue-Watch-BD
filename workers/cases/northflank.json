@@ -1,0 +1,31 @@
+{
+  "$comment": "Northflank cron job for the cases worker. Create via the Northflank UI/API (POST /v1/projects/{project}/jobs/cron) and verify field names against the current Northflank API docs. Secrets (DATABASE_URL) come from a linked secret group, never from this file.",
+  "name": "cases-daily",
+  "description": "Scrape DGHS daily dengue bulletin into case_counts (10:00 Asia/Dhaka)",
+  "billing": { "deploymentPlan": "nf-compute-10" },
+  "settings": {
+    "cron": { "schedule": "0 4 * * *", "concurrencyPolicy": "forbid" },
+    "backoffLimit": 1,
+    "activeDeadlineSeconds": 900
+  },
+  "vcsData": {
+    "projectType": "github",
+    "projectUrl": "https://github.com/<org>/Dengue-Watch-BD",
+    "projectBranch": "main"
+  },
+  "buildSettings": {
+    "dockerfile": {
+      "buildEngine": "kaniko",
+      "dockerFilePath": "/workers/cases/Dockerfile",
+      "dockerWorkDir": "/workers/cases"
+    }
+  },
+  "deployment": {
+    "docker": { "configType": "customCommand", "customCommand": "python -m cases.main" }
+  },
+  "runtimeEnvironment": {
+    "LOG_LEVEL": "INFO",
+    "CASES_MAX_LINKS": "3"
+  },
+  "secretGroups": ["denguewatch-workers (provides DATABASE_URL)"]
+}
