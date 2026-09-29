@@ -44,7 +44,8 @@ export default async function WardPage({ params }: PageProps<"/[locale]/ward/[id
   setRequestLocale(locale);
   const n = parseId(id);
   if (!n) notFound();
-  const data = await loadWard(n).catch(() => null);
+  // A database error throws (error page, stale ISR copy kept); only a missing ward is a 404.
+  const data = await loadWard(n);
   if (!data) notFound();
   const { ward, card, recent } = data;
   const t = await getTranslations("ward");
