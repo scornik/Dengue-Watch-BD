@@ -1,0 +1,28 @@
+{
+  "$comment": "Northflank cron job for the thumbs worker. Create via the Northflank UI/API (POST /v1/projects/{project}/jobs/cron) and verify field names against the current Northflank API docs. Secrets come from a linked secret group, never from this file. concurrencyPolicy may be 'allow': FOR UPDATE SKIP LOCKED keeps overlapping runs safe.",
+  "name": "thumbs-5min",
+  "description": "Blur faces/plates and publish report thumbnails to public-thumbs",
+  "billing": { "deploymentPlan": "nf-compute-20" },
+  "settings": {
+    "cron": { "schedule": "*/5 * * * *", "concurrencyPolicy": "forbid" },
+    "backoffLimit": 0,
+    "activeDeadlineSeconds": 270
+  },
+  "vcsData": {
+    "projectType": "github",
+    "projectUrl": "https://github.com/<org>/Dengue-Watch-BD",
+    "projectBranch": "main"
+  },
+  "buildSettings": {
+    "dockerfile": {
+      "buildEngine": "kaniko",
+      "dockerFilePath": "/workers/thumbs/Dockerfile",
+      "dockerWorkDir": "/workers/thumbs"
+    }
+  },
+  "deployment": {
+    "docker": { "configType": "customCommand", "customCommand": "python -m thumbs.main" }
+  },
+  "runtimeEnvironment": { "BATCH_SIZE": "50", "FACE_SCORE_THRESHOLD": "0.6", "LOG_LEVEL": "INFO" },
+  "secretGroups": ["denguewatch-workers (DATABASE_URL, SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)"]
+}

@@ -1,0 +1,5 @@
+# Training / inference extras for the detector. Kept out of pyproject so CI and tests stay light.
+# Ultralytics is AGPL-3.0, which is compatible with this AGPL-3.0 project (and imposes the same
+# network-use source obligations we already accept). It pulls in torch; for CPU-only images
+# install with: --extra-index-url https://download.pytorch.org/whl/cpu
+ultralytics>=8.3,<9
