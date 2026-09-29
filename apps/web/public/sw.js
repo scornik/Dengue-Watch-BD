@@ -5,7 +5,10 @@
  * Keep the IndexedDB names in sync with src/lib/queue/db.ts.
  */
 const VERSION = "dw-v1";
-const SHELL = ["/", "/report", "/mine", "/en", "/en/report", "/manifest.webmanifest", "/icons/icon-192.png"];
+const SHELL = [
+  "/", "/report", "/mine", "/en", "/en/report", "/manifest.webmanifest", "/icons/icon-192.png",
+  "/fonts/noto-sans-bengali-400.woff2", "/fonts/noto-sans-bengali-700.woff2",
+];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -32,7 +35,7 @@ self.addEventListener("fetch", (event) => {
   if (url.origin !== self.location.origin) return; // never cache Supabase/API or tiles here
   if (url.pathname.startsWith("/api/")) return;
 
-  if (url.pathname.startsWith("/_next/static/") || url.pathname.startsWith("/icons/")) {
+  if (url.pathname.startsWith("/_next/static/") || url.pathname.startsWith("/icons/") || url.pathname.startsWith("/fonts/")) {
     event.respondWith(
       caches.match(req).then(
         (hit) =>

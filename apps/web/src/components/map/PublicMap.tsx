@@ -43,7 +43,16 @@ export default function PublicMap() {
     let cancelled = false;
     const container = el.current;
     if (!container) return;
-    (webglAvailable() ? Promise.all([loadMaplibre(), resolveStyle()]) : Promise.reject(new Error("no WebGL")))
+    // Let the page (text, legend, cases) become interactive first, then start the map.
+    const idle = () =>
+      new Promise<void>((r) => {
+        const ric = (window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number })
+          .requestIdleCallback;
+        if (ric) ric(() => r(), { timeout: 2000 });
+        else setTimeout(r, 300);
+      });
+    idle()
+      .then(() => (webglAvailable() ? Promise.all([loadMaplibre(), resolveStyle()]) : Promise.reject(new Error("no WebGL"))))
       .then(([ml, style]) => {
         if (cancelled) return;
         const m = new ml.Map({

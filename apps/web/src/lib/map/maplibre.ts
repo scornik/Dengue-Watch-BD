@@ -13,6 +13,8 @@ let loading: Promise<MaplibreModule> | null = null;
 export function loadMaplibre(): Promise<MaplibreModule> {
   loading ??= import("maplibre-gl").then((m) => {
     m.setWorkerUrl("/maplibre/maplibre-gl-worker.mjs");
+    // One tile worker is plenty for our small GeoJSON layers on low-end phones.
+    m.setWorkerCount(1);
     return m;
   });
   return loading;

@@ -13,7 +13,7 @@ export function LanguageSwitch({ locale, label, text }: { locale: string; label:
       href={{ pathname, params } as any}
       locale={other}
       prefetch={false}
-      aria-label={label}
+      title={label}
       lang={other}
       className="inline-flex min-h-11 items-center rounded-lg border border-white/40 px-3 font-bold hover:bg-brand-800"
     >

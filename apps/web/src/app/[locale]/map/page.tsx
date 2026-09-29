@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { PublicMapLoader } from "@/components/map/PublicMapLoader";
+import { MapShell } from "@/components/map/MapShell";
+import { MapPreview } from "@/components/map/MapPreview";
 import { CasesPanel } from "@/components/map/CasesPanel";
 
 export const revalidate = 900;
@@ -19,7 +20,7 @@ export default async function MapPage({ params }: PageProps<"/[locale]/map">) {
   return (
     <div className="space-y-4">
       <h1 className="text-2xl font-bold">{t("map.title")}</h1>
-      <PublicMapLoader />
+      <MapShell preview={<MapPreview />} />
       <CasesPanel />
       <div className="grid grid-cols-2 gap-2">
         <Link href="/ward" className="btn-secondary">

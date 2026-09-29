@@ -161,7 +161,7 @@ export function InspectorSite({ siteId, userId }: { siteId: string; userId: stri
       {mode === "clearing" && (
         <section className="card space-y-3">
           <p className="text-sm">{t("afterPhotoHint")}</p>
-          <input ref={camera} type="file" accept="image/*" capture="environment" className="sr-only" onChange={onAfterPhoto} data-testid="after-photo" />
+          <input ref={camera} type="file" accept="image/*" capture="environment" className="sr-only" onChange={onAfterPhoto} data-testid="after-photo" aria-label={t("afterPhoto")} />
           <button className="btn-primary w-full" disabled={busy} onClick={() => camera.current?.click()}>
             📷 {t("afterPhoto")}
           </button>

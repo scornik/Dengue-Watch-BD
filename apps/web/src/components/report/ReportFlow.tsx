@@ -156,6 +156,7 @@ export function ReportFlow() {
             className="sr-only"
             onChange={onFile}
             data-testid="photo-camera"
+            aria-label={t("takePhoto")}
             tabIndex={-1}
           />
           <input
@@ -165,6 +166,7 @@ export function ReportFlow() {
             className="sr-only"
             onChange={onFile}
             data-testid="photo-input"
+            aria-label={t("choosePhoto")}
             tabIndex={-1}
           />
           {photo ? (

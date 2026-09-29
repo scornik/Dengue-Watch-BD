@@ -84,6 +84,11 @@ jobs:
           CI: "true"
       - if: failure()
         run: cat functions.log || true
+      - name: Lighthouse (mobile; a11y >= 95 enforced, perf >= 90 reported)
+        run: |
+          (cd apps/web && nohup pnpm start -p 3100 > ../../next.log 2>&1 &)
+          npx wait-on -t 60000 http://localhost:3100
+          cd apps/web && npx -y @lhci/cli@0.15 autorun --config=lighthouserc.json
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
