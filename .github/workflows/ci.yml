@@ -90,3 +90,20 @@ jobs:
           name: playwright-report
           path: apps/web/playwright-report
           retention-days: 7
+
+  workers:
+    name: Workers — ruff + pytest
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        worker: [cases]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Lint and test
+        working-directory: workers/${{ matrix.worker }}
+        run: |
+          uv run --python 3.12 --extra dev ruff check .
+          uv run --python 3.12 --extra dev ruff format --check .
+          uv run --python 3.12 --extra dev pytest -q
