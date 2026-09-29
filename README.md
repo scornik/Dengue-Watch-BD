@@ -13,7 +13,7 @@ Bangla first, English second. Open source under **AGPL-3.0**. Product spec: [`do
 | `apps/web` | Next.js 16 (App Router, TypeScript strict, Tailwind v4) installable PWA, deployed on Vercel |
 | `messages/` | All user-facing strings: `bn.json` (default), `en.json` |
 | `supabase/migrations` | Postgres + PostGIS schema, RLS, triggers, views, storage, cron |
-| `supabase/functions` | Deno Edge Functions: `submit-report`, `screen-report`, `notify-status`, `weekly-digest`, `export` |
+| `supabase/functions` | Deno Edge Functions: `submit-report`, `screen-report`, `notify-status`, `weekly-digest` |
 | `supabase/tests` | pgTAP tests for RLS, triggers and views |
 | `supabase/seed` | Ward seed, OSM boundary fetcher, dev demo data |
 | `workers/cases` | DGHS dengue bulletin scraper (daily) |
@@ -73,7 +73,7 @@ psql "$DATABASE_URL" -f supabase/seed.sql          # 129 ward rows (idempotent)
 DATABASE_URL=... bash supabase/seed/load_wards.sh  # ward boundaries (see supabase/seed/README.md)
 supabase secrets set --env-file supabase/functions/.env.production
 supabase functions deploy submit-report --no-verify-jwt
-supabase functions deploy screen-report notify-status weekly-digest export
+supabase functions deploy screen-report notify-status weekly-digest
 ```
 
 In the dashboard: enable **Anonymous sign-ins** (Auth → Providers), set the Site URL and redirect URLs to your Vercel domain, and (optionally) configure an SMS provider for phone OTP.
@@ -103,6 +103,15 @@ One **cron job** per worker, built from its Dockerfile (build context = the work
 | `workers/detector` | service (P3, optional) | — |
 
 Environment variables per worker are listed in each worker's README.
+
+## Open data
+
+- `GET /api/export/sites.csv` and `GET /api/export/sites.geojson`: anonymised sites (points snapped to ~50 m, no reporter data), ODbL-1.0, cached 1 h.
+- `GET /api/export/research.csv` with `Authorization: Bearer <researcher access token>`: report-level anonymised export (`research_reports` view).
+
+## Weekly digest
+
+Every Monday 08:00 Asia/Dhaka, `weekly-digest` emails each ward admin a per-ward summary (new, cleared, overdue sites, risk level) for their city corporation via Resend (set `RESEND_API_KEY`; otherwise it is only logged). The same digest is printable as PDF at `/staff/digest`.
 
 ## Photo screening (tiers)
 

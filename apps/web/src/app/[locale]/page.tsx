@@ -11,6 +11,8 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
   setRequestLocale(locale);
   const t = await getTranslations("home");
   const ta = await getTranslations("app");
+  const tn = await getTranslations("nav");
+  const tw = await getTranslations("ward");
 
   return (
     <div className="space-y-5">
@@ -58,6 +60,21 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
       </Link>
 
       <p className="rounded-xl bg-amber-50 p-3 text-sm text-amber-900">{t("emergency")}</p>
+
+      <footer className="flex flex-wrap justify-center gap-x-4 gap-y-1 pt-2 text-sm text-muted">
+        <Link href="/about" prefetch={false} className="underline">
+          {tn("about")}
+        </Link>
+        <Link href="/data" prefetch={false} className="underline">
+          {tn("data")}
+        </Link>
+        <Link href="/ward" prefetch={false} className="underline">
+          {tw("allWards")}
+        </Link>
+        <Link href="/staff" prefetch={false} className="underline">
+          {tn("staff")}
+        </Link>
+      </footer>
     </div>
   );
 }
