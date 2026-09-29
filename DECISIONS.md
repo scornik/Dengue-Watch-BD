@@ -82,3 +82,11 @@ Autonomous build log. Each entry: date · decision · reason. Newest at the bott
 - **2026-09-29 · The job exits non-zero when nothing parses, so Northflank marks the run failed; admins then use the manual entry form on `/staff/admin`.** Manual rows (`entered_by` set) are never overwritten by the scraper (`ON CONFLICT … WHERE entered_by IS NULL`).
 - **2026-09-29 · Default source URLs are best guesses that could not be reached from the build sandbox; they must be verified on first deploy.** The parsers are tested against realistic English and Bangla fixtures.
 - **2026-09-29 · Cron `0 4 * * *` UTC = 10:00 Asia/Dhaka, as specified; DGHS often publishes in the afternoon, so the 10:00 run usually upserts the previous day's bulletin (idempotent). An optional second run at `0 12 * * *` is documented.**
+
+## M7 — Satellite risk
+
+- **2026-09-29 · odc-stac median composites over a 60-day lookback (≤40 % cloud) from Planetary Computer: Sentinel-2 L2A (SCL cloud/shadow mask, harmonised −1000 offset for processing baseline ≥ 04.00) for NDVI, MNDWI, NDBI at 20 m; Landsat C2 L2 `lwir11` for LST (°C) with QA_PIXEL masking at 30 m.** A two-month median survives monsoon cloud cover better than single scenes.
+- **2026-09-29 · Zonal means use our own rasterio `geometry_mask` code (no GPL zonal-stats packages); wards without a boundary are skipped.**
+- **2026-09-29 · Score = Σ wᵢ·zᵢ / Σ|wᵢ| over z-scores across wards (clipped ±3; missing or zero-spread inputs count as 0), weights and thresholds in `weights.yaml` (`v0.1-uncalibrated`, stored in `ward_risk.method_version`).** Transparent and easy to recalibrate against DSCC/DNCC larval surveys. Four levels by fixed thresholds by default (a percentile mode exists but always paints some wards red).
+- **2026-09-29 · Rainfall: one batched Open-Meteo request for all ward centroids (archive API for weeks older than ~80 days), falling back to the city centroid, then NULL.** Free, no key.
+- **2026-09-29 · Weekly cron `0 21 * * 0` UTC (Monday 03:00 Asia/Dhaka); the job needs ~4 GB RAM on Northflank.**

@@ -1,0 +1,33 @@
+# DengueWatch BD ward risk weights. UNCALIBRATED: these are a transparent first guess based on
+# the Dhaka satellite study (PMC10001735) and must be re-fitted once DSCC/DNCC larval survey
+# (Breteau / house index) data is available. Bump `version` whenever anything here changes;
+# it is stored in ward_risk.method_version.
+version: "v0.1-uncalibrated"
+
+# Sign convention: positive weight = higher value raises risk; negative = lowers risk.
+weights:
+  ndvi: -1.0           # more vegetation -> cooler, less dense -> lower risk
+  ndwi: 0.5            # MNDWI: more open water / wet surfaces -> higher risk
+  ndbi: 1.0            # built-up density -> higher risk
+  lst_c: 1.0           # land surface temperature (heat island) -> higher risk
+  rain_14d_mm: 0.75    # recent rain refills containers -> higher risk
+  report_density: 1.0  # citizen breeding-site reports per km2, last 28 days
+  cases_area: 0.5      # hospital admissions in the ward's city corporation, last 14 days
+
+# Divide the weighted sum by sum(|w|) so the score is a weighted mean of z-scores.
+normalize: true
+# Clip each z-score to +/- this value (null = no clipping).
+z_clip: 3.0
+
+levels:
+  # "thresholds": fixed cut-offs on the score; "percentiles": cut-offs on the ward's
+  # percentile rank within the city this week (always some red wards - use with care).
+  mode: thresholds
+  thresholds:   # lower bound of each level; below `yellow` is green
+    yellow: -0.5
+    orange: 0.25
+    red: 1.0
+  percentiles:
+    yellow: 0.50
+    orange: 0.75
+    red: 0.90

@@ -1,0 +1,32 @@
+{
+  "$comment": "Northflank cron job for the satellite worker. Create via the Northflank UI/API (POST /v1/projects/{project}/jobs/cron) and verify field names against the current Northflank API docs. Secrets (DATABASE_URL) come from a linked secret group, never from this file. Needs ~4 GB RAM for a 20 m Dhaka composite.",
+  "name": "satellite-weekly",
+  "description": "Weekly ward environmental risk -> ward_risk (Monday 03:00 Asia/Dhaka)",
+  "billing": { "deploymentPlan": "nf-compute-100-4" },
+  "settings": {
+    "cron": { "schedule": "0 21 * * 0", "concurrencyPolicy": "forbid" },
+    "backoffLimit": 2,
+    "activeDeadlineSeconds": 5400
+  },
+  "vcsData": {
+    "projectType": "github",
+    "projectUrl": "https://github.com/<org>/Dengue-Watch-BD",
+    "projectBranch": "main"
+  },
+  "buildSettings": {
+    "dockerfile": {
+      "buildEngine": "kaniko",
+      "dockerFilePath": "/workers/satellite/Dockerfile",
+      "dockerWorkDir": "/workers/satellite"
+    }
+  },
+  "deployment": {
+    "docker": { "configType": "customCommand", "customCommand": "python -m satellite.main" }
+  },
+  "runtimeEnvironment": {
+    "LOOKBACK_DAYS": "60",
+    "MAX_CLOUD_COVER": "40",
+    "LOG_LEVEL": "INFO"
+  },
+  "secretGroups": ["denguewatch-workers (provides DATABASE_URL)"]
+}
