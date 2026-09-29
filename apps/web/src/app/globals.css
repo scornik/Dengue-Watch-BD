@@ -70,3 +70,17 @@ body {
 .sr-only-focusable:not(:focus) {
   @apply sr-only;
 }
+
+/* Printable pages (weekly digest "Save as PDF") */
+@media print {
+  header, nav[aria-label="primary"], .print\:hidden {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+  main {
+    padding: 0 !important;
+    max-width: none !important;
+  }
+}

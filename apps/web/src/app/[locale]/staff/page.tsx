@@ -30,9 +30,14 @@ export default function StaffHome() {
               </Link>
             )}
             {canAdmin(profile.role) && (
-              <Link href="/staff/admin" className="btn-secondary">
-                {t("staff.admin")}
-              </Link>
+              <>
+                <Link href="/staff/admin" className="btn-secondary">
+                  {t("staff.admin")}
+                </Link>
+                <Link href="/staff/digest" className="btn-secondary">
+                  {t("admin.digest")}
+                </Link>
+              </>
             )}
             {canResearch(profile.role) && (
               <Link href="/data" className="btn-secondary">
