@@ -1,5 +1,4 @@
 import { env } from "@/lib/env";
-import { ensureCitizenSession, getBrowserClient } from "@/lib/supabase/client";
 
 export function urlBase64ToUint8Array(base64: string): Uint8Array<ArrayBuffer> {
   const padding = "=".repeat((4 - (base64.length % 4)) % 4);
@@ -31,6 +30,7 @@ export async function subscribePush(locale: string): Promise<boolean> {
       userVisibleOnly: true,
       applicationServerKey: urlBase64ToUint8Array(env.vapidPublicKey),
     }));
+  const { ensureCitizenSession, getBrowserClient } = await import("@/lib/supabase/client");
   await ensureCitizenSession();
   const sb = getBrowserClient();
   const { data } = await sb.auth.getUser();

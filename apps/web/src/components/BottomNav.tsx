@@ -25,6 +25,8 @@ export function BottomNav() {
             <li key={it.key}>
               <Link
                 href={it.href}
+                // No background prefetch: saves data on slow mobile connections.
+                prefetch={false}
                 aria-current={active ? "page" : undefined}
                 className={`flex min-h-16 flex-col items-center justify-center gap-0.5 text-xs font-bold ${
                   active ? "text-brand-700" : "text-muted"

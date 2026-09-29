@@ -1,5 +1,3 @@
-import { z } from "zod";
-
 export const SITE_TYPES = [
   "tire",
   "bucket_drum",
@@ -19,20 +17,18 @@ export type Larvae = (typeof LARVAE)[number];
 export type AiLabel = (typeof AI_LABELS)[number];
 export type SiteStatus = (typeof SITE_STATUSES)[number];
 
-/** Metadata sent with each report (mirrors supabase/functions/_shared/report.ts). */
-export const reportMetaSchema = z.object({
-  id: z.uuid(),
-  lat: z.number().min(20).max(27),
-  lng: z.number().min(88).max(93),
-  accuracy_m: z.number().min(0).max(100_000).nullable(),
-  site_type: z.enum(SITE_TYPES),
-  larvae_seen: z.enum(LARVAE),
-  self_cleaned: z.boolean(),
-  note: z.string().max(500).nullable(),
-  ai_label: z.enum(AI_LABELS),
-  ai_score: z.number().min(0).max(1).nullable(),
-  device_id: z.string().min(16).max(64),
-  client_created_at: z.iso.datetime(),
-});
-
-export type ReportMeta = z.infer<typeof reportMetaSchema>;
+/** Metadata sent with each report (validated server-side; see schema.ts). */
+export type ReportMeta = {
+  id: string;
+  lat: number;
+  lng: number;
+  accuracy_m: number | null;
+  site_type: SiteType;
+  larvae_seen: Larvae;
+  self_cleaned: boolean;
+  note: string | null;
+  ai_label: AiLabel;
+  ai_score: number | null;
+  device_id: string;
+  client_created_at: string;
+};

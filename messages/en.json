@@ -135,7 +135,8 @@
     "track": "Track my reports",
     "notify": "Notify me when it is cleared",
     "notifyOn": "You will get a notification when the status changes.",
-    "notifyUnsupported": "Notifications are not supported on this browser."
+    "notifyUnsupported": "Notifications are not supported on this browser.",
+    "tipsTitle": "Keep your home free of breeding sites:"
   },
   "mine": {
     "title": "My reports",
