@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-import { flushQueue } from "@/lib/queue/flush";
 import { env } from "@/lib/env";
+
+// Loaded on demand so supabase-js is not part of every page's initial JS.
+const flushQueue = () => import("@/lib/queue/flush").then((m) => m.flushQueue());
 
 /** Registers /sw.js and retries the offline report queue when back online. */
 export function ServiceWorkerRegistrar() {
@@ -27,7 +29,12 @@ export function ServiceWorkerRegistrar() {
     window.addEventListener("online", onOnline);
     navigator.serviceWorker?.addEventListener("message", onMessage);
     // Flush anything left over from a previous visit.
-    if (navigator.onLine) void flushQueue();
+    if (navigator.onLine) {
+      void import("@/lib/queue/db")
+        .then((m) => m.listQueue())
+        .then((items) => (items.length ? flushQueue() : null))
+        .catch(() => {});
+    }
     return () => {
       window.removeEventListener("online", onOnline);
       navigator.serviceWorker?.removeEventListener("message", onMessage);

@@ -1,4 +1,3 @@
-import { ensureCitizenSession } from "@/lib/supabase/client";
 import { addSent, listQueue, removeQueueItem, updateQueueItem, type QueueItem } from "./db";
 import { sendReport, type SendOutcome } from "./send";
 
@@ -26,7 +25,8 @@ async function flushOnce(): Promise<FlushResult> {
   let token: string | null = null;
   for (const item of items) {
     if (item.state === "failed") continue;
-    token ??= (await ensureCitizenSession()) ?? item.token;
+    // supabase-js is loaded only when we actually go online to upload.
+    token ??= (await import("@/lib/supabase/client").then((m) => m.ensureCitizenSession()).catch(() => null)) ?? item.token;
     const outcome = await sendReport(item.meta, item.photo, token);
     last = outcome;
     if (outcome.kind === "sent") {

@@ -10,7 +10,9 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "predev": "node scripts/copy-maplibre-worker.mjs",
+    "prebuild": "node scripts/copy-maplibre-worker.mjs"
   },
   "dependencies": {
     "@fontsource/noto-sans-bengali": "^5.3.0",
