@@ -1,0 +1,37 @@
+{
+  "$comment": "Northflank configs for the detector (P3). The screening API is a deployment service, not a cron job; export+train are run manually as a job (GPU optional). Verify field names against the current Northflank API docs. Secrets come from a secret group, never from this file.",
+  "service": {
+    "name": "detector-api",
+    "description": "POST /screen photo screening (provider \"model\")",
+    "billing": { "deploymentPlan": "nf-compute-100-2" },
+    "deployment": {
+      "instances": 1,
+      "docker": { "configType": "default" }
+    },
+    "ports": [{ "name": "http", "internalPort": 8080, "public": true, "protocol": "HTTP" }],
+    "healthChecks": [{ "protocol": "HTTP", "type": "readinessProbe", "path": "/healthz", "port": 8080 }],
+    "buildSettings": {
+      "dockerfile": {
+        "buildEngine": "kaniko",
+        "dockerFilePath": "/workers/detector/Dockerfile",
+        "dockerWorkDir": "/workers/detector"
+      }
+    },
+    "volumes": [{ "name": "detector-models", "mountPath": "/models" }],
+    "runtimeEnvironment": { "DETECTOR_WEIGHTS": "/models/best.pt" },
+    "secretGroups": ["denguewatch-detector (DETECTOR_TOKEN, SUPABASE_URL)"]
+  },
+  "trainJob": {
+    "name": "detector-train",
+    "description": "Manual job: export moderated photos then train yolo11n-cls",
+    "settings": { "runOnSourceChange": "never", "backoffLimit": 0, "activeDeadlineSeconds": 21600 },
+    "deployment": {
+      "docker": {
+        "configType": "customCommand",
+        "customCommand": "sh -c 'python -m detector.export_dataset --out /models/dataset && python -m detector.train --data /models/dataset --project /models/runs && cp /models/runs/train/weights/best.pt /models/best.pt'"
+      }
+    },
+    "volumes": [{ "name": "detector-models", "mountPath": "/models" }],
+    "secretGroups": ["denguewatch-workers (DATABASE_URL, SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)"]
+  }
+}
