@@ -57,3 +57,12 @@ Autonomous build log. Each entry: date · decision · reason. Newest at the bott
 - **2026-09-29 · Paid tier (`screen-report`) uses a provider interface (`_shared/vision.ts`): Anthropic via the official TypeScript SDK (npm specifier in Deno), Gemini via REST, and the self-hosted detector (`VISION_PROVIDER=model`).** Anthropic calls request constrained JSON (`output_config.format` json_schema) and every provider's output is validated with the same zod schema; invalid output → `unclear`. Default model `claude-haiku-4-5-20251001` per the brief (cheap, vision-capable).
 - **2026-09-29 · The paid tier runs only if `PAID_AI_ENABLED=true`, only for `unclear`/`pending` reports not yet seen by a paid/model provider, never overwrites a human decision, and is hard-capped by an atomic per-day counter (`claim_ai_quota`, Asia/Dhaka day, `AI_DAILY_CAP`, default 100).** Cost stays bounded even if the cron and submit paths race.
 - **2026-09-29 · `@anthropic-ai/sdk` pinned to `^0.128.0` in the Deno import map.** Deno's resolver refused the release published the day before (0.129.0); the pin avoids that and keeps function deploys reproducible.
+
+## M4 — Public map
+
+- **2026-09-29 · Public pages use plain `fetch` against PostgREST (`lib/publicApi.ts`) instead of supabase-js.** Keeps public page JS small and lets Next cache responses (`revalidate` 5–15 min) on Vercel.
+- **2026-09-29 · Site clustering is MapLibre's built-in GeoJSON clustering over `public_sites_geojson` (max 5000 newest points per request).** No extra tile server; fine at pilot scale. Revisit with vector tiles (e.g. PostGIS `ST_AsMVT`) if the public map exceeds ~5000 open sites.
+- **2026-09-29 · The base-map style is fetched with a 6 s timeout and falls back to a plain background style.** On flaky 3G or if OpenFreeMap is down, sites, clusters and the ward choropleth still render (cluster count labels need the base style's glyphs and are skipped in fallback).
+- **2026-09-29 · Popups are built with DOM `textContent`, never HTML strings.** Site data comes from citizens; this rules out injection.
+- **2026-09-29 · The risk layer is always labelled "environmental risk, not confirmed cases" (map, legend, ward page, method page), and wards without data show "No data" rather than a colour.**
+- **2026-09-29 · Ward pages are rendered on demand with 5-minute revalidation (no build-time static params).** Builds don't need database access, and scorecards stay fresh.

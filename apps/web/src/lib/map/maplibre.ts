@@ -20,6 +20,28 @@ export function loadMaplibre(): Promise<MaplibreModule> {
 
 export const mapStyleUrl = () => env.mapStyleUrl;
 
+type Style = import("maplibre-gl").StyleSpecification;
+
+/** Minimal offline style: our own layers still render if the tile server is unreachable. */
+export const FALLBACK_STYLE: Style = {
+  version: 8,
+  sources: {},
+  layers: [{ id: "background", type: "background", paint: { "background-color": "#e8eeea" } }],
+};
+
+let stylePromise: Promise<Style> | null = null;
+
+/** Fetch the base-map style once (6 s timeout), falling back to FALLBACK_STYLE. */
+export function resolveStyle(): Promise<Style> {
+  stylePromise ??= fetch(env.mapStyleUrl, { signal: AbortSignal.timeout(6000) })
+    .then((r) => (r.ok ? (r.json() as Promise<Style>) : FALLBACK_STYLE))
+    .catch(() => {
+      stylePromise = null; // retry next time
+      return FALLBACK_STYLE;
+    });
+  return stylePromise;
+}
+
 export function webglAvailable(): boolean {
   try {
     const c = document.createElement("canvas");

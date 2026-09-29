@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import type { Map as MlMap } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
-import { DHAKA, loadMaplibre, mapStyleUrl, webglAvailable } from "@/lib/map/maplibre";
+import { DHAKA, loadMaplibre, resolveStyle, webglAvailable } from "@/lib/map/maplibre";
 import { formatNumber } from "@/lib/format";
 
 export type PickedLocation = { lat: number; lng: number; accuracy: number | null };
@@ -56,12 +56,12 @@ export default function LocationPicker({
     let cancelled = false;
     const el = container.current;
     if (!el) return;
-    (webglAvailable() ? loadMaplibre() : Promise.reject(new Error("no WebGL")))
-      .then((ml) => {
+    (webglAvailable() ? Promise.all([loadMaplibre(), resolveStyle()]) : Promise.reject(new Error("no WebGL")))
+      .then(([ml, style]) => {
         if (cancelled) return;
         const m = new ml.Map({
           container: el,
-          style: mapStyleUrl(),
+          style,
           center: value ? [value.lng, value.lat] : DHAKA,
           zoom: value ? 17 : 12,
           attributionControl: { compact: true },
@@ -90,7 +90,7 @@ export default function LocationPicker({
     <div className="space-y-3">
       <p className="text-muted">{t("locationHint")}</p>
       <div className="relative h-[46vh] min-h-64 overflow-hidden rounded-2xl bg-gray-200 ring-1 ring-gray-300">
-        <div ref={container} className="absolute inset-0" data-testid="pin-map" aria-label={t("locationTitle")} />
+        <div ref={container} className="h-full w-full" data-testid="pin-map" aria-label={t("locationTitle")} />
         {/* Fixed centre pin */}
         <svg
           aria-hidden="true"
