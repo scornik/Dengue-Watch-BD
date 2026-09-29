@@ -2,6 +2,9 @@ import { expect, test } from "@playwright/test";
 
 test("public map shows sites, filters and the risk disclaimer", async ({ page }) => {
   await page.goto("/map");
+  // Phones get a server-rendered SVG preview first; tap to load MapLibre.
+  await expect(page.getByTestId("map-preview").locator("circle").first()).toBeAttached();
+  await page.getByTestId("map-preview").click();
   await expect(page.getByText("পরিবেশগত ঝুঁকি, নিশ্চিত রোগী নয়").first()).toBeVisible();
   const count = page.getByTestId("site-count");
   await expect(count).toBeVisible({ timeout: 30_000 });

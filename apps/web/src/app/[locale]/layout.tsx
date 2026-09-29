@@ -42,6 +42,9 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
 
   return (
     <html lang={locale}>
+      <head>
+        <link rel="preload" href="/fonts/noto-sans-bengali-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      </head>
       <body className="min-h-dvh">
         <a href="#main" className="sr-only-focusable absolute left-2 top-2 z-50 rounded bg-white p-2">
           {t("skip")}

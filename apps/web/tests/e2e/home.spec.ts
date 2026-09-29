@@ -17,7 +17,7 @@ test("English is available at /en", async ({ page }) => {
 
 test("language switch keeps the page", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("link", { name: "ভাষা বদলান" }).click();
+  await page.getByRole("link", { name: "English" }).click();
   await expect(page).toHaveURL(/\/en$/);
 });
 

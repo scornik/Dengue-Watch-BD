@@ -20,7 +20,8 @@ Bangla first, English second. Open source under **AGPL-3.0**. Product spec: [`do
 | `workers/satellite` | Sentinel-2/Landsat ward risk (weekly) |
 | `workers/thumbs` | Face/number-plate blurring for public thumbnails (every 5 min) |
 | `workers/detector` | P3: YOLO classifier trained on moderator labels |
-| `docs/` | Spec, credits, copy review, operations (backup/restore, load test) |
+| `docs/` | [Spec](docs/SPEC.md), [credits](docs/credits.md), [Bangla copy review](docs/copy-review.md), [operations: backup/restore, load test, monitoring](docs/operations.md) |
+| `scripts/` | `loadtest.mjs` (reports/minute through the real pipeline), `copy-review.mjs` |
 
 ## Local setup (under 10 commands)
 
@@ -48,7 +49,9 @@ pnpm test:e2e                                     # Playwright, 360×740 Android
 cd workers/<name> && uv run --extra dev pytest    # each Python worker
 ```
 
-CI (`.github/workflows/ci.yml`) runs all of the above on every push and PR.
+CI (`.github/workflows/ci.yml`) runs all of the above on every push and PR, plus Lighthouse (mobile) on the main public pages: accessibility ≥ 95 is enforced, performance ≥ 90 is reported.
+
+Quality bars measured locally (Lighthouse 13, mobile emulation, 2026-09-29): performance 95–99 and accessibility 100 on `/`, `/report`, `/map`, `/ward`, `/ward/[id]`, `/mine`, `/data`, `/about`. Report route initial JS: ~166 KB gzipped (budget 200 KB, enforced by an e2e test). Load test: 50 reports/min with p95 83 ms (see `docs/operations.md`).
 
 ## Configuration
 

@@ -15,7 +15,6 @@
     "prebuild": "node scripts/copy-maplibre-worker.mjs"
   },
   "dependencies": {
-    "@fontsource/noto-sans-bengali": "^5.3.0",
     "@huggingface/transformers": "^4.3.0",
     "@supabase/supabase-js": "^2.117.2",
     "idb": "^8.0.3",
