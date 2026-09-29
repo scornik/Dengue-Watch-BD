@@ -422,3 +422,6 @@ verify_jwt = false
 
 [functions.screen-report]
 verify_jwt = true
+
+[functions.notify-status]
+verify_jwt = true

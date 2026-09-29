@@ -66,3 +66,12 @@ Autonomous build log. Each entry: date · decision · reason. Newest at the bott
 - **2026-09-29 · Popups are built with DOM `textContent`, never HTML strings.** Site data comes from citizens; this rules out injection.
 - **2026-09-29 · The risk layer is always labelled "environmental risk, not confirmed cases" (map, legend, ward page, method page), and wards without data show "No data" rather than a colour.**
 - **2026-09-29 · Ward pages are rendered on demand with 5-minute revalidation (no build-time static params).** Builds don't need database access, and scorecards stay fresh.
+
+## M5 — Inspector app
+
+- **2026-09-29 · Staff invites are email-based: an admin adds a row to `staff_invites`; the person signs in with a one-time email code/link and a trigger applies the role and ward.** No admin API or service key is needed in the web app, and invites work for people who already used the app anonymously (the trigger also fires on email change).
+- **2026-09-29 · Inspector queue = security-invoker view `inspector_queue`, sorted by the ward's latest risk level, then oldest first; sites open for more than 72 h are highlighted.** Ward admins see their whole city corporation in the same view through RLS.
+- **2026-09-29 · Navigation uses an Android `geo:` URI (opens whatever maps app the inspector has) with an OpenStreetMap directions link as fallback.** No Google Maps dependency or key.
+- **2026-09-29 · "Cleared" needs a fresh on-site after photo: the browser takes a GPS fix at photo time (not EXIF), shows the distance, and only enables confirm within 50 m; the DB trigger re-checks the 50 m rule against `after_photo_geom`.** Client check is for UX, server check is the guarantee. After photos go to the private `after-photos` bucket under `<site_id>/`, writable only by staff who manage that ward.
+- **2026-09-29 · Web push via `notify-status` (pg_cron every 5 min) using `@negrel/webpush` (MIT, Deno-native, RFC 8291/8292) with standard base64url VAPID keys converted to JWK.** Notifies reporters on verified/assigned/cleared/not_found, in the subscriber's language; expired (410) subscriptions are deleted; each event is stamped `notified_at` so nothing is sent twice. Without VAPID keys the job just stamps events (free fallback: status is visible on "My reports").
+- **2026-09-29 · Push notification strings live in `_shared/i18n.ts`, and a unit test asserts they equal `/messages/*.json`.** Edge Functions can't reliably import files outside `supabase/functions` at deploy time.
