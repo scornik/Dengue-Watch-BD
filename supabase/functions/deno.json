@@ -2,7 +2,11 @@
   "imports": {
     "zod": "npm:zod@4",
     "@supabase/supabase-js": "npm:@supabase/supabase-js@2",
-    "@negrel/webpush": "jsr:@negrel/webpush@0.5"
+    "@negrel/webpush": "jsr:@negrel/webpush@0.5",
+    "@anthropic-ai/sdk": "npm:@anthropic-ai/sdk@^0.128.0"
   },
-  "compilerOptions": { "strict": true }
+  "compilerOptions": {
+    "strict": true
+  },
+  "lock": false
 }

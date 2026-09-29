@@ -419,3 +419,6 @@ enabled = true
 # or staff with a service-role or user JWT.
 [functions.submit-report]
 verify_jwt = false
+
+[functions.screen-report]
+verify_jwt = true
