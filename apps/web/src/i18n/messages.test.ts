@@ -8,7 +8,8 @@ const flat = (o: Tree, p = ""): Record<string, string> =>
     (acc, [k, v]) => (typeof v === "string" ? { ...acc, [`${p}${k}`]: v } : { ...acc, ...flat(v, `${p}${k}.`) }),
     {},
   );
-const placeholders = (s: string) => [...s.matchAll(/\{(\w+)/g)].map((m) => m[1]).sort();
+// Argument names only ("{name}" or "{name, plural, ...}"), not words inside plural branches.
+const placeholders = (s: string) => [...s.matchAll(/\{(\w+)\s*[,}]/g)].map((m) => m[1]).sort();
 
 describe("messages", () => {
   const b = flat(bn as Tree);

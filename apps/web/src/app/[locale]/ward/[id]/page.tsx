@@ -85,7 +85,7 @@ export default async function WardPage({ params }: PageProps<"/[locale]/ward/[id
         </h2>
         <dl className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3" data-testid="scorecard">
           {stats.map(([label, value]) => (
-            <div key={label} className="rounded-xl bg-gray-50 p-3">
+            <div key={label} className="rounded-xl bg-sky p-3">
               <dd className="text-2xl font-bold text-brand-700">{value}</dd>
               <dt className="text-xs text-muted">{label}</dt>
             </div>
@@ -100,7 +100,7 @@ export default async function WardPage({ params }: PageProps<"/[locale]/ward/[id
           </h2>
           <RiskBadge level={ward.risk_level} />
         </div>
-        <p className="text-xs font-bold text-amber-900">⚠️ {tr("layer")}</p>
+        <p className="text-xs font-bold text-ink">⚠️ {tr("layer")}</p>
         {ward.risk_week && <p className="text-xs text-muted">{t("riskWeek", { date: formatDate(ward.risk_week, locale) })}</p>}
         <details>
           <summary className="cursor-pointer text-sm font-bold">{t("drivers")}</summary>

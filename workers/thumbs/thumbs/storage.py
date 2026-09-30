@@ -8,7 +8,8 @@ from urllib.parse import quote
 
 import httpx
 
-SOURCE_BUCKET = "report-photos"  # private
+SOURCE_BUCKET = "report-photos"  # private: report originals
+CLEANUP_BUCKET = "cleanup-photos"  # private: volunteer cleanup "after" photos
 THUMB_BUCKET = "public-thumbs"  # public
 
 

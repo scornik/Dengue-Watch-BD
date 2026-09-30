@@ -1,6 +1,8 @@
 """Claim/update loop against a real Postgres; skipped unless DATABASE_URL is set.
 
 Uses a throwaway schema (dropped afterwards) because the SKIP LOCKED test needs two sessions.
+Its `reports` and `cleanups` tables mirror the columns the worker relies on, so these tests
+run whether or not the real migrations are applied (the schema shadows `public`).
 """
 
 import os
@@ -8,7 +10,7 @@ import uuid
 
 import pytest
 
-from thumbs.worker import Outcome, run_batch
+from thumbs.worker import CLEANUPS, Outcome, run_batch
 
 pytestmark = pytest.mark.skipif(not os.environ.get("DATABASE_URL"), reason="DATABASE_URL not set")
 
@@ -35,8 +37,33 @@ def schema():
                 "VALUES (%s, %s, %s, now() + %s * interval '1 minute')",
                 (rid, f"u/{i}.jpg", label, i),
             )
+        admin.execute(
+            f"""CREATE TABLE {name}.cleanups (
+                  id uuid PRIMARY KEY, site_id uuid, volunteer_id uuid,
+                  status text NOT NULL
+                    CHECK (status IN ('claimed','done','rejected','expired')),
+                  after_photo_path text, thumb_public_path text,
+                  thumb_status {name}.thumb_status NOT NULL DEFAULT 'pending',
+                  done_at timestamptz)"""
+        )
+        rows = [  # (status, after_photo_path, thumb_status, minutes)
+            ("done", "v/0.jpg", "pending", 3),
+            ("done", "v/1.jpg", "pending", 1),
+            ("claimed", "v/2.jpg", "pending", 0),  # not done yet
+            ("done", None, "pending", 0),  # no photo
+            ("done", "v/4.jpg", "ok", 0),  # already processed
+            ("rejected", "v/5.jpg", "pending", 0),
+            ("done", "v/6.jpg", "pending", 2),
+        ]
+        cids = [uuid.UUID(int=100 + i) for i in range(len(rows))]
+        for cid, (status, path, ts, m) in zip(cids, rows, strict=True):
+            admin.execute(
+                f"INSERT INTO {name}.cleanups (id, status, after_photo_path, thumb_status, done_at)"
+                " VALUES (%s, %s, %s, %s, now() + %s * interval '1 minute')",
+                (cid, status, path, ts, m),
+            )
         try:
-            yield name, [str(i) for i in ids]
+            yield name, [str(i) for i in ids], [str(c) for c in cids]
         finally:
             admin.execute(f"DROP SCHEMA {name} CASCADE")
 
@@ -50,7 +77,7 @@ def _connect(schema_name):
 
 
 def test_run_batch_updates_rows_and_respects_filters(schema):
-    name, ids = schema
+    name, ids, _ = schema
     outcomes = {
         ids[0]: Outcome("ok", key=f"{ids[0]}.jpg"),
         ids[1]: Outcome("failed", error="detector"),
@@ -80,7 +107,7 @@ def test_run_batch_updates_rows_and_respects_filters(schema):
 
 
 def test_skip_locked_between_parallel_runs(schema):
-    name, ids = schema
+    name, ids, _ = schema
     with _connect(name) as a, _connect(name) as b:
         seen_b = []
 
@@ -91,3 +118,49 @@ def test_skip_locked_between_parallel_runs(schema):
 
         run_batch(a, 1, handler_a)
     assert seen_b == [ids[1]]
+
+
+def test_cleanups_claim_filter_order_and_updates(schema):
+    name, _, cids = schema
+    outcomes = {
+        cids[1]: Outcome("ok", key=CLEANUPS.key(cids[1])),
+        cids[6]: Outcome("retry", error="storage 503"),
+        cids[0]: Outcome("failed", error="detector"),
+    }
+    seen = []
+
+    def handler(cid, path):
+        seen.append((cid, path))
+        return outcomes[cid]
+
+    with _connect(name) as conn:
+        counts = run_batch(conn, 10, handler, source=CLEANUPS)
+        rows = dict(
+            (r[0], (r[1], r[2]))
+            for r in conn.execute(
+                "SELECT id::text, thumb_status::text, thumb_public_path FROM cleanups"
+            )
+        )
+    # Only done + pending + with a photo, ordered by done_at.
+    assert seen == [(cids[1], "v/1.jpg"), (cids[6], "v/6.jpg"), (cids[0], "v/0.jpg")]
+    assert counts == {"ok": 1, "failed": 1, "retry": 1}
+    assert rows[cids[1]] == ("ok", f"c/{cids[1]}.jpg")
+    assert rows[cids[0]] == ("failed", None)
+    assert rows[cids[6]] == ("pending", None)
+    assert rows[cids[2]] == rows[cids[3]] == rows[cids[5]] == ("pending", None)
+    assert rows[cids[4]] == ("ok", None)
+
+
+def test_cleanups_skip_locked_between_parallel_runs(schema):
+    name, _, cids = schema
+    with _connect(name) as a, _connect(name) as b:
+        seen_b = []
+
+        def handler_a(cid, path):
+            run_batch(
+                b, 1, lambda c, p: seen_b.append(c) or Outcome("ok", key="x"), source=CLEANUPS
+            )
+            return Outcome("ok", key=CLEANUPS.key(cid))
+
+        run_batch(a, 1, handler_a, source=CLEANUPS)
+    assert seen_b == [cids[6]]

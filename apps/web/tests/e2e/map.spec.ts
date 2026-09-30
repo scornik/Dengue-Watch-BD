@@ -5,6 +5,10 @@ test("public map shows sites, filters and the risk disclaimer", async ({ page })
   // Phones get a server-rendered SVG preview first; tap to load MapLibre.
   await expect(page.getByTestId("map-preview").locator("circle").first()).toBeAttached();
   await page.getByTestId("map-preview").click();
+  // Wards are shaded by citizen reports first; the risk layer carries its disclaimer.
+  await expect(page.getByTestId("legend-reports")).toBeVisible();
+  await page.getByRole("radio", { name: /পরিবেশগত ঝুঁকি/ }).click();
+  await expect(page.getByTestId("legend-risk")).toBeVisible();
   await expect(page.getByText("পরিবেশগত ঝুঁকি, নিশ্চিত রোগী নয়").first()).toBeVisible();
   const count = page.getByTestId("site-count");
   await expect(count).toBeVisible({ timeout: 30_000 });

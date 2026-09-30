@@ -76,7 +76,7 @@ export function DigestView({ profile }: { profile: Profile }) {
         {t("admin.digest")} · {corp} · {week}
       </h1>
       <table className="w-full text-sm">
-        <thead className="bg-gray-100 text-left">
+        <thead className="bg-sky text-left">
           <tr>
             <th className="p-1">{t("admin.ward")}</th>
             <th className="p-1 text-right">{t("status.new")}</th>
@@ -93,7 +93,7 @@ export function DigestView({ profile }: { profile: Profile }) {
               <td className="p-1 text-right">{n(r.new_sites)}</td>
               <td className="p-1 text-right">{n(r.cleared)}</td>
               <td className="p-1 text-right">{n(r.open_total)}</td>
-              <td className={`p-1 text-right ${r.overdue ? "font-bold text-red-700" : ""}`}>{n(r.overdue)}</td>
+              <td className={`p-1 text-right ${r.overdue ? "font-bold text-blood-700" : ""}`}>{n(r.overdue)}</td>
               <td className="p-1">
                 <RiskBadge level={r.risk_level} />
               </td>

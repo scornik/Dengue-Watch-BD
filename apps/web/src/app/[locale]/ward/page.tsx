@@ -41,10 +41,10 @@ export default async function WardsPage({ params }: PageProps<"/[locale]/ward">)
     <div className="space-y-4">
       <h1 className="text-2xl font-bold">{t("allWards")}</h1>
       <p className="text-sm text-muted">{tr("layer")}</p>
-      <div className="overflow-x-auto rounded-2xl bg-white ring-1 ring-gray-200">
+      <div className="overflow-x-auto rounded-2xl bg-white ring-1 ring-sky-200">
         <table className="w-full text-sm">
           <caption className="sr-only">{t("scorecard")}</caption>
-          <thead className="bg-gray-50 text-left">
+          <thead className="bg-sky text-left">
             <tr>
               <th scope="col" className="p-2">
                 {t("allWards")}

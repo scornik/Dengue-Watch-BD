@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 test("home renders in Bangla by default with a report CTA", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator("html")).toHaveAttribute("lang", "bn");
-  await expect(page.getByTestId("cta-report")).toContainText("রিপোর্ট");
+  await expect(page.getByTestId("cta-report")).toContainText("জানান");
   // No horizontal scroll at 360 px.
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   expect(overflow).toBeLessThanOrEqual(0);
@@ -12,7 +12,7 @@ test("home renders in Bangla by default with a report CTA", async ({ page }) => 
 test("English is available at /en", async ({ page }) => {
   await page.goto("/en");
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
-  await expect(page.getByTestId("cta-report")).toContainText("Report standing water");
+  await expect(page.getByTestId("cta-report")).toContainText("Report a breeding spot");
 });
 
 test("language switch keeps the page", async ({ page }) => {

@@ -4,9 +4,11 @@
 
 | Store | Contents | Loss impact |
 | --- | --- | --- |
-| Supabase Postgres | wards, reports, sites, site_events (audit), profiles, ward_risk, case_counts, ai_labels, push subscriptions | Critical |
+| Supabase Postgres | wards, reports, sites, site_events (audit), profiles, cleanups, points_ledger (leaderboard), ward_risk, case_counts, ai_labels, push subscriptions | Critical |
 | Storage `report-photos` (private) | EXIF-stripped originals | High (moderation evidence, P3 training data) |
 | Storage `after-photos` (private) | Inspector "cleared" evidence | High (accountability) |
+| Storage `cleanup-photos` (private) | Volunteer after photos | High (proof behind leaderboard points) |
+| Storage `avatars` (public) | Hunter profile photos | Low (users re-upload) |
 | Storage `public-thumbs` (public) | Blurred thumbnails | Low: regenerate with `workers/thumbs` (set `thumb_status='pending'`) |
 | Vault secrets | `project_url`, `service_role_key` for pg_cron | Recreate from dashboard |
 | Browser IndexedDB | Reports not yet uploaded | Per device; retried automatically |
@@ -33,6 +35,8 @@ Everything else (web app, functions, workers) is rebuilt from git.
    aws s3 sync s3://report-photos ./backup/report-photos \
      --endpoint-url "https://<ref>.supabase.co/storage/v1/s3" --profile supabase
    aws s3 sync s3://after-photos ./backup/after-photos \
+     --endpoint-url "https://<ref>.supabase.co/storage/v1/s3" --profile supabase
+   aws s3 sync s3://cleanup-photos ./backup/cleanup-photos \
      --endpoint-url "https://<ref>.supabase.co/storage/v1/s3" --profile supabase
    ```
 
@@ -79,6 +83,7 @@ Results on the local stack (2026-09-29, 4 vCPU container, Supabase CLI 2.118, ed
 - **Northflank job failures** (cases scraper exits non-zero when the bulletin can't be parsed → enter numbers manually on `/staff/admin`).
 - **pg_cron runs:** `select jobname, status, start_time from cron.job_run_details order by start_time desc limit 20;`
 - **Thumbnail backlog:** `select thumb_status, count(*) from reports group by 1;` — many `failed` rows usually mean the YuNet model is missing from the image.
+- **Volunteer cleanups to spot-check:** `/staff/moderate` → Cleanup proofs; unusual patterns: `select handle, cleans from public_leaderboard order by points_week desc limit 10;`
 - **Moderation backlog:** `select count(*) from moderation_queue;` (as a moderator) or the count on `/staff/moderate`.
 - **Paid AI spend (if enabled):** `select * from ai_usage order by day desc limit 14;`
 - **Overdue sites:** `/staff/digest` or `select sum(overdue_28d) from public_ward_scorecard;`

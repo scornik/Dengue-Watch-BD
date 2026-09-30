@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 
 const PublicMap = dynamic(() => import("./PublicMap"), {
   ssr: false,
-  loading: () => <div className="h-[62vh] min-h-80 animate-pulse rounded-2xl bg-gray-200" />,
+  loading: () => <div className="h-[62vh] min-h-80 animate-pulse rounded-2xl bg-sky-200" />,
 });
 
 // Big screens with a mouse get the interactive map straight away.
@@ -28,7 +28,7 @@ export function MapShell({ preview }: { preview: ReactNode }) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="relative block h-[62vh] min-h-80 w-full overflow-hidden rounded-2xl ring-1 ring-gray-300"
+        className="relative block h-[62vh] min-h-80 w-full overflow-hidden rounded-2xl ring-1 ring-sky-200"
         data-testid="map-preview"
       >
         {preview}

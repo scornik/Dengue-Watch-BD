@@ -15,7 +15,7 @@ export default async function RiskMethod({ params }: PageProps<"/[locale]/about/
   return (
     <article className="card space-y-3">
       <h1 className="text-2xl font-bold">{t("risk.method")}</h1>
-      <p className="font-bold text-amber-900">⚠️ {t("risk.layer")}</p>
+      <p className="font-bold text-ink">⚠️ {t("risk.layer")}</p>
       <p>{t("risk.explain")}</p>
       <p>{t("about.satellite")}</p>
       <p className="text-sm">

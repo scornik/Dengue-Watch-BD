@@ -22,7 +22,8 @@ export const reportMetaSchema = z.object({
 });
 export type ReportMeta = z.infer<typeof reportMetaSchema>;
 
-export const MAX_PHOTO_BYTES = 8 * 1024 * 1024;
+// Phones send ~120 KB JPEGs; 2 MB leaves room for old offline-queued uploads.
+export const MAX_PHOTO_BYTES = 2 * 1024 * 1024;
 
 /** Strip phone numbers and emails from free-text notes (privacy). */
 export function sanitizeNote(note: string | null): string | null {

@@ -19,8 +19,8 @@ select is(
 select is(
   (select overdue from public.ward_digest('DSCC', now() - interval '7 days') where ward_id = 101), 1,
   'digest counts sites open more than 72 h');
-select is((select count(*)::int from public.public_sites where thumb_public_path is not null and ward_id = 101), 0,
-  'no public thumbnail before a moderator verifies the site');
+select is((select count(*)::int from public.public_sites where thumb_public_path is not null and ward_id = 101), 2,
+  'blurred thumbnails are public without waiting for moderation');
 
 set local role authenticated;
 set local request.jwt.claims = '{"sub":"00000000-0000-0000-0000-0000000000c2","role":"authenticated"}';

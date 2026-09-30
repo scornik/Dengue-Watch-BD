@@ -35,6 +35,9 @@ export type SiteFeatureProps = {
   first_reported_at: string;
   cleared_at: string | null;
   thumb: string | null;
+  claimed?: boolean;
+  cleaned_by?: string | null;
+  after_thumb?: string | null;
 };
 
 export type SitesFilter = { statuses?: SiteStatus[]; types?: SiteType[]; sinceDays?: number | null; ward?: number };
@@ -83,3 +86,34 @@ export type PublicWard = {
 };
 
 export type CaseCount = { date: string; area: string; admissions: number; deaths: number; source_url: string | null; manual_entry: boolean };
+
+export type LeaderRow = {
+  handle: string;
+  avatar_path: string | null;
+  points: number;
+  points_week: number;
+  cleans: number;
+  reports: number;
+  rank: number;
+  rank_week: number;
+};
+
+export type PublicSite = {
+  id: string;
+  lat: number;
+  lng: number;
+  ward_id: number | null;
+  status: SiteStatus;
+  site_type: SiteType;
+  larvae_reported: boolean;
+  report_count: number;
+  first_reported_at: string;
+  cleared_at: string | null;
+  thumb_public_path: string | null;
+  claimed: boolean;
+  cleaned_by: string | null;
+  after_thumb_path: string | null;
+};
+
+export const PUBLIC_SITE_COLUMNS =
+  "id,lat,lng,ward_id,status,site_type,larvae_reported,report_count,first_reported_at,cleared_at,thumb_public_path,claimed,cleaned_by,after_thumb_path";

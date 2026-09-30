@@ -9,7 +9,7 @@ export function QueueBadge() {
   const count = useQueueCount();
   if (!count) return null;
   return (
-    <Link href="/mine" className="mt-3 block rounded-xl bg-amber-100 p-2 text-center text-sm font-bold text-amber-900">
+    <Link href="/mine" className="mt-3 block rounded-xl bg-marigold-50 p-2 text-center text-sm font-bold text-ink">
       ⏳ {t("queued", { count })}
     </Link>
   );

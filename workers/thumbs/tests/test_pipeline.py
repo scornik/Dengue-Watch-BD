@@ -2,13 +2,16 @@ import io
 
 import numpy as np
 import pytest
-from PIL import Image
+from PIL import Image, JpegImagePlugin
 
 from thumbs.pipeline import (
+    DEFAULT_MAX_SIDE,
+    DEFAULT_QUALITY,
     ThumbnailError,
     ThumbSettings,
     blur_region,
     decode,
+    encode_jpeg,
     make_thumbnail,
     pad_box,
 )
@@ -79,7 +82,7 @@ def test_output_has_no_exif_or_metadata(noisy_jpeg):
 
 @pytest.mark.parametrize(
     ("size", "expected"),
-    [((800, 600), (480, 360)), ((600, 1200), (240, 480)), ((300, 200), (300, 200))],
+    [((800, 600), (320, 240)), ((600, 1200), (160, 320)), ((300, 200), (300, 200))],
 )
 def test_resize_bounds_and_no_upscaling(noisy_jpeg, size, expected):
     thumb = make_thumbnail(noisy_jpeg(size=size), [StubDetector([])])
@@ -92,7 +95,7 @@ def test_exif_orientation_applied_before_detection(noisy_jpeg):
     det = StubDetector([])
     thumb = make_thumbnail(noisy_jpeg(size=(800, 600), orientation=6), [det])
     assert det.shapes == [(800, 600, 3)]  # rotated upright: portrait
-    assert thumb.size == (360, 480)
+    assert thumb.size == (240, 320)
 
 
 def test_detector_failure_raises(noisy_jpeg):
@@ -113,3 +116,61 @@ def test_size_limit_enforced(noisy_jpeg):
 def test_decode_rejects_garbage():
     with pytest.raises(Exception):  # noqa: B017 - any decode error must propagate
         decode(b"definitely not an image")
+
+
+def test_compression_defaults():
+    assert (DEFAULT_MAX_SIDE, DEFAULT_QUALITY) == (320, 50)
+    assert ThumbSettings() == ThumbSettings(max_side=320, quality=50)
+
+
+def _smooth_photo(size=(1600, 1200)) -> bytes:
+    """Photo-like image (gradients + shapes) so JPEG sizes resemble real photos."""
+    w, h = size
+    yy, xx = np.mgrid[0:h, 0:w].astype(float)
+    arr = np.stack(
+        [
+            127 + 100 * np.sin(xx / 97.0) * np.cos(yy / 53.0),
+            127 + 100 * np.cos((xx + yy) / 71.0),
+            (xx / w) * 255,
+        ],
+        axis=-1,
+    )
+    arr += np.random.default_rng(3).normal(0, 6, arr.shape)  # sensor noise
+    buf = io.BytesIO()
+    Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8), "RGB").save(buf, "JPEG", quality=92)
+    return buf.getvalue()
+
+
+def test_default_output_is_small_progressive_420_jpeg_without_exif(noisy_jpeg):
+    thumb = make_thumbnail(noisy_jpeg(size=(1600, 1200)), [StubDetector([])])
+    out = _open(thumb.jpeg)
+    assert out.format == "JPEG" and max(out.size) <= 320 and out.size == (320, 240)
+    assert out.info.get("progressive") or out.info.get("progression")
+    assert JpegImagePlugin.get_sampling(out) == 2  # 4:2:0
+    assert len(out.getexif()) == 0 and "exif" not in out.info
+
+
+def test_new_defaults_are_smaller_than_old_ones():
+    src = _smooth_photo()
+    new = make_thumbnail(src, [StubDetector([])])
+    old_settings = make_thumbnail(src, [StubDetector([])], ThumbSettings(max_side=480, quality=75))
+    assert len(new.jpeg) < len(old_settings.jpeg) * 0.6
+    # Same pixels, old encoder (baseline, optimize only) vs new (progressive, 4:2:0) at q50.
+    pixels = _open(new.jpeg).convert("RGB")
+    baseline = io.BytesIO()
+    pixels.save(baseline, "JPEG", quality=50, optimize=True, subsampling="4:4:4")
+    assert len(encode_jpeg(np.asarray(pixels), 50, 1 << 20)) < baseline.tell()
+
+
+def test_env_style_overrides_still_apply(noisy_jpeg):
+    thumb = make_thumbnail(noisy_jpeg(), [StubDetector([])], ThumbSettings(max_side=480))
+    assert thumb.size == (480, 360)
+    with pytest.raises(ValueError):
+        ThumbSettings(quality=0)
+    with pytest.raises(ValueError):
+        ThumbSettings(max_side=8)
+
+
+def test_low_quality_setting_still_encodes(noisy_jpeg):
+    thumb = make_thumbnail(noisy_jpeg(), [StubDetector([])], ThumbSettings(quality=20))
+    assert _open(thumb.jpeg).format == "JPEG"

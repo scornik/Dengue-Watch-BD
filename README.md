@@ -1,6 +1,8 @@
 # DengueWatch BD · ডেঙ্গুওয়াচ বিডি
 
-Citizens photo-report possible **Aedes mosquito breeding sites** (standing water in tires, buckets, drums, AC drip trays, construction sites, rooftops, flower tubs, drains). Reports merge into **sites**; city-corporation **ward inspectors** work a queue and close each site with an on-site **after photo**. A public map shows sites, ward-level **environmental risk** and official case counts. Pilot: Dhaka (DNCC 54 wards, DSCC 75 wards).
+Citizens photo-report possible **Aedes mosquito breeding sites** (standing water in tires, buckets, drums, AC drip trays, construction sites, rooftops, flower tubs, drains). Reports merge into **sites**; city-corporation **ward inspectors** work a queue and close each site with an on-site **after photo**. A public map shows sites, wards shaded by **number of reports** or by **environmental risk**, and official case counts. Pilot: Dhaka (DNCC 54 wards, DSCC 75 wards).
+
+**Anyone can be a mosquito hunter.** The list of reported spots (with blurred photos) is public at `/sites`. A volunteer picks a hunter name and photo, claims a spot, destroys it and proves it with an on-site after photo (GPS within 50 m). They earn XP, levels and badges and climb a weekly and all-time leaderboard (`/leaderboard`). Moderators can reverse fake cleanups. Inspectors keep working their own queue as before.
 
 Bangla first, English second. Open source under **AGPL-3.0**. Product spec: [`docs/SPEC.md`](docs/SPEC.md) · decisions log: [`DECISIONS.md`](DECISIONS.md).
 
@@ -18,7 +20,7 @@ Bangla first, English second. Open source under **AGPL-3.0**. Product spec: [`do
 | `supabase/seed` | Ward seed, OSM boundary fetcher, dev demo data |
 | `workers/cases` | DGHS dengue bulletin scraper (daily) |
 | `workers/satellite` | Sentinel-2/Landsat ward risk (weekly) |
-| `workers/thumbs` | Face/number-plate blurring for public thumbnails (every 5 min) |
+| `workers/thumbs` | Face/number-plate blurring for public thumbnails of reports and volunteer after photos (every 5 min) |
 | `workers/detector` | P3: YOLO classifier trained on moderator labels |
 | `docs/` | [Spec](docs/SPEC.md), [credits](docs/credits.md), [Bangla copy review](docs/copy-review.md), [operations: backup/restore, load test, monitoring](docs/operations.md) |
 | `scripts/` | `loadtest.mjs` (reports/minute through the real pipeline), `copy-review.mjs` |
@@ -79,7 +81,7 @@ supabase functions deploy submit-report --no-verify-jwt
 supabase functions deploy screen-report notify-status weekly-digest
 ```
 
-In the dashboard: enable **Anonymous sign-ins** (Auth → Providers), set the Site URL and redirect URLs to your Vercel domain, and (optionally) configure an SMS provider for phone OTP.
+In the dashboard: enable **Anonymous sign-ins** (Auth → Providers; required for hunters), set the Site URL and redirect URLs to your Vercel domain, and (optionally) configure an SMS provider for phone OTP.
 
 #### Scheduled jobs
 
@@ -124,9 +126,22 @@ Every Monday 08:00 Asia/Dhaka, `weekly-digest` emails each ward admin a per-ward
 4. **Paid API (optional, off):** `screen-report` Edge Function (Anthropic or Gemini) only for unclear/pending, hard daily cap, zod-validated JSON.
 5. **Own model (P3):** `workers/detector` behind the same provider interface.
 
+## Volunteer game
+
+| What | Points |
+| --- | --- |
+| Report a spot | +5 (revoked if the report turns out not relevant) |
+| Destroy a spot | +20, +10 if larvae were seen, +10 if open more than 3 days (+10 only if you reported it yourself) |
+
+Claims last 3 hours; a hunter can hold 3 spots and destroy 10 a day. Rules: `game_rules()` in `supabase/migrations/20260930000100_volunteer_game.sql`, mirrored in `apps/web/src/lib/game/rules.ts`. Moderators review "Cleanup proofs" in `/staff/moderate` and can reverse a fake one, which reopens the spot and takes the points back.
+
+## Photos and compression
+
+Photos are compressed on the phone before upload: ≤1024 px and ≤120 KB JPEG (avatars 256 px, ≤25 KB). Storage limits: `report-photos` and `after-photos` 2 MB, `cleanup-photos` 512 KB, `avatars` 128 KB (public). Public thumbnails are 320 px, quality 50.
+
 ## Privacy
 
-EXIF is stripped from every stored photo (GPS is kept only in the `geom` column). Public thumbnails are created only after faces and number plates are blurred; if blurring fails, nothing is published. Public points are snapped to ~50 m. Reporter identity is never shown.
+EXIF is stripped from every stored photo (GPS is kept only in the `geom` column). Public thumbnails are created only after faces and number plates are blurred; if blurring fails, nothing is published. Public points are snapped to ~50 m. Reporter identity is never shown; hunters appear only under the name and photo they chose.
 
 ## License
 

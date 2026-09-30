@@ -88,7 +88,7 @@ export default function StaffLogin() {
         </form>
       )}
       {error && (
-        <p role="alert" className="mt-3 text-red-700">
+        <p role="alert" className="mt-3 text-blood-700">
           {error}
         </p>
       )}
