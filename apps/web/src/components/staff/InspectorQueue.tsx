@@ -61,7 +61,7 @@ export function InspectorQueue({ userId }: { userId: string }) {
               <Link
                 href={`/staff/inspect/${s.id}`}
                 prefetch={false}
-                className={`card flex items-center gap-3 ${age > 72 ? "border-l-4 border-l-red-600" : ""}`}
+                className={`card flex items-center gap-3 ${age > 72 ? "border-l-4 border-l-blood" : ""}`}
               >
                 <span className="text-3xl" aria-hidden="true">
                   {SITE_ICONS[s.site_type]}

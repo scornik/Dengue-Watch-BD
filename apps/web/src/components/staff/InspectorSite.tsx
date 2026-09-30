@@ -121,7 +121,7 @@ export function InspectorSite({ siteId, userId }: { siteId: string; userId: stri
           {(locale === "bn" ? site.ward_name_bn : site.ward_name_en) ?? "—"} · {formatDateTime(site.first_reported_at, locale)} ·{" "}
           {site.report_count}× {site.larvae_reported && "· 🦟"}
         </p>
-        {site.note && <p className="rounded bg-gray-50 p-2">“{site.note}”</p>}
+        {site.note && <p className="rounded bg-sky p-2">“{site.note}”</p>}
         <p className="text-muted">
           📍 {site.lat.toFixed(6)}, {site.lng.toFixed(6)}
         </p>
@@ -169,7 +169,7 @@ export function InspectorSite({ siteId, userId }: { siteId: string; userId: stri
             <>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={after.url} alt="" className="max-h-56 w-full rounded-xl object-cover" />
-              <p className={after.dist > CLOSE_RADIUS_M ? "font-bold text-red-700" : "text-brand-800"} data-testid="distance">
+              <p className={after.dist > CLOSE_RADIUS_M ? "font-bold text-blood-700" : "text-brand-800"} data-testid="distance">
                 {t("distance", { meters: formatNumber(after.dist, locale) })}
               </p>
             </>
@@ -204,7 +204,7 @@ export function InspectorSite({ siteId, userId }: { siteId: string; userId: stri
       )}
 
       {msg && (
-        <p role="status" className="rounded-xl bg-gray-900 p-3 text-center text-white">
+        <p role="status" className="rounded-xl bg-ink p-3 text-center text-white">
           {msg}
         </p>
       )}

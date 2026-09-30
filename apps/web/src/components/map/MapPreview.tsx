@@ -1,12 +1,12 @@
 import { getTranslations } from "next-intl/server";
 import { fetchSites, rpc } from "@/lib/publicApi";
 import { bboxOf, geometryPath, makeViewport, project } from "@/lib/map/svg";
-import { RISK_COLORS, STATUS_COLORS, type RiskLevel } from "@/lib/map/colors";
+import { reportColor, STATUS_COLORS, type RiskLevel } from "@/lib/map/colors";
 
-type WardFC = GeoJSON.FeatureCollection<GeoJSON.Polygon | GeoJSON.MultiPolygon, { id: number; risk_level: RiskLevel | null }>;
+type WardFC = GeoJSON.FeatureCollection<GeoJSON.Polygon | GeoJSON.MultiPolygon, { id: number; risk_level: RiskLevel | null; reports_28d?: number | null }>;
 
 /**
- * Server-rendered SVG snapshot of the map (ward risk + last-28-day sites).
+ * Server-rendered SVG snapshot of the map (wards shaded by last-28-day reports, plus sites).
  * Paints instantly on low-end phones; the interactive MapLibre map loads on tap.
  */
 export async function MapPreview() {
@@ -27,7 +27,7 @@ export async function MapPreview() {
     <svg
       viewBox={`0 0 ${v.width} ${v.height}`}
       preserveAspectRatio="xMidYMid meet"
-      className="h-full w-full bg-[#e8eeea]"
+      className="h-full w-full bg-sky"
       role="img"
       aria-label={`${t("title")}: ${t("reports", { count: sites.features.length })}`}
     >
@@ -35,9 +35,9 @@ export async function MapPreview() {
         <path
           key={f.properties.id}
           d={geometryPath(v, f.geometry)}
-          fill={f.properties.risk_level ? RISK_COLORS[f.properties.risk_level] : "#d1d5db"}
-          fillOpacity={0.35}
-          stroke="#374151"
+          fill={reportColor(f.properties.reports_28d)}
+          fillOpacity={0.7}
+          stroke="#1b1f3b"
           strokeOpacity={0.5}
           strokeWidth={0.4}
         />

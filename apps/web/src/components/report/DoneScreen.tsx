@@ -7,11 +7,22 @@ import { PushOptIn } from "@/components/PushOptIn";
 import { makeShareCard } from "@/lib/share/card";
 import { env } from "@/lib/env";
 import type { SiteType } from "@/lib/report/types";
+import { RULES } from "@/lib/game/rules";
 import { SITE_ICONS } from "./siteIcons";
 
 export type DoneState = "sent" | "queued" | "limited" | "otp";
 
-export function DoneScreen({ state, type, cleaned }: { state: DoneState; type: SiteType; cleaned: boolean }) {
+export function DoneScreen({
+  state,
+  type,
+  cleaned,
+  siteId,
+}: {
+  state: DoneState;
+  type: SiteType;
+  cleaned: boolean;
+  siteId?: string;
+}) {
   const t = useTranslations("done");
   const tr = useTranslations("report");
   const ta = useTranslations("app");
@@ -59,9 +70,20 @@ export function DoneScreen({ state, type, cleaned }: { state: DoneState; type: S
         </div>
         <h1 className="mt-2 text-2xl font-bold">{heading}</h1>
         <p className="mt-1 text-muted">{body}</p>
+        {state === "sent" && (
+          <p className="font-display animate-pop mt-3 inline-block rounded-full bg-marigold px-4 py-1 text-xl text-ink" data-testid="done-xp">
+            ★ {t("points", { points: RULES.report })}
+          </p>
+        )}
       </section>
 
-      <section className="card border-l-4 border-l-amber-500">
+      {state === "sent" && siteId && !cleaned && (
+        <Link href={`/sites/${siteId}`} prefetch={false} className="btn-hunt min-h-14 w-full" data-testid="done-clean-now">
+          🪣 {t("cleanNow")}
+        </Link>
+      )}
+
+      <section className="card border-l-4 border-l-marigold">
         <h2 className="font-bold">{cleaned ? t("cleanTitle") : t("tipsTitle")}</h2>
         <ul className="mt-2 list-inside list-disc space-y-1 text-sm">
           <li>{t("tip1")}</li>

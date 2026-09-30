@@ -2,7 +2,8 @@
 
 Steps: decode with Pillow -> apply EXIF orientation -> drop all metadata -> cap working size
 -> run every detector on the full-resolution image -> blur each padded box (pixelate + Gaussian)
--> downscale to THUMB_MAX_SIDE -> JPEG (quality 75, no EXIF), <= 1 MB.
+-> downscale to THUMB_MAX_SIDE (default 320) -> progressive, optimised 4:2:0 JPEG
+(quality 50, no EXIF), <= 1 MB. Defaults are small on purpose: storage and bandwidth cost money.
 Any error raises; the caller must then NOT publish.
 """
 
@@ -18,6 +19,8 @@ from PIL import Image, ImageOps
 
 from .detectors import Box, Detector
 
+DEFAULT_MAX_SIDE = 320
+DEFAULT_QUALITY = 50
 MAX_WORK_SIDE = 4096  # bounds memory/CPU for huge uploads; still far above thumbnail size
 
 
@@ -27,10 +30,16 @@ class ThumbnailError(RuntimeError):
 
 @dataclass(frozen=True, slots=True)
 class ThumbSettings:
-    max_side: int = 480
-    quality: int = 75
+    max_side: int = DEFAULT_MAX_SIDE
+    quality: int = DEFAULT_QUALITY
     max_bytes: int = 1024 * 1024
     padding: float = 0.25  # fraction of box size added on every side
+
+    def __post_init__(self) -> None:
+        if self.max_side < 16:
+            raise ValueError("THUMB_MAX_SIDE must be at least 16")
+        if not 1 <= self.quality <= 95:
+            raise ValueError("THUMB_QUALITY must be between 1 and 95")
 
 
 @dataclass(frozen=True, slots=True)
@@ -78,9 +87,11 @@ def blur_region(img: np.ndarray, box: Box) -> None:
 
 def encode_jpeg(rgb: np.ndarray, quality: int, max_bytes: int) -> bytes:
     im = Image.fromarray(rgb, "RGB")
-    for q in range(quality, 29, -10):
+    for q in (quality, *range(quality - 10, 29, -10)):
         buf = io.BytesIO()
-        im.save(buf, "JPEG", quality=q, optimize=True)  # no exif=/icc_profile= -> none written
+        # No exif=/icc_profile= -> none written. Progressive + optimised Huffman tables and
+        # 4:2:0 chroma subsampling give the smallest files for the same quality.
+        im.save(buf, "JPEG", quality=q, optimize=True, progressive=True, subsampling="4:2:0")
         if buf.tell() <= max_bytes:
             return buf.getvalue()
     raise ThumbnailError("thumbnail exceeds size limit")

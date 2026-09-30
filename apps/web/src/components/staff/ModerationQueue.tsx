@@ -155,7 +155,7 @@ export function ModerationQueue() {
           <p>
             🦟 {tl(current.larvae_seen)} {current.self_cleaned && "· 🧽"}
           </p>
-          {current.note && <p className="rounded bg-gray-50 p-2">“{current.note}”</p>}
+          {current.note && <p className="rounded bg-sky p-2">“{current.note}”</p>}
           <p>
             {t("ai", {
               label: ta(current.ai_label),

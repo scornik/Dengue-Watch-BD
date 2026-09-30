@@ -60,6 +60,37 @@ update public.sites
       closed_at = least(now(), first_reported_at + (12 + random() * 100) * interval '1 hour')
   where status = 'cleared';
 
+-- Demo hunters (volunteer game): six anonymous players who destroyed some spots.
+insert into auth.users (id, aud, role, instance_id, is_anonymous)
+select ('00000000-0000-0000-0000-00000000de' || lpad(g::text, 2, '0'))::uuid, 'authenticated', 'authenticated',
+       '00000000-0000-0000-0000-000000000000', true
+from generate_series(1, 6) g
+on conflict (id) do nothing;
+update public.profiles p set handle = h.handle
+from (values (1, 'MoshaShikari'), (2, 'Rima_Mirpur'), (3, 'DhakaDengueBuster'), (4, 'Tanvir12'),
+             (5, 'Nusrat.Uttara'), (6, 'LarvaeHunter')) as h(n, handle)
+where p.id = ('00000000-0000-0000-0000-00000000de' || lpad(h.n::text, 2, '0'))::uuid;
+
+with picked as (
+  select s.id, s.geom, s.first_reported_at, row_number() over (order by s.first_reported_at) as rn
+  from public.sites s where s.status in ('new', 'verified') order by random() limit 18
+), done as (
+  insert into public.cleanups (site_id, volunteer_id, status, claimed_at, expires_at, done_at,
+                               after_photo_path, after_geom, points, thumb_status)
+  select p.id, ('00000000-0000-0000-0000-00000000de' || lpad((1 + least(5, (p.rn % 11) / 2))::text, 2, '0'))::uuid, 'done',
+         least(now(), p.first_reported_at + interval '20 hours'), least(now(), p.first_reported_at + interval '23 hours'),
+         least(now(), p.first_reported_at + interval '22 hours'),
+         'demo/after.jpg', p.geom, 20 + case when p.rn % 3 = 0 then 10 else 0 end, 'failed'
+  from picked p
+  returning id, site_id, volunteer_id, points, done_at
+), upd as (
+  update public.sites s set status = 'cleared', cleared_at = d.done_at, closed_at = d.done_at,
+         after_photo_path = 'cleanup-photos/demo/after.jpg', after_photo_geom = s.geom, cleared_cleanup_id = d.id
+  from done d where s.id = d.site_id
+)
+insert into public.points_ledger (user_id, kind, points, site_id, cleanup_id, created_at)
+select volunteer_id, 'clean', points, site_id, id, done_at from done;
+
 -- Demo environmental risk for the current week.
 insert into public.ward_risk (ward_id, week, ndvi, ndwi, ndbi, lst_c, rain_14d_mm, report_density, cases_area, score, level, method_version)
 select w.id, date_trunc('week', now())::date,

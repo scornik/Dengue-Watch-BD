@@ -5,12 +5,25 @@ import { useLocale, useTranslations } from "next-intl";
 import type { ExpressionSpecification, GeoJSONSource, Map as MlMap, MapGeoJSONFeature } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { DHAKA, loadMaplibre, resolveStyle, webglAvailable } from "@/lib/map/maplibre";
-import { RISK_COLORS, RISK_LEVELS, STATUS_COLORS } from "@/lib/map/colors";
+import { REPORT_BUCKETS, RISK_COLORS, RISK_LEVELS, STATUS_COLORS, type MapMode } from "@/lib/map/colors";
 import { fetchSites, rpc, type SiteFeatureProps } from "@/lib/publicApi";
 import { publicStorageUrl } from "@/lib/env";
 import { formatDate } from "@/lib/format";
 import { SITE_STATUSES, SITE_TYPES, type SiteStatus, type SiteType } from "@/lib/report/types";
 import { getPathname } from "@/i18n/navigation";
+
+const RISK_FILL = [
+  "match",
+  ["coalesce", ["get", "risk_level"], "none"],
+  ...RISK_LEVELS.flatMap((l) => [l, RISK_COLORS[l]]),
+  "#d1d5db",
+] as unknown as ExpressionSpecification;
+const REPORTS_FILL = [
+  "step",
+  ["coalesce", ["get", "reports_28d"], 0],
+  REPORT_BUCKETS[0].color,
+  ...REPORT_BUCKETS.slice(1).flatMap((b) => [b.min, b.color]),
+] as unknown as ExpressionSpecification;
 
 const PUBLIC_STATUSES = SITE_STATUSES.filter((s) => s !== "rejected");
 
@@ -29,15 +42,18 @@ export default function PublicMap() {
   const [since, setSince] = useState<number | null>(28);
   const [showSites, setShowSites] = useState(true);
   const [showRisk, setShowRisk] = useState(true);
+  const [mode, setMode] = useState<MapMode>("reports");
   const [count, setCount] = useState<number | null>(null);
   const [noBoundaries, setNoBoundaries] = useState(false);
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   // Keep latest translations for popups created inside map callbacks.
-  const labels = useRef({ t, ts, tt, locale });
+  const tsi = useTranslations("sites");
+  const th = useTranslations("hunt");
+  const labels = useRef({ t, ts, tt, tsi, th, locale });
   useEffect(() => {
-    labels.current = { t, ts, tt, locale };
-  }, [t, ts, tt, locale]);
+    labels.current = { t, ts, tt, tsi, th, locale };
+  }, [t, ts, tt, tsi, th, locale]);
 
   useEffect(() => {
     let cancelled = false;
@@ -75,20 +91,15 @@ export default function PublicMap() {
             type: "fill",
             source: "wards",
             paint: {
-              "fill-color": [
-                "match",
-                ["coalesce", ["get", "risk_level"], "none"],
-                ...RISK_LEVELS.flatMap((l) => [l, RISK_COLORS[l]]),
-                "#d1d5db",
-              ] as unknown as ExpressionSpecification,
-              "fill-opacity": 0.35,
+              "fill-color": REPORTS_FILL,
+              "fill-opacity": 0.55,
             },
           });
           m.addLayer({
             id: "ward-line",
             type: "line",
             source: "wards",
-            paint: { "line-color": "#374151", "line-width": 0.6, "line-opacity": 0.6 },
+            paint: { "line-color": "#1b1f3b", "line-width": 0.6, "line-opacity": 0.5 },
           });
 
           m.addSource("sites", {
@@ -104,7 +115,7 @@ export default function PublicMap() {
             source: "sites",
             filter: ["has", "point_count"],
             paint: {
-              "circle-color": "#065f46",
+              "circle-color": "#1b1f3b",
               "circle-opacity": 0.85,
               "circle-radius": ["step", ["get", "point_count"], 14, 10, 18, 50, 24],
               "circle-stroke-color": "#fff",
@@ -186,22 +197,46 @@ export default function PublicMap() {
         c.textContent = t("clearedOn", { date: formatDate(p.cleared_at, locale) });
         div.append(c);
       }
+      if (p.cleaned_by && p.cleaned_by !== "null") {
+        const c = document.createElement("p");
+        c.className = "font-bold text-neem-700";
+        c.textContent = `🪣 ${labels.current.tsi("cleanedBy", { handle: p.cleaned_by })}`;
+        div.append(c);
+      } else if (String(p.claimed) === "true") {
+        const c = document.createElement("p");
+        c.className = "font-bold";
+        c.textContent = `🏃 ${labels.current.tsi("claimed")}`;
+        div.append(c);
+      }
       if (String(p.larvae) === "true") {
         const l = document.createElement("p");
         l.textContent = `🦟 ${t("larvaeSeen")}`;
         div.append(l);
       }
       const approx = document.createElement("p");
-      approx.className = "text-xs text-gray-500";
+      approx.className = "text-xs text-muted";
       approx.textContent = t("approx");
       div.append(approx);
+      const more = document.createElement("a");
+      more.href = getPathname({ href: `/sites/${p.id}`, locale });
+      more.className = "btn-hunt mt-1 min-h-10 w-full text-sm";
+      more.textContent = ["new", "verified", "assigned"].includes(p.status) ? `🪣 ${labels.current.th("claim")}` : `${t("details")} →`;
+      div.append(more);
       if (p.ward_id && String(p.ward_id) !== "null") div.append(wardLink(Number(p.ward_id)));
       return div;
     }
 
     function wardPopup(f: MapGeoJSONFeature): HTMLElement {
       const { locale } = labels.current;
-      const p = f.properties as { id: number; name_bn: string; name_en: string; risk_level?: string };
+      const { t } = labels.current;
+      const p = f.properties as {
+        id: number;
+        name_bn: string;
+        name_en: string;
+        risk_level?: string;
+        reports_28d?: number;
+        open_sites?: number;
+      };
       const div = document.createElement("div");
       div.className = "space-y-1 text-sm";
       const title = document.createElement("p");
@@ -210,7 +245,9 @@ export default function PublicMap() {
       const risk = document.createElement("p");
       const lvl = p.risk_level && p.risk_level !== "null" ? p.risk_level : null;
       risk.textContent = `${tr("layer")}: ${lvl ? tr(lvl as "green") : tr("none")}`;
-      div.append(title, risk, wardLink(Number(p.id)));
+      const reps = document.createElement("p");
+      reps.textContent = `📸 ${t("wardReports", { count: Number(p.reports_28d ?? 0) })} · ${t("wardOpen", { count: Number(p.open_sites ?? 0) })}`;
+      div.append(title, reps, risk, wardLink(Number(p.id)));
       return div;
     }
 
@@ -218,7 +255,7 @@ export default function PublicMap() {
       const { t, locale } = labels.current;
       const a = document.createElement("a");
       a.href = getPathname({ href: `/ward/${id}`, locale });
-      a.className = "font-bold text-emerald-800 underline";
+      a.className = "block font-bold text-ink underline";
       a.textContent = `${t("wardPage")} →`;
       return a;
     }
@@ -267,12 +304,39 @@ export default function PublicMap() {
     }
   }, [ready, showRisk, showSites]);
 
+  // Ward shading: citizen reports (default) or environmental risk
+  useEffect(() => {
+    const m = map.current;
+    if (!ready || !m) return;
+    m.setPaintProperty("ward-fill", "fill-color", mode === "reports" ? REPORTS_FILL : RISK_FILL);
+    m.setPaintProperty("ward-fill", "fill-opacity", mode === "reports" ? 0.55 : 0.35);
+  }, [ready, mode]);
+
   const toggleStatus = (s: SiteStatus) =>
     setStatuses((cur) => (cur.includes(s) ? cur.filter((x) => x !== s) : [...cur, s]));
 
   return (
     <div className="space-y-3">
-      <div className="relative h-[62vh] min-h-80 overflow-hidden rounded-2xl bg-gray-200 ring-1 ring-gray-300">
+      <div role="radiogroup" aria-label={t("layers")} className="grid grid-cols-2 gap-1 rounded-full bg-ink p-1" data-testid="map-mode">
+        {(
+          [
+            ["reports", `📸 ${t("modeReports")}`],
+            ["risk", `🛰️ ${t("modeRisk")}`],
+          ] as const
+        ).map(([k, label]) => (
+          <button
+            key={k}
+            type="button"
+            role="radio"
+            aria-checked={mode === k}
+            onClick={() => setMode(k)}
+            className={`font-display min-h-11 rounded-full text-sm ${mode === k ? "bg-marigold text-ink" : "text-white/85"}`}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+      <div className="relative h-[62vh] min-h-80 overflow-hidden rounded-3xl bg-sky-200 ring-1 ring-sky-200">
         <div ref={el} className="h-full w-full" data-testid="public-map" role="region" aria-label={t("title")} />
         {!ready && !failed && (
           <p className="absolute inset-0 flex items-center justify-center text-muted">{t("loading")}</p>
@@ -285,7 +349,7 @@ export default function PublicMap() {
         )}
       </div>
 
-      <p className="rounded-xl bg-amber-50 p-2 text-sm font-bold text-amber-900">⚠️ {tr("layer")}</p>
+      {mode === "risk" && <p className="rounded-xl bg-marigold-50 p-2 text-sm font-bold text-ink">⚠️ {tr("layer")}</p>}
       {noBoundaries && <p className="text-sm text-muted">{t("noBoundaries")}</p>}
 
       <button
@@ -308,7 +372,7 @@ export default function PublicMap() {
             </label>
             <label className="chip">
               <input type="checkbox" className="sr-only" checked={showRisk} onChange={(e) => setShowRisk(e.target.checked)} />
-              {t("wardRisk")}
+              {mode === "reports" ? t("modeReports") : t("wardRisk")}
             </label>
           </div>
         </fieldset>
@@ -364,15 +428,26 @@ export default function PublicMap() {
             </li>
           ))}
         </ul>
-        <p className="mt-2 text-xs font-bold">{tr("layer")}</p>
-        <ul className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
-          {RISK_LEVELS.map((l) => (
-            <li key={l} className="flex items-center gap-1">
-              <span aria-hidden="true" className="h-3 w-5 rounded-sm opacity-70" style={{ background: RISK_COLORS[l] }} />
-              {tr(l)}
-            </li>
-          ))}
-        </ul>
+        <p className="mt-2 text-xs font-bold">{mode === "reports" ? t("reportsLegend") : tr("layer")}</p>
+        {mode === "reports" ? (
+          <ul className="flex flex-wrap gap-x-4 gap-y-1 text-sm" data-testid="legend-reports">
+            {REPORT_BUCKETS.map((b) => (
+              <li key={b.min} className="flex items-center gap-1">
+                <span aria-hidden="true" className="h-3 w-5 rounded-sm ring-1 ring-ink/20" style={{ background: b.color }} />
+                {b.label}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <ul className="flex flex-wrap gap-x-4 gap-y-1 text-sm" data-testid="legend-risk">
+            {RISK_LEVELS.map((l) => (
+              <li key={l} className="flex items-center gap-1">
+                <span aria-hidden="true" className="h-3 w-5 rounded-sm opacity-70" style={{ background: RISK_COLORS[l] }} />
+                {tr(l)}
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
     </div>
   );

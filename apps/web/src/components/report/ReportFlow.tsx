@@ -20,7 +20,7 @@ import { DoneScreen, type DoneState } from "./DoneScreen";
 // chosen), so the report route's initial JS stays small.
 const LocationPicker = dynamic(() => import("./LocationPicker"), {
   ssr: false,
-  loading: () => <div className="h-[46vh] min-h-64 animate-pulse rounded-2xl bg-gray-200" />,
+  loading: () => <div className="h-[46vh] min-h-64 animate-pulse rounded-2xl bg-sky-200" />,
 });
 
 const TOTAL = 4;
@@ -47,6 +47,7 @@ export function ReportFlow() {
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState<DoneState | null>(null);
+  const [siteId, setSiteId] = useState<string | undefined>();
   const screening = useScreening(photo?.blob ?? null);
 
   // Move focus to the step heading for screen readers.
@@ -124,12 +125,16 @@ export function ReportFlow() {
     await enqueue({ id: meta.id, meta, photo: photo.blob, token });
     const result = navigator.onLine ? await flushQueue() : null;
     const outcome = result?.last?.kind;
+    if (result?.last?.kind === "sent") {
+      setSiteId(result.last.siteId ?? undefined);
+      import("@/lib/game/client").then((m) => m.bumpXp()).catch(() => {});
+    }
     // Rendered in place (no navigation), so it also works fully offline.
     setDone(outcome === "sent" ? "sent" : outcome === "rate_limited" ? "limited" : outcome === "otp_required" ? "otp" : "queued");
     window.scrollTo(0, 0);
   };
 
-  if (done && siteType) return <DoneScreen state={done} type={siteType} cleaned={selfCleaned} />;
+  if (done && siteType) return <DoneScreen state={done} type={siteType} cleaned={selfCleaned} siteId={siteId} />;
 
   return (
     <div className="space-y-4">
@@ -137,7 +142,7 @@ export function ReportFlow() {
         <p className="text-sm font-bold text-muted">{t("stepOf", { step, total: TOTAL })}</p>
         <div className="flex gap-1" aria-hidden="true">
           {Array.from({ length: TOTAL }, (_, i) => (
-            <span key={i} className={`h-2 w-8 rounded-full ${i < step ? "bg-brand-700" : "bg-gray-300"}`} />
+            <span key={i} className={`h-2 w-8 rounded-full ${i < step ? "bg-brand-700" : "bg-sky-200"}`} />
           ))}
         </div>
       </div>
@@ -202,9 +207,9 @@ export function ReportFlow() {
           </div>
           <div aria-live="polite" className="space-y-2 text-sm">
             {processing && <p>{t("checking")}</p>}
-            {quality?.dark && <p className="rounded-lg bg-amber-50 p-2 text-amber-900">{t("tooDark")}</p>}
+            {quality?.dark && <p className="rounded-lg bg-marigold-50 p-2 text-ink">{t("tooDark")}</p>}
             {quality && !quality.dark && quality.blurry && (
-              <p className="rounded-lg bg-amber-50 p-2 text-amber-900">{t("tooBlurry")}</p>
+              <p className="rounded-lg bg-marigold-50 p-2 text-ink">{t("tooBlurry")}</p>
             )}
             {photo && screening.status === "loading" && (
               <p className="text-muted">{t("modelLoading", { percent: screening.progress })}</p>
@@ -219,7 +224,7 @@ export function ReportFlow() {
             )}
           </div>
           {confirmIrrelevant && (
-            <div role="alertdialog" aria-labelledby="nr-title" className="card border-2 border-amber-400">
+            <div role="alertdialog" aria-labelledby="nr-title" className="card border-2 border-marigold">
               <p id="nr-title" className="font-bold">
                 {t("notRelevantTitle")}
               </p>
@@ -290,7 +295,7 @@ export function ReportFlow() {
               ))}
             </div>
           </fieldset>
-          <label className="flex min-h-12 items-center gap-3 rounded-xl bg-white p-3 ring-1 ring-gray-200">
+          <label className="flex min-h-12 items-center gap-3 rounded-xl bg-white p-3 ring-1 ring-sky-200">
             <input
               type="checkbox"
               checked={selfCleaned}
@@ -341,12 +346,12 @@ export function ReportFlow() {
       )}
 
       {error && (
-        <p role="alert" className="rounded-lg bg-red-50 p-2 font-bold text-red-800">
+        <p role="alert" className="rounded-lg bg-blood-50 p-2 font-bold text-blood-700">
           {error}
         </p>
       )}
 
-      <div className="sticky bottom-20 z-20 grid grid-cols-3 gap-2 bg-gray-50/95 py-2">
+      <div className="sticky bottom-20 z-20 grid grid-cols-3 gap-2 bg-sky/95 py-2">
         <button type="button" className="btn-secondary col-span-1" onClick={back}>
           {t("back")}
         </button>

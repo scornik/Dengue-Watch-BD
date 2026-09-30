@@ -72,7 +72,7 @@ export function MyReports() {
                 <span>
                   {SITE_ICONS[q.meta.site_type]} {ts(q.meta.site_type)} · {formatDateTime(q.meta.client_created_at, locale)}
                 </span>
-                {q.state === "failed" && <span className="text-red-700">✕</span>}
+                {q.state === "failed" && <span className="text-blood-700">✕</span>}
               </li>
             ))}
           </ul>

@@ -22,7 +22,7 @@ Bangla numerals/plurals. Mark each row ✅ / ✏️ (suggest text) in a PR or is
 
 None.
 
-## All strings (277)
+## All strings (409)
 
 | Key | English | বাংলা | Review |
 | --- | --- | --- | --- |
@@ -41,6 +41,10 @@ None.
 | `nav.staff` | Staff | কর্মী | |
 | `nav.data` | Open data | উন্মুক্ত তথ্য | |
 | `nav.about` | About | আমাদের কথা | |
+| `nav.hunt` | Hunt | শিকার | |
+| `nav.me` | Me | আমি | |
+| `nav.list` | All reports | সব রিপোর্ট | |
+| `nav.leaderboard` | Leaderboard | লিডারবোর্ড | |
 | `home.cta` | Report standing water | জমে থাকা পানির রিপোর্ট করুন | |
 | `home.ctaHint` | Takes under 30 seconds. No sign-up needed. | ৩০ সেকেন্ডের কম সময় লাগে। নিবন্ধন লাগে না। | |
 | `home.howTitle` | How it works | যেভাবে কাজ করে | |
@@ -56,6 +60,21 @@ None.
 | `home.statsSites` | Sites reported | রিপোর্ট করা স্থান | |
 | `home.statsCleared` | Cleared | পরিষ্কার হয়েছে | |
 | `home.emergency` | Fever? Visit a hospital or call the national health helpline 16263. This app does not diagnose dengue. | জ্বর হলে হাসপাতালে যান বা স্বাস্থ্য বাতায়ন ১৬২৬৩-এ ফোন করুন। এই অ্যাপ ডেঙ্গু নির্ণয় করে না। | |
+| `home.heroTitle` | Break up the Aedes' homes | এডিসের ঘর ভাঙুন | |
+| `home.heroSub` | Every bucket you empty is hundreds of mosquitoes that never hatch. | যে বালতির পানি আপনি ফেলছেন, সেখানে শত শত মশা আর জন্মাবে না। | |
+| `home.found` | spots found | জায়গা পাওয়া গেছে | |
+| `home.destroyed` | destroyed | ধ্বংস হয়েছে | |
+| `home.period` | last 28 days | গত ২৮ দিন | |
+| `home.reportCta` | Report a breeding spot | প্রজননস্থল জানান | |
+| `home.huntCta` | Clean a spot near you | কাছের জায়গা পরিষ্কার করুন | |
+| `home.mapBtn` | Map | মানচিত্র | |
+| `home.listBtn` | All reports | সব রিপোর্ট | |
+| `home.topHunters` | Top hunters this week | এই সপ্তাহের সেরা শিকারি | |
+| `home.seeBoard` | See the full leaderboard | পুরো লিডারবোর্ড দেখুন | |
+| `home.noHunters` | No hunters yet this week. Be the first. | এই সপ্তাহে এখনো কেউ নেই। প্রথম হোন। | |
+| `home.play1` | Spot it: photograph standing water | খুঁজুন: জমে থাকা পানির ছবি তুলুন | |
+| `home.play2` | Destroy it: empty, scrub, cover | ধ্বংস করুন: পানি ফেলুন, ঘষুন, ঢাকুন | |
+| `home.play3` | Climb the board with every spot | প্রতিটি জায়গায় লিডারবোর্ডে উঠুন | |
 | `siteType.tire` | Tire | টায়ার | |
 | `siteType.bucket_drum` | Bucket / drum | বালতি / ড্রাম | |
 | `siteType.ac_drip` | AC drip tray | এসির পানির ট্রে | |
@@ -145,6 +164,8 @@ None.
 | `done.notifyOn` | You will get a notification when the status changes. | অবস্থা বদলালে আপনি নোটিফিকেশন পাবেন। | |
 | `done.notifyUnsupported` | Notifications are not supported on this browser. | এই ব্রাউজারে নোটিফিকেশন চলে না। | |
 | `done.tipsTitle` | Keep your home free of breeding sites: | বাড়িকে প্রজননস্থলমুক্ত রাখুন: | |
+| `done.points` | +{points} XP | +{points} XP | |
+| `done.cleanNow` | Destroy it yourself for more XP | নিজেই ধ্বংস করে আরও XP নিন | |
 | `mine.title` | My reports | আমার রিপোর্ট | |
 | `mine.empty` | You have not sent any reports from this device yet. | এই ফোন থেকে এখনো কোনো রিপোর্ট পাঠানো হয়নি। | |
 | `mine.pending` | Waiting to upload | পাঠানোর অপেক্ষায় | |
@@ -177,6 +198,12 @@ None.
 | `map.deaths` | Deaths | মৃত্যু | |
 | `map.open` | Open interactive map | ইন্টারঅ্যাকটিভ মানচিত্র খুলুন | |
 | `map.openHint` | Tap to zoom, filter and see details. | জুম, ফিল্টার ও বিস্তারিত দেখতে চাপুন। | |
+| `map.modeReports` | Reports | রিপোর্ট সংখ্যা | |
+| `map.modeRisk` | Environmental risk | পরিবেশগত ঝুঁকি | |
+| `map.reportsLegend` | Reports per ward, last 28 days | প্রতি ওয়ার্ডে রিপোর্ট, গত ২৮ দিন | |
+| `map.wardReports` | {count, plural, one {# report} other {# reports}} in 28 days | {count, plural, other {২৮ দিনে #টি রিপোর্ট}} | |
+| `map.wardOpen` | {count} open | {count}টি খোলা | |
+| `map.details` | Details | বিস্তারিত | |
 | `ward.title` | {name} | {name} | |
 | `ward.scorecard` | Scorecard (last 28 days) | স্কোরকার্ড (গত ২৮ দিন) | |
 | `ward.sites` | Sites reported | রিপোর্ট করা স্থান | |
@@ -239,6 +266,11 @@ None.
 | `mod.count` | {count} waiting | {count}টি অপেক্ষায় | |
 | `mod.done` | Saved | সংরক্ষিত | |
 | `mod.photoError` | Photo not available | ছবি পাওয়া যাচ্ছে না | |
+| `mod.tabReports` | Reports | রিপোর্ট | |
+| `mod.tabCleanups` | Cleanup proofs | পরিষ্কারের প্রমাণ | |
+| `mod.rejectCleanup` | Fake: reverse it | ভুয়া: বাতিল করুন | |
+| `mod.cleanupBy` | {handle} · {meters} m from the spot | {handle} · জায়গা থেকে {meters} মিটার | |
+| `mod.noCleanups` | No cleanups to check. | যাচাই করার মতো কিছু নেই। | |
 | `insp.title` | Ward queue | ওয়ার্ডের তালিকা | |
 | `insp.empty` | No open sites in your ward. | আপনার ওয়ার্ডে কোনো খোলা স্থান নেই। | |
 | `insp.navigate` | Navigate | পথ দেখুন | |
@@ -303,3 +335,103 @@ None.
 | `common.no` | No | না | |
 | `common.notFound` | Page not found | পাতাটি পাওয়া যায়নি | |
 | `common.home` | Go home | হোমে যান | |
+| `sites.title` | Breeding spots | প্রজননস্থলের তালিকা | |
+| `sites.tabOpen` | Needs a hunter | শিকারি দরকার | |
+| `sites.tabCleared` | Destroyed | ধ্বংস হয়েছে | |
+| `sites.sortNear` | Nearest first | কাছেরগুলো আগে | |
+| `sites.sortNew` | Newest first | নতুনগুলো আগে | |
+| `sites.openDays` | {days, plural, one {Open # day} other {Open # days}} | {days, plural, other {# দিন ধরে খোলা}} | |
+| `sites.openHours` | Open {hours} h | {hours} ঘণ্টা ধরে খোলা | |
+| `sites.reward` | +{points} XP | +{points} XP | |
+| `sites.claimed` | A hunter is on it | একজন শিকারি যাচ্ছেন | |
+| `sites.cleanedBy` | Destroyed by {handle} | {handle} ধ্বংস করেছেন | |
+| `sites.cleanedAnon` | Destroyed | ধ্বংস হয়েছে | |
+| `sites.empty` | No open spots here. Nice work! | এখানে কোনো খোলা জায়গা নেই। দারুণ! | |
+| `sites.noPhoto` | Photo is being checked | ছবি যাচাই চলছে | |
+| `sites.away` | {km} km away | {km} কিমি দূরে | |
+| `sites.loadMore` | Show more | আরও দেখুন | |
+| `sites.count` | {count, plural, one {# spot} other {# spots}} | {count, plural, other {#টি জায়গা}} | |
+| `hunt.before` | Before | আগে | |
+| `hunt.after` | After | পরে | |
+| `hunt.reportedOn` | Reported {date} | রিপোর্ট {date} | |
+| `hunt.rewardTitle` | Reward | পুরস্কার | |
+| `hunt.rewardBase` | Destroy the spot | জায়গাটি ধ্বংস করা | |
+| `hunt.rewardLarvae` | Larvae were seen | লার্ভা দেখা গিয়েছিল | |
+| `hunt.rewardOverdue` | Open more than 3 days | ৩ দিনের বেশি খোলা | |
+| `hunt.rewardOwn` | You reported it yourself | আপনি নিজেই রিপোর্ট করেছিলেন | |
+| `hunt.claim` | I'll destroy this one | এটা আমি ধ্বংস করব | |
+| `hunt.claimedByYou` | Held for you until {time} | {time} পর্যন্ত আপনার জন্য রাখা | |
+| `hunt.release` | Let someone else take it | অন্য কাউকে দিন | |
+| `hunt.howTitle` | How to destroy it | কীভাবে ধ্বংস করবেন | |
+| `hunt.how1` | Tip out all the water, away from drains. | সব পানি ফেলে দিন, ড্রেন থেকে দূরে। | |
+| `hunt.how2` | Scrub the inside wall: the eggs stick there. | ভেতরের দেয়াল ঘষে নিন: ডিম সেখানেই লেগে থাকে। | |
+| `hunt.how3` | Turn it upside down, cover it, or throw it away. | উল্টে রাখুন, ঢেকে দিন বা ফেলে দিন। | |
+| `hunt.atSpot` | At the spot? Take the after photo there. | জায়গায় পৌঁছেছেন? সেখানেই পরের ছবি তুলুন। | |
+| `hunt.takeAfter` | Take the after photo | পরের ছবি তুলুন | |
+| `hunt.checking` | Checking your location… | অবস্থান যাচাই হচ্ছে… | |
+| `hunt.distanceOk` | You're {meters} m from the spot | আপনি জায়গা থেকে {meters} মিটার দূরে | |
+| `hunt.tooFar` | You're {meters} m away. Get within 50 m and retake. | আপনি {meters} মিটার দূরে। ৫০ মিটারের মধ্যে গিয়ে আবার তুলুন। | |
+| `hunt.confirm` | Confirm it's destroyed | ধ্বংস নিশ্চিত করুন | |
+| `hunt.done` | Destroyed! | ধ্বংস! | |
+| `hunt.points` | +{points} XP | +{points} XP | |
+| `hunt.levelUp` | New level: {level} | নতুন লেভেল: {level} | |
+| `hunt.navigate` | Directions | পথ দেখুন | |
+| `hunt.backToList` | Find another spot | আরেকটি জায়গা খুঁজুন | |
+| `hunt.errHandle` | Pick a hunter name first. | আগে একটি শিকারি নাম দিন। | |
+| `hunt.errClaimed` | Another hunter is already on this one. | আরেকজন শিকারি এটি নিয়েছেন। | |
+| `hunt.errTooMany` | You already hold 3 spots. Finish one first. | আপনার হাতে ইতিমধ্যে ৩টি জায়গা। আগে একটি শেষ করুন। | |
+| `hunt.errDaily` | That's 10 today. Come back tomorrow! | আজ ১০টি হয়ে গেছে। কাল আবার আসুন! | |
+| `hunt.errExpired` | Your 3 hours ran out. Claim it again. | আপনার ৩ ঘণ্টা শেষ। আবার নিন। | |
+| `hunt.errNotOpen` | This spot is already closed. | জায়গাটি ইতিমধ্যে বন্ধ। | |
+| `hunt.errPhoto` | The photo didn't upload. Try again. | ছবি আপলোড হয়নি। আবার চেষ্টা করুন। | |
+| `hunt.errGps` | Turn on location to prove you're at the spot. | জায়গায় আছেন প্রমাণ করতে লোকেশন চালু করুন। | |
+| `hunt.errGeneric` | Something went wrong. Try again. | সমস্যা হয়েছে। আবার চেষ্টা করুন। | |
+| `hunt.tooFarShort` | You're too far from the spot. Get within 50 m and retake. | আপনি জায়গা থেকে অনেক দূরে। ৫০ মিটারের মধ্যে গিয়ে আবার তুলুন। | |
+| `me.title` | My hunter card | আমার শিকারি কার্ড | |
+| `me.handle` | Hunter name | শিকারি নাম | |
+| `me.handleHint` | 3–24 characters. Everyone sees it on the leaderboard. | ৩–২৪ অক্ষর। লিডারবোর্ডে সবাই দেখবে। | |
+| `me.handleTaken` | That name is taken. Try another. | এই নাম আগেই নেওয়া। অন্যটি দিন। | |
+| `me.handleInvalid` | Use 3–24 letters or numbers, no spaces. | ৩–২৪টি অক্ষর বা সংখ্যা দিন, ফাঁকা ছাড়া। | |
+| `me.save` | Save | সংরক্ষণ | |
+| `me.saved` | Saved | সংরক্ষিত | |
+| `me.photo` | Change photo | ছবি বদলান | |
+| `me.photoHint` | Everyone can see this photo. | এই ছবি সবাই দেখতে পাবে। | |
+| `me.xp` | XP | XP | |
+| `me.cleans` | destroyed | ধ্বংস | |
+| `me.reports` | reported | রিপোর্ট | |
+| `me.rank` | rank | র‍্যাঙ্ক | |
+| `me.nextLevel` | {xp} XP to {level} | {level} হতে আর {xp} XP | |
+| `me.maxLevel` | Top level reached | সর্বোচ্চ লেভেল | |
+| `me.badges` | Badges | ব্যাজ | |
+| `me.keepTitle` | Keep your progress | অগ্রগতি ধরে রাখুন | |
+| `me.keepBody` | Add your email to use this hunter card on another phone. | অন্য ফোনেও এই কার্ড ব্যবহার করতে ইমেইল যোগ করুন। | |
+| `me.email` | Email | ইমেইল | |
+| `me.sendCode` | Send code | কোড পাঠান | |
+| `me.code` | 6-digit code | ৬ অঙ্কের কোড | |
+| `me.verify` | Verify | যাচাই | |
+| `me.keepDone` | Your email is linked. | আপনার ইমেইল যুক্ত হয়েছে। | |
+| `me.share` | Share my card | কার্ড শেয়ার করুন | |
+| `me.myReports` | My reports | আমার রিপোর্ট | |
+| `me.setupTitle` | Become a hunter | শিকারি হোন | |
+| `me.setupBody` | Pick a name to claim spots and join the leaderboard. | জায়গা নিতে ও লিডারবোর্ডে উঠতে একটি নাম দিন। | |
+| `me.staff` | Staff sign-in | কর্মী লগইন | |
+| `me.keepError` | That did not work. Check the email or code and try again. | হয়নি। ইমেইল বা কোড দেখে আবার চেষ্টা করুন। | |
+| `level.l1` | Rookie Hunter | নবীন শিকারি | |
+| `level.l2` | Larva Hunter | লার্ভা শিকারি | |
+| `level.l3` | Puddle Buster | জমা পানির যম | |
+| `level.l4` | Aedes Chaser | এডিস তাড়ুয়া | |
+| `level.l5` | Dengue Guardian | ডেঙ্গু প্রহরী | |
+| `level.l6` | Mohalla Hero | মহল্লার বীর | |
+| `level.label` | Level {n} | লেভেল {n} | |
+| `badge.firstReport` | First report | প্রথম রিপোর্ট | |
+| `badge.firstClean` | First spot destroyed | প্রথম ধ্বংস | |
+| `badge.clean5` | 5 destroyed | ৫টি ধ্বংস | |
+| `badge.clean25` | 25 destroyed | ২৫টি ধ্বংস | |
+| `badge.top10` | Weekly top 10 | সাপ্তাহিক সেরা ১০ | |
+| `board.title` | Leaderboard | লিডারবোর্ড | |
+| `board.week` | This week | এই সপ্তাহ | |
+| `board.all` | All time | সব সময় | |
+| `board.you` | You | আপনি | |
+| `board.empty` | No hunters yet. Be the first! | এখনো কেউ নেই। প্রথম শিকারি হোন! | |
+| `board.join` | Become a hunter | শিকারি হোন | |
+| `board.xp` | {points} XP | {points} XP | |

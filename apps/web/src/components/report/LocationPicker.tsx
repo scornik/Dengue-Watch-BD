@@ -89,7 +89,7 @@ export default function LocationPicker({
   return (
     <div className="space-y-3">
       <p className="text-muted">{t("locationHint")}</p>
-      <div className="relative h-[46vh] min-h-64 overflow-hidden rounded-2xl bg-gray-200 ring-1 ring-gray-300">
+      <div className="relative h-[46vh] min-h-64 overflow-hidden rounded-2xl bg-sky-200 ring-1 ring-sky-200">
         <div ref={container} className="h-full w-full" data-testid="pin-map" aria-label={t("locationTitle")} />
         {/* Fixed centre pin */}
         <svg

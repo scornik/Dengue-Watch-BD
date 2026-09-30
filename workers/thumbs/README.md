@@ -1,8 +1,16 @@
-# thumbs worker: public report thumbnails with faces and plates blurred
+# thumbs worker: public thumbnails with faces and plates blurred
 
-This worker creates the **only** publicly visible version of a report photo. Originals stay in
-the private `report-photos` bucket. Thumbnails go to the public `public-thumbs` bucket as
-`{report_id}.jpg`.
+This worker creates the **only** publicly visible version of a user photo. Each run processes
+two sources in order, up to `BATCH_SIZE` rows each:
+
+| Source | Rows claimed | Original (private bucket) | Thumbnail in `public-thumbs` |
+| --- | --- | --- | --- |
+| Reports | `thumb_status = 'pending' AND ai_label <> 'not_relevant'` | `report-photos/{photo_path}` | `{report_id}.jpg` |
+| Volunteer cleanup "after" photos | `thumb_status = 'pending' AND status = 'done' AND after_photo_path IS NOT NULL` | `cleanup-photos/{after_photo_path}` | `c/{cleanup_id}.jpg` |
+
+On success the row gets `thumb_public_path = <key>, thumb_status = 'ok'`. Both sources share
+one code path; a source is a small description (table, bucket, path column, filter, key
+prefix) in `thumbs/worker.py`.
 
 **Fail closed.** If decoding, detection, blurring or encoding fails for any reason,
 including a missing model file, nothing is uploaded and the row is set to
@@ -18,7 +26,7 @@ configuration error.
 
 ## Pipeline (`thumbs/pipeline.py`, pure; detectors injected)
 
-1. The original is downloaded from `report-photos/{photo_path}` through the Storage REST API,
+1. The original is downloaded from the source's private bucket through the Storage REST API,
    using the service-role key.
 2. Pillow decodes it and applies the **EXIF orientation**. The image then becomes a plain
    pixel array, which drops all metadata: EXIF including GPS, ICC and XMP. Very large images
@@ -32,37 +40,45 @@ configuration error.
      ≤3000 px and ≤1280 px with a low `minNeighbors`.
 4. Every box is padded by 25% (at least 4 px) and made unrecognisable on the full-resolution
    image: coarse pixelation (1/16), then a strong Gaussian blur.
-5. The image is downscaled to at most **480 px** on the long side, never upscaled.
-6. It is encoded as JPEG **quality 75** with no EXIF or ICC. If the result exceeds **1 MB**,
-   the quality drops in steps; if it still does not fit, the row fails.
-7. The thumbnail is uploaded with `POST /storage/v1/object/public-thumbs/{report_id}.jpg`
-   (`x-upsert: true`, `Content-Type: image/jpeg`). Then the worker runs
-   `UPDATE reports SET thumb_public_path = '{report_id}.jpg', thumb_status = 'ok'`.
+5. The image is downscaled to at most **320 px** on the long side, never upscaled.
+6. It is encoded as a **progressive, optimised JPEG, quality 50, 4:2:0 chroma subsampling**,
+   with no EXIF or ICC. These defaults keep storage and bandwidth minimal (typically a few
+   KB to ~20 KB per photo). If the result exceeds **1 MB**, the quality drops in steps; if it
+   still does not fit, the row fails.
+7. The thumbnail is uploaded with `POST /storage/v1/object/public-thumbs/{key}`
+   (`x-upsert: true`, `Content-Type: image/jpeg`). Then the worker sets
+   `thumb_public_path = '{key}', thumb_status = 'ok'` on the row.
 
 **Outcomes per row:**
 
 | Outcome | Causes | What happens |
 | --- | --- | --- |
 | `ok` | Thumbnail built and uploaded | Row set to `ok` with the public path |
-| `failed` | No `photo_path`; original missing (404, or 400 not_found); undecodable image; detector error or unavailable model; size limit | Row set to `failed`, `thumb_public_path = NULL`, nothing uploaded |
+| `failed` | No photo path; original missing (404, or 400 not_found); undecodable image; detector error or unavailable model; size limit | Row set to `failed`, `thumb_public_path = NULL`, nothing uploaded |
 | retry | Network or 5xx error on download or upload | Row stays `pending` and is retried on the next run. After 3 consecutive transient errors the run stops early |
 
 To re-queue failed rows after fixing a deployment:
-`UPDATE reports SET thumb_status = 'pending' WHERE thumb_status = 'failed';`
+`UPDATE reports SET thumb_status = 'pending' WHERE thumb_status = 'failed';` (same for
+`cleanups`).
+
+If the `cleanups` table does not exist yet (migration not applied), reports are still
+processed; the run logs an error and exits 1.
 
 ## Concurrency
 
-Rows are claimed one per transaction:
+Rows are claimed one per transaction (reports ordered by `created_at`, cleanups by
+`done_at`):
 
 ```
 SELECT … FROM reports
  WHERE thumb_status = 'pending' AND ai_label <> 'not_relevant'
- ORDER BY created_at LIMIT 1
+ ORDER BY created_at, id LIMIT 1
    FOR UPDATE SKIP LOCKED
 ```
 
 The row lock is held only while that one photo is processed. Overlapping runs skip locked
-rows, so a photo is never processed twice. Each run handles up to `BATCH_SIZE` rows.
+rows, so a photo is never processed twice. Each run handles up to `BATCH_SIZE` rows per
+source.
 
 `ai_label <> 'not_relevant'` also skips rows whose `ai_label` is still `NULL`, meaning not yet
 screened. They are picked up once they have a label.
@@ -81,14 +97,14 @@ screened. They are picked up once they have a label.
 
 | Variable | Required | Default | Purpose |
 | --- | --- | --- | --- |
-| `DATABASE_URL` | yes | none | Postgres (selects and updates `reports`) |
+| `DATABASE_URL` | yes | none | Postgres (selects and updates `reports` and `cleanups`) |
 | `SUPABASE_URL` | yes | none | Supabase project URL for the Storage REST API |
 | `SUPABASE_SERVICE_ROLE_KEY` | yes | none | Reads the private originals and writes the public thumbnails. Server-side secret |
 | `YUNET_MODEL_PATH` | no | `/models/face_detection_yunet_2023mar.onnx` (downloaded into the image at build time) | Face model. If missing, every photo is marked failed |
-| `BATCH_SIZE` | no | `50` | Maximum rows per run |
+| `BATCH_SIZE` | no | `50` | Maximum rows per source per run |
 | `FACE_SCORE_THRESHOLD` | no | `0.6` | YuNet confidence. Lower values blur more |
-| `THUMB_MAX_SIDE` | no | `480` | Thumbnail long side in px |
-| `THUMB_QUALITY` | no | `75` | JPEG quality |
+| `THUMB_MAX_SIDE` | no | `320` | Thumbnail long side in px (min 16) |
+| `THUMB_QUALITY` | no | `50` | Starting JPEG quality (1–95); progressive, optimised, 4:2:0 |
 | `LOG_LEVEL` | no | `INFO` | Python log level |
 
 ## Schedule (Northflank cron)
@@ -103,7 +119,7 @@ uv run --extra dev pytest     # stub detectors; DB tests skipped unless DATABASE
 uv run --extra dev ruff check . && uv run --extra dev ruff format --check .
 ```
 
-The DB tests create and drop a throwaway schema (`thumbs_test_*`), because the SKIP LOCKED
-test needs two sessions. The YuNet model is not needed for tests.
+The DB tests create and drop a throwaway schema (`thumbs_test_*`) with `reports` and
+`cleanups` tables mirroring the contract, because the SKIP LOCKED tests need two sessions. The YuNet model is not needed for tests.
 
 OpenCV is pinned below 5 because 5.x no longer bundles the Haar cascade files.

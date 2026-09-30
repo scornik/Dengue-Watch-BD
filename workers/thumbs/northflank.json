@@ -1,7 +1,7 @@
 {
   "$comment": "Northflank cron job for the thumbs worker. Create via the Northflank UI/API (POST /v1/projects/{project}/jobs/cron) and verify field names against the current Northflank API docs. Secrets come from a linked secret group, never from this file. concurrencyPolicy may be 'allow': FOR UPDATE SKIP LOCKED keeps overlapping runs safe.",
   "name": "thumbs-5min",
-  "description": "Blur faces/plates and publish report thumbnails to public-thumbs",
+  "description": "Blur faces/plates and publish report and cleanup thumbnails to public-thumbs",
   "billing": { "deploymentPlan": "nf-compute-20" },
   "settings": {
     "cron": { "schedule": "*/5 * * * *", "concurrencyPolicy": "forbid" },
