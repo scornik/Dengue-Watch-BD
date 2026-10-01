@@ -224,6 +224,57 @@ Chapter times assume the current render. Re-check them after any re-render.
 
 ---
 
+## 4 · Reddit · r/bangladesh
+
+**Post a text post, not a video.** Reddit readers want to hear from a real person, and an AI-voiced video looks like an ad there. The story is also stronger in your own words. Write a text post and add 2–3 phone screenshots of the live site: the home page, the report screen and the map. Use an image gallery if the sub allows it. Otherwise upload the screenshots to imgur and link them.
+If someone asks to see it in action, reply with a link to `citizen-en.mp4` (the how-to, with real screens), uploaded to YouTube. Don't use `story-en.mp4` on Reddit, because your own words already tell that story.
+
+Before posting:
+- Read the sidebar rules on self-promotion and links, and pick a flair, such as Discussion or Health.
+- Post in the evening, Bangladesh time (about 8–11 pm). Stay online for the first 1–2 hours and answer every comment; early replies decide how far the post goes.
+- Post once. Don't cross-post the same text to r/dhaka on the same day; wait a few days and rewrite it.
+
+**Title** (pick one):
+- `My wife got dengue 2 weeks ago. While sitting with her in the hospital, I built a free site to report and clean Aedes breeding spots`
+- `Hospitals are full of dengue patients. I made a small free tool so we can find and destroy mosquito breeding spots around our homes`
+
+**Body:**
+```
+Two weeks ago my wife got dengue.
+
+While I sat with her, I saw how bad it is. Every hospital is full. Patients on the floor, in the corridors. People are dying.
+
+Aedes mosquitoes breed in clean, still water, mostly around our own homes: AC trays, flower pots, buckets, old tyres, rooftops, construction sites. Cleaning these is the one thing ordinary people can actually do. So, sitting in the hospital, I built a small website for it:
+
+https://dengue-watch-bd.vercel.app
+
+How it works:
+- See standing water? Take a photo, drop a pin, send. About 30 seconds. No app to install, no sign-up.
+- Want to help more? Become a "hunter". Pick a reported spot near you, empty it, scrub it, turn it over, and take a photo on the spot as proof. You get points and a place on the leaderboard.
+- Everything is public: a map of reports and a scorecard for each ward. Faces and number plates in photos are blurred.
+
+To be clear: no government or city corporation is involved. Right now it's just me, and I hope some volunteers. If a city corporation ever wants to use it, they can add their own people for each ward. The code is open source.
+
+I honestly don't know if this will help. But I did my part. The rest depends on us and on the government.
+
+Two things I'd ask:
+1. Check your roof, balcony and AC tray tonight. That alone matters more than any app.
+2. If you try the site, tell me what's confusing or broken. I'll fix it.
+
+If you have a fever, don't wait. Go to a hospital or call Shastho Batayon 16263.
+```
+
+Readers will ask how your wife is. You can add one line after the first sentence about how she's doing now.
+
+**Replies for common comments:**
+- *"An app won't stop dengue, the city corporation should do its job."* Agreed, this doesn't replace them. It just makes it easy for regular people to find and clear spots near home, and to show where the work is needed.
+- *"What data do you collect?"* No sign-up. You get an anonymous session, and photos have faces and plates blurred. Report locations are public on the map, so don't report from inside your own home if you don't want it pinned.
+- *"Is this a business / are you selling something?"* No. It's free, non-commercial and open source (AGPL): github.com/scornik/Dengue-Watch-BD
+- *"Does anyone actually clean the spots?"* That's the honest open question, which is why I'm asking for volunteers. A spot only counts as cleaned with a photo taken on site, and moderators reverse fake ones.
+- *"Bangla?"* Yes, the site is Bangla first, with English as an option.
+
+---
+
 ## Credits (paste where there's room; required by CC BY)
 
 ```
