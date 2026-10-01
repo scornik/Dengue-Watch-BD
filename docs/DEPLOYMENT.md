@@ -197,16 +197,16 @@ In Resend: add and verify your sending domain (add the DNS records it shows) bef
 
 #### 3.2.4 Ward boundaries
 
-The map needs real ward shapes. Two ways:
+The map needs real ward shapes. The committed `supabase/seed/wards.geojson` already holds all 129 wards (DGHS source, see `DECISIONS.md`); load it:
 
-- **OpenStreetMap** (from any normal internet connection):
+```bash
+DATABASE_URL="<session pooler connection string>" bash supabase/seed/load_wards.sh
+```
 
-  ```bash
-  uv run --with shapely --with requests python supabase/seed/fetch_wards.py   # writes supabase/seed/wards.geojson
-  DATABASE_URL="<session pooler connection string>" bash supabase/seed/load_wards.sh
-  ```
+To refresh it from source:
 
-  It prints which wards it could not find.
+- **DGHS** (recommended, complete): `uv run --with shapely --with requests python supabase/seed/fetch_wards_dghs.py`
+- **OpenStreetMap**: `uv run --with shapely --with requests python supabase/seed/fetch_wards.py`. It prints which wards it could not find; in October 2026 OSM had no usable Dhaka ward relations.
 - **Official files** from DNCC/DSCC: sign in as superadmin and upload the GeoJSON on `/staff/admin`. Each feature needs `city_corp` (`DNCC` or `DSCC`) and `ward_no`.
 
 #### 3.2.5 Edge Function secrets
@@ -247,9 +247,11 @@ You can also set them one by one in the dashboard: Edge Functions → Secrets. `
 #### 3.2.6 Deploy the functions
 
 ```bash
-supabase functions deploy submit-report --no-verify-jwt
-supabase functions deploy screen-report notify-status weekly-digest
+supabase functions deploy submit-report --no-verify-jwt --import-map supabase/functions/deno.json
+supabase functions deploy screen-report notify-status weekly-digest --import-map supabase/functions/deno.json
 ```
+
+`--import-map` is needed because the shared `deno.json` sits in `supabase/functions/`, not in each function folder; without it the bundler fails with `Relative import path "@supabase/supabase-js" not prefixed with / or ./ or ../`. Add `--use-api` if Docker is not running.
 
 `submit-report` is deployed with `--no-verify-jwt` so the offline queue can always reach it. The function checks the user's sign-in itself and refuses requests without one. The other three only accept the service-role key, which only the scheduled jobs have.
 
@@ -270,7 +272,7 @@ select vault.create_secret('https://<ref>.supabase.co', 'project_url');
 select vault.create_secret('<service-role key from Project Settings → API>', 'service_role_key');
 ```
 
-Check they run: `select jobname, status, start_time from cron.job_run_details order by start_time desc limit 10;`
+Check they run: `select j.jobname, d.status, d.start_time from cron.job_run_details d join cron.job j using (jobid) order by d.start_time desc limit 10;` and, for the function's answer, `select status_code, content, created from net._http_response order by created desc limit 5;` (a 403 means the Vault `service_role_key` does not match the key the functions receive)
 
 #### 3.2.8 Create the first superadmin
 
@@ -317,6 +319,8 @@ After the web app is live, sign in at `/staff/login`. Invite everyone else from 
 | `satellite-weekly` | `workers/satellite/Dockerfile` | see its `northflank.json` | `0 21 * * 0` (Mon 03:00 Dhaka) | about 4 GB RAM | `LOOKBACK_DAYS=60`, `MAX_CLOUD_COVER=40` |
 
 Set concurrency to "forbid" so two runs never overlap.
+
+Northflank's free project allowance does not cover the 4 GB plan `satellite-weekly` needs; it requires a paid plan. Through the API, the GitHub source goes in `vcsData` (`projectUrl`, `projectType`, `projectBranch`, `accountLogin`) together with the Dockerfile path; and job descriptions may not contain `>`.
 
 **`thumbs` is required.** Without it no photo ever becomes public. The face-detection model is baked into its image at build time. It fails closed: if a photo cannot be checked, it is never published.
 
@@ -433,8 +437,8 @@ Photo screening has tiers. The free tiers are on by default and are enough for l
 ```bash
 git pull
 supabase db push                                   # new migrations, if any
-supabase functions deploy submit-report --no-verify-jwt
-supabase functions deploy screen-report notify-status weekly-digest
+supabase functions deploy submit-report --no-verify-jwt --import-map supabase/functions/deno.json
+supabase functions deploy screen-report notify-status weekly-digest --import-map supabase/functions/deno.json
 ```
 
 Vercel and Northflank rebuild automatically from `main`. Read `DECISIONS.md` for anything that changes behaviour.
@@ -446,7 +450,7 @@ See `docs/operations.md` for backups, restore and the monitoring checklist. Shor
 - Northflank: failed `thumbs` runs mean photos are not going public.
 - `select thumb_status, count(*) from reports group by 1;` → many `failed` usually means the face model is missing from the image.
 - `/staff/moderate`: report and cleanup-proof queues.
-- `select jobname, status, start_time from cron.job_run_details order by start_time desc limit 20;`
+- `select j.jobname, d.status, d.start_time from cron.job_run_details d join cron.job j using (jobid) order by d.start_time desc limit 20;`
 
 ### Troubleshooting
 
