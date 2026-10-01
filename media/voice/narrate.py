@@ -77,7 +77,16 @@ class ClonedVoice:
     def __init__(self) -> None:
         from transformers import AutoModel
 
-        self.model = AutoModel.from_pretrained("ai4bharat/IndicF5", trust_remote_code=True)
+        try:
+            self.model = AutoModel.from_pretrained("ai4bharat/IndicF5", trust_remote_code=True)
+        except OSError as e:
+            if "gated" in str(e) or "403" in str(e) or "401" in str(e):
+                sys.exit(
+                    "No access to ai4bharat/IndicF5 yet. Sign in at https://huggingface.co/ai4bharat/IndicF5,\n"
+                    "click 'Agree and access repository' (granted instantly), and log in here with a 'Read' token\n"
+                    "from the same account (huggingface-cli login, or step 3 in the Colab notebook)."
+                )
+            raise
         if torch.cuda.is_available():
             self.model = self.model.to("cuda")
         self.sr = 24_000
