@@ -275,6 +275,107 @@ Readers will ask how your wife is. You can add one line after the first sentence
 
 ---
 
+## 5 · Neighbourhood groups (Facebook) · Mirpur, Uttara, Dhanmondi, Mohammadpur, Bashundhara
+
+**What to post:** upload `citizen-en.mp4` (the how-to video) directly to the group with the text below. Don't share it from YouTube. Facebook shows directly uploaded video to more people, and residents can see the real screens with Bangla subtitles. Keep `story-en.mp4` for your own profile.
+
+Before posting:
+- **Message the group admin first.** Many residents' groups only approve posts the admin knows about. Ask them to pin the post for the dengue season. A short message to send: *"আসসালামু আলাইকুম। আমি এলাকার এডিস মশার প্রজননস্থল খুঁজে পরিষ্কার করার জন্য একটা ফ্রি, অলাভজনক ওয়েবসাইট বানিয়েছি। গ্রুপে একটা পোস্ট দিতে চাই, অনুমতি দিলে কৃতজ্ঞ থাকব।"*
+- **Don't paste the same text into many groups on the same day.** Facebook flags identical posts in many groups as spam. Post in 1–2 groups a day, and use the area-specific opening line below.
+- **Link the ward page.** Every ward has a public scorecard showing reports, cleared spots and median time to clear. Residents care about their own ward, and the scorecard gives them a reason to come back.
+- **Come back 2–3 days later** and comment with the scorecard, for example "এ সপ্তাহে আমাদের ওয়ার্ডে ১২টা জায়গা পরিষ্কার হয়েছে". That puts the post back at the top of the group.
+
+### Shared body (Bangla)
+
+> [এলাকার লাইন: নিচে থেকে বেছে নিন]
+>
+> দুই সপ্তাহ আগে আমার স্ত্রী ডেঙ্গুতে আক্রান্ত হন। হাসপাতালে দেখেছি, একটা বেডও খালি নেই। তখনই ঠিক করেছি, মশা জন্মানোর জায়গাগুলো আমরা নিজেরাই খুঁজে বের করব।
+>
+> **ডেঙ্গুওয়াচ বিডি** একটা ফ্রি ওয়েবসাইট। অ্যাপ নামাতে হয় না, নিবন্ধনও লাগে না:
+> 📸 জমে থাকা পানির ছবি তুলুন → 📍 পিন বসান → পাঠান (৩০ সেকেন্ড)
+> 🧹 চাইলে "শিকারি" হোন: কাছের জায়গাটা বেছে নিন, পানি ফেলুন, ঘষে পরিষ্কার করুন, উল্টে রাখুন, তারপর ওখানে দাঁড়িয়েই ছবি তুলুন। পয়েন্ট পাবেন, লিডারবোর্ডে নাম উঠবে। 🏆
+>
+> আমাদের ওয়ার্ডের হিসাব সবার জন্য খোলা: কতগুলো জায়গা পাওয়া গেছে, কতগুলো পরিষ্কার হয়েছে।
+> 👉 [ওয়ার্ডের লিংক]
+>
+> সিটি করপোরেশন এখনো এতে যুক্ত নয়। এটা আমাদের নিজেদের কাজ, প্রতিবেশীদের কাজ।
+>
+> আজ রাতে একবার ছাদ, বারান্দা, এসির ট্রে আর ফুলের টব দেখে নিন। একটা জায়গাও যদি পান, রিপোর্ট করুন। 🙏
+>
+> 👉 https://dengue-watch-bd.vercel.app
+>
+> জ্বর হলে দেরি না করে হাসপাতালে যান বা ১৬২৬৩-এ ফোন করুন।
+> (ভিডিওর কণ্ঠ এআই দিয়ে তৈরি, বাংলা সাবটাইটেল আছে। ছবিতে মুখ ও গাড়ির নম্বর ঝাপসা করা হয়।)
+>
+> #ডেঙ্গু #এডিস #DengueWatchBD
+
+### Area lines and ward links
+
+Most areas cover several wards. The links below were checked against the ward map the app uses, for the main part of each area. For any other ward, use the full list at https://dengue-watch-bd.vercel.app/ward.
+
+| Area | Opening line (replace the first line) | Ward link(s) |
+| --- | --- | --- |
+| **Mirpur** | মিরপুরবাসী, আমাদের বাসার পানির ড্রাম, ছাদের ট্যাংক আর নির্মাণাধীন ভবনে পানি জমে থাকে। এডিস এখানেই জন্মায়। | Mirpur 1: [/ward/12](https://dengue-watch-bd.vercel.app/ward/12) · Mirpur 2 / 10: [/ward/14](https://dengue-watch-bd.vercel.app/ward/14) · Mirpur 11: [/ward/5](https://dengue-watch-bd.vercel.app/ward/5) · Mirpur 12 / Pallabi: [/ward/6](https://dengue-watch-bd.vercel.app/ward/6) |
+| **Uttara** | উত্তরাবাসী, সেক্টরগুলোর ছাদবাগান, নির্মাণাধীন প্লট আর বেসমেন্ট পার্কিংয়ে পানি জমে থাকে। একবার দেখে নিন। | Sectors 1–7: [/ward/1](https://dengue-watch-bd.vercel.app/ward/1) · Sector 13: [/ward/51](https://dengue-watch-bd.vercel.app/ward/51) · Sector 10: [/ward/53](https://dengue-watch-bd.vercel.app/ward/53) |
+| **Dhanmondi** | ধানমন্ডিবাসী, ছাদবাগানের টব, এসির ট্রে আর বেসমেন্টে জমা পানি এডিসের সবচেয়ে প্রিয় জায়গা। | DSCC Ward 15: [/ward/115](https://dengue-watch-bd.vercel.app/ward/115) |
+| **Mohammadpur** | মোহাম্মদপুরবাসী, ঘনবসতির এই এলাকায় পানির ড্রাম, বালতি আর ফেলে রাখা টায়ার ভুলে গেলে চলবে না। | Town Hall: [/ward/31](https://dengue-watch-bd.vercel.app/ward/31) · Asad Gate / Shyamoli: [/ward/32](https://dengue-watch-bd.vercel.app/ward/32) |
+| **Bashundhara R/A** | বসুন্ধরাবাসী, আমাদের এলাকার অনেক খালি ও নির্মাণাধীন প্লটে বৃষ্টির পানি জমে থাকে। চলুন একসাথে খুঁজে দেখি। | DNCC Ward 17: [/ward/17](https://dengue-watch-bd.vercel.app/ward/17) |
+
+---
+
+## 6 · University groups · DU, BUET, BRAC, NSU
+
+Students make the best hunters: they're young, have phones, and live in halls, messes and family homes all over Dhaka. The pitch is a **campus challenge**, not a request for help.
+
+**What to post:** `citizen-en.mp4`, uploaded directly. It shows how hunting works. Post in the university's main student group and in its volunteer, social-service and Rover Scout groups and its Rotaract and Leo clubs.
+
+The app has no university teams. Make the campus race with hunter names instead: ask students to start theirs with their university, like `BUETrafi`, `DUnadia`, `NSUtanvir` or `BRACmim` (letters and numbers only, 3–24 characters). The public leaderboard then shows which campus is winning. Post a leaderboard screenshot in the group every week.
+
+### Post (English with Bangla; works for BRAC and NSU, and fine for DU and BUET)
+
+> 🦟 **Campus challenge: which university destroys the most dengue breeding spots?**
+>
+> Two weeks ago my wife got dengue. Every hospital I saw was full. So I built **DengueWatch BD**, a free website where anyone can report standing water where Aedes mosquitoes breed, and volunteer "hunters" go and destroy it.
+>
+> How to hunt (takes 10 minutes):
+> 1️⃣ Open https://dengue-watch-bd.vercel.app/sites, tap **কাছেরগুলো আগে** (Nearest first)
+> 2️⃣ Claim a spot near your hall, mess or home
+> 3️⃣ Tip out the water, scrub the inside (eggs stick to the walls), turn it upside down
+> 4️⃣ Take the "after" photo **at the spot**: that's your proof
+> → XP, badges, and a place on the public leaderboard 🏆
+>
+> No spots near you? Be the first: report any standing water you see on campus, on your roof, or on the way to class.
+>
+> 🎓 **Start your hunter name with your university**, e.g. `[UNI]yourname`, so we can see which campus is on top. I'll post the leaderboard here every week.
+>
+> No app, no sign-up. Faces and number plates in photos are blurred. It's a volunteer project, not the government's or the university's.
+>
+> জ্বর হলে দেরি না করে হাসপাতালে যান বা ১৬২৬৩-এ ফোন করুন।
+> (AI voice in the video; Bangla subtitles.)
+>
+> #DengueWatchBD #ডেঙ্গু #[UNI]
+
+Replace `[UNI]` with DU, BUET, BRAC or NSU.
+
+### Campus lines (add after the first line)
+
+- **DU:** হলের ছাদ, ক্যান্টিনের পেছনে ফেলে রাখা পাত্র আর ক্যাম্পাসের নির্মাণকাজ: খুঁজলেই পাওয়া যাবে। কোন হল সবচেয়ে বেশি পরিষ্কার করে, দেখা যাক! 💪
+- **BUET:** Engineers, here's a problem with a measurable output: spots reported → spots destroyed → median hours to clear, public per ward. Let's see if BUET can top the leaderboard. 📈
+- **BRAC:** Merul Badda campus, Mohakhali and your home areas all count. Hunt between classes and post your before/after in the comments. 📸
+- **NSU:** Bashundhara has a lot of empty and under-construction plots with rainwater sitting in them, right next to campus. NSU hunters, this one's yours. ([Ward 17 scorecard](https://dengue-watch-bd.vercel.app/ward/17))
+
+### Message to club presidents (volunteer, Rotaract, Leo, Rover Scouts, social-service clubs)
+
+> Hi [name], I'm Ashik. My wife had dengue two weeks ago, and while she was in hospital I built DengueWatch BD (https://dengue-watch-bd.vercel.app), a free, open-source site where people report Aedes breeding spots and volunteers destroy them with photo proof.
+>
+> Would your club take it on as a one-afternoon drive? Members pick spots near campus, clean them, and the results show up on the public leaderboard and ward scorecards. Afterwards you have before/after photos and numbers for your club's page. I'm happy to join and walk everyone through it in 5 minutes.
+>
+> ashik.elahi.cse@gmail.com
+
+**Safety line for every hunt post or drive:** *"Go in pairs, in daylight. Don't enter private property without permission, and wear full sleeves; Aedes bites in the daytime."*
+
+---
+
 ## Credits (paste where there's room; required by CC BY)
 
 ```
