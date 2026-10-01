@@ -22,7 +22,7 @@ Bangla numerals/plurals. Mark each row ✅ / ✏️ (suggest text) in a PR or is
 
 None.
 
-## All strings (409)
+## All strings (426)
 
 | Key | English | বাংলা | Review |
 | --- | --- | --- | --- |
@@ -166,6 +166,7 @@ None.
 | `done.tipsTitle` | Keep your home free of breeding sites: | বাড়িকে প্রজননস্থলমুক্ত রাখুন: | |
 | `done.points` | +{points} XP | +{points} XP | |
 | `done.cleanNow` | Destroy it yourself for more XP | নিজেই ধ্বংস করে আরও XP নিন | |
+| `done.pointsLater` | +{points} XP when a moderator checks it | মডারেটর যাচাই করলে +{points} XP | |
 | `mine.title` | My reports | আমার রিপোর্ট | |
 | `mine.empty` | You have not sent any reports from this device yet. | এই ফোন থেকে এখনো কোনো রিপোর্ট পাঠানো হয়নি। | |
 | `mine.pending` | Waiting to upload | পাঠানোর অপেক্ষায় | |
@@ -271,6 +272,8 @@ None.
 | `mod.rejectCleanup` | Fake: reverse it | ভুয়া: বাতিল করুন | |
 | `mod.cleanupBy` | {handle} · {meters} m from the spot | {handle} · জায়গা থেকে {meters} মিটার | |
 | `mod.noCleanups` | No cleanups to check. | যাচাই করার মতো কিছু নেই। | |
+| `mod.approveCleanup` | Looks right | ঠিক আছে | |
+| `mod.hunterRecord` | {cleans} destroyed · {rejected} reversed | {cleans}টি ধ্বংস · {rejected}টি বাতিল | |
 | `insp.title` | Ward queue | ওয়ার্ডের তালিকা | |
 | `insp.empty` | No open sites in your ward. | আপনার ওয়ার্ডে কোনো খোলা স্থান নেই। | |
 | `insp.navigate` | Navigate | পথ দেখুন | |
@@ -380,13 +383,16 @@ None.
 | `hunt.errHandle` | Pick a hunter name first. | আগে একটি শিকারি নাম দিন। | |
 | `hunt.errClaimed` | Another hunter is already on this one. | আরেকজন শিকারি এটি নিয়েছেন। | |
 | `hunt.errTooMany` | You already hold 3 spots. Finish one first. | আপনার হাতে ইতিমধ্যে ৩টি জায়গা। আগে একটি শেষ করুন। | |
-| `hunt.errDaily` | That's 10 today. Come back tomorrow! | আজ ১০টি হয়ে গেছে। কাল আবার আসুন! | |
+| `hunt.errDaily` | You've reached today's limit. Confirmed XP raises it. | আজকের সীমা শেষ। নিশ্চিত XP বাড়লে সীমাও বাড়বে। | |
 | `hunt.errExpired` | Your 3 hours ran out. Claim it again. | আপনার ৩ ঘণ্টা শেষ। আবার নিন। | |
 | `hunt.errNotOpen` | This spot is already closed. | জায়গাটি ইতিমধ্যে বন্ধ। | |
 | `hunt.errPhoto` | The photo didn't upload. Try again. | ছবি আপলোড হয়নি। আবার চেষ্টা করুন। | |
 | `hunt.errGps` | Turn on location to prove you're at the spot. | জায়গায় আছেন প্রমাণ করতে লোকেশন চালু করুন। | |
 | `hunt.errGeneric` | Something went wrong. Try again. | সমস্যা হয়েছে। আবার চেষ্টা করুন। | |
 | `hunt.tooFarShort` | You're too far from the spot. Get within 50 m and retake. | আপনি জায়গা থেকে অনেক দূরে। ৫০ মিটারের মধ্যে গিয়ে আবার তুলুন। | |
+| `hunt.confirming` | Counts on the leaderboard within 48 h unless a moderator finds a problem. | কোনো মডারেটর সমস্যা না পেলে ৪৮ ঘণ্টার মধ্যে লিডারবোর্ডে যোগ হবে। | |
+| `hunt.nextSpot` | Next spot near here | কাছের পরের জায়গা | |
+| `hunt.retake` | Retake photo | আবার ছবি তুলুন | |
 | `me.title` | My hunter card | আমার শিকারি কার্ড | |
 | `me.handle` | Hunter name | শিকারি নাম | |
 | `me.handleHint` | 3–24 characters. Everyone sees it on the leaderboard. | ৩–২৪ অক্ষর। লিডারবোর্ডে সবাই দেখবে। | |
@@ -416,6 +422,11 @@ None.
 | `me.setupBody` | Pick a name to claim spots and join the leaderboard. | জায়গা নিতে ও লিডারবোর্ডে উঠতে একটি নাম দিন। | |
 | `me.staff` | Staff sign-in | কর্মী লগইন | |
 | `me.keepError` | That did not work. Check the email or code and try again. | হয়নি। ইমেইল বা কোড দেখে আবার চেষ্টা করুন। | |
+| `me.pending` | {xp} XP confirming | {xp} XP যাচাই চলছে | |
+| `me.streak` | {weeks, plural, one {# week} other {# weeks}} in a row | টানা {weeks, plural, one {# সপ্তাহ} other {# সপ্তাহ}} | |
+| `me.streakHint` | Destroy or report one spot every week to keep your streak. | ধারা ধরে রাখতে প্রতি সপ্তাহে অন্তত একটি জায়গা ধ্বংস বা রিপোর্ট করুন। | |
+| `me.limits` | Today: up to {cleans} spots, {claims} at a time | আজ: সর্বোচ্চ {cleans}টি জায়গা, একসাথে {claims}টি | |
+| `me.shareShort` | Share | শেয়ার | |
 | `level.l1` | Rookie Hunter | নবীন শিকারি | |
 | `level.l2` | Larva Hunter | লার্ভা শিকারি | |
 | `level.l3` | Puddle Buster | জমা পানির যম | |
@@ -428,6 +439,7 @@ None.
 | `badge.clean5` | 5 destroyed | ৫টি ধ্বংস | |
 | `badge.clean25` | 25 destroyed | ২৫টি ধ্বংস | |
 | `badge.top10` | Weekly top 10 | সাপ্তাহিক সেরা ১০ | |
+| `badge.streak4` | 4-week streak | টানা ৪ সপ্তাহ | |
 | `board.title` | Leaderboard | লিডারবোর্ড | |
 | `board.week` | This week | এই সপ্তাহ | |
 | `board.all` | All time | সব সময় | |
@@ -435,3 +447,8 @@ None.
 | `board.empty` | No hunters yet. Be the first! | এখনো কেউ নেই। প্রথম শিকারি হোন! | |
 | `board.join` | Become a hunter | শিকারি হোন | |
 | `board.xp` | {points} XP | {points} XP | |
+| `board.tabWards` | Wards | ওয়ার্ড | |
+| `board.wardsTitle` | Ward vs ward, this week | ওয়ার্ড বনাম ওয়ার্ড, এই সপ্তাহ | |
+| `board.wardCleans` | {count} destroyed | {count}টি ধ্বংস | |
+| `board.wardHunters` | {count, plural, one {# hunter} other {# hunters}} | {count, plural, one {# শিকারি} other {# শিকারি}} | |
+| `board.wardsEmpty` | No ward has destroyed a spot this week yet. Make yours the first! | এই সপ্তাহে কোনো ওয়ার্ড এখনো জায়গা ধ্বংস করেনি। আপনার ওয়ার্ডকে প্রথম করুন! | |

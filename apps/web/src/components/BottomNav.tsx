@@ -2,13 +2,14 @@
 
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
+import { Icon } from "./Icon";
 
 const items = [
-  { href: "/", key: "home", icon: "M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z" },
-  { href: "/map", key: "map", icon: "M9 4l-6 2v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14" },
-  { href: "/report", key: "report", icon: "M12 5v14M5 12h14" },
-  { href: "/sites", key: "hunt", icon: "M12 2v4M12 18v4M2 12h4M18 12h4M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" },
-  { href: "/me", key: "me", icon: "M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0" },
+  { href: "/", key: "home", icon: "home" },
+  { href: "/map", key: "map", icon: "map" },
+  { href: "/report", key: "report", icon: "plus" },
+  { href: "/sites", key: "hunt", icon: "target" },
+  { href: "/me", key: "me", icon: "user" },
 ] as const;
 
 export function BottomNav() {
@@ -41,19 +42,7 @@ export function BottomNav() {
                       : `flex h-8 w-12 items-center justify-center rounded-full ${active ? "bg-marigold-50" : ""}`
                   }
                 >
-                  <svg
-                    aria-hidden="true"
-                    width={isReport ? 28 : 22}
-                    height={isReport ? 28 : 22}
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={isReport ? 2.6 : 2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d={it.icon} />
-                  </svg>
+                  <Icon name={it.icon} size={isReport ? 28 : 22} stroke={isReport ? 2.6 : 2} />
                 </span>
                 {t(it.key)}
               </Link>

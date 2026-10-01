@@ -19,11 +19,16 @@ type Row = {
   ward_id: number | null;
   before_photo_path: string | null;
   distance_m: number | null;
+  hunter_cleans: number;
+  hunter_rejected: number;
   before?: string;
   after?: string;
 };
 
-/** Volunteer cleanups are live immediately; moderators spot-check the proof and reverse fakes. */
+/**
+ * Volunteer cleanups are live immediately; their points confirm after 48 h.
+ * Moderators approve (confirms now) or reverse fakes (spot reopens, points back).
+ */
 export function CleanupReview() {
   const t = useTranslations("mod");
   const th = useTranslations("hunt");
@@ -36,7 +41,7 @@ export function CleanupReview() {
     let alive = true;
     (async () => {
       const sb = getBrowserClient();
-      const { data } = await sb.from("cleanup_review_queue").select("*").order("done_at", { ascending: false }).limit(30);
+      const { data } = await sb.from("cleanup_review_queue").select("*").order("done_at").limit(30);
       const list = (data ?? []) as Row[];
       const sign = async (bucket: string, paths: string[]) => {
         if (!paths.length) return new Map<string, string>();
@@ -61,9 +66,10 @@ export function CleanupReview() {
     };
   }, []);
 
-  const reject = async (id: string) => {
+  const review = async (id: string, fn: "approve_cleanup" | "reject_cleanup") => {
     setBusy(id);
-    const { error } = await getBrowserClient().rpc("reject_cleanup", { p_cleanup: id, p_note: null });
+    const args = fn === "reject_cleanup" ? { p_cleanup: id, p_note: null } : { p_cleanup: id };
+    const { error } = await getBrowserClient().rpc(fn, args);
     setBusy(null);
     if (!error) setRows((r) => r?.filter((x) => x.id !== id) ?? r);
   };
@@ -98,10 +104,18 @@ export function CleanupReview() {
             {t("cleanupBy", { handle: r.handle ?? "—", meters: formatNumber(Number(r.distance_m ?? 0), locale) })} ·{" "}
             {th("points", { points: formatNumber(r.points, locale) })}
           </p>
+          <p className="text-xs text-muted">
+            {t("hunterRecord", { cleans: formatNumber(r.hunter_cleans, locale), rejected: formatNumber(r.hunter_rejected, locale) })}
+          </p>
           {r.note && <p className="text-sm text-muted">“{r.note}”</p>}
-          <button type="button" className="btn-danger w-full" disabled={busy === r.id} onClick={() => reject(r.id)}>
-            {t("rejectCleanup")}
-          </button>
+          <div className="grid grid-cols-2 gap-2">
+            <button type="button" className="btn-hunt" disabled={busy === r.id} onClick={() => review(r.id, "approve_cleanup")}>
+              {t("approveCleanup")}
+            </button>
+            <button type="button" className="btn-danger" disabled={busy === r.id} onClick={() => review(r.id, "reject_cleanup")}>
+              {t("rejectCleanup")}
+            </button>
+          </div>
         </li>
       ))}
     </ul>

@@ -44,6 +44,10 @@ describe("sendReport", () => {
     const out = await sendReport(meta, photo, null, vi.fn().mockRejectedValue(new TypeError("Failed to fetch")));
     expect(out).toEqual({ kind: "retry", error: "Failed to fetch" });
   });
+  it("keeps 401 (no session) for retry, not rejected", async () => {
+    const out = await sendReport(meta, photo, null, json(401, { error: "sign in required" }));
+    expect(out).toEqual({ kind: "retry", error: "sign in required" });
+  });
   it("retries on 5xx", async () => {
     const out = await sendReport(meta, photo, null, json(503, {}));
     expect(out.kind).toBe("retry");

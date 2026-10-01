@@ -1,4 +1,5 @@
-"""CLI: build public thumbnails for pending reports, then pending cleanup "after" photos.
+"""CLI: build public thumbnails for pending reports, then pending cleanup "after" photos,
+then unpublish the thumbnails of cleanups a moderator rejected.
 
     python -m thumbs.main [--batch-size N]
 
@@ -18,8 +19,15 @@ import httpx
 
 from .detectors import BrokenDetector, default_detectors
 from .pipeline import DEFAULT_MAX_SIDE, DEFAULT_QUALITY, ThumbSettings
-from .storage import THUMB_BUCKET, StorageConfig, download, upload_jpeg
-from .worker import SOURCES, Outcome, Source, handle_photo, run_batch
+from .storage import THUMB_BUCKET, StorageConfig, delete_object, download, upload_jpeg
+from .worker import (
+    SOURCES,
+    Outcome,
+    Source,
+    handle_photo,
+    purge_rejected_cleanups,
+    run_batch,
+)
 
 log = logging.getLogger("thumbs")
 
@@ -64,7 +72,8 @@ def main(argv: list[str] | None = None) -> int:
     import psycopg
 
     total: Counter[str] = Counter()
-    with httpx.Client(timeout=60) as client, psycopg.connect(dsn) as conn:
+    # autocommit: each transaction() block in run_batch must really commit (poison-pill guard).
+    with httpx.Client(timeout=60) as client, psycopg.connect(dsn, autocommit=True) as conn:
 
         def make_handler(src: Source):
             def handler(row_id: str, photo_path: str | None) -> Outcome:
@@ -75,6 +84,7 @@ def main(argv: list[str] | None = None) -> int:
                     upload=lambda key, data: upload_jpeg(client, storage, THUMB_BUCKET, key, data),
                     detectors=detectors,
                     settings=settings,
+                    allowed=src.path_re,
                 )
 
             return handler
@@ -87,6 +97,20 @@ def main(argv: list[str] | None = None) -> int:
                 total["missing_table"] += 1
                 continue
             log.info("%s: %s", src.name, dict(counts))
+            total.update(counts)
+        # After the cleanups pass, so a cleanup rejected while its thumbnail was being built
+        # is unpublished in the same run.
+        try:
+            counts = purge_rejected_cleanups(
+                conn,
+                lambda key: delete_object(client, storage, THUMB_BUCKET, key),
+                limit=args.batch_size,
+            )
+        except psycopg.errors.UndefinedTable as exc:
+            log.error("rejected cleanups: %s", exc)
+            total["missing_table"] += 1
+        else:
+            log.info("rejected cleanups: %s", dict(counts))
             total.update(counts)
     log.info("done: %s", dict(total))
     return 1 if broken or total["failed"] or total["retry"] or total["missing_table"] else 0

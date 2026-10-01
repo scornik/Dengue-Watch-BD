@@ -71,8 +71,8 @@ export function DoneScreen({
         <h1 className="mt-2 text-2xl font-bold">{heading}</h1>
         <p className="mt-1 text-muted">{body}</p>
         {state === "sent" && (
-          <p className="font-display animate-pop mt-3 inline-block rounded-full bg-marigold px-4 py-1 text-xl text-ink" data-testid="done-xp">
-            ★ {t("points", { points: RULES.report })}
+          <p className="font-display animate-pop mt-3 inline-block rounded-full bg-marigold px-4 py-1 text-lg text-ink" data-testid="done-xp">
+            ★ {t("pointsLater", { points: RULES.report })}
           </p>
         )}
       </section>

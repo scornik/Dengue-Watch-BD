@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { QueueBadge } from "@/components/QueueBadge";
 import { StripeBar } from "@/components/game/StripeBar";
 import { Avatar } from "@/components/game/Avatar";
+import { Icon } from "@/components/Icon";
 import { select, type LeaderRow, type Scorecard } from "@/lib/publicApi";
 import { formatNumber } from "@/lib/format";
 
@@ -58,17 +59,17 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
 
       <div className="grid gap-3">
         <Link href="/report" prefetch={false} className="btn-report min-h-16 text-lg" data-testid="cta-report">
-          📷 {t("reportCta")}
+          <Icon name="camera" size={24} /> {t("reportCta")}
         </Link>
         <Link href="/sites" prefetch={false} className="btn-hunt min-h-16 text-lg" data-testid="cta-hunt">
-          🪣 {t("huntCta")}
+          <Icon name="bucket" size={24} /> {t("huntCta")}
         </Link>
         <div className="grid grid-cols-2 gap-3">
           <Link href="/map" prefetch={false} className="btn-secondary" data-testid="cta-map">
-            🗺️ {t("mapBtn")}
+            <Icon name="map" /> {t("mapBtn")}
           </Link>
           <Link href="/sites" prefetch={false} className="btn-secondary" data-testid="cta-list">
-            📋 {t("listBtn")}
+            <Icon name="list" /> {t("listBtn")}
           </Link>
         </div>
         <QueueBadge />

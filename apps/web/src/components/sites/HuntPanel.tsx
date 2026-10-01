@@ -4,19 +4,23 @@ import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { claimSite, finishCleanup, myClaim, myStats, releaseClaim, type Claim, type MyStats } from "@/lib/game/client";
-import { levelFor, rewardFor } from "@/lib/game/rules";
+import { levelFor, rewardFor, RULES } from "@/lib/game/rules";
 import { preparePhoto } from "@/lib/image/compress";
 import { distanceM, getPosition, navigationLinks } from "@/lib/geo";
 import { formatNumber } from "@/lib/format";
 import { HandleForm } from "@/components/game/HandleForm";
 import { StripeBar } from "@/components/game/StripeBar";
-import type { PublicSite } from "@/lib/publicApi";
-
-// Public coordinates are snapped to ~50 m, so the phone can only estimate; the
-// server checks the exact 50 m rule against the true point.
-const CLIENT_SLACK_M = 90;
+import { Burst, CountUp, hapticSuccess } from "@/components/game/Celebrate";
+import { SitePhoto } from "@/components/sites/SiteCard";
+import { Icon } from "@/components/Icon";
+import { PUBLIC_SITE_COLUMNS, select, type PublicSite } from "@/lib/publicApi";
 
 type Phase = "loading" | "idle" | "needHandle" | "claimed" | "done";
+
+const EMPTY_STATS: MyStats = {
+  handle: null, avatar_path: null, points: 0, points_pending: 0, points_week: 0, cleans: 0, reports: 0,
+  rank: null, active_claims: 0, streak_weeks: 0, tier_claims: 1, tier_cleans: 3,
+};
 
 export function HuntPanel({ site }: { site: PublicSite }) {
   const t = useTranslations("hunt");
@@ -30,6 +34,8 @@ export function HuntPanel({ site }: { site: PublicSite }) {
   const [msg, setMsg] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [earned, setEarned] = useState<{ points: number; before: number } | null>(null);
+  const [fill, setFill] = useState<number | null>(null);
+  const [next, setNext] = useState<PublicSite | null>(null);
   const [now] = useState(() => Date.now());
   const open = site.status === "new" || site.status === "verified" || site.status === "assigned";
   const reward = rewardFor({ larvae: site.larvae_reported, firstReportedAt: site.first_reported_at }, now);
@@ -72,7 +78,7 @@ export function HuntPanel({ site }: { site: PublicSite }) {
       const here = { lat: pos.coords.latitude, lng: pos.coords.longitude };
       const dist = Math.round(distanceM(here, site));
       setAfter({ blob: prepared.blob, url: prepared.url, ...here, dist });
-      setMsg(dist > CLIENT_SLACK_M ? t("tooFar", { meters: formatNumber(dist, locale) }) : null);
+      setMsg(dist > RULES.radiusM ? t("tooFar", { meters: formatNumber(dist, locale) }) : null);
     } catch {
       setMsg(t("errGps"));
     } finally {
@@ -88,9 +94,24 @@ export function HuntPanel({ site }: { site: PublicSite }) {
     const r = await finishCleanup(claim, after.blob, after);
     setBusy(false);
     if (r.claim) {
+      const lvlBefore = levelFor(before);
+      const lvlAfter = levelFor(before + r.claim.points);
       setEarned({ points: r.claim.points, before });
+      // Bar starts where it was, then fills (or starts empty on a new level).
+      setFill(lvlAfter.n > lvlBefore.n ? 0 : lvlBefore.progress);
+      setTimeout(() => setFill(lvlAfter.progress), 350);
       setPhase("done");
-      window.scrollTo(0, 0);
+      hapticSuccess();
+      requestAnimationFrame(() =>
+        document.querySelector("[data-testid=hunt-done]")?.scrollIntoView({ block: "start", behavior: "smooth" }),
+      );
+      if (site.ward_id)
+        select<PublicSite[]>(
+          "public_sites",
+          `select=${PUBLIC_SITE_COLUMNS}&ward_id=eq.${site.ward_id}&status=in.(new,verified,assigned)&claimed=is.false&id=neq.${site.id}&order=first_reported_at&limit=1`,
+        )
+          .then((rows) => setNext(rows[0] ?? null))
+          .catch(() => {});
     } else setMsg(t(r.error ?? "errGeneric", { meters: formatNumber(after.dist, locale) }));
   };
 
@@ -98,23 +119,46 @@ export function HuntPanel({ site }: { site: PublicSite }) {
     const lvlBefore = levelFor(earned.before);
     const lvl = levelFor(earned.before + earned.points);
     return (
-      <section className="rounded-3xl bg-ink p-6 text-center text-white" data-testid="hunt-done">
-        <p className="text-5xl" aria-hidden="true">
-          🪣✨
+      <section className="relative overflow-hidden rounded-3xl bg-ink p-5 text-center text-white" data-testid="hunt-done">
+        <Burst />
+        {/* Before → after: the payoff is seeing the spot gone. */}
+        <div className="grid grid-cols-2 gap-2 text-left">
+          <figure className="overflow-hidden rounded-2xl bg-white/10">
+            <SitePhoto path={site.thumb_public_path} type={site.site_type} className="aspect-square w-full" />
+            <figcaption className="px-2 py-1 text-xs font-bold text-white/80">{t("before")}</figcaption>
+          </figure>
+          <figure className="animate-pop overflow-hidden rounded-2xl bg-white/10 ring-2 ring-neem">
+            {after ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={after.url} alt="" className="aspect-square w-full object-cover" />
+            ) : (
+              <SitePhoto path={null} type={site.site_type} className="aspect-square w-full" />
+            )}
+            <figcaption className="px-2 py-1 text-xs font-bold text-neem-50">{t("after")}</figcaption>
+          </figure>
+        </div>
+        <h2 className="mt-4 text-3xl">{t("done")}</h2>
+        <p className="font-display animate-pop mt-1 text-5xl text-marigold" aria-label={t("points", { points: formatNumber(earned.points, locale) })}>
+          +<CountUp to={earned.points} locale={locale} /> XP
         </p>
-        <h2 className="mt-2 text-3xl">{t("done")}</h2>
-        <p className="font-display animate-pop mt-2 text-5xl text-marigold">{t("points", { points: formatNumber(earned.points, locale) })}</p>
-        {lvl.n > lvlBefore.n && <p className="mt-2 font-bold">🎉 {t("levelUp", { level: tl(lvl.key) })}</p>}
+        <p className="mt-1 text-xs text-white/70">{t("confirming")}</p>
+        {lvl.n > lvlBefore.n && <p className="animate-pop mt-2 font-bold text-marigold">🎉 {t("levelUp", { level: tl(lvl.key) })}</p>}
         <div className="mt-4 text-left">
           <p className="mb-1 text-sm text-white/80">
             {tl("label", { n: formatNumber(lvl.n, locale) })} · {tl(lvl.key)}
           </p>
-          <StripeBar value={lvl.progress} label={tl(lvl.key)} tone="dark" />
+          <StripeBar value={fill ?? lvl.progress} label={tl(lvl.key)} tone="dark" />
         </div>
         <div className="mt-5 grid gap-2">
-          <Link href="/sites" className="btn-hunt">
-            {t("backToList")}
-          </Link>
+          {next ? (
+            <Link href={`/sites/${next.id}`} className="btn-hunt" data-testid="next-spot">
+              <Icon name="target" /> {t("nextSpot")} · +{formatNumber(rewardFor({ larvae: next.larvae_reported, firstReportedAt: next.first_reported_at }).total, locale)} XP
+            </Link>
+          ) : (
+            <Link href="/sites" className="btn-hunt">
+              <Icon name="target" /> {t("backToList")}
+            </Link>
+          )}
           <Link href="/me" className="btn-secondary">
             ★ {formatNumber(earned.before + earned.points, locale)} XP
           </Link>
@@ -150,7 +194,7 @@ export function HuntPanel({ site }: { site: PublicSite }) {
           <p className="rounded-2xl bg-white p-4 text-center font-bold ring-1 ring-sky-200">🏃 {t("errClaimed")}</p>
         ) : (
           <button className="btn-hunt min-h-16 w-full text-lg" onClick={doClaim} disabled={busy} data-testid="claim">
-            🪣 {t("claim")}
+            <Icon name="bucket" size={24} /> {t("claim")}
           </button>
         ))}
 
@@ -159,7 +203,9 @@ export function HuntPanel({ site }: { site: PublicSite }) {
           <HandleForm
             initial={stats?.handle}
             onSaved={(handle) => {
-              setStats((s) => ({ ...(s ?? { avatar_path: null, points: 0, points_week: 0, cleans: 0, reports: 0, rank: null, active_claims: 0 }), handle }));
+              // Reload: the server is the source of truth for points and limits.
+              setStats((s) => ({ ...(s ?? EMPTY_STATS), handle }));
+              void myStats().then((fresh) => fresh && setStats(fresh));
               setPhase("idle");
             }}
           />
@@ -177,7 +223,7 @@ export function HuntPanel({ site }: { site: PublicSite }) {
             })}
           </p>
           <a href={nav.geo} className="btn-secondary w-full">
-            🧭 {t("navigate")}
+            <Icon name="navigate" /> {t("navigate")}
           </a>
           <div className="rounded-2xl bg-white p-4 ring-1 ring-sky-200">
             <h2 className="text-xl">{t("howTitle")}</h2>
@@ -208,24 +254,28 @@ export function HuntPanel({ site }: { site: PublicSite }) {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={after.url} alt="" className="max-h-64 w-full rounded-2xl object-cover" />
               <figcaption
-                className={`absolute bottom-2 left-2 rounded-full px-3 py-1 text-sm font-bold ${after.dist > CLIENT_SLACK_M ? "bg-blood text-white" : "bg-neem text-white"}`}
+                className={`absolute bottom-2 left-2 rounded-full px-3 py-1 text-sm font-bold ${after.dist > RULES.radiusM ? "bg-blood text-white" : "bg-neem text-white"}`}
                 data-testid="distance"
               >
                 {t("distanceOk", { meters: formatNumber(after.dist, locale) })}
               </figcaption>
             </figure>
           )}
-          <button className="btn-primary w-full" disabled={busy} onClick={() => camera.current?.click()}>
-            📷 {t("takeAfter")}
-          </button>
-          <button
-            className="btn-hunt min-h-16 w-full text-lg"
-            disabled={busy || !after || after.dist > CLIENT_SLACK_M}
-            onClick={confirm}
-            data-testid="confirm-clean"
-          >
-            ✓ {t("confirm")}
-          </button>
+          {/* One primary action at a time: photo first, then confirm. */}
+          {after && after.dist <= RULES.radiusM ? (
+            <>
+              <button className="btn-hunt min-h-16 w-full text-lg" disabled={busy} onClick={confirm} data-testid="confirm-clean">
+                <Icon name="check" size={24} stroke={2.6} /> {t("confirm")}
+              </button>
+              <button className="btn-secondary w-full" disabled={busy} onClick={() => camera.current?.click()}>
+                <Icon name="camera" /> {t("retake")}
+              </button>
+            </>
+          ) : (
+            <button className="btn-primary min-h-14 w-full" disabled={busy} onClick={() => camera.current?.click()} data-testid="take-after">
+              <Icon name="camera" /> {after ? t("retake") : t("takeAfter")}
+            </button>
+          )}
           <button
             className="btn-ghost w-full text-sm"
             onClick={async () => {

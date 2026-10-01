@@ -10,7 +10,7 @@ import uuid
 
 import pytest
 
-from thumbs.worker import CLEANUPS, Outcome, run_batch
+from thumbs.worker import CLEANUPS, Outcome, purge_rejected_cleanups, run_batch
 
 pytestmark = pytest.mark.skipif(not os.environ.get("DATABASE_URL"), reason="DATABASE_URL not set")
 
@@ -164,3 +164,38 @@ def test_cleanups_skip_locked_between_parallel_runs(schema):
 
         run_batch(a, 1, handler_a, source=CLEANUPS)
     assert seen_b == [cids[6]]
+
+
+def test_crash_mid_photo_leaves_row_failed_and_next_run_moves_on(schema):
+    name, ids, _ = schema
+
+    def crash(rid, path):
+        raise MemoryError("OOM while decoding")
+
+    with _connect(name) as conn, pytest.raises(MemoryError):
+        run_batch(conn, 10, crash)
+    with _connect(name) as conn:  # a fresh process: the poison row is not claimed again
+        seen = []
+        run_batch(conn, 1, lambda r, p: seen.append(r) or Outcome("ok", key=f"{r}.jpg"))
+        status = dict(conn.execute("SELECT id::text, thumb_status::text FROM reports").fetchall())
+    assert status[ids[0]] == "failed"
+    assert seen == [ids[1]] and status[ids[1]] == "ok"
+
+
+def test_purge_rejected_cleanups(schema):
+    name, _, cids = schema
+    with _connect(name) as conn:
+        conn.execute(
+            "UPDATE cleanups SET thumb_public_path = 'c/' || id || '.jpg', thumb_status = 'ok' "
+            "WHERE id = ANY(%s::uuid[])",
+            ([cids[4], cids[5]],),
+        )
+        deleted = []
+        assert purge_rejected_cleanups(conn, deleted.append) == {"unpublished": 1}
+        assert purge_rejected_cleanups(conn, deleted.append) == {}  # idempotent
+        rows = dict(
+            (r[0], r[1]) for r in conn.execute("SELECT id::text, thumb_public_path FROM cleanups")
+        )
+    assert deleted == [f"c/{cids[5]}.jpg"]  # only the rejected one
+    assert rows[cids[5]] is None
+    assert rows[cids[4]] == f"c/{cids[4]}.jpg"  # done + ok stays published

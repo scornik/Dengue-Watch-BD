@@ -38,6 +38,8 @@ export async function sendReport(
     /* non-JSON error page */
   }
   if (res.ok) return { kind: "sent", siteId: body.site_id ?? null };
+  // No/expired session: keep queued; the next flush re-acquires one via ensureCitizenSession.
+  if (res.status === 401) return { kind: "retry", error: body.error ?? "auth_required" };
   if (res.status === 429) return { kind: "rate_limited", error: body.error ?? "rate_limited" };
   if (res.status === 403 && body.code === "otp_required") return { kind: "otp_required" };
   if (res.status === 400 || res.status === 413 || res.status === 415) {

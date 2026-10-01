@@ -23,6 +23,9 @@ python -m cases.main [--date YYYY-MM-DD] [--dry-run] [--from-file PATH] [--sourc
   - `list:`: the URL is a listing or topic page. The worker follows the newest links whose text
     looks like a daily dengue update, in English or Bangla, up to `CASES_MAX_LINKS`.
 
+  Every fetch, followed link (PDFs included) and redirect hop must stay on the source's host or
+  on `CASES_ALLOWED_HOSTS`; responses over 20 MB are dropped.
+
   New kinds are added in `FETCHERS`. **The default URLs are best-effort and change often.**
   Check them before deploying and override them with `CASES_SOURCE_URLS`.
 - `cases/parse.py`:
@@ -66,6 +69,7 @@ That is why the job fails loudly and the manual form exists.
 | --- | --- | --- | --- |
 | `DATABASE_URL` | yes, unless `--dry-run` | none | Postgres connection string (Supabase) |
 | `CASES_SOURCE_URLS` | no | DGHS HEOC dengue page, bdnews24 topic, Daily Star tag (all `list:`) | Comma-separated `[kind:]url` sources |
+| `CASES_ALLOWED_HOSTS` | no | `dghs.gov.bd` | Comma-separated hosts any source may link or redirect to, besides its own; everything else (PDFs included) is never fetched |
 | `CASES_MAX_LINKS` | no | `3` | Article links followed per `list:` source |
 | `CASES_HTTP_TIMEOUT` | no | `30` | HTTP timeout in seconds |
 | `LOG_LEVEL` | no | `INFO` | Python log level |

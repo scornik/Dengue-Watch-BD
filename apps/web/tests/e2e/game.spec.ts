@@ -49,10 +49,12 @@ test("a volunteer names themselves, claims a spot, destroys it and climbs the bo
   expect(site?.status).toBe("cleared");
   expect(site?.after_photo_path).toMatch(/^cleanup-photos\//);
 
-  // The header chip and the (uncached) leaderboard row reflect the new XP.
+  // The hunter sees their XP at once; the public board waits until it is confirmed.
   await expect(page.getByTestId("xp-chip")).toContainText("20 XP");
-  const { data: row } = await admin().from("public_leaderboard").select("points, cleans").eq("handle", handle).single();
-  expect(row).toEqual({ points: 20, cleans: 1 });
+  const { data: ledger } = await admin().from("points_ledger").select("points, confirmed_at").eq("site_id", siteId).eq("kind", "clean").single();
+  expect(ledger).toEqual({ points: 20, confirmed_at: null });
+  const { data: row } = await admin().from("public_leaderboard").select("points").eq("handle", handle).single();
+  expect(row).toEqual({ points: 0 });
 
   await page.goto("/en/me");
   await expect(page.getByTestId("hunter-handle")).toHaveText(handle);
@@ -71,11 +73,16 @@ test("a spot cannot be destroyed from far away", async ({ page, context }) => {
   await page.getByTestId("claim").click();
   await page.getByTestId("after-photo").setInputFiles(PHOTO);
   await expect(page.getByText(/Get within 50 m/)).toBeVisible();
-  await expect(page.getByTestId("confirm-clean")).toBeDisabled();
+  // Too far: only "retake" is offered, never "confirm".
+  await expect(page.getByTestId("take-after")).toBeVisible();
+  await expect(page.getByTestId("confirm-clean")).toHaveCount(0);
 });
 
-test("leaderboard shows hunters", async ({ page }) => {
+test("leaderboard shows hunters and the ward board", async ({ page }) => {
   await page.goto("/en/leaderboard?all");
   await expect(page.getByRole("heading", { name: /Leaderboard/ })).toBeVisible();
   await expect(page.getByText("MoshaShikari").first()).toBeVisible();
+  await page.getByRole("link", { name: "Wards" }).click();
+  await expect(page).toHaveURL(/\?wards/);
+  await expect(page.getByRole("heading", { name: /Ward vs ward/ })).toBeVisible();
 });
