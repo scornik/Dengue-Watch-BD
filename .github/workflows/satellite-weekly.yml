@@ -1,0 +1,67 @@
+name: Satellite weekly ward risk
+
+# Weekly ward environmental risk -> ward_risk (workers/satellite).
+# Runs here instead of Northflank: free for this public repo, and the standard
+# runner (16 GB RAM) covers the ~4 GB the 20 m Dhaka composite needs.
+# Needs one repository secret: DATABASE_URL (Supabase Session pooler, port 5432).
+
+on:
+  schedule:
+    - cron: "0 21 * * 0" # Monday 03:00 Asia/Dhaka
+  workflow_dispatch:
+    inputs:
+      week:
+        description: "Week to compute (any date in it, or YYYY-Www). Empty = current week."
+        required: false
+        default: ""
+      dry_run:
+        description: "Print rows as JSON; no database writes"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: satellite-weekly
+  cancel-in-progress: false
+
+jobs:
+  satellite:
+    name: Compute ward risk
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Install
+        working-directory: workers/satellite
+        run: uv sync --frozen --python 3.12
+      - name: Run
+        working-directory: workers/satellite
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          LOOKBACK_DAYS: "60"
+          MAX_CLOUD_COVER: "40"
+          LOG_LEVEL: INFO
+          INPUT_WEEK: ${{ inputs.week }}
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "::error::Repository secret DATABASE_URL is not set (Settings > Secrets and variables > Actions)."
+            exit 4
+          fi
+          args=()
+          [ -n "$INPUT_WEEK" ] && args+=(--week "$INPUT_WEEK")
+          [ "$INPUT_DRY_RUN" = "true" ] && args+=(--dry-run)
+          # Exit codes 2 (no wards), 3 (DB write) and 4 (config) will not fix themselves;
+          # anything else is a STAC or network failure, retried twice like the old Northflank job.
+          for attempt in 1 2 3; do
+            code=0
+            uv run --frozen --python 3.12 python -m satellite.main "${args[@]}" || code=$?
+            if [ "$code" -eq 0 ]; then exit 0; fi
+            case "$code" in 2|3|4) exit "$code" ;; esac
+            echo "::warning::attempt $attempt failed with exit code $code"
+            [ "$attempt" -lt 3 ] && sleep 120
+          done
+          exit "$code"

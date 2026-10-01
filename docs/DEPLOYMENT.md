@@ -18,7 +18,7 @@ This guide takes you from a fresh laptop to a running local copy, and then to a 
 | **Database, auth, file storage** | Postgres + PostGIS, row-level security, anonymous and email sign-in, photo buckets | Supabase | Free tier for trying; Pro recommended for launch |
 | **Edge Functions** (`supabase/functions`) | `submit-report` (receives reports), `screen-report` (optional AI screening), `notify-status` (web push), `weekly-digest` (email) | Supabase | Included |
 | **Scheduled jobs inside the database** | pg_cron calls the Edge Functions on a schedule | Supabase | Included |
-| **Workers** (`workers/*`) | `thumbs` (blurs faces and number plates before photos go public), `cases` (official DGHS case numbers), `satellite` (weekly ward risk), `detector` (optional self-hosted photo classifier) | Northflank (any Docker cron host works) | Small monthly cost |
+| **Workers** (`workers/*`) | `thumbs` (blurs faces and number plates before photos go public), `cases` (official DGHS case numbers), `satellite` (weekly ward risk), `detector` (optional self-hosted photo classifier) | Northflank (any Docker cron host works); `satellite` on GitHub Actions | Small monthly cost (`satellite` free) |
 | **Email** | Staff sign-in codes, hunter email codes, weekly digest | Resend via SMTP and API | Free tier |
 | **Map tiles** | Base map | OpenFreeMap | Free, no key |
 
@@ -316,11 +316,12 @@ After the web app is live, sign in at `/staff/login`. Invite everyone else from 
 | --- | --- | --- | --- | --- | --- |
 | `thumbs-5min` | `workers/thumbs/Dockerfile` | `python -m thumbs.main` | `*/5 * * * *` | 512 MB | `BATCH_SIZE=50` |
 | `cases-daily` | `workers/cases/Dockerfile` | `python -m cases.main` | `0 4 * * *` (10:00 Dhaka) | small | `CASES_ALLOWED_HOSTS=dghs.gov.bd` |
-| `satellite-weekly` | `workers/satellite/Dockerfile` | see its `northflank.json` | `0 21 * * 0` (Mon 03:00 Dhaka) | about 4 GB RAM | `LOOKBACK_DAYS=60`, `MAX_CLOUD_COVER=40` |
 
 Set concurrency to "forbid" so two runs never overlap.
 
-Northflank's free project allowance does not cover the 4 GB plan `satellite-weekly` needs; it requires a paid plan. Through the API, the GitHub source goes in `vcsData` (`projectUrl`, `projectType`, `projectBranch`, `accountLogin`) together with the Dockerfile path; and job descriptions may not contain `>`.
+**`satellite` runs on GitHub Actions, not Northflank** (`.github/workflows/satellite-weekly.yml`). It needs about 4 GB RAM, more than Northflank's free allowance, while GitHub's standard runner has 16 GB and is free for a public repository. Setup: repository Settings → Secrets and variables → Actions → New repository secret `DATABASE_URL` = the Session pooler string (port 5432). It runs every Monday 03:00 Dhaka (`0 21 * * 0` UTC); run it by hand from Actions → "Satellite weekly ward risk" → Run workflow (optional week and dry run). Network failures are retried twice. GitHub may start scheduled runs a few minutes late, and disables schedules in a public repository after 60 days without commits: re-enable it on the Actions page. To run it on Northflank instead (paid plan), `workers/satellite/northflank.json` still has the settings.
+
+Through the API, the GitHub source goes in `vcsData` (`projectUrl`, `projectType`, `projectBranch`, `accountLogin`) together with the Dockerfile path; and job descriptions may not contain `>`.
 
 **`thumbs` is required.** Without it no photo ever becomes public. The face-detection model is baked into its image at build time. It fails closed: if a photo cannot be checked, it is never published.
 
