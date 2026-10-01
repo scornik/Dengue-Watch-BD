@@ -1,0 +1,31 @@
+{
+  "id": "story",
+  "title": "কেন আমি ডেঙ্গুওয়াচ বিডি বানালাম",
+  "note": "Founder story, vertical 9:16, talking head. THIS SCRIPT IS A TEMPLATE. Replace every narration with your own true words before generating audio. The press and the public will check the story; an invented or embellished one will sink the launch. Keep it under 60 seconds (about 120 Bangla words). The prompts below are what journalists asked GhushSite's founders.",
+  "scenes": [
+    {
+      "id": "moment",
+      "mood": "serious",
+      "prompt": "What happened? One concrete moment: who got sick or what you saw, when, where. Name the place, not private details.",
+      "narration": ""
+    },
+    {
+      "id": "frustration",
+      "mood": "serious",
+      "prompt": "What made you angry or stuck? For example: you saw standing water every day and had nowhere to report it.",
+      "narration": ""
+    },
+    {
+      "id": "build",
+      "mood": "warm",
+      "prompt": "What you built and in one line how it works: photo, map, ward team clears it, everyone sees.",
+      "narration": ""
+    },
+    {
+      "id": "ask",
+      "mood": "hopeful",
+      "prompt": "The ask: report one spot today, or clean one. Say the site name.",
+      "narration": ""
+    }
+  ]
+}

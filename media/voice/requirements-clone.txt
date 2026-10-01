@@ -1,0 +1,4 @@
+# Voice cloning (GPU recommended). Accept the model terms at https://huggingface.co/ai4bharat/IndicF5,
+# then `huggingface-cli login`.
+-r requirements.txt
+git+https://github.com/ai4bharat/IndicF5.git

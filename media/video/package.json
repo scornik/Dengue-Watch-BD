@@ -1,0 +1,39 @@
+{
+  "name": "denguewatch-launch-videos",
+  "version": "1.0.0",
+  "description": "Launch videos for DengueWatch BD (Remotion). See media/README.md.",
+  "license": "AGPL-3.0-only",
+  "private": true,
+  "dependencies": {
+    "@remotion/captions": "4.0.532",
+    "@remotion/cli": "4.0.532",
+    "@remotion/effects": "4.0.532",
+    "@remotion/fonts": "4.0.532",
+    "@remotion/layout-utils": "4.0.532",
+    "@remotion/media": "4.0.532",
+    "@remotion/noise": "4.0.532",
+    "@remotion/paths": "4.0.532",
+    "@remotion/shapes": "4.0.532",
+    "@remotion/transitions": "4.0.532",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.532"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.532",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "eslint": "9.39.5",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "lint": "eslint src && tsc",
+    "render:citizen": "remotion render Citizen out/citizen.mp4 --codec=h264 --crf=18",
+    "render:govt": "remotion render Govt out/govt.mp4 --codec=h264 --crf=18",
+    "render:story": "remotion render Story out/story.mp4 --codec=h264 --crf=18",
+    "build": "remotion bundle",
+    "upgrade": "remotion upgrade"
+  }
+}

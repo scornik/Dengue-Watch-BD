@@ -1,0 +1,42 @@
+{
+  "id": "citizen",
+  "title": "ডেঙ্গুওয়াচ বিডি: নাগরিকদের জন্য",
+  "note": "Vertical 9:16 for Facebook Reels, WhatsApp status, TikTok and YouTube Shorts. Narration is written for the ear: numbers are spelled out so TTS and the aligner read them correctly. On-screen text lives in media/video/src/citizen/.",
+  "scenes": [
+    {
+      "id": "hook",
+      "mood": "serious",
+      "narration": "আপনার বাড়ির ছাদে, বারান্দায়, এসির ট্রেতে হয়তো এই মুহূর্তে জন্ম নিচ্ছে ডেঙ্গুর মশা।"
+    },
+    {
+      "id": "where",
+      "mood": "serious",
+      "narration": "এডিস মশা ডিম পাড়ে জমে থাকা পরিষ্কার পানিতে। টায়ার, বালতি, ড্রাম, ফুলের টব, নির্মাণাধীন ভবন।"
+    },
+    {
+      "id": "report",
+      "mood": "warm",
+      "narration": "ডেঙ্গুওয়াচ বিডিতে একটি ছবি তুলুন, মানচিত্রে জায়গাটি ঠিক করুন। ত্রিশ সেকেন্ডের কম সময় লাগে, নিবন্ধন লাগে না।"
+    },
+    {
+      "id": "privacy",
+      "mood": "warm",
+      "narration": "মানুষের মুখ আর গাড়ির নম্বরপ্লেট ঝাপসা করা হয়। মানচিত্রে দেখানো হয় শুধু আনুমানিক অবস্থান।"
+    },
+    {
+      "id": "ward",
+      "mood": "warm",
+      "narration": "রিপোর্ট সরাসরি যায় আপনার ওয়ার্ডের দলের তালিকায়। পরিষ্কার করার পর তারা ঘটনাস্থলের ছবি দিয়ে প্রমাণ রাখেন, যা আপনিও দেখতে পাবেন।"
+    },
+    {
+      "id": "hunter",
+      "mood": "energetic",
+      "narration": "চাইলে আপনি নিজেও শিকারি হতে পারেন। কাছের একটি জায়গা বেছে নিন। পানি ফেলুন, ভেতরটা ঘষুন, ঢেকে দিন। পরের ছবি তুলে পয়েন্ট জিতুন, লিডারবোর্ডে উঠুন।"
+    },
+    {
+      "id": "cta",
+      "mood": "hopeful",
+      "narration": "যে বালতির পানি আপনি ফেলছেন, সেখানে শত শত মশা আর জন্মাবে না। আজই শুরু করুন।"
+    }
+  ]
+}

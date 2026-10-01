@@ -1,0 +1,1144 @@
+{
+ "video": "govt",
+ "engine": "draft",
+ "scenes": [
+  {
+   "id": "hook",
+   "mood": "serious",
+   "audio": "voiceover/govt/hook.mp3",
+   "durationMs": 10536,
+   "words": [
+    {
+     "text": "মশা",
+     "startMs": 240,
+     "endMs": 621,
+     "confidence": 0.797
+    },
+    {
+     "text": "নিয়ন্ত্রণের",
+     "startMs": 621,
+     "endMs": 1242,
+     "confidence": 0.69
+    },
+    {
+     "text": "সবচেয়ে",
+     "startMs": 1242,
+     "endMs": 2123,
+     "confidence": 0.539
+    },
+    {
+     "text": "কঠিন",
+     "startMs": 2123,
+     "endMs": 2564,
+     "confidence": 0.756
+    },
+    {
+     "text": "কাজ",
+     "startMs": 2564,
+     "endMs": 2904,
+     "confidence": 0.963
+    },
+    {
+     "text": "হলো",
+     "startMs": 2904,
+     "endMs": 3706,
+     "confidence": 0.752
+    },
+    {
+     "text": "প্রজননস্থল",
+     "startMs": 3706,
+     "endMs": 4667,
+     "confidence": 0.921
+    },
+    {
+     "text": "খুঁজে",
+     "startMs": 4667,
+     "endMs": 4988,
+     "confidence": 0.863
+    },
+    {
+     "text": "বের",
+     "startMs": 4988,
+     "endMs": 5208,
+     "confidence": 0.969
+    },
+    {
+     "text": "করা।",
+     "startMs": 5208,
+     "endMs": 6049,
+     "confidence": 0.962
+    },
+    {
+     "text": "একটি",
+     "startMs": 6049,
+     "endMs": 6370,
+     "confidence": 0.97
+    },
+    {
+     "text": "ওয়ার্ডেই",
+     "startMs": 6370,
+     "endMs": 6790,
+     "confidence": 0.532
+    },
+    {
+     "text": "হাজারো",
+     "startMs": 6790,
+     "endMs": 7111,
+     "confidence": 0.919
+    },
+    {
+     "text": "ছাদ,",
+     "startMs": 7111,
+     "endMs": 7371,
+     "confidence": 0.769
+    },
+    {
+     "text": "ড্রেন",
+     "startMs": 7371,
+     "endMs": 8273,
+     "confidence": 0.652
+    },
+    {
+     "text": "আর",
+     "startMs": 8273,
+     "endMs": 8994,
+     "confidence": 0.993
+    },
+    {
+     "text": "নির্মাণাধীন",
+     "startMs": 8994,
+     "endMs": 9655,
+     "confidence": 0.815
+    },
+    {
+     "text": "ভবন।",
+     "startMs": 9655,
+     "endMs": 10436,
+     "confidence": 0.579
+    }
+   ]
+  },
+  {
+   "id": "citizens",
+   "mood": "warm",
+   "audio": "voiceover/govt/citizens.mp3",
+   "durationMs": 10303,
+   "words": [
+    {
+     "text": "ডেঙ্গুওয়াচ",
+     "startMs": 180,
+     "endMs": 722,
+     "confidence": 0.386
+    },
+    {
+     "text": "বিডি",
+     "startMs": 722,
+     "endMs": 1684,
+     "confidence": 0.755
+    },
+    {
+     "text": "এই",
+     "startMs": 1684,
+     "endMs": 1844,
+     "confidence": 0.998
+    },
+    {
+     "text": "খোঁজার",
+     "startMs": 1844,
+     "endMs": 2265,
+     "confidence": 0.913
+    },
+    {
+     "text": "কাজে",
+     "startMs": 2265,
+     "endMs": 2506,
+     "confidence": 0.808
+    },
+    {
+     "text": "নাগরিকদের",
+     "startMs": 2506,
+     "endMs": 3067,
+     "confidence": 0.969
+    },
+    {
+     "text": "যুক্ত",
+     "startMs": 3067,
+     "endMs": 3468,
+     "confidence": 1.0
+    },
+    {
+     "text": "করে।",
+     "startMs": 3468,
+     "endMs": 4149,
+     "confidence": 0.999
+    },
+    {
+     "text": "প্রতিটি",
+     "startMs": 4149,
+     "endMs": 4590,
+     "confidence": 0.84
+    },
+    {
+     "text": "রিপোর্টে",
+     "startMs": 4590,
+     "endMs": 5071,
+     "confidence": 0.621
+    },
+    {
+     "text": "থাকে",
+     "startMs": 5071,
+     "endMs": 5873,
+     "confidence": 0.975
+    },
+    {
+     "text": "ছবি,",
+     "startMs": 5873,
+     "endMs": 6154,
+     "confidence": 0.439
+    },
+    {
+     "text": "জিপিএস",
+     "startMs": 6154,
+     "endMs": 6675,
+     "confidence": 0.841
+    },
+    {
+     "text": "অবস্থান,",
+     "startMs": 6675,
+     "endMs": 7136,
+     "confidence": 0.986
+    },
+    {
+     "text": "স্থানের",
+     "startMs": 7136,
+     "endMs": 7477,
+     "confidence": 0.965
+    },
+    {
+     "text": "ধরন,",
+     "startMs": 7477,
+     "endMs": 8098,
+     "confidence": 0.999
+    },
+    {
+     "text": "আর",
+     "startMs": 8098,
+     "endMs": 8218,
+     "confidence": 0.801
+    },
+    {
+     "text": "লার্ভা",
+     "startMs": 8218,
+     "endMs": 8539,
+     "confidence": 0.942
+    },
+    {
+     "text": "দেখা",
+     "startMs": 8539,
+     "endMs": 8819,
+     "confidence": 0.962
+    },
+    {
+     "text": "গেছে",
+     "startMs": 8819,
+     "endMs": 9501,
+     "confidence": 0.832
+    },
+    {
+     "text": "কি",
+     "startMs": 9501,
+     "endMs": 9641,
+     "confidence": 0.999
+    },
+    {
+     "text": "না।",
+     "startMs": 9641,
+     "endMs": 9802,
+     "confidence": 0.907
+    }
+   ]
+  },
+  {
+   "id": "screening",
+   "mood": "calm",
+   "audio": "voiceover/govt/screening.mp3",
+   "durationMs": 14110,
+   "words": [
+    {
+     "text": "ফোনেই",
+     "startMs": 160,
+     "endMs": 1201,
+     "confidence": 0.929
+    },
+    {
+     "text": "এআই",
+     "startMs": 1201,
+     "endMs": 1541,
+     "confidence": 0.563
+    },
+    {
+     "text": "ছবি",
+     "startMs": 1541,
+     "endMs": 1841,
+     "confidence": 0.976
+    },
+    {
+     "text": "যাচাই",
+     "startMs": 1841,
+     "endMs": 2222,
+     "confidence": 0.949
+    },
+    {
+     "text": "করে,",
+     "startMs": 2222,
+     "endMs": 2802,
+     "confidence": 0.997
+    },
+    {
+     "text": "তারপর",
+     "startMs": 2802,
+     "endMs": 3683,
+     "confidence": 0.99
+    },
+    {
+     "text": "স্বেচ্ছাসেবক",
+     "startMs": 3683,
+     "endMs": 4383,
+     "confidence": 0.815
+    },
+    {
+     "text": "যাচাইকারীরা",
+     "startMs": 4383,
+     "endMs": 5144,
+     "confidence": 0.96
+    },
+    {
+     "text": "দেখেন।",
+     "startMs": 5144,
+     "endMs": 5824,
+     "confidence": 0.995
+    },
+    {
+     "text": "পঁচিশ",
+     "startMs": 5824,
+     "endMs": 6304,
+     "confidence": 0.791
+    },
+    {
+     "text": "মিটারের",
+     "startMs": 6304,
+     "endMs": 6725,
+     "confidence": 0.891
+    },
+    {
+     "text": "মধ্যে",
+     "startMs": 6725,
+     "endMs": 7565,
+     "confidence": 0.946
+    },
+    {
+     "text": "একই",
+     "startMs": 7565,
+     "endMs": 7845,
+     "confidence": 0.972
+    },
+    {
+     "text": "জায়গার",
+     "startMs": 7845,
+     "endMs": 8286,
+     "confidence": 0.963
+    },
+    {
+     "text": "রিপোর্ট",
+     "startMs": 8286,
+     "endMs": 9166,
+     "confidence": 0.872
+    },
+    {
+     "text": "একটি",
+     "startMs": 9166,
+     "endMs": 9446,
+     "confidence": 0.824
+    },
+    {
+     "text": "স্থানে",
+     "startMs": 9446,
+     "endMs": 10107,
+     "confidence": 0.999
+    },
+    {
+     "text": "যুক্ত",
+     "startMs": 10107,
+     "endMs": 10507,
+     "confidence": 1.0
+    },
+    {
+     "text": "হয়,",
+     "startMs": 10507,
+     "endMs": 11428,
+     "confidence": 0.998
+    },
+    {
+     "text": "তাই",
+     "startMs": 11428,
+     "endMs": 12288,
+     "confidence": 0.984
+    },
+    {
+     "text": "একই",
+     "startMs": 12288,
+     "endMs": 12589,
+     "confidence": 0.982
+    },
+    {
+     "text": "কাজ",
+     "startMs": 12589,
+     "endMs": 12869,
+     "confidence": 0.997
+    },
+    {
+     "text": "দুবার",
+     "startMs": 12869,
+     "endMs": 13269,
+     "confidence": 0.973
+    },
+    {
+     "text": "হয়",
+     "startMs": 13269,
+     "endMs": 13469,
+     "confidence": 0.999
+    },
+    {
+     "text": "না।",
+     "startMs": 13469,
+     "endMs": 13629,
+     "confidence": 0.988
+    }
+   ]
+  },
+  {
+   "id": "queue",
+   "mood": "calm",
+   "audio": "voiceover/govt/queue.mp3",
+   "durationMs": 14209,
+   "words": [
+    {
+     "text": "প্রতিটি",
+     "startMs": 160,
+     "endMs": 620,
+     "confidence": 0.992
+    },
+    {
+     "text": "ওয়ার্ডের",
+     "startMs": 620,
+     "endMs": 1001,
+     "confidence": 0.674
+    },
+    {
+     "text": "পরিদর্শক",
+     "startMs": 1001,
+     "endMs": 1601,
+     "confidence": 0.868
+    },
+    {
+     "text": "পান",
+     "startMs": 1601,
+     "endMs": 2321,
+     "confidence": 0.998
+    },
+    {
+     "text": "নিজের",
+     "startMs": 2321,
+     "endMs": 2662,
+     "confidence": 0.961
+    },
+    {
+     "text": "কাজের",
+     "startMs": 2662,
+     "endMs": 3042,
+     "confidence": 0.834
+    },
+    {
+     "text": "তালিকা।",
+     "startMs": 3042,
+     "endMs": 4022,
+     "confidence": 0.972
+    },
+    {
+     "text": "নতুন,",
+     "startMs": 4022,
+     "endMs": 4423,
+     "confidence": 0.999
+    },
+    {
+     "text": "যাচাই",
+     "startMs": 4423,
+     "endMs": 4883,
+     "confidence": 0.959
+    },
+    {
+     "text": "হয়েছে,",
+     "startMs": 4883,
+     "endMs": 6104,
+     "confidence": 0.997
+    },
+    {
+     "text": "দায়িত্ব",
+     "startMs": 6104,
+     "endMs": 6504,
+     "confidence": 0.852
+    },
+    {
+     "text": "দেওয়া",
+     "startMs": 6504,
+     "endMs": 6724,
+     "confidence": 0.951
+    },
+    {
+     "text": "হয়েছে,",
+     "startMs": 6724,
+     "endMs": 7525,
+     "confidence": 0.997
+    },
+    {
+     "text": "পরিষ্কার",
+     "startMs": 7525,
+     "endMs": 8005,
+     "confidence": 0.957
+    },
+    {
+     "text": "হয়েছে।",
+     "startMs": 8005,
+     "endMs": 8645,
+     "confidence": 0.976
+    },
+    {
+     "text": "ঘটনাস্থলে",
+     "startMs": 8645,
+     "endMs": 9386,
+     "confidence": 0.871
+    },
+    {
+     "text": "তোলা",
+     "startMs": 9386,
+     "endMs": 9626,
+     "confidence": 0.794
+    },
+    {
+     "text": "পরের",
+     "startMs": 9626,
+     "endMs": 9906,
+     "confidence": 0.675
+    },
+    {
+     "text": "ছবি",
+     "startMs": 9906,
+     "endMs": 10206,
+     "confidence": 0.915
+    },
+    {
+     "text": "ছাড়া",
+     "startMs": 10206,
+     "endMs": 11327,
+     "confidence": 0.835
+    },
+    {
+     "text": "কোনো",
+     "startMs": 11327,
+     "endMs": 11587,
+     "confidence": 0.766
+    },
+    {
+     "text": "স্থান",
+     "startMs": 11587,
+     "endMs": 12748,
+     "confidence": 0.959
+    },
+    {
+     "text": "বন্ধ",
+     "startMs": 12748,
+     "endMs": 13108,
+     "confidence": 0.996
+    },
+    {
+     "text": "করা",
+     "startMs": 13108,
+     "endMs": 13348,
+     "confidence": 0.999
+    },
+    {
+     "text": "যায়",
+     "startMs": 13348,
+     "endMs": 13528,
+     "confidence": 0.936
+    },
+    {
+     "text": "না।",
+     "startMs": 13528,
+     "endMs": 13668,
+     "confidence": 0.998
+    }
+   ]
+  },
+  {
+   "id": "risk",
+   "mood": "calm",
+   "audio": "voiceover/govt/risk.mp3",
+   "durationMs": 19506,
+   "words": [
+    {
+     "text": "স্যাটেলাইটের",
+     "startMs": 200,
+     "endMs": 920,
+     "confidence": 0.669
+    },
+    {
+     "text": "তথ্য,",
+     "startMs": 920,
+     "endMs": 1941,
+     "confidence": 0.655
+    },
+    {
+     "text": "বৃষ্টি",
+     "startMs": 1941,
+     "endMs": 2821,
+     "confidence": 0.926
+    },
+    {
+     "text": "আর",
+     "startMs": 2821,
+     "endMs": 3041,
+     "confidence": 0.999
+    },
+    {
+     "text": "সরকারি",
+     "startMs": 3041,
+     "endMs": 3941,
+     "confidence": 0.987
+    },
+    {
+     "text": "রোগীর",
+     "startMs": 3941,
+     "endMs": 4241,
+     "confidence": 0.686
+    },
+    {
+     "text": "সংখ্যা",
+     "startMs": 4241,
+     "endMs": 4661,
+     "confidence": 0.661
+    },
+    {
+     "text": "মিলিয়ে",
+     "startMs": 4661,
+     "endMs": 5122,
+     "confidence": 0.818
+    },
+    {
+     "text": "প্রতিটি",
+     "startMs": 5122,
+     "endMs": 5482,
+     "confidence": 0.853
+    },
+    {
+     "text": "ওয়ার্ডের",
+     "startMs": 5482,
+     "endMs": 6302,
+     "confidence": 0.588
+    },
+    {
+     "text": "পরিবেশগত",
+     "startMs": 6302,
+     "endMs": 7362,
+     "confidence": 0.904
+    },
+    {
+     "text": "ঝুঁকি",
+     "startMs": 7362,
+     "endMs": 7682,
+     "confidence": 0.823
+    },
+    {
+     "text": "হিসাব",
+     "startMs": 7682,
+     "endMs": 8002,
+     "confidence": 0.77
+    },
+    {
+     "text": "করা",
+     "startMs": 8002,
+     "endMs": 8243,
+     "confidence": 0.951
+    },
+    {
+     "text": "হয়,",
+     "startMs": 8243,
+     "endMs": 9383,
+     "confidence": 0.999
+    },
+    {
+     "text": "যাতে",
+     "startMs": 9383,
+     "endMs": 9683,
+     "confidence": 0.969
+    },
+    {
+     "text": "বোঝা",
+     "startMs": 9683,
+     "endMs": 9983,
+     "confidence": 0.935
+    },
+    {
+     "text": "যায়",
+     "startMs": 9983,
+     "endMs": 10443,
+     "confidence": 0.992
+    },
+    {
+     "text": "কোথায়",
+     "startMs": 10443,
+     "endMs": 11384,
+     "confidence": 0.954
+    },
+    {
+     "text": "আগে",
+     "startMs": 11384,
+     "endMs": 11644,
+     "confidence": 0.947
+    },
+    {
+     "text": "খুঁজতে",
+     "startMs": 11644,
+     "endMs": 12084,
+     "confidence": 0.954
+    },
+    {
+     "text": "হবে।",
+     "startMs": 12084,
+     "endMs": 12984,
+     "confidence": 1.0
+    },
+    {
+     "text": "স্যাটেলাইট",
+     "startMs": 12984,
+     "endMs": 13584,
+     "confidence": 0.793
+    },
+    {
+     "text": "পাত্র",
+     "startMs": 13584,
+     "endMs": 13964,
+     "confidence": 0.994
+    },
+    {
+     "text": "দেখতে",
+     "startMs": 13964,
+     "endMs": 14284,
+     "confidence": 0.97
+    },
+    {
+     "text": "পায়",
+     "startMs": 14284,
+     "endMs": 14484,
+     "confidence": 0.997
+    },
+    {
+     "text": "না,",
+     "startMs": 14484,
+     "endMs": 15705,
+     "confidence": 0.992
+    },
+    {
+     "text": "এটি",
+     "startMs": 15705,
+     "endMs": 16605,
+     "confidence": 0.999
+    },
+    {
+     "text": "শুধু",
+     "startMs": 16605,
+     "endMs": 17305,
+     "confidence": 0.977
+    },
+    {
+     "text": "অগ্রাধিকার",
+     "startMs": 17305,
+     "endMs": 18326,
+     "confidence": 0.958
+    },
+    {
+     "text": "ঠিক",
+     "startMs": 18326,
+     "endMs": 18666,
+     "confidence": 0.889
+    },
+    {
+     "text": "করে।",
+     "startMs": 18666,
+     "endMs": 18926,
+     "confidence": 0.999
+    }
+   ]
+  },
+  {
+   "id": "scorecard",
+   "mood": "confident",
+   "audio": "voiceover/govt/scorecard.mp3",
+   "durationMs": 12928,
+   "words": [
+    {
+     "text": "ওয়ার্ড",
+     "startMs": 0,
+     "endMs": 560,
+     "confidence": 0.394
+    },
+    {
+     "text": "স্কোরকার্ডে",
+     "startMs": 560,
+     "endMs": 1441,
+     "confidence": 0.754
+    },
+    {
+     "text": "সবাই",
+     "startMs": 1441,
+     "endMs": 1821,
+     "confidence": 0.997
+    },
+    {
+     "text": "দেখতে",
+     "startMs": 1821,
+     "endMs": 2141,
+     "confidence": 0.981
+    },
+    {
+     "text": "পান",
+     "startMs": 2141,
+     "endMs": 2422,
+     "confidence": 0.998
+    },
+    {
+     "text": "কত",
+     "startMs": 2422,
+     "endMs": 3122,
+     "confidence": 0.5
+    },
+    {
+     "text": "দ্রুত",
+     "startMs": 3122,
+     "endMs": 3802,
+     "confidence": 0.73
+    },
+    {
+     "text": "স্থান",
+     "startMs": 3802,
+     "endMs": 4583,
+     "confidence": 0.998
+    },
+    {
+     "text": "পরিষ্কার",
+     "startMs": 4583,
+     "endMs": 5083,
+     "confidence": 0.969
+    },
+    {
+     "text": "হচ্ছে,",
+     "startMs": 5083,
+     "endMs": 5924,
+     "confidence": 0.998
+    },
+    {
+     "text": "আর",
+     "startMs": 5924,
+     "endMs": 6504,
+     "confidence": 0.955
+    },
+    {
+     "text": "বাহাত্তর",
+     "startMs": 6504,
+     "endMs": 7084,
+     "confidence": 0.922
+    },
+    {
+     "text": "ঘণ্টার",
+     "startMs": 7084,
+     "endMs": 7525,
+     "confidence": 0.78
+    },
+    {
+     "text": "মধ্যে",
+     "startMs": 7525,
+     "endMs": 8265,
+     "confidence": 0.998
+    },
+    {
+     "text": "কত",
+     "startMs": 8265,
+     "endMs": 9246,
+     "confidence": 0.419
+    },
+    {
+     "text": "শতাংশ।",
+     "startMs": 9246,
+     "endMs": 9746,
+     "confidence": 0.728
+    },
+    {
+     "text": "ওয়ার্ড",
+     "startMs": 9746,
+     "endMs": 10527,
+     "confidence": 0.411
+    },
+    {
+     "text": "অ্যাডমিন",
+     "startMs": 10527,
+     "endMs": 10967,
+     "confidence": 0.575
+    },
+    {
+     "text": "পান",
+     "startMs": 10967,
+     "endMs": 11267,
+     "confidence": 0.992
+    },
+    {
+     "text": "সাপ্তাহিক",
+     "startMs": 11267,
+     "endMs": 11928,
+     "confidence": 0.954
+    },
+    {
+     "text": "সারাংশ।",
+     "startMs": 11928,
+     "endMs": 12368,
+     "confidence": 0.654
+    }
+   ]
+  },
+  {
+   "id": "open",
+   "mood": "confident",
+   "audio": "voiceover/govt/open.mp3",
+   "durationMs": 9175,
+   "words": [
+    {
+     "text": "পুরো",
+     "startMs": 160,
+     "endMs": 801,
+     "confidence": 0.783
+    },
+    {
+     "text": "প্ল্যাটফর্ম",
+     "startMs": 801,
+     "endMs": 1482,
+     "confidence": 0.481
+    },
+    {
+     "text": "ওপেন",
+     "startMs": 1482,
+     "endMs": 2464,
+     "confidence": 0.779
+    },
+    {
+     "text": "সোর্স।",
+     "startMs": 2464,
+     "endMs": 2825,
+     "confidence": 0.677
+    },
+    {
+     "text": "নাম-পরিচয়হীন",
+     "startMs": 2825,
+     "endMs": 4026,
+     "confidence": 0.786
+    },
+    {
+     "text": "তথ্য",
+     "startMs": 4026,
+     "endMs": 4387,
+     "confidence": 0.897
+    },
+    {
+     "text": "সিএসভি",
+     "startMs": 4387,
+     "endMs": 5469,
+     "confidence": 0.729
+    },
+    {
+     "text": "আর",
+     "startMs": 5469,
+     "endMs": 5669,
+     "confidence": 0.991
+    },
+    {
+     "text": "জিওজেসন",
+     "startMs": 5669,
+     "endMs": 6811,
+     "confidence": 0.852
+    },
+    {
+     "text": "আকারে",
+     "startMs": 6811,
+     "endMs": 7232,
+     "confidence": 0.971
+    },
+    {
+     "text": "বিনা",
+     "startMs": 7232,
+     "endMs": 7532,
+     "confidence": 0.792
+    },
+    {
+     "text": "মূল্যে",
+     "startMs": 7532,
+     "endMs": 7792,
+     "confidence": 0.335
+    },
+    {
+     "text": "ডাউনলোড",
+     "startMs": 7792,
+     "endMs": 8253,
+     "confidence": 0.452
+    },
+    {
+     "text": "করা",
+     "startMs": 8253,
+     "endMs": 8494,
+     "confidence": 0.984
+    },
+    {
+     "text": "যায়।",
+     "startMs": 8494,
+     "endMs": 8674,
+     "confidence": 0.971
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "mood": "hopeful",
+   "audio": "voiceover/govt/cta.mp3",
+   "durationMs": 12377,
+   "words": [
+    {
+     "text": "একটি",
+     "startMs": 220,
+     "endMs": 581,
+     "confidence": 0.998
+    },
+    {
+     "text": "ওয়ার্ড",
+     "startMs": 581,
+     "endMs": 961,
+     "confidence": 0.259
+    },
+    {
+     "text": "দিয়ে",
+     "startMs": 961,
+     "endMs": 1182,
+     "confidence": 0.998
+    },
+    {
+     "text": "পাইলট",
+     "startMs": 1182,
+     "endMs": 1622,
+     "confidence": 0.715
+    },
+    {
+     "text": "শুরু",
+     "startMs": 1622,
+     "endMs": 1883,
+     "confidence": 0.999
+    },
+    {
+     "text": "করুন।",
+     "startMs": 1883,
+     "endMs": 2604,
+     "confidence": 0.929
+    },
+    {
+     "text": "লক্ষ্য,",
+     "startMs": 2604,
+     "endMs": 3465,
+     "confidence": 0.698
+    },
+    {
+     "text": "যাচাই",
+     "startMs": 3465,
+     "endMs": 3946,
+     "confidence": 0.932
+    },
+    {
+     "text": "হওয়া",
+     "startMs": 3946,
+     "endMs": 4226,
+     "confidence": 0.959
+    },
+    {
+     "text": "রিপোর্টের",
+     "startMs": 4226,
+     "endMs": 4847,
+     "confidence": 0.748
+    },
+    {
+     "text": "বেশিরভাগ",
+     "startMs": 4847,
+     "endMs": 6089,
+     "confidence": 0.922
+    },
+    {
+     "text": "বাহাত্তর",
+     "startMs": 6089,
+     "endMs": 7190,
+     "confidence": 0.937
+    },
+    {
+     "text": "ঘণ্টার",
+     "startMs": 7190,
+     "endMs": 7771,
+     "confidence": 0.886
+    },
+    {
+     "text": "মধ্যে",
+     "startMs": 7771,
+     "endMs": 8512,
+     "confidence": 0.973
+    },
+    {
+     "text": "পরিষ্কার",
+     "startMs": 8512,
+     "endMs": 9093,
+     "confidence": 0.93
+    },
+    {
+     "text": "করা।",
+     "startMs": 9093,
+     "endMs": 9714,
+     "confidence": 0.976
+    },
+    {
+     "text": "আমাদের",
+     "startMs": 9714,
+     "endMs": 10154,
+     "confidence": 0.978
+    },
+    {
+     "text": "সাথে",
+     "startMs": 10154,
+     "endMs": 10895,
+     "confidence": 0.979
+    },
+    {
+     "text": "যোগাযোগ",
+     "startMs": 10895,
+     "endMs": 11456,
+     "confidence": 0.98
+    },
+    {
+     "text": "করুন।",
+     "startMs": 11456,
+     "endMs": 11877,
+     "confidence": 0.901
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+voice/.venv/
+avatar/.latentsync/
+# Your voice and face are biometric data and this repo is public. Keep them out of git;
+# back them up somewhere private.
+voice/refs/*
+!voice/refs/README.md
+avatar/*.mp4
+avatar/*.mov
+video/public/avatar/
