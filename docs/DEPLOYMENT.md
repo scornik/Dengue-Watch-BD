@@ -272,7 +272,7 @@ select vault.create_secret('https://<ref>.supabase.co', 'project_url');
 select vault.create_secret('<service-role key from Project Settings → API>', 'service_role_key');
 ```
 
-Check they run: `select j.jobname, d.status, d.start_time from cron.job_run_details d join cron.job j using (jobid) order by d.start_time desc limit 10;` and, for the function's answer, `select status_code, content, created from net._http_response order by created desc limit 5;` (a 403 means the Vault `service_role_key` does not match the key the functions receive)
+Check they run: `select j.jobname, d.status, d.start_time from cron.job_run_details d join cron.job j using (jobid) order by d.start_time desc limit 10;` and, for the function's answer, `select status_code, content, created from net._http_response order by created desc limit 5;` (a 403 means the Vault `service_role_key` is not the project's service-role key: use the legacy `service_role` JWT from Project Settings → API, since the functions run with JWT verification and accept a verified `service_role` token)
 
 #### 3.2.8 Create the first superadmin
 
