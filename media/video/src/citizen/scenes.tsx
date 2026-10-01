@@ -1,8 +1,9 @@
 // Citizen tutorial, 1080×1920. The middle scenes play real screen recordings of the app
 // (media/capture/record.mjs); titles and call-outs land on the frame where the narrator says the word.
+import { Audio } from "@remotion/media";
 import { noise2D } from "@remotion/noise";
 import type React from "react";
-import { AbsoluteFill, Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Easing, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { AppClip } from "../components/AppClip";
 import { AcTray, Bucket, FlowerTub, Mosquito, WATER } from "../components/Icons";
 import { Backdrop, Kinetic, Pop, Rise, progress } from "../components/motion";
@@ -110,13 +111,13 @@ const Step: React.FC<{
       <div
         style={{
           position: "absolute",
-          top: 380,
-          left: 290,
+          top: 370,
+          left: 310,
           translate: `0px ${interpolate(spring({ frame, fps, config: { damping: 18 } }), [0, 1], [120, 0])}px`,
           opacity: interpolate(frame, [0, 6], [0, 1], clamp),
         }}
       >
-        <AppClip clip={clip} from={from} to={to} sceneFrames={sceneFrames(s, fps)} width={500} />
+        <AppClip clip={clip} from={from} to={to} sceneFrames={sceneFrames(s, fps)} width={460} />
         {demo ? (
           <div style={{ position: "absolute", top: 70, right: -50, rotate: "6deg" }}>
             <Tag bg={C.marigold} size={26}>
@@ -125,13 +126,20 @@ const Step: React.FC<{
           </div>
         ) : null}
       </div>
-      <div style={{ position: "absolute", top: 1430, left: 50, right: 50, display: "flex", justifyContent: "center", gap: 14, flexWrap: "wrap" }}>
+      <div style={{ position: "absolute", top: 1336, left: 40, right: 40, display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap" }}>
         {callouts.map((c) => (
           <Pop key={c.text} at={wordFrame(s, c.word, fps, 20)}>
-            <Tag bg={c.color ?? (dark ? C.marigold : C.white)} color={C.ink} size={34}>
+            <Tag bg={c.color ?? (dark ? C.marigold : C.white)} color={C.ink} size={30}>
               {c.text}
             </Tag>
           </Pop>
+        ))}
+      </div>
+      <div>
+        {callouts.map((c) => (
+          <Sequence key={c.text} from={wordFrame(s, c.word, fps, 20)} durationInFrames={15}>
+            <Audio src={staticFile("sfx/mouse-click.wav")} volume={0.3} />
+          </Sequence>
         ))}
       </div>
     </AbsoluteFill>
@@ -315,6 +323,9 @@ export const Cta: React.FC<SP & { siteUrl: string }> = ({ s, siteUrl }) => {
         );
       })}
       <div style={{ position: "absolute", top: 1170, left: 0, right: 0, display: "flex", justifyContent: "center" }}>
+        <Sequence from={todayAt} durationInFrames={45}>
+          <Audio src={staticFile("sfx/ding.wav")} volume={0.4} />
+        </Sequence>
         <Pop at={todayAt}>
           <div style={{ padding: "24px 44px", borderRadius: 999, background: C.white, color: C.ink, fontFamily: display, fontWeight: 800, fontSize: 56, boxShadow: hardShadow(10) }}>{siteUrl}</div>
         </Pop>

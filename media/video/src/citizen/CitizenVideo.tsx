@@ -4,14 +4,15 @@ import { pushCut } from "@remotion/transitions/push-cut";
 import { slide } from "@remotion/transitions/slide";
 import { wipe } from "@remotion/transitions/wipe";
 import type React from "react";
-import manifest from "../generated/citizen.json";
+import bn from "../generated/citizen.json";
+import en from "../generated/en/citizen.json";
 import { NarratedVideo, type SceneDef } from "../NarratedVideo";
 import type { Manifest } from "../timeline";
 import { Claim, Clean, Cta, Details, Hook, Hunt, Location, Open, Photo, Points } from "./scenes";
 
-export type CitizenProps = { siteUrl: string };
+export type CitizenProps = { siteUrl: string; lang: "bn" | "en" };
 
-export const CitizenVideo: React.FC<CitizenProps> = ({ siteUrl }) => {
+export const CitizenVideo: React.FC<CitizenProps> = ({ siteUrl, lang }) => {
   const W = 1080;
   const H = 1920;
   const scenes: SceneDef[] = [
@@ -26,5 +27,5 @@ export const CitizenVideo: React.FC<CitizenProps> = ({ siteUrl }) => {
     { id: "points", Component: Points, tone: "light", out: clockWipe({ width: W, height: H }) },
     { id: "cta", Component: (p) => <Cta {...p} siteUrl={siteUrl} />, tone: "light" },
   ];
-  return <NarratedVideo manifest={manifest as Manifest} scenes={scenes} layout="vertical" />;
+  return <NarratedVideo manifest={(lang === "en" ? en : bn) as Manifest} scenes={scenes} layout="vertical" music="music/citizen.mp3" musicVolume={0.2} />;
 };

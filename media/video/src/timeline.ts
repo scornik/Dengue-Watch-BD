@@ -2,12 +2,16 @@
 
 export type Word = { text: string; startMs: number; endMs: number; confidence: number };
 
+/** A spoken line with its Bangla subtitle (English narration only). */
+export type Line = { en: string; bn: string; startMs: number; endMs: number };
+
 export type ManifestScene = {
   id: string;
   mood: string;
   audio: string;
   durationMs: number;
   words: Word[];
+  lines?: Line[];
   avatar?: string;
 };
 
@@ -40,10 +44,29 @@ export const totalFrames = (m: Manifest, fps = FPS) => {
   return sum - TRANSITION_FRAMES * (m.scenes.length - 1) + OUTRO_FRAMES;
 };
 
+/**
+ * Scenes key on-screen beats to Bangla words. For the English narration the same beat is keyed to
+ * the English word below, so one scene file serves both languages. Matching is case-sensitive.
+ */
+const EN_CUES: Record<string, string[]> = {
+  জন্মায়: ["born"], আমাদের: ["still"], চলুন: ["Let's"], বাড়ির: ["around"], আশেপাশেই: ["homes"], পানিতে: ["water"],
+  ডেঙ্গুওয়াচ: ["DengueWatch"], অ্যাপ: ["app"], নিবন্ধনও: ["sign"], লাল: ["red"], যাচাই: ["checks"], মানচিত্র: ["map"],
+  পাত্র: ["container"], লার্ভা: ["larvae"], ঝাপসা: ["blurred"], শিকার: ["Hunt"], কাছের: ["near"], চাপুন: ["green"],
+  তিন: ["three"], ফেলে: ["Throw"], ঘষে: ["Scrub"], ঢেকে: ["cover"], দাঁড়িয়েই: ["standing"], পয়েন্ট: ["points"],
+  ভুয়া: ["Fake"], আজই: ["Today"], স্বেচ্ছাসেবক: ["volunteers"], স্বেচ্ছাসেবকেরা: ["Volunteers", "volunteers"],
+  নাগরিকেরা: ["Citizens"], অগ্রগতি: ["progress"], ছবি: ["photo"], জিপিএস: ["GPS"], পাত্রের: ["container"],
+  পঁচিশ: ["twenty"], ওয়ার্ডভিত্তিক: ["ward"], পরিবেশগত: ["environmental"], রোগীর: ["case"], পাওয়া: ["found"],
+  পরিষ্কার: ["cleaned"], দ্রুত: ["fast"], অ্যাডমিন: ["admin"], তালিকা: ["list"], বন্ধ: ["close"], সাপ্তাহিক: ["weekly"],
+  ডাউনলোড: ["downloaded"], যুক্ত: ["add"],
+};
+
 /** Frame (relative to the scene) at which the first word containing `needle` starts. */
 export const wordFrame = (s: ManifestScene, needle: string, fps = FPS, fallbackFrame = 0) => {
-  const w = s.words.find((x) => x.text.includes(needle));
-  return w ? Math.round((w.startMs / 1000) * fps) : fallbackFrame;
+  for (const n of [needle, ...(EN_CUES[needle] ?? [])]) {
+    const w = s.words.find((x) => x.text.includes(n));
+    if (w) return Math.round((w.startMs / 1000) * fps);
+  }
+  return fallbackFrame;
 };
 
 export const scene = (m: Manifest, id: string) => {

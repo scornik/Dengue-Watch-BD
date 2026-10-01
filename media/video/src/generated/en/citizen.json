@@ -1,0 +1,1246 @@
+{
+ "video": "citizen",
+ "engine": "kokoro:am_adam",
+ "scenes": [
+  {
+   "id": "hook",
+   "mood": "serious",
+   "audio": "voiceover/en/citizen/hook.mp3",
+   "durationMs": 10290,
+   "words": [
+    {
+     "text": "Dengue",
+     "startMs": 178,
+     "endMs": 490,
+     "confidence": 1
+    },
+    {
+     "text": "mosquitoes",
+     "startMs": 490,
+     "endMs": 1078,
+     "confidence": 1
+    },
+    {
+     "text": "are",
+     "startMs": 1078,
+     "endMs": 1240,
+     "confidence": 1
+    },
+    {
+     "text": "born…",
+     "startMs": 1240,
+     "endMs": 1978,
+     "confidence": 1
+    },
+    {
+     "text": "very",
+     "startMs": 2158,
+     "endMs": 2433,
+     "confidence": 1
+    },
+    {
+     "text": "close",
+     "startMs": 2433,
+     "endMs": 2808,
+     "confidence": 1
+    },
+    {
+     "text": "to",
+     "startMs": 2808,
+     "endMs": 2958,
+     "confidence": 1
+    },
+    {
+     "text": "us.",
+     "startMs": 2958,
+     "endMs": 3883,
+     "confidence": 1
+    },
+    {
+     "text": "In",
+     "startMs": 4109,
+     "endMs": 4234,
+     "confidence": 1
+    },
+    {
+     "text": "still,",
+     "startMs": 4234,
+     "endMs": 4671,
+     "confidence": 1
+    },
+    {
+     "text": "clean",
+     "startMs": 4671,
+     "endMs": 5009,
+     "confidence": 1
+    },
+    {
+     "text": "water",
+     "startMs": 5009,
+     "endMs": 5409,
+     "confidence": 1
+    },
+    {
+     "text": "around",
+     "startMs": 5409,
+     "endMs": 5721,
+     "confidence": 1
+    },
+    {
+     "text": "our",
+     "startMs": 5721,
+     "endMs": 5859,
+     "confidence": 1
+    },
+    {
+     "text": "homes.",
+     "startMs": 5859,
+     "endMs": 7084,
+     "confidence": 1
+    },
+    {
+     "text": "Let's",
+     "startMs": 7288,
+     "endMs": 7563,
+     "confidence": 1
+    },
+    {
+     "text": "find",
+     "startMs": 7563,
+     "endMs": 7850,
+     "confidence": 1
+    },
+    {
+     "text": "them,",
+     "startMs": 7850,
+     "endMs": 8000,
+     "confidence": 1
+    },
+    {
+     "text": "and",
+     "startMs": 8000,
+     "endMs": 8100,
+     "confidence": 1
+    },
+    {
+     "text": "destroy",
+     "startMs": 8100,
+     "endMs": 8613,
+     "confidence": 1
+    },
+    {
+     "text": "them.",
+     "startMs": 8613,
+     "endMs": 9175,
+     "confidence": 1
+    },
+    {
+     "text": "Together.",
+     "startMs": 9175,
+     "endMs": 10163,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "Dengue mosquitoes are born… very close to us.",
+     "bn": "ডেঙ্গুর মশা জন্মায় আমাদের খুব কাছেই।",
+     "startMs": 150,
+     "endMs": 3347
+    },
+    {
+     "en": "In still, clean water around our homes.",
+     "bn": "বাড়ির আশেপাশে জমে থাকা পরিষ্কার পানিতে।",
+     "startMs": 4097,
+     "endMs": 6500
+    },
+    {
+     "en": "Let's find them, and destroy them. Together.",
+     "bn": "চলুন, সবাই মিলে খুঁজে ধ্বংস করি।",
+     "startMs": 7250,
+     "endMs": 9840
+    }
+   ]
+  },
+  {
+   "id": "open",
+   "mood": "warm",
+   "audio": "voiceover/en/citizen/open.mp3",
+   "durationMs": 5627,
+   "words": [
+    {
+     "text": "Open",
+     "startMs": 150,
+     "endMs": 426,
+     "confidence": 1
+    },
+    {
+     "text": "DengueWatch",
+     "startMs": 426,
+     "endMs": 1089,
+     "confidence": 1
+    },
+    {
+     "text": "BD",
+     "startMs": 1089,
+     "endMs": 1514,
+     "confidence": 1
+    },
+    {
+     "text": "in",
+     "startMs": 1514,
+     "endMs": 1589,
+     "confidence": 1
+    },
+    {
+     "text": "your",
+     "startMs": 1589,
+     "endMs": 1714,
+     "confidence": 1
+    },
+    {
+     "text": "phone's",
+     "startMs": 1714,
+     "endMs": 2101,
+     "confidence": 1
+    },
+    {
+     "text": "browser.",
+     "startMs": 2101,
+     "endMs": 3215,
+     "confidence": 1
+    },
+    {
+     "text": "No",
+     "startMs": 3215,
+     "endMs": 3390,
+     "confidence": 1
+    },
+    {
+     "text": "app",
+     "startMs": 3390,
+     "endMs": 3615,
+     "confidence": 1
+    },
+    {
+     "text": "to",
+     "startMs": 3615,
+     "endMs": 3715,
+     "confidence": 1
+    },
+    {
+     "text": "download.",
+     "startMs": 3715,
+     "endMs": 4365,
+     "confidence": 1
+    },
+    {
+     "text": "No",
+     "startMs": 4365,
+     "endMs": 4577,
+     "confidence": 1
+    },
+    {
+     "text": "sign",
+     "startMs": 4577,
+     "endMs": 4865,
+     "confidence": 1
+    },
+    {
+     "text": "up.",
+     "startMs": 4865,
+     "endMs": 5465,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "Open DengueWatch BD in your phone's browser.",
+     "bn": "ফোনের ব্রাউজারে ডেঙ্গুওয়াচ বিডি খুলুন।",
+     "startMs": 150,
+     "endMs": 2704
+    },
+    {
+     "en": "No app to download. No sign up.",
+     "bn": "অ্যাপ নামাতে হবে না। নিবন্ধনও লাগে না।",
+     "startMs": 3204,
+     "endMs": 5177
+    }
+   ]
+  },
+  {
+   "id": "photo",
+   "mood": "warm",
+   "audio": "voiceover/en/citizen/photo.mp3",
+   "durationMs": 6529,
+   "words": [
+    {
+     "text": "Tap",
+     "startMs": 150,
+     "endMs": 399,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 399,
+     "endMs": 524,
+     "confidence": 1
+    },
+    {
+     "text": "red",
+     "startMs": 524,
+     "endMs": 774,
+     "confidence": 1
+    },
+    {
+     "text": "button.",
+     "startMs": 774,
+     "endMs": 1799,
+     "confidence": 1
+    },
+    {
+     "text": "Take",
+     "startMs": 1812,
+     "endMs": 1977,
+     "confidence": 1
+    },
+    {
+     "text": "a",
+     "startMs": 1977,
+     "endMs": 2089,
+     "confidence": 1
+    },
+    {
+     "text": "photo",
+     "startMs": 2089,
+     "endMs": 2652,
+     "confidence": 1
+    },
+    {
+     "text": "of",
+     "startMs": 2652,
+     "endMs": 2727,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 2727,
+     "endMs": 2814,
+     "confidence": 1
+    },
+    {
+     "text": "standing",
+     "startMs": 2814,
+     "endMs": 3289,
+     "confidence": 1
+    },
+    {
+     "text": "water.",
+     "startMs": 3289,
+     "endMs": 4266,
+     "confidence": 1
+    },
+    {
+     "text": "Your",
+     "startMs": 4266,
+     "endMs": 4416,
+     "confidence": 1
+    },
+    {
+     "text": "phone",
+     "startMs": 4416,
+     "endMs": 4816,
+     "confidence": 1
+    },
+    {
+     "text": "checks",
+     "startMs": 4816,
+     "endMs": 5128,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 5128,
+     "endMs": 5253,
+     "confidence": 1
+    },
+    {
+     "text": "photo",
+     "startMs": 5253,
+     "endMs": 5628,
+     "confidence": 1
+    },
+    {
+     "text": "for",
+     "startMs": 5628,
+     "endMs": 5753,
+     "confidence": 1
+    },
+    {
+     "text": "you.",
+     "startMs": 5753,
+     "endMs": 6353,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "Tap the red button.",
+     "bn": "লাল বোতাম চাপুন।",
+     "startMs": 150,
+     "endMs": 1312
+    },
+    {
+     "en": "Take a photo of the standing water.",
+     "bn": "জমে থাকা পানির ছবি তুলুন।",
+     "startMs": 1812,
+     "endMs": 3766
+    },
+    {
+     "en": "Your phone checks the photo for you.",
+     "bn": "ফোন নিজেই ছবিটি যাচাই করে।",
+     "startMs": 4266,
+     "endMs": 6079
+    }
+   ]
+  },
+  {
+   "id": "location",
+   "mood": "warm",
+   "audio": "voiceover/en/citizen/location.mp3",
+   "durationMs": 3491,
+   "words": [
+    {
+     "text": "Now,",
+     "startMs": 158,
+     "endMs": 346,
+     "confidence": 1
+    },
+    {
+     "text": "move",
+     "startMs": 346,
+     "endMs": 521,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 521,
+     "endMs": 608,
+     "confidence": 1
+    },
+    {
+     "text": "map…",
+     "startMs": 608,
+     "endMs": 1133,
+     "confidence": 1
+    },
+    {
+     "text": "so",
+     "startMs": 1232,
+     "endMs": 1345,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 1345,
+     "endMs": 1432,
+     "confidence": 1
+    },
+    {
+     "text": "pin",
+     "startMs": 1432,
+     "endMs": 1782,
+     "confidence": 1
+    },
+    {
+     "text": "sits",
+     "startMs": 1782,
+     "endMs": 2070,
+     "confidence": 1
+    },
+    {
+     "text": "on",
+     "startMs": 2070,
+     "endMs": 2170,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 2170,
+     "endMs": 2257,
+     "confidence": 1
+    },
+    {
+     "text": "right",
+     "startMs": 2257,
+     "endMs": 2532,
+     "confidence": 1
+    },
+    {
+     "text": "spot.",
+     "startMs": 2532,
+     "endMs": 3357,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "Now, move the map… so the pin sits on the right spot.",
+     "bn": "এবার মানচিত্র সরিয়ে পিনটি ঠিক জায়গায় বসান।",
+     "startMs": 150,
+     "endMs": 3041
+    }
+   ]
+  },
+  {
+   "id": "details",
+   "mood": "warm",
+   "audio": "voiceover/en/citizen/details.mp3",
+   "durationMs": 7736,
+   "words": [
+    {
+     "text": "Choose",
+     "startMs": 166,
+     "endMs": 466,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 466,
+     "endMs": 604,
+     "confidence": 1
+    },
+    {
+     "text": "type",
+     "startMs": 604,
+     "endMs": 904,
+     "confidence": 1
+    },
+    {
+     "text": "of",
+     "startMs": 904,
+     "endMs": 1016,
+     "confidence": 1
+    },
+    {
+     "text": "container.",
+     "startMs": 1016,
+     "endMs": 2262,
+     "confidence": 1
+    },
+    {
+     "text": "Did",
+     "startMs": 2262,
+     "endMs": 2381,
+     "confidence": 1
+    },
+    {
+     "text": "you",
+     "startMs": 2381,
+     "endMs": 2506,
+     "confidence": 1
+    },
+    {
+     "text": "see",
+     "startMs": 2506,
+     "endMs": 2706,
+     "confidence": 1
+    },
+    {
+     "text": "larvae?",
+     "startMs": 2706,
+     "endMs": 3268,
+     "confidence": 1
+    },
+    {
+     "text": "Tell",
+     "startMs": 3268,
+     "endMs": 3518,
+     "confidence": 1
+    },
+    {
+     "text": "us.",
+     "startMs": 3518,
+     "endMs": 4378,
+     "confidence": 1
+    },
+    {
+     "text": "Then,",
+     "startMs": 4378,
+     "endMs": 4631,
+     "confidence": 1
+    },
+    {
+     "text": "send",
+     "startMs": 4631,
+     "endMs": 4919,
+     "confidence": 1
+    },
+    {
+     "text": "it.",
+     "startMs": 4919,
+     "endMs": 5319,
+     "confidence": 1
+    },
+    {
+     "text": "Faces",
+     "startMs": 5319,
+     "endMs": 5869,
+     "confidence": 1
+    },
+    {
+     "text": "and",
+     "startMs": 5869,
+     "endMs": 5994,
+     "confidence": 1
+    },
+    {
+     "text": "number",
+     "startMs": 5994,
+     "endMs": 6269,
+     "confidence": 1
+    },
+    {
+     "text": "plates",
+     "startMs": 6269,
+     "endMs": 6581,
+     "confidence": 1
+    },
+    {
+     "text": "are",
+     "startMs": 6581,
+     "endMs": 6706,
+     "confidence": 1
+    },
+    {
+     "text": "blurred.",
+     "startMs": 6706,
+     "endMs": 7619,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "Choose the type of container.",
+     "bn": "কোন ধরনের পাত্র, বেছে নিন।",
+     "startMs": 150,
+     "endMs": 1762
+    },
+    {
+     "en": "Did you see larvae? Tell us.",
+     "bn": "লার্ভা দেখেছেন কি না, জানান।",
+     "startMs": 2262,
+     "endMs": 3878
+    },
+    {
+     "en": "Then, send it. Faces and number plates are blurred.",
+     "bn": "তারপর পাঠিয়ে দিন। মুখ আর গাড়ির নম্বর ঝাপসা করা হয়।",
+     "startMs": 4378,
+     "endMs": 7286
+    }
+   ]
+  },
+  {
+   "id": "hunt",
+   "mood": "energetic",
+   "audio": "voiceover/en/citizen/hunt.mp3",
+   "durationMs": 5877,
+   "words": [
+    {
+     "text": "Now…",
+     "startMs": 160,
+     "endMs": 810,
+     "confidence": 1
+    },
+    {
+     "text": "become",
+     "startMs": 858,
+     "endMs": 1150,
+     "confidence": 1
+    },
+    {
+     "text": "a",
+     "startMs": 1150,
+     "endMs": 1225,
+     "confidence": 1
+    },
+    {
+     "text": "hunter!",
+     "startMs": 1225,
+     "endMs": 2175,
+     "confidence": 1
+    },
+    {
+     "text": "Open",
+     "startMs": 2175,
+     "endMs": 2405,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 2405,
+     "endMs": 2492,
+     "confidence": 1
+    },
+    {
+     "text": "Hunt",
+     "startMs": 2492,
+     "endMs": 2742,
+     "confidence": 1
+    },
+    {
+     "text": "tab,",
+     "startMs": 2742,
+     "endMs": 3367,
+     "confidence": 1
+    },
+    {
+     "text": "and",
+     "startMs": 3367,
+     "endMs": 3492,
+     "confidence": 1
+    },
+    {
+     "text": "see",
+     "startMs": 3492,
+     "endMs": 3680,
+     "confidence": 1
+    },
+    {
+     "text": "which",
+     "startMs": 3680,
+     "endMs": 3867,
+     "confidence": 1
+    },
+    {
+     "text": "places",
+     "startMs": 3867,
+     "endMs": 4317,
+     "confidence": 1
+    },
+    {
+     "text": "near",
+     "startMs": 4317,
+     "endMs": 4542,
+     "confidence": 1
+    },
+    {
+     "text": "you",
+     "startMs": 4542,
+     "endMs": 4692,
+     "confidence": 1
+    },
+    {
+     "text": "need",
+     "startMs": 4692,
+     "endMs": 4930,
+     "confidence": 1
+    },
+    {
+     "text": "cleaning.",
+     "startMs": 4930,
+     "endMs": 5767,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "Now… become a hunter!",
+     "bn": "এবার শিকারি হোন!",
+     "startMs": 150,
+     "endMs": 1825
+    },
+    {
+     "en": "Open the Hunt tab, and see which places near you need cleaning.",
+     "bn": "শিকার ট্যাবে দেখুন, কাছের কোন জায়গা পরিষ্কার করা দরকার।",
+     "startMs": 2175,
+     "endMs": 5427
+    }
+   ]
+  },
+  {
+   "id": "claim",
+   "mood": "energetic",
+   "audio": "voiceover/en/citizen/claim.mp3",
+   "durationMs": 4739,
+   "words": [
+    {
+     "text": "Pick",
+     "startMs": 150,
+     "endMs": 265,
+     "confidence": 1
+    },
+    {
+     "text": "a",
+     "startMs": 265,
+     "endMs": 327,
+     "confidence": 1
+    },
+    {
+     "text": "place,",
+     "startMs": 327,
+     "endMs": 827,
+     "confidence": 1
+    },
+    {
+     "text": "and",
+     "startMs": 827,
+     "endMs": 952,
+     "confidence": 1
+    },
+    {
+     "text": "tap",
+     "startMs": 952,
+     "endMs": 1215,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 1215,
+     "endMs": 1302,
+     "confidence": 1
+    },
+    {
+     "text": "green",
+     "startMs": 1302,
+     "endMs": 1627,
+     "confidence": 1
+    },
+    {
+     "text": "button.",
+     "startMs": 1627,
+     "endMs": 2451,
+     "confidence": 1
+    },
+    {
+     "text": "It",
+     "startMs": 2451,
+     "endMs": 2512,
+     "confidence": 1
+    },
+    {
+     "text": "is",
+     "startMs": 2512,
+     "endMs": 2650,
+     "confidence": 1
+    },
+    {
+     "text": "kept",
+     "startMs": 2650,
+     "endMs": 2925,
+     "confidence": 1
+    },
+    {
+     "text": "for",
+     "startMs": 2925,
+     "endMs": 3050,
+     "confidence": 1
+    },
+    {
+     "text": "you,",
+     "startMs": 3050,
+     "endMs": 3300,
+     "confidence": 1
+    },
+    {
+     "text": "for",
+     "startMs": 3300,
+     "endMs": 3462,
+     "confidence": 1
+    },
+    {
+     "text": "three",
+     "startMs": 3462,
+     "endMs": 3737,
+     "confidence": 1
+    },
+    {
+     "text": "hours.",
+     "startMs": 3737,
+     "endMs": 4550,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "Pick a place, and tap the green button.",
+     "bn": "একটি জায়গা বেছে নিয়ে সবুজ বোতাম চাপুন।",
+     "startMs": 150,
+     "endMs": 2101
+    },
+    {
+     "en": "It is kept for you, for three hours.",
+     "bn": "জায়গাটি তিন ঘণ্টা আপনার জন্য রাখা থাকবে।",
+     "startMs": 2451,
+     "endMs": 4289
+    }
+   ]
+  },
+  {
+   "id": "clean",
+   "mood": "energetic",
+   "audio": "voiceover/en/citizen/clean.mp3",
+   "durationMs": 6657,
+   "words": [
+    {
+     "text": "Throw",
+     "startMs": 150,
+     "endMs": 370,
+     "confidence": 1
+    },
+    {
+     "text": "out",
+     "startMs": 370,
+     "endMs": 520,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 520,
+     "endMs": 608,
+     "confidence": 1
+    },
+    {
+     "text": "water.",
+     "startMs": 608,
+     "endMs": 1120,
+     "confidence": 1
+    },
+    {
+     "text": "Scrub",
+     "startMs": 1120,
+     "endMs": 1420,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 1420,
+     "endMs": 1558,
+     "confidence": 1
+    },
+    {
+     "text": "inside.",
+     "startMs": 1558,
+     "endMs": 2245,
+     "confidence": 1
+    },
+    {
+     "text": "Turn",
+     "startMs": 2245,
+     "endMs": 2445,
+     "confidence": 1
+    },
+    {
+     "text": "it",
+     "startMs": 2445,
+     "endMs": 2520,
+     "confidence": 1
+    },
+    {
+     "text": "over,",
+     "startMs": 2520,
+     "endMs": 2795,
+     "confidence": 1
+    },
+    {
+     "text": "or",
+     "startMs": 2795,
+     "endMs": 2945,
+     "confidence": 1
+    },
+    {
+     "text": "cover",
+     "startMs": 2945,
+     "endMs": 3283,
+     "confidence": 1
+    },
+    {
+     "text": "it.",
+     "startMs": 3283,
+     "endMs": 3808,
+     "confidence": 1
+    },
+    {
+     "text": "Then,",
+     "startMs": 3788,
+     "endMs": 3920,
+     "confidence": 1
+    },
+    {
+     "text": "standing",
+     "startMs": 3920,
+     "endMs": 4308,
+     "confidence": 1
+    },
+    {
+     "text": "right",
+     "startMs": 4308,
+     "endMs": 4533,
+     "confidence": 1
+    },
+    {
+     "text": "there,",
+     "startMs": 4533,
+     "endMs": 4908,
+     "confidence": 1
+    },
+    {
+     "text": "take",
+     "startMs": 4908,
+     "endMs": 5145,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 5145,
+     "endMs": 5283,
+     "confidence": 1
+    },
+    {
+     "text": "after",
+     "startMs": 5283,
+     "endMs": 5620,
+     "confidence": 1
+    },
+    {
+     "text": "photo.",
+     "startMs": 5620,
+     "endMs": 6508,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "Throw out the water. Scrub the inside. Turn it over, or cover it.",
+     "bn": "পানি ফেলে দিন, ভেতরটা ঘষে নিন, উল্টে রাখুন বা ঢেকে দিন।",
+     "startMs": 150,
+     "endMs": 3438
+    },
+    {
+     "en": "Then, standing right there, take the after photo.",
+     "bn": "তারপর সেখানে দাঁড়িয়েই পরের ছবি তুলুন।",
+     "startMs": 3788,
+     "endMs": 6207
+    }
+   ]
+  },
+  {
+   "id": "points",
+   "mood": "energetic",
+   "audio": "voiceover/en/citizen/points.mp3",
+   "durationMs": 5237,
+   "words": [
+    {
+     "text": "You",
+     "startMs": 150,
+     "endMs": 245,
+     "confidence": 1
+    },
+    {
+     "text": "earn",
+     "startMs": 245,
+     "endMs": 508,
+     "confidence": 1
+    },
+    {
+     "text": "points",
+     "startMs": 508,
+     "endMs": 845,
+     "confidence": 1
+    },
+    {
+     "text": "for",
+     "startMs": 845,
+     "endMs": 970,
+     "confidence": 1
+    },
+    {
+     "text": "every",
+     "startMs": 970,
+     "endMs": 1245,
+     "confidence": 1
+    },
+    {
+     "text": "place,",
+     "startMs": 1245,
+     "endMs": 1845,
+     "confidence": 1
+    },
+    {
+     "text": "and",
+     "startMs": 1845,
+     "endMs": 1970,
+     "confidence": 1
+    },
+    {
+     "text": "climb",
+     "startMs": 1970,
+     "endMs": 2233,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 2233,
+     "endMs": 2320,
+     "confidence": 1
+    },
+    {
+     "text": "leaderboard.",
+     "startMs": 2320,
+     "endMs": 3365,
+     "confidence": 1
+    },
+    {
+     "text": "Fake",
+     "startMs": 3365,
+     "endMs": 3563,
+     "confidence": 1
+    },
+    {
+     "text": "photos",
+     "startMs": 3563,
+     "endMs": 4038,
+     "confidence": 1
+    },
+    {
+     "text": "are",
+     "startMs": 4038,
+     "endMs": 4138,
+     "confidence": 1
+    },
+    {
+     "text": "rejected.",
+     "startMs": 4138,
+     "endMs": 5038,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "You earn points for every place, and climb the leaderboard.",
+     "bn": "প্রতিটি জায়গার জন্য পয়েন্ট পাবেন, লিডারবোর্ডে উঠবেন।",
+     "startMs": 150,
+     "endMs": 3015
+    },
+    {
+     "en": "Fake photos are rejected.",
+     "bn": "ভুয়া ছবি বাতিল করা হয়।",
+     "startMs": 3365,
+     "endMs": 4787
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "mood": "hopeful",
+   "audio": "voiceover/en/citizen/cta.mp3",
+   "durationMs": 6308,
+   "words": [
+    {
+     "text": "Right",
+     "startMs": 169,
+     "endMs": 419,
+     "confidence": 1
+    },
+    {
+     "text": "now…",
+     "startMs": 419,
+     "endMs": 1219,
+     "confidence": 1
+    },
+    {
+     "text": "we",
+     "startMs": 1292,
+     "endMs": 1400,
+     "confidence": 1
+    },
+    {
+     "text": "need",
+     "startMs": 1400,
+     "endMs": 1625,
+     "confidence": 1
+    },
+    {
+     "text": "volunteers,",
+     "startMs": 1625,
+     "endMs": 2387,
+     "confidence": 1
+    },
+    {
+     "text": "like",
+     "startMs": 2387,
+     "endMs": 2612,
+     "confidence": 1
+    },
+    {
+     "text": "you.",
+     "startMs": 2612,
+     "endMs": 3500,
+     "confidence": 1
+    },
+    {
+     "text": "Today,",
+     "startMs": 3601,
+     "endMs": 4065,
+     "confidence": 1
+    },
+    {
+     "text": "look",
+     "startMs": 4065,
+     "endMs": 4265,
+     "confidence": 1
+    },
+    {
+     "text": "for",
+     "startMs": 4265,
+     "endMs": 4390,
+     "confidence": 1
+    },
+    {
+     "text": "one",
+     "startMs": 4390,
+     "endMs": 4640,
+     "confidence": 1
+    },
+    {
+     "text": "place",
+     "startMs": 4640,
+     "endMs": 4990,
+     "confidence": 1
+    },
+    {
+     "text": "near",
+     "startMs": 4990,
+     "endMs": 5215,
+     "confidence": 1
+    },
+    {
+     "text": "your",
+     "startMs": 5215,
+     "endMs": 5365,
+     "confidence": 1
+    },
+    {
+     "text": "home.",
+     "startMs": 5365,
+     "endMs": 6215,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "Right now… we need volunteers, like you.",
+     "bn": "এখন আমাদের দরকার আপনার মতো স্বেচ্ছাসেবক।",
+     "startMs": 150,
+     "endMs": 2952
+    },
+    {
+     "en": "Today, look for one place near your home.",
+     "bn": "আজই আপনার বাড়ির আশেপাশে একটি জায়গা খুঁজে দেখুন।",
+     "startMs": 3601,
+     "endMs": 5858
+    }
+   ]
+  }
+ ]
+}

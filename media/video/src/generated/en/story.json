@@ -1,0 +1,602 @@
+{
+ "video": "story",
+ "engine": "kokoro:am_adam",
+ "scenes": [
+  {
+   "id": "wife",
+   "mood": "serious",
+   "audio": "voiceover/en/story/wife.mp3",
+   "durationMs": 3438,
+   "words": [
+    {
+     "text": "Two",
+     "startMs": 155,
+     "endMs": 355,
+     "confidence": 1
+    },
+    {
+     "text": "weeks",
+     "startMs": 355,
+     "endMs": 655,
+     "confidence": 1
+    },
+    {
+     "text": "ago…",
+     "startMs": 655,
+     "endMs": 1630,
+     "confidence": 1
+    },
+    {
+     "text": "my",
+     "startMs": 1694,
+     "endMs": 1844,
+     "confidence": 1
+    },
+    {
+     "text": "wife",
+     "startMs": 1844,
+     "endMs": 2144,
+     "confidence": 1
+    },
+    {
+     "text": "got",
+     "startMs": 2144,
+     "endMs": 2394,
+     "confidence": 1
+    },
+    {
+     "text": "dengue.",
+     "startMs": 2394,
+     "endMs": 3269,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "Two weeks ago… my wife got dengue.",
+     "bn": "দুই সপ্তাহ আগে আমার স্ত্রী ডেঙ্গুতে আক্রান্ত হন।",
+     "startMs": 150,
+     "endMs": 2988
+    }
+   ]
+  },
+  {
+   "id": "hospital",
+   "mood": "serious",
+   "audio": "voiceover/en/story/hospital.mp3",
+   "durationMs": 6025,
+   "words": [
+    {
+     "text": "I",
+     "startMs": 150,
+     "endMs": 303,
+     "confidence": 1
+    },
+    {
+     "text": "saw",
+     "startMs": 303,
+     "endMs": 540,
+     "confidence": 1
+    },
+    {
+     "text": "that",
+     "startMs": 540,
+     "endMs": 715,
+     "confidence": 1
+    },
+    {
+     "text": "all",
+     "startMs": 715,
+     "endMs": 878,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 878,
+     "endMs": 965,
+     "confidence": 1
+    },
+    {
+     "text": "hospitals…",
+     "startMs": 965,
+     "endMs": 2345,
+     "confidence": 1
+    },
+    {
+     "text": "are",
+     "startMs": 2345,
+     "endMs": 2482,
+     "confidence": 1
+    },
+    {
+     "text": "full",
+     "startMs": 2482,
+     "endMs": 2707,
+     "confidence": 1
+    },
+    {
+     "text": "of",
+     "startMs": 2707,
+     "endMs": 2832,
+     "confidence": 1
+    },
+    {
+     "text": "patients.",
+     "startMs": 2832,
+     "endMs": 4170,
+     "confidence": 1
+    },
+    {
+     "text": "People",
+     "startMs": 4394,
+     "endMs": 4729,
+     "confidence": 1
+    },
+    {
+     "text": "are",
+     "startMs": 4729,
+     "endMs": 4891,
+     "confidence": 1
+    },
+    {
+     "text": "dying.",
+     "startMs": 4891,
+     "endMs": 5879,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "I saw that all the hospitals… are full of patients.",
+     "bn": "দেখলাম, সব হাসপাতাল রোগীতে ভরা।",
+     "startMs": 150,
+     "endMs": 3644
+    },
+    {
+     "en": "People are dying.",
+     "bn": "মানুষ মারা যাচ্ছে।",
+     "startMs": 4394,
+     "endMs": 5575
+    }
+   ]
+  },
+  {
+   "id": "build",
+   "mood": "warm",
+   "audio": "voiceover/en/story/build.mp3",
+   "durationMs": 10365,
+   "words": [
+    {
+     "text": "While",
+     "startMs": 150,
+     "endMs": 320,
+     "confidence": 1
+    },
+    {
+     "text": "I",
+     "startMs": 320,
+     "endMs": 470,
+     "confidence": 1
+    },
+    {
+     "text": "sat",
+     "startMs": 470,
+     "endMs": 720,
+     "confidence": 1
+    },
+    {
+     "text": "with",
+     "startMs": 720,
+     "endMs": 858,
+     "confidence": 1
+    },
+    {
+     "text": "my",
+     "startMs": 858,
+     "endMs": 1033,
+     "confidence": 1
+    },
+    {
+     "text": "wife",
+     "startMs": 1033,
+     "endMs": 1345,
+     "confidence": 1
+    },
+    {
+     "text": "in",
+     "startMs": 1345,
+     "endMs": 1420,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 1420,
+     "endMs": 1508,
+     "confidence": 1
+    },
+    {
+     "text": "hospital,",
+     "startMs": 1508,
+     "endMs": 2358,
+     "confidence": 1
+    },
+    {
+     "text": "I",
+     "startMs": 2358,
+     "endMs": 2508,
+     "confidence": 1
+    },
+    {
+     "text": "built",
+     "startMs": 2508,
+     "endMs": 2783,
+     "confidence": 1
+    },
+    {
+     "text": "this",
+     "startMs": 2783,
+     "endMs": 2995,
+     "confidence": 1
+    },
+    {
+     "text": "app.",
+     "startMs": 2995,
+     "endMs": 3873,
+     "confidence": 1
+    },
+    {
+     "text": "So",
+     "startMs": 3873,
+     "endMs": 4003,
+     "confidence": 1
+    },
+    {
+     "text": "that",
+     "startMs": 4003,
+     "endMs": 4165,
+     "confidence": 1
+    },
+    {
+     "text": "all",
+     "startMs": 4165,
+     "endMs": 4353,
+     "confidence": 1
+    },
+    {
+     "text": "of",
+     "startMs": 4353,
+     "endMs": 4428,
+     "confidence": 1
+    },
+    {
+     "text": "us,",
+     "startMs": 4428,
+     "endMs": 4815,
+     "confidence": 1
+    },
+    {
+     "text": "people",
+     "startMs": 4815,
+     "endMs": 5190,
+     "confidence": 1
+    },
+    {
+     "text": "and",
+     "startMs": 5190,
+     "endMs": 5315,
+     "confidence": 1
+    },
+    {
+     "text": "government",
+     "startMs": 5315,
+     "endMs": 5765,
+     "confidence": 1
+    },
+    {
+     "text": "together,",
+     "startMs": 5765,
+     "endMs": 6515,
+     "confidence": 1
+    },
+    {
+     "text": "can",
+     "startMs": 6515,
+     "endMs": 6728,
+     "confidence": 1
+    },
+    {
+     "text": "find",
+     "startMs": 6728,
+     "endMs": 7103,
+     "confidence": 1
+    },
+    {
+     "text": "and",
+     "startMs": 7103,
+     "endMs": 7203,
+     "confidence": 1
+    },
+    {
+     "text": "destroy",
+     "startMs": 7203,
+     "endMs": 7603,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 7603,
+     "endMs": 7690,
+     "confidence": 1
+    },
+    {
+     "text": "places",
+     "startMs": 7690,
+     "endMs": 8165,
+     "confidence": 1
+    },
+    {
+     "text": "where",
+     "startMs": 8165,
+     "endMs": 8378,
+     "confidence": 1
+    },
+    {
+     "text": "Aedes",
+     "startMs": 8378,
+     "endMs": 8740,
+     "confidence": 1
+    },
+    {
+     "text": "mosquitoes",
+     "startMs": 8740,
+     "endMs": 9378,
+     "confidence": 1
+    },
+    {
+     "text": "breed.",
+     "startMs": 9378,
+     "endMs": 10290,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "While I sat with my wife in the hospital, I built this app.",
+     "bn": "স্ত্রীর পাশে হাসপাতালে থাকতে থাকতেই আমি এই অ্যাপটি বানিয়েছি।",
+     "startMs": 150,
+     "endMs": 3373
+    },
+    {
+     "en": "So that all of us, people and government together, can find and destroy the places where Aedes mosquitoes breed.",
+     "bn": "যাতে মানুষ আর সরকার, সবাই মিলে এডিস মশার প্রজননস্থল খুঁজে ধ্বংস করতে পারি।",
+     "startMs": 3873,
+     "endMs": 9915
+    }
+   ]
+  },
+  {
+   "id": "part",
+   "mood": "hopeful",
+   "audio": "voiceover/en/story/part.mp3",
+   "durationMs": 7694,
+   "words": [
+    {
+     "text": "I",
+     "startMs": 150,
+     "endMs": 247,
+     "confidence": 1
+    },
+    {
+     "text": "don't",
+     "startMs": 247,
+     "endMs": 434,
+     "confidence": 1
+    },
+    {
+     "text": "know",
+     "startMs": 434,
+     "endMs": 709,
+     "confidence": 1
+    },
+    {
+     "text": "if",
+     "startMs": 709,
+     "endMs": 822,
+     "confidence": 1
+    },
+    {
+     "text": "it",
+     "startMs": 822,
+     "endMs": 897,
+     "confidence": 1
+    },
+    {
+     "text": "will",
+     "startMs": 897,
+     "endMs": 1059,
+     "confidence": 1
+    },
+    {
+     "text": "help.",
+     "startMs": 1059,
+     "endMs": 2034,
+     "confidence": 1
+    },
+    {
+     "text": "But",
+     "startMs": 2152,
+     "endMs": 2257,
+     "confidence": 1
+    },
+    {
+     "text": "I",
+     "startMs": 2257,
+     "endMs": 2407,
+     "confidence": 1
+    },
+    {
+     "text": "did",
+     "startMs": 2407,
+     "endMs": 2670,
+     "confidence": 1
+    },
+    {
+     "text": "my",
+     "startMs": 2670,
+     "endMs": 2907,
+     "confidence": 1
+    },
+    {
+     "text": "part.",
+     "startMs": 2907,
+     "endMs": 3995,
+     "confidence": 1
+    },
+    {
+     "text": "The",
+     "startMs": 4179,
+     "endMs": 4304,
+     "confidence": 1
+    },
+    {
+     "text": "rest…",
+     "startMs": 4304,
+     "endMs": 5054,
+     "confidence": 1
+    },
+    {
+     "text": "is",
+     "startMs": 5231,
+     "endMs": 5356,
+     "confidence": 1
+    },
+    {
+     "text": "up",
+     "startMs": 5356,
+     "endMs": 5556,
+     "confidence": 1
+    },
+    {
+     "text": "to",
+     "startMs": 5556,
+     "endMs": 5644,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 5644,
+     "endMs": 5731,
+     "confidence": 1
+    },
+    {
+     "text": "people,",
+     "startMs": 5731,
+     "endMs": 6344,
+     "confidence": 1
+    },
+    {
+     "text": "and",
+     "startMs": 6344,
+     "endMs": 6469,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 6469,
+     "endMs": 6556,
+     "confidence": 1
+    },
+    {
+     "text": "government.",
+     "startMs": 6556,
+     "endMs": 7556,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "I don't know if it will help.",
+     "bn": "জানি না এটা কাজে আসবে কি না।",
+     "startMs": 150,
+     "endMs": 1502
+    },
+    {
+     "en": "But I did my part.",
+     "bn": "তবু আমি আমার কাজটুকু করেছি।",
+     "startMs": 2152,
+     "endMs": 3488
+    },
+    {
+     "en": "The rest… is up to the people, and the government.",
+     "bn": "বাকিটা আপনাদের আর সরকারের হাতে।",
+     "startMs": 4138,
+     "endMs": 7244
+    }
+   ]
+  },
+  {
+   "id": "ask",
+   "mood": "hopeful",
+   "audio": "voiceover/en/story/ask.mp3",
+   "durationMs": 2856,
+   "words": [
+    {
+     "text": "Today,",
+     "startMs": 150,
+     "endMs": 613,
+     "confidence": 1
+    },
+    {
+     "text": "look",
+     "startMs": 613,
+     "endMs": 813,
+     "confidence": 1
+    },
+    {
+     "text": "for",
+     "startMs": 813,
+     "endMs": 938,
+     "confidence": 1
+    },
+    {
+     "text": "one",
+     "startMs": 938,
+     "endMs": 1188,
+     "confidence": 1
+    },
+    {
+     "text": "place",
+     "startMs": 1188,
+     "endMs": 1538,
+     "confidence": 1
+    },
+    {
+     "text": "near",
+     "startMs": 1538,
+     "endMs": 1763,
+     "confidence": 1
+    },
+    {
+     "text": "your",
+     "startMs": 1763,
+     "endMs": 1913,
+     "confidence": 1
+    },
+    {
+     "text": "home.",
+     "startMs": 1913,
+     "endMs": 2763,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "Today, look for one place near your home.",
+     "bn": "আজই আপনার বাড়ির আশেপাশে একটি জায়গা খুঁজে দেখুন।",
+     "startMs": 150,
+     "endMs": 2406
+    }
+   ]
+  }
+ ]
+}

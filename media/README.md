@@ -27,6 +27,28 @@ media/
 
 Remotion is source-available and free for individuals and teams of up to 3 ([licence](https://www.remotion.dev/license)). Everything else is open source.
 
+## English version (Kokoro voice + Bangla subtitles)
+
+The three videos also exist with **English narration** (Kokoro TTS, voice `am_adam` by default), English
+word-by-word captions with the **Bangla translation of each line** above them, background music that ducks under
+the voice, and sound effects on transitions and call-outs. Compositions: `CitizenEN`, `GovtEN`, `StoryEN`.
+
+```bash
+cd media/voice && .venv/bin/pip install "kokoro>=0.9.4" && apt-get install espeak-ng   # once
+.venv/bin/python narrate_en.py citizen                      # or govt, story; --voice am_michael to change
+KOKORO_URL=http://localhost:8880 .venv/bin/python narrate_en.py citizen   # use a Kokoro-FastAPI Docker container
+cd ../video && npx remotion render CitizenEN out/citizen-en.mp4
+```
+
+Scripts are `scripts/en/*.json`: each scene is a list of `{en, bn}` lines. Write short sentences with everyday
+words; `...` inside a line becomes a real breath, and each scene's `mood` sets the pace and the pause after every
+line (Kokoro has no emotion control, so timing carries the feeling). It also writes `video/out/<video>.en.srt` and
+`.bn.srt` for uploads. Ready-to-post text for every platform: [`social/posts.md`](social/posts.md). Music and sound
+credits: `video/public/CREDITS.md`.
+
+Voice quality: Kokoro's own list grades `am_adam` F+, and `am_michael`, `am_fenrir` and `am_puck` C+. Compare them
+side by side in `video/out/voices/` (generated, not committed).
+
 ## 1. Script
 
 Edit `scripts/*.json`. Write narration for the ear: spell out numbers (`তিন`, not `৩`) and write acronyms in Bangla

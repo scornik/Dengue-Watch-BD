@@ -1,8 +1,9 @@
 // For city corporations, 1920×1080. An invitation, not a partnership report: volunteers run it today;
 // a city corporation can join by appointing a ward admin and inspectors. The phone plays real screen
 // recordings of the app (media/capture/record.mjs); points appear as the narrator says them.
+import { Audio } from "@remotion/media";
 import type React from "react";
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { AppClip } from "../components/AppClip";
 import { Check } from "../components/Icons";
 import { Backdrop, Kinetic, Pop, Rise } from "../components/motion";
@@ -45,6 +46,11 @@ const Slide: React.FC<{
         </Rise>
         <Kinetic text={title} at={3} size={74} color={ink} align="left" />
         <div style={{ display: "flex", flexDirection: "column", gap: 16, marginTop: 10 }}>
+          {points.map((p) => (
+            <Sequence key={"sfx" + p.text} from={wordFrame(s, p.word, fps, 20)} durationInFrames={15} layout="none">
+              <Audio src={staticFile("sfx/mouse-click.wav")} volume={0.25} />
+            </Sequence>
+          ))}
           {points.map((p) => (
             <Rise key={p.text} at={wordFrame(s, p.word, fps, 20)} distance={30}>
               <div style={{ display: "flex", alignItems: "center", gap: 18, fontFamily: body, fontWeight: 700, fontSize: 40, color: ink }}>
@@ -208,6 +214,9 @@ export const Cta: React.FC<SP & { siteUrl: string; contact: string }> = ({ s, si
           <Brand />
         </Rise>
         <Kinetic text="এখন কাজটি চালাচ্ছেন স্বেচ্ছাসেবকেরা" at={4} size={92} align="left" accent={{ word: "স্বেচ্ছাসেবকেরা", color: C.marigold }} style={{ marginTop: 40 }} />
+        <Sequence from={joinAt} durationInFrames={45} layout="none">
+          <Audio src={staticFile("sfx/ding.wav")} volume={0.4} />
+        </Sequence>
         <Pop at={joinAt} from={0.7} style={{ marginTop: 50, display: "inline-block" }}>
           <div style={{ background: C.white, color: C.ink, borderRadius: 28, padding: "24px 40px", fontFamily: display, fontWeight: 800, fontSize: 60, boxShadow: hardShadow(10) }}>আপনার ওয়ার্ড যুক্ত করুন</div>
         </Pop>
