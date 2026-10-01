@@ -1,155 +1,155 @@
 {
  "video": "govt",
- "engine": "kokoro:am_adam",
+ "engine": "kokoro:am_michael",
  "scenes": [
   {
    "id": "hook",
    "mood": "serious",
    "audio": "voiceover/en/govt/hook.mp3",
-   "durationMs": 11908,
+   "durationMs": 12946,
    "words": [
     {
      "text": "DengueWatch",
-     "startMs": 168,
-     "endMs": 743,
+     "startMs": 204,
+     "endMs": 916,
      "confidence": 1
     },
     {
      "text": "BD",
-     "startMs": 743,
-     "endMs": 1243,
+     "startMs": 916,
+     "endMs": 1466,
      "confidence": 1
     },
     {
      "text": "is",
-     "startMs": 1243,
-     "endMs": 1355,
+     "startMs": 1466,
+     "endMs": 1591,
      "confidence": 1
     },
     {
      "text": "an",
-     "startMs": 1355,
-     "endMs": 1480,
+     "startMs": 1591,
+     "endMs": 1716,
      "confidence": 1
     },
     {
      "text": "open",
-     "startMs": 1480,
-     "endMs": 1868,
+     "startMs": 1716,
+     "endMs": 2129,
      "confidence": 1
     },
     {
      "text": "source,",
-     "startMs": 1868,
-     "endMs": 2493,
+     "startMs": 2129,
+     "endMs": 2879,
      "confidence": 1
     },
     {
      "text": "citizen",
-     "startMs": 2493,
-     "endMs": 2968,
+     "startMs": 2879,
+     "endMs": 3391,
      "confidence": 1
     },
     {
      "text": "project.",
-     "startMs": 2968,
-     "endMs": 4318,
+     "startMs": 3391,
+     "endMs": 4704,
      "confidence": 1
     },
     {
      "text": "Citizens",
-     "startMs": 4358,
-     "endMs": 4871,
+     "startMs": 4954,
+     "endMs": 5529,
      "confidence": 1
     },
     {
      "text": "send",
-     "startMs": 4871,
-     "endMs": 5208,
+     "startMs": 5529,
+     "endMs": 5879,
      "confidence": 1
     },
     {
      "text": "photos",
-     "startMs": 5208,
-     "endMs": 5771,
+     "startMs": 5879,
+     "endMs": 6454,
      "confidence": 1
     },
     {
      "text": "of",
-     "startMs": 5771,
-     "endMs": 5858,
+     "startMs": 6454,
+     "endMs": 6554,
      "confidence": 1
     },
     {
      "text": "standing",
-     "startMs": 5858,
-     "endMs": 6358,
+     "startMs": 6554,
+     "endMs": 7066,
      "confidence": 1
     },
     {
      "text": "water.",
-     "startMs": 6358,
-     "endMs": 7483,
+     "startMs": 7066,
+     "endMs": 8129,
      "confidence": 1
     },
     {
      "text": "Volunteers",
-     "startMs": 7642,
-     "endMs": 8379,
+     "startMs": 8347,
+     "endMs": 9109,
      "confidence": 1
     },
     {
      "text": "clean",
-     "startMs": 8379,
-     "endMs": 8654,
+     "startMs": 9109,
+     "endMs": 9409,
      "confidence": 1
     },
     {
      "text": "it",
-     "startMs": 8654,
-     "endMs": 8742,
+     "startMs": 9409,
+     "endMs": 9522,
      "confidence": 1
     },
     {
      "text": "up…",
-     "startMs": 8742,
-     "endMs": 9517,
+     "startMs": 9522,
+     "endMs": 10322,
      "confidence": 1
     },
     {
      "text": "and",
-     "startMs": 9530,
-     "endMs": 9692,
+     "startMs": 10348,
+     "endMs": 10523,
      "confidence": 1
     },
     {
      "text": "everyone",
-     "startMs": 9692,
-     "endMs": 10230,
+     "startMs": 10523,
+     "endMs": 11098,
      "confidence": 1
     },
     {
      "text": "can",
-     "startMs": 10230,
-     "endMs": 10430,
+     "startMs": 11098,
+     "endMs": 11310,
      "confidence": 1
     },
     {
      "text": "see",
-     "startMs": 10430,
-     "endMs": 10617,
+     "startMs": 11310,
+     "endMs": 11523,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 10617,
-     "endMs": 10705,
+     "startMs": 11523,
+     "endMs": 11635,
      "confidence": 1
     },
     {
      "text": "progress.",
-     "startMs": 10705,
-     "endMs": 11780,
+     "startMs": 11635,
+     "endMs": 12773,
      "confidence": 1
     }
    ],
@@ -158,19 +158,19 @@
      "en": "DengueWatch BD is an open source, citizen project.",
      "bn": "ডেঙ্গুওয়াচ বিডি একটি ওপেন সোর্স নাগরিক উদ্যোগ।",
      "startMs": 150,
-     "endMs": 3578
+     "endMs": 4154
     },
     {
      "en": "Citizens send photos of standing water.",
      "bn": "নাগরিকেরা জমে থাকা পানির ছবি পাঠান।",
-     "startMs": 4328,
-     "endMs": 6855
+     "startMs": 4904,
+     "endMs": 7538
     },
     {
      "en": "Volunteers clean it up… and everyone can see the progress.",
      "bn": "স্বেচ্ছাসেবকেরা তা পরিষ্কার করেন, আর সবাই অগ্রগতি দেখতে পান।",
-     "startMs": 7605,
-     "endMs": 11458
+     "startMs": 8288,
+     "endMs": 12497
     }
    ]
   },
@@ -178,150 +178,150 @@
    "id": "data",
    "mood": "calm",
    "audio": "voiceover/en/govt/data.mp3",
-   "durationMs": 10363,
+   "durationMs": 11546,
    "words": [
     {
      "text": "Every",
      "startMs": 150,
-     "endMs": 400,
+     "endMs": 441,
      "confidence": 1
     },
     {
      "text": "report",
-     "startMs": 400,
-     "endMs": 800,
+     "startMs": 441,
+     "endMs": 916,
      "confidence": 1
     },
     {
      "text": "has",
-     "startMs": 800,
-     "endMs": 962,
+     "startMs": 916,
+     "endMs": 1104,
      "confidence": 1
     },
     {
      "text": "a",
-     "startMs": 962,
-     "endMs": 1075,
+     "startMs": 1104,
+     "endMs": 1229,
      "confidence": 1
     },
     {
      "text": "photo,",
-     "startMs": 1075,
-     "endMs": 2012,
+     "startMs": 1229,
+     "endMs": 2279,
      "confidence": 1
     },
     {
      "text": "a",
-     "startMs": 2012,
-     "endMs": 2137,
+     "startMs": 2279,
+     "endMs": 2416,
      "confidence": 1
     },
     {
      "text": "GPS",
-     "startMs": 2137,
-     "endMs": 2800,
+     "startMs": 2416,
+     "endMs": 3116,
      "confidence": 1
     },
     {
      "text": "location,",
-     "startMs": 2800,
-     "endMs": 3512,
+     "startMs": 3116,
+     "endMs": 4141,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 3512,
-     "endMs": 3600,
+     "startMs": 4141,
+     "endMs": 4241,
      "confidence": 1
     },
     {
      "text": "container",
-     "startMs": 3600,
-     "endMs": 4150,
+     "startMs": 4241,
+     "endMs": 4829,
      "confidence": 1
     },
     {
      "text": "type,",
-     "startMs": 4150,
-     "endMs": 4550,
+     "startMs": 4829,
+     "endMs": 5241,
      "confidence": 1
     },
     {
      "text": "and",
-     "startMs": 4550,
-     "endMs": 4675,
+     "startMs": 5241,
+     "endMs": 5379,
      "confidence": 1
     },
     {
      "text": "larvae",
-     "startMs": 4675,
-     "endMs": 5037,
+     "startMs": 5379,
+     "endMs": 5804,
      "confidence": 1
     },
     {
      "text": "information.",
-     "startMs": 5037,
-     "endMs": 6343,
+     "startMs": 5804,
+     "endMs": 7109,
      "confidence": 1
     },
     {
      "text": "Reports",
-     "startMs": 6343,
-     "endMs": 6767,
+     "startMs": 7109,
+     "endMs": 7609,
      "confidence": 1
     },
     {
      "text": "within",
-     "startMs": 6767,
-     "endMs": 7080,
+     "startMs": 7609,
+     "endMs": 7946,
      "confidence": 1
     },
     {
      "text": "twenty",
-     "startMs": 7080,
-     "endMs": 7380,
+     "startMs": 7946,
+     "endMs": 8296,
      "confidence": 1
     },
     {
      "text": "five",
-     "startMs": 7380,
-     "endMs": 7730,
+     "startMs": 8296,
+     "endMs": 8659,
      "confidence": 1
     },
     {
      "text": "meters",
-     "startMs": 7730,
-     "endMs": 8380,
+     "startMs": 8659,
+     "endMs": 9471,
      "confidence": 1
     },
     {
      "text": "are",
-     "startMs": 8380,
-     "endMs": 8567,
+     "startMs": 9471,
+     "endMs": 9684,
      "confidence": 1
     },
     {
      "text": "joined",
-     "startMs": 8567,
-     "endMs": 8967,
+     "startMs": 9684,
+     "endMs": 10146,
      "confidence": 1
     },
     {
      "text": "into",
-     "startMs": 8967,
-     "endMs": 9205,
+     "startMs": 10146,
+     "endMs": 10421,
      "confidence": 1
     },
     {
      "text": "one",
-     "startMs": 9205,
-     "endMs": 9467,
+     "startMs": 10421,
+     "endMs": 10734,
      "confidence": 1
     },
     {
      "text": "site.",
-     "startMs": 9467,
-     "endMs": 10255,
+     "startMs": 10734,
+     "endMs": 11484,
      "confidence": 1
     }
    ],
@@ -330,13 +330,13 @@
      "en": "Every report has a photo, a GPS location, the container type, and larvae information.",
      "bn": "প্রতিটি রিপোর্টে থাকে ছবি, জিপিএস অবস্থান, পাত্রের ধরন আর লার্ভার তথ্য।",
      "startMs": 150,
-     "endMs": 5793
+     "endMs": 6552
     },
     {
      "en": "Reports within twenty five meters are joined into one site.",
      "bn": "পঁচিশ মিটারের মধ্যে একই জায়গার রিপোর্ট একটি স্থানে যুক্ত হয়।",
-     "startMs": 6343,
-     "endMs": 9913
+     "startMs": 7102,
+     "endMs": 11096
     }
    ]
   },
@@ -344,150 +344,150 @@
    "id": "map",
    "mood": "calm",
    "audio": "voiceover/en/govt/map.mp3",
-   "durationMs": 9996,
+   "durationMs": 11151,
    "words": [
     {
      "text": "The",
      "startMs": 150,
-     "endMs": 246,
+     "endMs": 276,
      "confidence": 1
     },
     {
      "text": "open",
-     "startMs": 246,
-     "endMs": 571,
+     "startMs": 276,
+     "endMs": 664,
      "confidence": 1
     },
     {
      "text": "map",
-     "startMs": 571,
-     "endMs": 883,
+     "startMs": 664,
+     "endMs": 1001,
      "confidence": 1
     },
     {
      "text": "shows",
-     "startMs": 883,
-     "endMs": 1221,
+     "startMs": 1001,
+     "endMs": 1339,
      "confidence": 1
     },
     {
      "text": "reports",
-     "startMs": 1221,
-     "endMs": 1696,
+     "startMs": 1339,
+     "endMs": 1839,
      "confidence": 1
     },
     {
      "text": "by",
-     "startMs": 1696,
-     "endMs": 1908,
+     "startMs": 1839,
+     "endMs": 2064,
      "confidence": 1
     },
     {
      "text": "ward,",
-     "startMs": 1908,
-     "endMs": 2671,
+     "startMs": 2064,
+     "endMs": 3001,
      "confidence": 1
     },
     {
      "text": "environmental",
-     "startMs": 2671,
-     "endMs": 3421,
+     "startMs": 3001,
+     "endMs": 3801,
      "confidence": 1
     },
     {
      "text": "risk,",
-     "startMs": 3421,
-     "endMs": 3846,
+     "startMs": 3801,
+     "endMs": 4489,
      "confidence": 1
     },
     {
      "text": "and",
-     "startMs": 3846,
-     "endMs": 3958,
+     "startMs": 4489,
+     "endMs": 4601,
      "confidence": 1
     },
     {
      "text": "official",
-     "startMs": 3958,
-     "endMs": 4346,
+     "startMs": 4601,
+     "endMs": 5051,
      "confidence": 1
     },
     {
      "text": "case",
-     "startMs": 4346,
-     "endMs": 4646,
+     "startMs": 5051,
+     "endMs": 5389,
      "confidence": 1
     },
     {
      "text": "numbers.",
-     "startMs": 4646,
-     "endMs": 5804,
+     "startMs": 5389,
+     "endMs": 6514,
      "confidence": 1
     },
     {
      "text": "Satellites",
-     "startMs": 5804,
-     "endMs": 6354,
+     "startMs": 6600,
+     "endMs": 7150,
      "confidence": 1
     },
     {
      "text": "cannot",
-     "startMs": 6354,
-     "endMs": 6742,
+     "startMs": 7150,
+     "endMs": 7537,
      "confidence": 1
     },
     {
      "text": "see",
-     "startMs": 6742,
-     "endMs": 6954,
+     "startMs": 7537,
+     "endMs": 7775,
      "confidence": 1
     },
     {
      "text": "containers.",
-     "startMs": 6954,
-     "endMs": 7904,
+     "startMs": 7775,
+     "endMs": 8925,
      "confidence": 1
     },
     {
      "text": "They",
-     "startMs": 7904,
-     "endMs": 8079,
+     "startMs": 8925,
+     "endMs": 9100,
      "confidence": 1
     },
     {
      "text": "only",
-     "startMs": 8079,
-     "endMs": 8392,
+     "startMs": 9100,
+     "endMs": 9425,
      "confidence": 1
     },
     {
      "text": "show",
-     "startMs": 8392,
-     "endMs": 8629,
+     "startMs": 9425,
+     "endMs": 9700,
      "confidence": 1
     },
     {
      "text": "where",
-     "startMs": 8629,
-     "endMs": 8767,
+     "startMs": 9700,
+     "endMs": 9887,
      "confidence": 1
     },
     {
      "text": "to",
-     "startMs": 8767,
-     "endMs": 8854,
+     "startMs": 9887,
+     "endMs": 9975,
      "confidence": 1
     },
     {
      "text": "look",
-     "startMs": 8854,
-     "endMs": 9054,
+     "startMs": 9975,
+     "endMs": 10187,
      "confidence": 1
     },
     {
      "text": "first.",
-     "startMs": 9054,
-     "endMs": 9829,
+     "startMs": 10187,
+     "endMs": 11000,
      "confidence": 1
     }
    ],
@@ -496,13 +496,13 @@
      "en": "The open map shows reports by ward, environmental risk, and official case numbers.",
      "bn": "উন্মুক্ত মানচিত্রে দেখা যায় ওয়ার্ডভিত্তিক রিপোর্ট, পরিবেশগত ঝুঁকি আর সরকারি রোগীর সংখ্যা।",
      "startMs": 150,
-     "endMs": 5218
+     "endMs": 6001
     },
     {
      "en": "Satellites cannot see containers. They only show where to look first.",
      "bn": "স্যাটেলাইট পাত্র দেখতে পায় না, শুধু দেখায় কোথায় আগে খুঁজতে হবে।",
-     "startMs": 5768,
-     "endMs": 9546
+     "startMs": 6551,
+     "endMs": 10701
     }
    ]
   },
@@ -510,7 +510,7 @@
    "id": "scorecard",
    "mood": "calm",
    "audio": "voiceover/en/govt/scorecard.mp3",
-   "durationMs": 6283,
+   "durationMs": 6712,
    "words": [
     {
      "text": "Each",
@@ -521,97 +521,97 @@
     {
      "text": "ward",
      "startMs": 430,
-     "endMs": 792,
+     "endMs": 742,
      "confidence": 1
     },
     {
      "text": "has",
-     "startMs": 792,
-     "endMs": 955,
+     "startMs": 742,
+     "endMs": 905,
      "confidence": 1
     },
     {
      "text": "a",
-     "startMs": 955,
-     "endMs": 1017,
+     "startMs": 905,
+     "endMs": 967,
      "confidence": 1
     },
     {
      "text": "scorecard.",
-     "startMs": 1017,
-     "endMs": 2316,
+     "startMs": 967,
+     "endMs": 2192,
      "confidence": 1
     },
     {
      "text": "How",
-     "startMs": 2316,
-     "endMs": 2413,
+     "startMs": 2253,
+     "endMs": 2378,
      "confidence": 1
     },
     {
      "text": "many",
-     "startMs": 2413,
-     "endMs": 2625,
+     "startMs": 2378,
+     "endMs": 2591,
      "confidence": 1
     },
     {
      "text": "places",
-     "startMs": 2625,
-     "endMs": 3063,
+     "startMs": 2591,
+     "endMs": 3066,
      "confidence": 1
     },
     {
      "text": "were",
-     "startMs": 3063,
-     "endMs": 3213,
+     "startMs": 3066,
+     "endMs": 3241,
      "confidence": 1
     },
     {
      "text": "found,",
-     "startMs": 3213,
-     "endMs": 3950,
+     "startMs": 3241,
+     "endMs": 4141,
      "confidence": 1
     },
     {
      "text": "how",
-     "startMs": 3950,
-     "endMs": 4088,
+     "startMs": 4141,
+     "endMs": 4316,
      "confidence": 1
     },
     {
      "text": "many",
-     "startMs": 4088,
-     "endMs": 4288,
+     "startMs": 4316,
+     "endMs": 4541,
      "confidence": 1
     },
     {
      "text": "were",
-     "startMs": 4288,
-     "endMs": 4438,
+     "startMs": 4541,
+     "endMs": 4703,
      "confidence": 1
     },
     {
      "text": "cleaned,",
-     "startMs": 4438,
-     "endMs": 4938,
+     "startMs": 4703,
+     "endMs": 5253,
      "confidence": 1
     },
     {
      "text": "and",
-     "startMs": 4938,
-     "endMs": 5038,
+     "startMs": 5253,
+     "endMs": 5366,
      "confidence": 1
     },
     {
      "text": "how",
-     "startMs": 5038,
-     "endMs": 5213,
+     "startMs": 5366,
+     "endMs": 5591,
      "confidence": 1
     },
     {
      "text": "fast.",
-     "startMs": 5213,
-     "endMs": 6125,
+     "startMs": 5591,
+     "endMs": 6491,
      "confidence": 1
     }
    ],
@@ -620,13 +620,13 @@
      "en": "Each ward has a scorecard.",
      "bn": "প্রতিটি ওয়ার্ডের একটি স্কোরকার্ড আছে।",
      "startMs": 150,
-     "endMs": 1766
+     "endMs": 1703
     },
     {
      "en": "How many places were found, how many were cleaned, and how fast.",
      "bn": "কতগুলো জায়গা পাওয়া গেছে, কতগুলো পরিষ্কার হয়েছে, আর কত দ্রুত।",
-     "startMs": 2316,
-     "endMs": 5833
+     "startMs": 2253,
+     "endMs": 6262
     }
    ]
   },
@@ -634,180 +634,180 @@
    "id": "join",
    "mood": "confident",
    "audio": "voiceover/en/govt/join.mp3",
-   "durationMs": 9694,
+   "durationMs": 10700,
    "words": [
     {
      "text": "If",
      "startMs": 150,
-     "endMs": 243,
+     "endMs": 262,
      "confidence": 1
     },
     {
      "text": "a",
-     "startMs": 243,
-     "endMs": 343,
+     "startMs": 262,
+     "endMs": 387,
      "confidence": 1
     },
     {
      "text": "city",
-     "startMs": 343,
-     "endMs": 606,
+     "startMs": 387,
+     "endMs": 687,
      "confidence": 1
     },
     {
      "text": "corporation",
-     "startMs": 606,
-     "endMs": 1256,
+     "startMs": 687,
+     "endMs": 1437,
      "confidence": 1
     },
     {
      "text": "wants,",
-     "startMs": 1256,
-     "endMs": 1981,
+     "startMs": 1437,
+     "endMs": 2274,
      "confidence": 1
     },
     {
      "text": "it",
-     "startMs": 1981,
-     "endMs": 2068,
+     "startMs": 2274,
+     "endMs": 2412,
      "confidence": 1
     },
     {
      "text": "can",
-     "startMs": 2068,
-     "endMs": 2181,
+     "startMs": 2412,
+     "endMs": 2537,
      "confidence": 1
     },
     {
      "text": "appoint",
-     "startMs": 2181,
-     "endMs": 2518,
+     "startMs": 2537,
+     "endMs": 2899,
      "confidence": 1
     },
     {
      "text": "an",
-     "startMs": 2518,
-     "endMs": 2656,
+     "startMs": 2899,
+     "endMs": 3099,
      "confidence": 1
     },
     {
      "text": "admin",
-     "startMs": 2656,
-     "endMs": 3181,
+     "startMs": 3099,
+     "endMs": 3762,
      "confidence": 1
     },
     {
      "text": "and",
-     "startMs": 3181,
-     "endMs": 3293,
+     "startMs": 3762,
+     "endMs": 3874,
      "confidence": 1
     },
     {
      "text": "inspectors",
-     "startMs": 3293,
-     "endMs": 3956,
+     "startMs": 3874,
+     "endMs": 4587,
      "confidence": 1
     },
     {
      "text": "for",
-     "startMs": 3956,
-     "endMs": 4081,
+     "startMs": 4587,
+     "endMs": 4737,
      "confidence": 1
     },
     {
      "text": "each",
-     "startMs": 4081,
-     "endMs": 4343,
+     "startMs": 4737,
+     "endMs": 4999,
      "confidence": 1
     },
     {
      "text": "ward.",
-     "startMs": 4343,
-     "endMs": 5301,
+     "startMs": 4999,
+     "endMs": 5990,
      "confidence": 1
     },
     {
      "text": "They",
-     "startMs": 5301,
-     "endMs": 5422,
+     "startMs": 5990,
+     "endMs": 6139,
      "confidence": 1
     },
     {
      "text": "get",
-     "startMs": 5422,
-     "endMs": 5597,
+     "startMs": 6139,
+     "endMs": 6314,
      "confidence": 1
     },
     {
      "text": "their",
-     "startMs": 5597,
-     "endMs": 5797,
+     "startMs": 6314,
+     "endMs": 6527,
      "confidence": 1
     },
     {
      "text": "own",
-     "startMs": 5797,
-     "endMs": 6022,
+     "startMs": 6527,
+     "endMs": 6789,
      "confidence": 1
     },
     {
      "text": "work",
-     "startMs": 6022,
-     "endMs": 6272,
+     "startMs": 6789,
+     "endMs": 7039,
      "confidence": 1
     },
     {
      "text": "list…",
-     "startMs": 6272,
-     "endMs": 6999,
+     "startMs": 7039,
+     "endMs": 7787,
      "confidence": 1
     },
     {
      "text": "and",
-     "startMs": 6999,
-     "endMs": 7070,
+     "startMs": 7787,
+     "endMs": 7878,
      "confidence": 1
     },
     {
      "text": "close",
-     "startMs": 7070,
-     "endMs": 7383,
+     "startMs": 7878,
+     "endMs": 8253,
      "confidence": 1
     },
     {
      "text": "each",
-     "startMs": 7383,
-     "endMs": 7595,
+     "startMs": 8253,
+     "endMs": 8478,
      "confidence": 1
     },
     {
      "text": "place",
-     "startMs": 7595,
-     "endMs": 7908,
+     "startMs": 8478,
+     "endMs": 8790,
      "confidence": 1
     },
     {
      "text": "with",
-     "startMs": 7908,
-     "endMs": 8008,
+     "startMs": 8790,
+     "endMs": 8915,
      "confidence": 1
     },
     {
      "text": "an",
-     "startMs": 8008,
-     "endMs": 8120,
+     "startMs": 8915,
+     "endMs": 9040,
      "confidence": 1
     },
     {
      "text": "on-site",
-     "startMs": 8120,
-     "endMs": 8633,
+     "startMs": 9040,
+     "endMs": 9590,
      "confidence": 1
     },
     {
      "text": "photo.",
-     "startMs": 8633,
-     "endMs": 9570,
+     "startMs": 9590,
+     "endMs": 10528,
      "confidence": 1
     }
    ],
@@ -816,13 +816,13 @@
      "en": "If a city corporation wants, it can appoint an admin and inspectors for each ward.",
      "bn": "সিটি করপোরেশন চাইলে প্রতিটি ওয়ার্ডে অ্যাডমিন ও পরিদর্শক নিয়োগ দিতে পারে।",
      "startMs": 150,
-     "endMs": 4851
+     "endMs": 5540
     },
     {
      "en": "They get their own work list… and close each place with an on-site photo.",
      "bn": "তাঁরা পান নিজের কাজের তালিকা, আর ঘটনাস্থলের ছবি দিয়ে প্রতিটি জায়গা বন্ধ করেন।",
-     "startMs": 5301,
-     "endMs": 9244
+     "startMs": 5990,
+     "endMs": 10250
     }
    ]
   },
@@ -830,96 +830,96 @@
    "id": "digest",
    "mood": "confident",
    "audio": "voiceover/en/govt/digest.mp3",
-   "durationMs": 5836,
+   "durationMs": 6255,
    "words": [
     {
      "text": "Ward",
-     "startMs": 150,
-     "endMs": 422,
+     "startMs": 162,
+     "endMs": 475,
      "confidence": 1
     },
     {
      "text": "admins",
-     "startMs": 422,
-     "endMs": 960,
+     "startMs": 475,
+     "endMs": 1037,
      "confidence": 1
     },
     {
      "text": "get",
-     "startMs": 960,
-     "endMs": 1097,
+     "startMs": 1037,
+     "endMs": 1175,
      "confidence": 1
     },
     {
      "text": "a",
-     "startMs": 1097,
-     "endMs": 1197,
+     "startMs": 1175,
+     "endMs": 1275,
      "confidence": 1
     },
     {
      "text": "weekly",
-     "startMs": 1197,
-     "endMs": 1597,
+     "startMs": 1275,
+     "endMs": 1712,
      "confidence": 1
     },
     {
      "text": "summary.",
-     "startMs": 1597,
-     "endMs": 2585,
+     "startMs": 1712,
+     "endMs": 2683,
      "confidence": 1
     },
     {
      "text": "And",
-     "startMs": 2585,
-     "endMs": 2688,
+     "startMs": 2683,
+     "endMs": 2786,
      "confidence": 1
     },
     {
      "text": "all",
-     "startMs": 2688,
-     "endMs": 2913,
+     "startMs": 2786,
+     "endMs": 3111,
      "confidence": 1
     },
     {
      "text": "anonymous",
-     "startMs": 2913,
-     "endMs": 3438,
+     "startMs": 3111,
+     "endMs": 3736,
      "confidence": 1
     },
     {
      "text": "data",
-     "startMs": 3438,
-     "endMs": 3763,
+     "startMs": 3736,
+     "endMs": 4074,
      "confidence": 1
     },
     {
      "text": "can",
-     "startMs": 3763,
-     "endMs": 3875,
+     "startMs": 4074,
+     "endMs": 4186,
      "confidence": 1
     },
     {
      "text": "be",
-     "startMs": 3875,
-     "endMs": 4013,
+     "startMs": 4186,
+     "endMs": 4336,
      "confidence": 1
     },
     {
      "text": "downloaded,",
-     "startMs": 4013,
-     "endMs": 4788,
+     "startMs": 4336,
+     "endMs": 5224,
      "confidence": 1
     },
     {
      "text": "for",
-     "startMs": 4788,
-     "endMs": 4950,
+     "startMs": 5224,
+     "endMs": 5399,
      "confidence": 1
     },
     {
      "text": "free.",
-     "startMs": 4950,
-     "endMs": 5738,
+     "startMs": 5399,
+     "endMs": 6174,
      "confidence": 1
     }
    ],
@@ -928,13 +928,13 @@
      "en": "Ward admins get a weekly summary.",
      "bn": "ওয়ার্ড অ্যাডমিন পান সাপ্তাহিক সারাংশ।",
      "startMs": 150,
-     "endMs": 2135
+     "endMs": 2233
     },
     {
      "en": "And all anonymous data can be downloaded, for free.",
      "bn": "আর নাম-পরিচয়হীন সব তথ্য বিনা মূল্যে ডাউনলোড করা যায়।",
-     "startMs": 2585,
-     "endMs": 5386
+     "startMs": 2683,
+     "endMs": 5805
     }
    ]
   },
@@ -942,102 +942,102 @@
    "id": "cta",
    "mood": "hopeful",
    "audio": "voiceover/en/govt/cta.mp3",
-   "durationMs": 6696,
+   "durationMs": 7108,
    "words": [
     {
      "text": "Today,",
      "startMs": 150,
-     "endMs": 638,
+     "endMs": 758,
      "confidence": 1
     },
     {
      "text": "volunteers",
-     "startMs": 638,
-     "endMs": 1363,
+     "startMs": 758,
+     "endMs": 1521,
      "confidence": 1
     },
     {
      "text": "are",
-     "startMs": 1363,
-     "endMs": 1463,
+     "startMs": 1521,
+     "endMs": 1658,
      "confidence": 1
     },
     {
      "text": "doing",
-     "startMs": 1463,
-     "endMs": 1788,
+     "startMs": 1658,
+     "endMs": 1996,
      "confidence": 1
     },
     {
      "text": "this",
-     "startMs": 1788,
-     "endMs": 1988,
+     "startMs": 1996,
+     "endMs": 2221,
      "confidence": 1
     },
     {
      "text": "work.",
-     "startMs": 1988,
-     "endMs": 2938,
+     "startMs": 2221,
+     "endMs": 3121,
      "confidence": 1
     },
     {
      "text": "If",
-     "startMs": 3000,
-     "endMs": 3155,
+     "startMs": 3260,
+     "endMs": 3415,
      "confidence": 1
     },
     {
      "text": "you",
-     "startMs": 3155,
-     "endMs": 3255,
+     "startMs": 3415,
+     "endMs": 3515,
      "confidence": 1
     },
     {
      "text": "want",
-     "startMs": 3255,
-     "endMs": 3442,
+     "startMs": 3515,
+     "endMs": 3702,
      "confidence": 1
     },
     {
      "text": "to",
-     "startMs": 3442,
-     "endMs": 3567,
+     "startMs": 3702,
+     "endMs": 3840,
      "confidence": 1
     },
     {
      "text": "add",
-     "startMs": 3567,
-     "endMs": 3830,
+     "startMs": 3840,
+     "endMs": 4140,
      "confidence": 1
     },
     {
      "text": "your",
-     "startMs": 3830,
-     "endMs": 4017,
+     "startMs": 4140,
+     "endMs": 4327,
      "confidence": 1
     },
     {
      "text": "ward…",
-     "startMs": 4017,
-     "endMs": 4939,
+     "startMs": 4327,
+     "endMs": 5270,
      "confidence": 1
     },
     {
      "text": "please,",
-     "startMs": 4939,
-     "endMs": 5322,
+     "startMs": 5270,
+     "endMs": 5682,
      "confidence": 1
     },
     {
      "text": "contact",
-     "startMs": 5322,
-     "endMs": 5884,
+     "startMs": 5682,
+     "endMs": 6282,
      "confidence": 1
     },
     {
      "text": "us.",
-     "startMs": 5884,
-     "endMs": 6522,
+     "startMs": 6282,
+     "endMs": 6882,
      "confidence": 1
     }
    ],
@@ -1046,13 +1046,13 @@
      "en": "Today, volunteers are doing this work.",
      "bn": "এখন কাজটি চালাচ্ছেন স্বেচ্ছাসেবকেরা।",
      "startMs": 150,
-     "endMs": 2350
+     "endMs": 2610
     },
     {
      "en": "If you want to add your ward… please, contact us.",
      "bn": "আপনার ওয়ার্ড যুক্ত করতে চাইলে আমাদের সাথে যোগাযোগ করুন।",
-     "startMs": 3000,
-     "endMs": 6246
+     "startMs": 3260,
+     "endMs": 6658
     }
    ]
   }

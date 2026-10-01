@@ -29,13 +29,13 @@ Remotion is source-available and free for individuals and teams of up to 3 ([lic
 
 ## English version (Kokoro voice + Bangla subtitles)
 
-The three videos also exist with **English narration** (Kokoro TTS, voice `am_adam` by default), English
+The three videos also exist with **English narration** (Kokoro TTS, voice `am_michael` by default), English
 word-by-word captions with the **Bangla translation of each line** above them, background music that ducks under
 the voice, and sound effects on transitions and call-outs. Compositions: `CitizenEN`, `GovtEN`, `StoryEN`.
 
 ```bash
 cd media/voice && .venv/bin/pip install "kokoro>=0.9.4" && apt-get install espeak-ng   # once
-.venv/bin/python narrate_en.py citizen                      # or govt, story; --voice am_michael to change
+.venv/bin/python narrate_en.py citizen                      # or govt, story; --voice am_adam to change
 KOKORO_URL=http://localhost:8880 .venv/bin/python narrate_en.py citizen   # use a Kokoro-FastAPI Docker container
 cd ../video && npx remotion render CitizenEN out/citizen-en.mp4
 ```

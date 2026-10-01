@@ -11,9 +11,9 @@ Rules every post follows:
 
 | Video | File | Best on |
 | --- | --- | --- |
-| Founder story (30 s, 9:16) | `story-en.mp4` | Facebook (your profile, then share to groups), TikTok, Reels, LinkedIn |
-| How to use it (65 s, 9:16) | `citizen-en.mp4` | Facebook Reels, TikTok, YouTube Shorts, neighbourhood and university groups |
-| For city corporations (63 s, 16:9) | `govt-en.mp4` | LinkedIn, YouTube, email to councillors and DNCC/DSCC officials |
+| Founder story (35 s, 9:16) | `story-en.mp4` | Facebook (your profile, then share to groups), TikTok, Reels, LinkedIn |
+| How to use it (69 s, 9:16) | `citizen-en.mp4` | Facebook Reels, TikTok, YouTube Shorts, neighbourhood and university groups |
+| For city corporations (68 s, 16:9) | `govt-en.mp4` | LinkedIn, YouTube, email to councillors and DNCC/DSCC officials |
 
 Suggested order: **story first** (day 0, your own profile), **how-to** the next day into groups, **city corporation** video on LinkedIn once the first reports come in.
 
@@ -65,7 +65,7 @@ First comment (pin it): `dengue-watch-bd.vercel.app 👈 ফোনের ব্�
 > I don't know if it will help. But I did my part. The rest depends on people, and on our city corporations.
 >
 > If you're in Dhaka: check your roof and balcony today, and report one spot.
-> If you work in public health, a city corporation, or with youth volunteers: I'd like to talk.
+> If you work in public health, a city corporation, or with youth volunteers: I'd like to talk (ashik.elahi.cse@gmail.com).
 >
 > https://dengue-watch-bd.vercel.app
 >
@@ -173,8 +173,8 @@ Demo photos: OakleyOriginals, chris.rycroft (Flickr), CC BY 2.0.
 >
 > Satellites can't see containers; the risk layer only shows where to look first. The real work is people on the ground, and right now those people are volunteers.
 >
-> If you'd like to add your ward, message me.
-> https://dengue-watch-bd.vercel.app · code: github.com/scornik/Dengue-Watch-BD
+> If you'd like to add your ward, write to me at ashik.elahi.cse@gmail.com or use the contact page: https://dengue-watch-bd.vercel.app/contact
+> Code: github.com/scornik/Dengue-Watch-BD
 >
 > (AI voice; app screens use demo data.)
 >
@@ -190,14 +190,15 @@ DengueWatch BD is an open-source citizen project: citizens report standing water
 ডেঙ্গুওয়াচ বিডি: সিটি করপোরেশনের জন্য আমন্ত্রণ।
 
 0:00 What it is
-0:11 What every report contains
-0:22 Open map, environmental risk and case numbers
-0:32 Ward scorecards
-0:38 Ward admins and inspectors (optional)
-0:48 Weekly summary and open data
-0:54 Add your ward
+0:12 What every report contains
+0:24 Open map, environmental risk and case numbers
+0:35 Ward scorecards
+0:42 Ward admins and inspectors (optional)
+0:53 Weekly summary and open data
+0:59 Add your ward
 
 App: https://dengue-watch-bd.vercel.app
+Contact: ashik.elahi.cse@gmail.com · https://dengue-watch-bd.vercel.app/contact
 Source code (AGPL-3.0): https://github.com/scornik/Dengue-Watch-BD
 
 AI voice. App screens use demo data.
@@ -217,6 +218,7 @@ Chapter times assume the current render. Re-check them after any re-render.
 > আপনি চাইলে আপনার ওয়ার্ডের জন্য একজন অ্যাডমিন ও পরিদর্শক যুক্ত করা যায়। তাঁরা নিজের ওয়ার্ডের কাজের তালিকা ও সাপ্তাহিক সারাংশ পাবেন। ১ মিনিটের ভিডিওটি দেখুন।
 >
 > 👉 https://dengue-watch-bd.vercel.app
+> যোগাযোগ: ashik.elahi.cse@gmail.com
 >
 > (ভিডিওর কণ্ঠ এআই দিয়ে তৈরি।)
 
@@ -225,7 +227,7 @@ Chapter times assume the current render. Re-check them after any re-render.
 ## Credits (paste where there's room; required by CC BY)
 
 ```
-Voice: AI (Kokoro TTS, voice am_adam).
+Voice: AI (Kokoro TTS, voice am_michael).
 Music (Freesound, CC BY 4.0): "Japan Sky" by kjartan_abel · "Peaceful Stream (version without piano)" by Universfield · "Emotional Original Soundtrack - BETTER LIFE" by Magmi.Soundtracks.
 Demo photos (Flickr, CC BY 2.0): "Icky Bucket of Water" by OakleyOriginals · "Upturned bucket" by chris.rycroft.
 Sound effects: remotion.media.

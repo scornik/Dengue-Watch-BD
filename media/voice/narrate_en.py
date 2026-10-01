@@ -153,7 +153,7 @@ def srt(path: Path, cues: list[tuple[float, float, str]]) -> None:
 def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("video")
-    p.add_argument("--voice", default=os.environ.get("KOKORO_VOICE", "am_adam"))
+    p.add_argument("--voice", default=os.environ.get("KOKORO_VOICE", "am_michael"))
     p.add_argument("--only", help="regenerate one scene id")
     args = p.parse_args()
 

@@ -30,7 +30,7 @@ export const RemotionRoot: React.FC = () => {
           fps={FPS}
           width={1920}
           height={1080}
-          defaultProps={{ siteUrl: "dengue-watch-bd.vercel.app", contact: "", lang: "en" as const }}
+          defaultProps={{ siteUrl: "dengue-watch-bd.vercel.app", contact: "ashik.elahi.cse@gmail.com", lang: "en" as const }}
         />
         <Composition
           id="StoryEN"
@@ -59,7 +59,7 @@ export const RemotionRoot: React.FC = () => {
           fps={FPS}
           width={1920}
           height={1080}
-          defaultProps={{ siteUrl: "dengue-watch-bd.vercel.app", contact: "", lang: "bn" as const }}
+          defaultProps={{ siteUrl: "dengue-watch-bd.vercel.app", contact: "ashik.elahi.cse@gmail.com", lang: "bn" as const }}
         />
         <Composition
           id="Story"

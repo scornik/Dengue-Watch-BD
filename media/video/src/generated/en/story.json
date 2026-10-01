@@ -1,53 +1,53 @@
 {
  "video": "story",
- "engine": "kokoro:am_adam",
+ "engine": "kokoro:am_michael",
  "scenes": [
   {
    "id": "wife",
    "mood": "serious",
    "audio": "voiceover/en/story/wife.mp3",
-   "durationMs": 3438,
+   "durationMs": 3471,
    "words": [
     {
      "text": "Two",
-     "startMs": 155,
-     "endMs": 355,
+     "startMs": 158,
+     "endMs": 358,
      "confidence": 1
     },
     {
      "text": "weeks",
-     "startMs": 355,
-     "endMs": 655,
+     "startMs": 358,
+     "endMs": 658,
      "confidence": 1
     },
     {
      "text": "ago…",
-     "startMs": 655,
-     "endMs": 1630,
+     "startMs": 658,
+     "endMs": 1608,
      "confidence": 1
     },
     {
      "text": "my",
-     "startMs": 1694,
-     "endMs": 1844,
+     "startMs": 1691,
+     "endMs": 1841,
      "confidence": 1
     },
     {
      "text": "wife",
-     "startMs": 1844,
-     "endMs": 2144,
+     "startMs": 1841,
+     "endMs": 2166,
      "confidence": 1
     },
     {
      "text": "got",
-     "startMs": 2144,
-     "endMs": 2394,
+     "startMs": 2166,
+     "endMs": 2429,
      "confidence": 1
     },
     {
      "text": "dengue.",
-     "startMs": 2394,
-     "endMs": 3269,
+     "startMs": 2429,
+     "endMs": 3291,
      "confidence": 1
     }
    ],
@@ -56,7 +56,7 @@
      "en": "Two weeks ago… my wife got dengue.",
      "bn": "দুই সপ্তাহ আগে আমার স্ত্রী ডেঙ্গুতে আক্রান্ত হন।",
      "startMs": 150,
-     "endMs": 2988
+     "endMs": 3021
     }
    ]
   },
@@ -64,84 +64,84 @@
    "id": "hospital",
    "mood": "serious",
    "audio": "voiceover/en/story/hospital.mp3",
-   "durationMs": 6025,
+   "durationMs": 6178,
    "words": [
     {
      "text": "I",
      "startMs": 150,
-     "endMs": 303,
+     "endMs": 313,
      "confidence": 1
     },
     {
      "text": "saw",
-     "startMs": 303,
-     "endMs": 540,
+     "startMs": 313,
+     "endMs": 588,
      "confidence": 1
     },
     {
      "text": "that",
-     "startMs": 540,
-     "endMs": 715,
+     "startMs": 588,
+     "endMs": 738,
      "confidence": 1
     },
     {
      "text": "all",
-     "startMs": 715,
-     "endMs": 878,
+     "startMs": 738,
+     "endMs": 926,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 878,
-     "endMs": 965,
+     "startMs": 926,
+     "endMs": 1013,
      "confidence": 1
     },
     {
      "text": "hospitals…",
-     "startMs": 965,
-     "endMs": 2345,
+     "startMs": 1013,
+     "endMs": 2442,
      "confidence": 1
     },
     {
      "text": "are",
-     "startMs": 2345,
-     "endMs": 2482,
+     "startMs": 2442,
+     "endMs": 2592,
      "confidence": 1
     },
     {
      "text": "full",
-     "startMs": 2482,
-     "endMs": 2707,
+     "startMs": 2592,
+     "endMs": 2855,
      "confidence": 1
     },
     {
      "text": "of",
-     "startMs": 2707,
-     "endMs": 2832,
+     "startMs": 2855,
+     "endMs": 3005,
      "confidence": 1
     },
     {
      "text": "patients.",
-     "startMs": 2832,
-     "endMs": 4170,
+     "startMs": 3005,
+     "endMs": 4267,
      "confidence": 1
     },
     {
      "text": "People",
-     "startMs": 4394,
-     "endMs": 4729,
+     "startMs": 4545,
+     "endMs": 4880,
      "confidence": 1
     },
     {
      "text": "are",
-     "startMs": 4729,
-     "endMs": 4891,
+     "startMs": 4880,
+     "endMs": 5043,
      "confidence": 1
     },
     {
      "text": "dying.",
-     "startMs": 4891,
-     "endMs": 5879,
+     "startMs": 5043,
+     "endMs": 5980,
      "confidence": 1
     }
    ],
@@ -150,13 +150,13 @@
      "en": "I saw that all the hospitals… are full of patients.",
      "bn": "দেখলাম, সব হাসপাতাল রোগীতে ভরা।",
      "startMs": 150,
-     "endMs": 3644
+     "endMs": 3795
     },
     {
      "en": "People are dying.",
      "bn": "মানুষ মারা যাচ্ছে।",
-     "startMs": 4394,
-     "endMs": 5575
+     "startMs": 4545,
+     "endMs": 5728
     }
    ]
   },
@@ -164,198 +164,198 @@
    "id": "build",
    "mood": "warm",
    "audio": "voiceover/en/story/build.mp3",
-   "durationMs": 10365,
+   "durationMs": 11698,
    "words": [
     {
      "text": "While",
      "startMs": 150,
-     "endMs": 320,
+     "endMs": 327,
      "confidence": 1
     },
     {
      "text": "I",
-     "startMs": 320,
-     "endMs": 470,
+     "startMs": 327,
+     "endMs": 490,
      "confidence": 1
     },
     {
      "text": "sat",
-     "startMs": 470,
-     "endMs": 720,
+     "startMs": 490,
+     "endMs": 802,
      "confidence": 1
     },
     {
      "text": "with",
-     "startMs": 720,
-     "endMs": 858,
+     "startMs": 802,
+     "endMs": 965,
      "confidence": 1
     },
     {
      "text": "my",
-     "startMs": 858,
-     "endMs": 1033,
+     "startMs": 965,
+     "endMs": 1177,
      "confidence": 1
     },
     {
      "text": "wife",
-     "startMs": 1033,
-     "endMs": 1345,
+     "startMs": 1177,
+     "endMs": 1502,
      "confidence": 1
     },
     {
      "text": "in",
-     "startMs": 1345,
-     "endMs": 1420,
+     "startMs": 1502,
+     "endMs": 1577,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 1420,
-     "endMs": 1508,
+     "startMs": 1577,
+     "endMs": 1665,
      "confidence": 1
     },
     {
      "text": "hospital,",
-     "startMs": 1508,
-     "endMs": 2358,
+     "startMs": 1665,
+     "endMs": 2640,
      "confidence": 1
     },
     {
      "text": "I",
-     "startMs": 2358,
-     "endMs": 2508,
+     "startMs": 2640,
+     "endMs": 2802,
      "confidence": 1
     },
     {
      "text": "built",
-     "startMs": 2508,
-     "endMs": 2783,
+     "startMs": 2802,
+     "endMs": 3090,
      "confidence": 1
     },
     {
      "text": "this",
-     "startMs": 2783,
-     "endMs": 2995,
+     "startMs": 3090,
+     "endMs": 3327,
      "confidence": 1
     },
     {
      "text": "app.",
-     "startMs": 2995,
-     "endMs": 3873,
+     "startMs": 3327,
+     "endMs": 4215,
      "confidence": 1
     },
     {
      "text": "So",
-     "startMs": 3873,
-     "endMs": 4003,
+     "startMs": 4245,
+     "endMs": 4395,
      "confidence": 1
     },
     {
      "text": "that",
-     "startMs": 4003,
-     "endMs": 4165,
+     "startMs": 4395,
+     "endMs": 4620,
      "confidence": 1
     },
     {
      "text": "all",
-     "startMs": 4165,
-     "endMs": 4353,
+     "startMs": 4620,
+     "endMs": 4882,
      "confidence": 1
     },
     {
      "text": "of",
-     "startMs": 4353,
-     "endMs": 4428,
+     "startMs": 4882,
+     "endMs": 4995,
      "confidence": 1
     },
     {
      "text": "us,",
-     "startMs": 4428,
-     "endMs": 4815,
+     "startMs": 4995,
+     "endMs": 5658,
      "confidence": 1
     },
     {
      "text": "people",
-     "startMs": 4815,
-     "endMs": 5190,
+     "startMs": 5658,
+     "endMs": 6045,
      "confidence": 1
     },
     {
      "text": "and",
-     "startMs": 5190,
-     "endMs": 5315,
+     "startMs": 6045,
+     "endMs": 6182,
      "confidence": 1
     },
     {
      "text": "government",
-     "startMs": 5315,
-     "endMs": 5765,
+     "startMs": 6182,
+     "endMs": 6645,
      "confidence": 1
     },
     {
      "text": "together,",
-     "startMs": 5765,
-     "endMs": 6515,
+     "startMs": 6645,
+     "endMs": 7495,
      "confidence": 1
     },
     {
      "text": "can",
-     "startMs": 6515,
-     "endMs": 6728,
+     "startMs": 7495,
+     "endMs": 7720,
      "confidence": 1
     },
     {
      "text": "find",
-     "startMs": 6728,
-     "endMs": 7103,
+     "startMs": 7720,
+     "endMs": 8108,
      "confidence": 1
     },
     {
      "text": "and",
-     "startMs": 7103,
-     "endMs": 7203,
+     "startMs": 8108,
+     "endMs": 8208,
      "confidence": 1
     },
     {
      "text": "destroy",
-     "startMs": 7203,
-     "endMs": 7603,
+     "startMs": 8208,
+     "endMs": 8670,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 7603,
-     "endMs": 7690,
+     "startMs": 8670,
+     "endMs": 8782,
      "confidence": 1
     },
     {
      "text": "places",
-     "startMs": 7690,
-     "endMs": 8165,
+     "startMs": 8782,
+     "endMs": 9320,
      "confidence": 1
     },
     {
      "text": "where",
-     "startMs": 8165,
-     "endMs": 8378,
+     "startMs": 9320,
+     "endMs": 9595,
      "confidence": 1
     },
     {
      "text": "Aedes",
-     "startMs": 8378,
-     "endMs": 8740,
+     "startMs": 9595,
+     "endMs": 10020,
      "confidence": 1
     },
     {
      "text": "mosquitoes",
-     "startMs": 8740,
-     "endMs": 9378,
+     "startMs": 10020,
+     "endMs": 10708,
      "confidence": 1
     },
     {
      "text": "breed.",
-     "startMs": 9378,
-     "endMs": 10290,
+     "startMs": 10708,
+     "endMs": 11545,
      "confidence": 1
     }
    ],
@@ -364,13 +364,13 @@
      "en": "While I sat with my wife in the hospital, I built this app.",
      "bn": "স্ত্রীর পাশে হাসপাতালে থাকতে থাকতেই আমি এই অ্যাপটি বানিয়েছি।",
      "startMs": 150,
-     "endMs": 3373
+     "endMs": 3739
     },
     {
      "en": "So that all of us, people and government together, can find and destroy the places where Aedes mosquitoes breed.",
      "bn": "যাতে মানুষ আর সরকার, সবাই মিলে এডিস মশার প্রজননস্থল খুঁজে ধ্বংস করতে পারি।",
-     "startMs": 3873,
-     "endMs": 9915
+     "startMs": 4239,
+     "endMs": 11247
     }
    ]
   },
@@ -378,138 +378,138 @@
    "id": "part",
    "mood": "hopeful",
    "audio": "voiceover/en/story/part.mp3",
-   "durationMs": 7694,
+   "durationMs": 8289,
    "words": [
     {
      "text": "I",
      "startMs": 150,
-     "endMs": 247,
+     "endMs": 224,
      "confidence": 1
     },
     {
      "text": "don't",
-     "startMs": 247,
-     "endMs": 434,
+     "startMs": 224,
+     "endMs": 412,
      "confidence": 1
     },
     {
      "text": "know",
-     "startMs": 434,
-     "endMs": 709,
+     "startMs": 412,
+     "endMs": 737,
      "confidence": 1
     },
     {
      "text": "if",
-     "startMs": 709,
-     "endMs": 822,
+     "startMs": 737,
+     "endMs": 874,
      "confidence": 1
     },
     {
      "text": "it",
-     "startMs": 822,
-     "endMs": 897,
+     "startMs": 874,
+     "endMs": 949,
      "confidence": 1
     },
     {
      "text": "will",
-     "startMs": 897,
-     "endMs": 1059,
+     "startMs": 949,
+     "endMs": 1124,
      "confidence": 1
     },
     {
      "text": "help.",
-     "startMs": 1059,
-     "endMs": 2034,
+     "startMs": 1124,
+     "endMs": 2087,
      "confidence": 1
     },
     {
      "text": "But",
-     "startMs": 2152,
-     "endMs": 2257,
+     "startMs": 2275,
+     "endMs": 2385,
      "confidence": 1
     },
     {
      "text": "I",
-     "startMs": 2257,
-     "endMs": 2407,
+     "startMs": 2385,
+     "endMs": 2560,
      "confidence": 1
     },
     {
      "text": "did",
-     "startMs": 2407,
-     "endMs": 2670,
+     "startMs": 2560,
+     "endMs": 2835,
      "confidence": 1
     },
     {
      "text": "my",
-     "startMs": 2670,
-     "endMs": 2907,
+     "startMs": 2835,
+     "endMs": 3072,
      "confidence": 1
     },
     {
      "text": "part.",
-     "startMs": 2907,
-     "endMs": 3995,
+     "startMs": 3072,
+     "endMs": 4085,
      "confidence": 1
     },
     {
      "text": "The",
-     "startMs": 4179,
-     "endMs": 4304,
+     "startMs": 4351,
+     "endMs": 4489,
      "confidence": 1
     },
     {
      "text": "rest…",
-     "startMs": 4304,
-     "endMs": 5054,
+     "startMs": 4489,
+     "endMs": 5376,
      "confidence": 1
     },
     {
      "text": "is",
-     "startMs": 5231,
-     "endMs": 5356,
+     "startMs": 5516,
+     "endMs": 5666,
      "confidence": 1
     },
     {
      "text": "up",
-     "startMs": 5356,
-     "endMs": 5556,
+     "startMs": 5666,
+     "endMs": 5866,
      "confidence": 1
     },
     {
      "text": "to",
-     "startMs": 5556,
-     "endMs": 5644,
+     "startMs": 5866,
+     "endMs": 5979,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 5644,
-     "endMs": 5731,
+     "startMs": 5979,
+     "endMs": 6091,
      "confidence": 1
     },
     {
      "text": "people,",
-     "startMs": 5731,
-     "endMs": 6344,
+     "startMs": 6091,
+     "endMs": 6829,
      "confidence": 1
     },
     {
      "text": "and",
-     "startMs": 6344,
-     "endMs": 6469,
+     "startMs": 6829,
+     "endMs": 6954,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 6469,
-     "endMs": 6556,
+     "startMs": 6954,
+     "endMs": 7079,
      "confidence": 1
     },
     {
      "text": "government.",
-     "startMs": 6556,
-     "endMs": 7556,
+     "startMs": 7079,
+     "endMs": 8091,
      "confidence": 1
     }
    ],
@@ -518,19 +518,19 @@
      "en": "I don't know if it will help.",
      "bn": "জানি না এটা কাজে আসবে কি না।",
      "startMs": 150,
-     "endMs": 1502
+     "endMs": 1625
     },
     {
      "en": "But I did my part.",
      "bn": "তবু আমি আমার কাজটুকু করেছি।",
-     "startMs": 2152,
-     "endMs": 3488
+     "startMs": 2275,
+     "endMs": 3648
     },
     {
      "en": "The rest… is up to the people, and the government.",
      "bn": "বাকিটা আপনাদের আর সরকারের হাতে।",
-     "startMs": 4138,
-     "endMs": 7244
+     "startMs": 4298,
+     "endMs": 7839
     }
    ]
   },
@@ -538,54 +538,54 @@
    "id": "ask",
    "mood": "hopeful",
    "audio": "voiceover/en/story/ask.mp3",
-   "durationMs": 2856,
+   "durationMs": 2980,
    "words": [
     {
      "text": "Today,",
      "startMs": 150,
-     "endMs": 613,
+     "endMs": 674,
      "confidence": 1
     },
     {
      "text": "look",
-     "startMs": 613,
-     "endMs": 813,
+     "startMs": 674,
+     "endMs": 874,
      "confidence": 1
     },
     {
      "text": "for",
-     "startMs": 813,
-     "endMs": 938,
+     "startMs": 874,
+     "endMs": 1024,
      "confidence": 1
     },
     {
      "text": "one",
-     "startMs": 938,
-     "endMs": 1188,
+     "startMs": 1024,
+     "endMs": 1274,
      "confidence": 1
     },
     {
      "text": "place",
-     "startMs": 1188,
-     "endMs": 1538,
+     "startMs": 1274,
+     "endMs": 1649,
      "confidence": 1
     },
     {
      "text": "near",
-     "startMs": 1538,
-     "endMs": 1763,
+     "startMs": 1649,
+     "endMs": 1874,
      "confidence": 1
     },
     {
      "text": "your",
-     "startMs": 1763,
-     "endMs": 1913,
+     "startMs": 1874,
+     "endMs": 2074,
      "confidence": 1
     },
     {
      "text": "home.",
-     "startMs": 1913,
-     "endMs": 2763,
+     "startMs": 2074,
+     "endMs": 2849,
      "confidence": 1
     }
    ],
@@ -594,7 +594,7 @@
      "en": "Today, look for one place near your home.",
      "bn": "আজই আপনার বাড়ির আশেপাশে একটি জায়গা খুঁজে দেখুন।",
      "startMs": 150,
-     "endMs": 2406
+     "endMs": 2530
     }
    ]
   }

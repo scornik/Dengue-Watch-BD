@@ -1,143 +1,143 @@
 {
  "video": "citizen",
- "engine": "kokoro:am_adam",
+ "engine": "kokoro:am_michael",
  "scenes": [
   {
    "id": "hook",
    "mood": "serious",
    "audio": "voiceover/en/citizen/hook.mp3",
-   "durationMs": 10290,
+   "durationMs": 10892,
    "words": [
     {
      "text": "Dengue",
-     "startMs": 178,
-     "endMs": 490,
+     "startMs": 202,
+     "endMs": 552,
      "confidence": 1
     },
     {
      "text": "mosquitoes",
-     "startMs": 490,
-     "endMs": 1078,
+     "startMs": 552,
+     "endMs": 1177,
      "confidence": 1
     },
     {
      "text": "are",
-     "startMs": 1078,
-     "endMs": 1240,
+     "startMs": 1177,
+     "endMs": 1339,
      "confidence": 1
     },
     {
      "text": "born…",
-     "startMs": 1240,
-     "endMs": 1978,
+     "startMs": 1339,
+     "endMs": 2102,
      "confidence": 1
     },
     {
      "text": "very",
-     "startMs": 2158,
-     "endMs": 2433,
+     "startMs": 2258,
+     "endMs": 2546,
      "confidence": 1
     },
     {
      "text": "close",
-     "startMs": 2433,
-     "endMs": 2808,
-     "confidence": 1
-    },
-    {
-     "text": "to",
-     "startMs": 2808,
+     "startMs": 2546,
      "endMs": 2958,
      "confidence": 1
     },
     {
-     "text": "us.",
+     "text": "to",
      "startMs": 2958,
-     "endMs": 3883,
+     "endMs": 3108,
+     "confidence": 1
+    },
+    {
+     "text": "us.",
+     "startMs": 3108,
+     "endMs": 3983,
      "confidence": 1
     },
     {
      "text": "In",
-     "startMs": 4109,
-     "endMs": 4234,
+     "startMs": 4268,
+     "endMs": 4430,
      "confidence": 1
     },
     {
      "text": "still,",
-     "startMs": 4234,
-     "endMs": 4671,
+     "startMs": 4430,
+     "endMs": 4906,
      "confidence": 1
     },
     {
      "text": "clean",
-     "startMs": 4671,
-     "endMs": 5009,
+     "startMs": 4906,
+     "endMs": 5355,
      "confidence": 1
     },
     {
      "text": "water",
-     "startMs": 5009,
-     "endMs": 5409,
+     "startMs": 5355,
+     "endMs": 5768,
      "confidence": 1
     },
     {
      "text": "around",
-     "startMs": 5409,
-     "endMs": 5721,
+     "startMs": 5768,
+     "endMs": 6105,
      "confidence": 1
     },
     {
      "text": "our",
-     "startMs": 5721,
-     "endMs": 5859,
+     "startMs": 6105,
+     "endMs": 6243,
      "confidence": 1
     },
     {
      "text": "homes.",
-     "startMs": 5859,
-     "endMs": 7084,
+     "startMs": 6243,
+     "endMs": 7418,
      "confidence": 1
     },
     {
      "text": "Let's",
-     "startMs": 7288,
-     "endMs": 7563,
+     "startMs": 7689,
+     "endMs": 7964,
      "confidence": 1
     },
     {
      "text": "find",
-     "startMs": 7563,
-     "endMs": 7850,
+     "startMs": 7964,
+     "endMs": 8252,
      "confidence": 1
     },
     {
      "text": "them,",
-     "startMs": 7850,
-     "endMs": 8000,
+     "startMs": 8252,
+     "endMs": 8427,
      "confidence": 1
     },
     {
      "text": "and",
-     "startMs": 8000,
-     "endMs": 8100,
+     "startMs": 8427,
+     "endMs": 8527,
      "confidence": 1
     },
     {
      "text": "destroy",
-     "startMs": 8100,
-     "endMs": 8613,
+     "startMs": 8527,
+     "endMs": 9064,
      "confidence": 1
     },
     {
      "text": "them.",
-     "startMs": 8613,
-     "endMs": 9175,
+     "startMs": 9064,
+     "endMs": 9677,
      "confidence": 1
     },
     {
      "text": "Together.",
-     "startMs": 9175,
-     "endMs": 10163,
+     "startMs": 9677,
+     "endMs": 10714,
      "confidence": 1
     }
    ],
@@ -146,19 +146,19 @@
      "en": "Dengue mosquitoes are born… very close to us.",
      "bn": "ডেঙ্গুর মশা জন্মায় আমাদের খুব কাছেই।",
      "startMs": 150,
-     "endMs": 3347
+     "endMs": 3503
     },
     {
      "en": "In still, clean water around our homes.",
      "bn": "বাড়ির আশেপাশে জমে থাকা পরিষ্কার পানিতে।",
-     "startMs": 4097,
-     "endMs": 6500
+     "startMs": 4253,
+     "endMs": 6906
     },
     {
      "en": "Let's find them, and destroy them. Together.",
      "bn": "চলুন, সবাই মিলে খুঁজে ধ্বংস করি।",
-     "startMs": 7250,
-     "endMs": 9840
+     "startMs": 7656,
+     "endMs": 10442
     }
    ]
   },
@@ -166,90 +166,90 @@
    "id": "open",
    "mood": "warm",
    "audio": "voiceover/en/citizen/open.mp3",
-   "durationMs": 5627,
+   "durationMs": 6373,
    "words": [
     {
      "text": "Open",
      "startMs": 150,
-     "endMs": 426,
+     "endMs": 490,
      "confidence": 1
     },
     {
      "text": "DengueWatch",
-     "startMs": 426,
-     "endMs": 1089,
+     "startMs": 490,
+     "endMs": 1177,
      "confidence": 1
     },
     {
      "text": "BD",
-     "startMs": 1089,
-     "endMs": 1514,
+     "startMs": 1177,
+     "endMs": 1777,
      "confidence": 1
     },
     {
      "text": "in",
-     "startMs": 1514,
-     "endMs": 1589,
+     "startMs": 1777,
+     "endMs": 1865,
      "confidence": 1
     },
     {
      "text": "your",
-     "startMs": 1589,
-     "endMs": 1714,
+     "startMs": 1865,
+     "endMs": 2015,
      "confidence": 1
     },
     {
      "text": "phone's",
-     "startMs": 1714,
-     "endMs": 2101,
+     "startMs": 2015,
+     "endMs": 2440,
      "confidence": 1
     },
     {
      "text": "browser.",
-     "startMs": 2101,
-     "endMs": 3215,
+     "startMs": 2440,
+     "endMs": 3540,
      "confidence": 1
     },
     {
      "text": "No",
-     "startMs": 3215,
-     "endMs": 3390,
+     "startMs": 3540,
+     "endMs": 3777,
      "confidence": 1
     },
     {
      "text": "app",
-     "startMs": 3390,
-     "endMs": 3615,
+     "startMs": 3777,
+     "endMs": 4015,
      "confidence": 1
     },
     {
      "text": "to",
-     "startMs": 3615,
-     "endMs": 3715,
+     "startMs": 4015,
+     "endMs": 4140,
      "confidence": 1
     },
     {
      "text": "download.",
-     "startMs": 3715,
-     "endMs": 4365,
+     "startMs": 4140,
+     "endMs": 4977,
      "confidence": 1
     },
     {
      "text": "No",
-     "startMs": 4365,
-     "endMs": 4577,
+     "startMs": 4977,
+     "endMs": 5240,
      "confidence": 1
     },
     {
      "text": "sign",
-     "startMs": 4577,
-     "endMs": 4865,
+     "startMs": 5240,
+     "endMs": 5590,
      "confidence": 1
     },
     {
      "text": "up.",
-     "startMs": 4865,
-     "endMs": 5465,
+     "startMs": 5590,
+     "endMs": 6140,
      "confidence": 1
     }
    ],
@@ -258,13 +258,13 @@
      "en": "Open DengueWatch BD in your phone's browser.",
      "bn": "ফোনের ব্রাউজারে ডেঙ্গুওয়াচ বিডি খুলুন।",
      "startMs": 150,
-     "endMs": 2704
+     "endMs": 3012
     },
     {
      "en": "No app to download. No sign up.",
      "bn": "অ্যাপ নামাতে হবে না। নিবন্ধনও লাগে না।",
-     "startMs": 3204,
-     "endMs": 5177
+     "startMs": 3512,
+     "endMs": 5923
     }
    ]
   },
@@ -272,114 +272,114 @@
    "id": "photo",
    "mood": "warm",
    "audio": "voiceover/en/citizen/photo.mp3",
-   "durationMs": 6529,
+   "durationMs": 6793,
    "words": [
     {
      "text": "Tap",
-     "startMs": 150,
-     "endMs": 399,
+     "startMs": 151,
+     "endMs": 426,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 399,
-     "endMs": 524,
+     "startMs": 426,
+     "endMs": 551,
      "confidence": 1
     },
     {
      "text": "red",
-     "startMs": 524,
-     "endMs": 774,
+     "startMs": 551,
+     "endMs": 813,
      "confidence": 1
     },
     {
      "text": "button.",
-     "startMs": 774,
-     "endMs": 1799,
+     "startMs": 813,
+     "endMs": 1801,
      "confidence": 1
     },
     {
      "text": "Take",
-     "startMs": 1812,
-     "endMs": 1977,
+     "startMs": 1864,
+     "endMs": 2029,
      "confidence": 1
     },
     {
      "text": "a",
-     "startMs": 1977,
-     "endMs": 2089,
+     "startMs": 2029,
+     "endMs": 2154,
      "confidence": 1
     },
     {
      "text": "photo",
-     "startMs": 2089,
-     "endMs": 2652,
+     "startMs": 2154,
+     "endMs": 2729,
      "confidence": 1
     },
     {
      "text": "of",
-     "startMs": 2652,
-     "endMs": 2727,
+     "startMs": 2729,
+     "endMs": 2804,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 2727,
-     "endMs": 2814,
+     "startMs": 2804,
+     "endMs": 2891,
      "confidence": 1
     },
     {
      "text": "standing",
-     "startMs": 2814,
-     "endMs": 3289,
+     "startMs": 2891,
+     "endMs": 3391,
      "confidence": 1
     },
     {
      "text": "water.",
-     "startMs": 3289,
-     "endMs": 4266,
+     "startMs": 3391,
+     "endMs": 4349,
      "confidence": 1
     },
     {
      "text": "Your",
-     "startMs": 4266,
-     "endMs": 4416,
+     "startMs": 4349,
+     "endMs": 4522,
      "confidence": 1
     },
     {
      "text": "phone",
-     "startMs": 4416,
-     "endMs": 4816,
+     "startMs": 4522,
+     "endMs": 4960,
      "confidence": 1
     },
     {
      "text": "checks",
-     "startMs": 4816,
-     "endMs": 5128,
+     "startMs": 4960,
+     "endMs": 5272,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 5128,
-     "endMs": 5253,
+     "startMs": 5272,
+     "endMs": 5410,
      "confidence": 1
     },
     {
      "text": "photo",
-     "startMs": 5253,
-     "endMs": 5628,
+     "startMs": 5410,
+     "endMs": 5810,
      "confidence": 1
     },
     {
      "text": "for",
-     "startMs": 5628,
-     "endMs": 5753,
+     "startMs": 5810,
+     "endMs": 6035,
      "confidence": 1
     },
     {
      "text": "you.",
-     "startMs": 5753,
-     "endMs": 6353,
+     "startMs": 6035,
+     "endMs": 6597,
      "confidence": 1
     }
    ],
@@ -388,19 +388,19 @@
      "en": "Tap the red button.",
      "bn": "লাল বোতাম চাপুন।",
      "startMs": 150,
-     "endMs": 1312
+     "endMs": 1364
     },
     {
      "en": "Take a photo of the standing water.",
      "bn": "জমে থাকা পানির ছবি তুলুন।",
-     "startMs": 1812,
-     "endMs": 3766
+     "startMs": 1864,
+     "endMs": 3849
     },
     {
      "en": "Your phone checks the photo for you.",
      "bn": "ফোন নিজেই ছবিটি যাচাই করে।",
-     "startMs": 4266,
-     "endMs": 6079
+     "startMs": 4349,
+     "endMs": 6343
     }
    ]
   },
@@ -408,78 +408,78 @@
    "id": "location",
    "mood": "warm",
    "audio": "voiceover/en/citizen/location.mp3",
-   "durationMs": 3491,
+   "durationMs": 3563,
    "words": [
     {
      "text": "Now,",
-     "startMs": 158,
-     "endMs": 346,
+     "startMs": 188,
+     "endMs": 400,
      "confidence": 1
     },
     {
      "text": "move",
-     "startMs": 346,
-     "endMs": 521,
+     "startMs": 400,
+     "endMs": 575,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 521,
-     "endMs": 608,
+     "startMs": 575,
+     "endMs": 663,
      "confidence": 1
     },
     {
      "text": "map…",
-     "startMs": 608,
-     "endMs": 1133,
+     "startMs": 663,
+     "endMs": 1188,
      "confidence": 1
     },
     {
      "text": "so",
-     "startMs": 1232,
-     "endMs": 1345,
+     "startMs": 1266,
+     "endMs": 1378,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 1345,
-     "endMs": 1432,
+     "startMs": 1378,
+     "endMs": 1503,
      "confidence": 1
     },
     {
      "text": "pin",
-     "startMs": 1432,
-     "endMs": 1782,
+     "startMs": 1503,
+     "endMs": 1891,
      "confidence": 1
     },
     {
      "text": "sits",
-     "startMs": 1782,
-     "endMs": 2070,
+     "startMs": 1891,
+     "endMs": 2178,
      "confidence": 1
     },
     {
      "text": "on",
-     "startMs": 2070,
-     "endMs": 2170,
+     "startMs": 2178,
+     "endMs": 2278,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 2170,
-     "endMs": 2257,
+     "startMs": 2278,
+     "endMs": 2366,
      "confidence": 1
     },
     {
      "text": "right",
-     "startMs": 2257,
-     "endMs": 2532,
+     "startMs": 2366,
+     "endMs": 2666,
      "confidence": 1
     },
     {
      "text": "spot.",
-     "startMs": 2532,
-     "endMs": 3357,
+     "startMs": 2666,
+     "endMs": 3416,
      "confidence": 1
     }
    ],
@@ -488,7 +488,7 @@
      "en": "Now, move the map… so the pin sits on the right spot.",
      "bn": "এবার মানচিত্র সরিয়ে পিনটি ঠিক জায়গায় বসান।",
      "startMs": 150,
-     "endMs": 3041
+     "endMs": 3113
     }
    ]
   },
@@ -496,126 +496,126 @@
    "id": "details",
    "mood": "warm",
    "audio": "voiceover/en/citizen/details.mp3",
-   "durationMs": 7736,
+   "durationMs": 8324,
    "words": [
     {
      "text": "Choose",
-     "startMs": 166,
-     "endMs": 466,
+     "startMs": 183,
+     "endMs": 483,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 466,
-     "endMs": 604,
+     "startMs": 483,
+     "endMs": 620,
      "confidence": 1
     },
     {
      "text": "type",
-     "startMs": 604,
-     "endMs": 904,
+     "startMs": 620,
+     "endMs": 920,
      "confidence": 1
     },
     {
      "text": "of",
-     "startMs": 904,
-     "endMs": 1016,
+     "startMs": 920,
+     "endMs": 1033,
      "confidence": 1
     },
     {
      "text": "container.",
-     "startMs": 1016,
-     "endMs": 2262,
+     "startMs": 1033,
+     "endMs": 2264,
      "confidence": 1
     },
     {
      "text": "Did",
-     "startMs": 2262,
-     "endMs": 2381,
+     "startMs": 2264,
+     "endMs": 2388,
      "confidence": 1
     },
     {
      "text": "you",
-     "startMs": 2381,
-     "endMs": 2506,
+     "startMs": 2388,
+     "endMs": 2526,
      "confidence": 1
     },
     {
      "text": "see",
-     "startMs": 2506,
-     "endMs": 2706,
+     "startMs": 2526,
+     "endMs": 2738,
      "confidence": 1
     },
     {
      "text": "larvae?",
-     "startMs": 2706,
-     "endMs": 3268,
+     "startMs": 2738,
+     "endMs": 3376,
      "confidence": 1
     },
     {
      "text": "Tell",
-     "startMs": 3268,
-     "endMs": 3518,
+     "startMs": 3376,
+     "endMs": 3688,
      "confidence": 1
     },
     {
      "text": "us.",
-     "startMs": 3518,
-     "endMs": 4378,
+     "startMs": 3688,
+     "endMs": 4513,
      "confidence": 1
     },
     {
      "text": "Then,",
-     "startMs": 4378,
-     "endMs": 4631,
+     "startMs": 4568,
+     "endMs": 4830,
      "confidence": 1
     },
     {
      "text": "send",
-     "startMs": 4631,
-     "endMs": 4919,
+     "startMs": 4830,
+     "endMs": 5143,
      "confidence": 1
     },
     {
      "text": "it.",
-     "startMs": 4919,
-     "endMs": 5319,
+     "startMs": 5143,
+     "endMs": 5668,
      "confidence": 1
     },
     {
      "text": "Faces",
-     "startMs": 5319,
-     "endMs": 5869,
+     "startMs": 5668,
+     "endMs": 6268,
      "confidence": 1
     },
     {
      "text": "and",
-     "startMs": 5869,
-     "endMs": 5994,
+     "startMs": 6268,
+     "endMs": 6393,
      "confidence": 1
     },
     {
      "text": "number",
-     "startMs": 5994,
-     "endMs": 6269,
+     "startMs": 6393,
+     "endMs": 6743,
      "confidence": 1
     },
     {
      "text": "plates",
-     "startMs": 6269,
-     "endMs": 6581,
+     "startMs": 6743,
+     "endMs": 7118,
      "confidence": 1
     },
     {
      "text": "are",
-     "startMs": 6581,
-     "endMs": 6706,
+     "startMs": 7118,
+     "endMs": 7255,
      "confidence": 1
     },
     {
      "text": "blurred.",
-     "startMs": 6706,
-     "endMs": 7619,
+     "startMs": 7255,
+     "endMs": 8143,
      "confidence": 1
     }
    ],
@@ -624,19 +624,19 @@
      "en": "Choose the type of container.",
      "bn": "কোন ধরনের পাত্র, বেছে নিন।",
      "startMs": 150,
-     "endMs": 1762
+     "endMs": 1764
     },
     {
      "en": "Did you see larvae? Tell us.",
      "bn": "লার্ভা দেখেছেন কি না, জানান।",
-     "startMs": 2262,
-     "endMs": 3878
+     "startMs": 2264,
+     "endMs": 4061
     },
     {
      "en": "Then, send it. Faces and number plates are blurred.",
      "bn": "তারপর পাঠিয়ে দিন। মুখ আর গাড়ির নম্বর ঝাপসা করা হয়।",
-     "startMs": 4378,
-     "endMs": 7286
+     "startMs": 4561,
+     "endMs": 7874
     }
    ]
   },
@@ -644,102 +644,102 @@
    "id": "hunt",
    "mood": "energetic",
    "audio": "voiceover/en/citizen/hunt.mp3",
-   "durationMs": 5877,
+   "durationMs": 6250,
    "words": [
     {
      "text": "Now…",
-     "startMs": 160,
-     "endMs": 810,
+     "startMs": 183,
+     "endMs": 862,
      "confidence": 1
     },
     {
      "text": "become",
-     "startMs": 858,
-     "endMs": 1150,
+     "startMs": 862,
+     "endMs": 1175,
      "confidence": 1
     },
     {
      "text": "a",
-     "startMs": 1150,
-     "endMs": 1225,
+     "startMs": 1175,
+     "endMs": 1275,
      "confidence": 1
     },
     {
      "text": "hunter!",
-     "startMs": 1225,
-     "endMs": 2175,
+     "startMs": 1275,
+     "endMs": 2225,
      "confidence": 1
     },
     {
      "text": "Open",
-     "startMs": 2175,
-     "endMs": 2405,
+     "startMs": 2225,
+     "endMs": 2477,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 2405,
-     "endMs": 2492,
+     "startMs": 2477,
+     "endMs": 2565,
      "confidence": 1
     },
     {
      "text": "Hunt",
-     "startMs": 2492,
-     "endMs": 2742,
+     "startMs": 2565,
+     "endMs": 2815,
      "confidence": 1
     },
     {
      "text": "tab,",
-     "startMs": 2742,
-     "endMs": 3367,
+     "startMs": 2815,
+     "endMs": 3590,
      "confidence": 1
     },
     {
      "text": "and",
-     "startMs": 3367,
-     "endMs": 3492,
+     "startMs": 3590,
+     "endMs": 3727,
      "confidence": 1
     },
     {
      "text": "see",
-     "startMs": 3492,
-     "endMs": 3680,
+     "startMs": 3727,
+     "endMs": 3940,
      "confidence": 1
     },
     {
      "text": "which",
-     "startMs": 3680,
-     "endMs": 3867,
+     "startMs": 3940,
+     "endMs": 4152,
      "confidence": 1
     },
     {
      "text": "places",
-     "startMs": 3867,
-     "endMs": 4317,
+     "startMs": 4152,
+     "endMs": 4640,
      "confidence": 1
     },
     {
      "text": "near",
-     "startMs": 4317,
-     "endMs": 4542,
+     "startMs": 4640,
+     "endMs": 4865,
      "confidence": 1
     },
     {
      "text": "you",
-     "startMs": 4542,
-     "endMs": 4692,
+     "startMs": 4865,
+     "endMs": 5015,
      "confidence": 1
     },
     {
      "text": "need",
-     "startMs": 4692,
-     "endMs": 4930,
+     "startMs": 5015,
+     "endMs": 5277,
      "confidence": 1
     },
     {
      "text": "cleaning.",
-     "startMs": 4930,
-     "endMs": 5767,
+     "startMs": 5277,
+     "endMs": 6140,
      "confidence": 1
     }
    ],
@@ -748,13 +748,13 @@
      "en": "Now… become a hunter!",
      "bn": "এবার শিকারি হোন!",
      "startMs": 150,
-     "endMs": 1825
+     "endMs": 1875
     },
     {
      "en": "Open the Hunt tab, and see which places near you need cleaning.",
      "bn": "শিকার ট্যাবে দেখুন, কাছের কোন জায়গা পরিষ্কার করা দরকার।",
-     "startMs": 2175,
-     "endMs": 5427
+     "startMs": 2225,
+     "endMs": 5800
     }
    ]
   },
@@ -762,102 +762,102 @@
    "id": "claim",
    "mood": "energetic",
    "audio": "voiceover/en/citizen/claim.mp3",
-   "durationMs": 4739,
+   "durationMs": 4965,
    "words": [
     {
      "text": "Pick",
      "startMs": 150,
-     "endMs": 265,
+     "endMs": 295,
      "confidence": 1
     },
     {
      "text": "a",
-     "startMs": 265,
-     "endMs": 327,
+     "startMs": 295,
+     "endMs": 383,
      "confidence": 1
     },
     {
      "text": "place,",
-     "startMs": 327,
-     "endMs": 827,
+     "startMs": 383,
+     "endMs": 958,
      "confidence": 1
     },
     {
      "text": "and",
-     "startMs": 827,
-     "endMs": 952,
+     "startMs": 958,
+     "endMs": 1083,
      "confidence": 1
     },
     {
      "text": "tap",
-     "startMs": 952,
-     "endMs": 1215,
+     "startMs": 1083,
+     "endMs": 1345,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 1215,
-     "endMs": 1302,
+     "startMs": 1345,
+     "endMs": 1433,
      "confidence": 1
     },
     {
      "text": "green",
-     "startMs": 1302,
-     "endMs": 1627,
+     "startMs": 1433,
+     "endMs": 1783,
      "confidence": 1
     },
     {
      "text": "button.",
-     "startMs": 1627,
-     "endMs": 2451,
+     "startMs": 1783,
+     "endMs": 2569,
      "confidence": 1
     },
     {
      "text": "It",
-     "startMs": 2451,
-     "endMs": 2512,
+     "startMs": 2569,
+     "endMs": 2635,
      "confidence": 1
     },
     {
      "text": "is",
-     "startMs": 2512,
-     "endMs": 2650,
+     "startMs": 2635,
+     "endMs": 2772,
      "confidence": 1
     },
     {
      "text": "kept",
-     "startMs": 2650,
-     "endMs": 2925,
+     "startMs": 2772,
+     "endMs": 3047,
      "confidence": 1
     },
     {
      "text": "for",
-     "startMs": 2925,
-     "endMs": 3050,
+     "startMs": 3047,
+     "endMs": 3172,
      "confidence": 1
     },
     {
      "text": "you,",
-     "startMs": 3050,
-     "endMs": 3300,
+     "startMs": 3172,
+     "endMs": 3472,
      "confidence": 1
     },
     {
      "text": "for",
-     "startMs": 3300,
-     "endMs": 3462,
+     "startMs": 3472,
+     "endMs": 3635,
      "confidence": 1
     },
     {
      "text": "three",
-     "startMs": 3462,
-     "endMs": 3737,
+     "startMs": 3635,
+     "endMs": 3910,
      "confidence": 1
     },
     {
      "text": "hours.",
-     "startMs": 3737,
-     "endMs": 4550,
+     "startMs": 3910,
+     "endMs": 4722,
      "confidence": 1
     }
    ],
@@ -866,13 +866,13 @@
      "en": "Pick a place, and tap the green button.",
      "bn": "একটি জায়গা বেছে নিয়ে সবুজ বোতাম চাপুন।",
      "startMs": 150,
-     "endMs": 2101
+     "endMs": 2219
     },
     {
      "en": "It is kept for you, for three hours.",
      "bn": "জায়গাটি তিন ঘণ্টা আপনার জন্য রাখা থাকবে।",
-     "startMs": 2451,
-     "endMs": 4289
+     "startMs": 2569,
+     "endMs": 4515
     }
    ]
   },
@@ -880,132 +880,132 @@
    "id": "clean",
    "mood": "energetic",
    "audio": "voiceover/en/citizen/clean.mp3",
-   "durationMs": 6657,
+   "durationMs": 7442,
    "words": [
     {
      "text": "Throw",
-     "startMs": 150,
-     "endMs": 370,
+     "startMs": 165,
+     "endMs": 415,
      "confidence": 1
     },
     {
      "text": "out",
-     "startMs": 370,
-     "endMs": 520,
+     "startMs": 415,
+     "endMs": 590,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 520,
-     "endMs": 608,
+     "startMs": 590,
+     "endMs": 727,
      "confidence": 1
     },
     {
      "text": "water.",
-     "startMs": 608,
-     "endMs": 1120,
+     "startMs": 727,
+     "endMs": 1390,
      "confidence": 1
     },
     {
      "text": "Scrub",
-     "startMs": 1120,
-     "endMs": 1420,
+     "startMs": 1390,
+     "endMs": 1752,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 1420,
-     "endMs": 1558,
+     "startMs": 1752,
+     "endMs": 1890,
      "confidence": 1
     },
     {
      "text": "inside.",
-     "startMs": 1558,
-     "endMs": 2245,
+     "startMs": 1890,
+     "endMs": 2627,
      "confidence": 1
     },
     {
      "text": "Turn",
-     "startMs": 2245,
-     "endMs": 2445,
+     "startMs": 2627,
+     "endMs": 2877,
      "confidence": 1
     },
     {
      "text": "it",
-     "startMs": 2445,
-     "endMs": 2520,
+     "startMs": 2877,
+     "endMs": 2965,
      "confidence": 1
     },
     {
      "text": "over,",
-     "startMs": 2520,
-     "endMs": 2795,
+     "startMs": 2965,
+     "endMs": 3327,
      "confidence": 1
     },
     {
      "text": "or",
-     "startMs": 2795,
-     "endMs": 2945,
+     "startMs": 3327,
+     "endMs": 3477,
      "confidence": 1
     },
     {
      "text": "cover",
-     "startMs": 2945,
-     "endMs": 3283,
+     "startMs": 3477,
+     "endMs": 3815,
      "confidence": 1
     },
     {
      "text": "it.",
-     "startMs": 3283,
-     "endMs": 3808,
+     "startMs": 3815,
+     "endMs": 4299,
      "confidence": 1
     },
     {
      "text": "Then,",
-     "startMs": 3788,
-     "endMs": 3920,
+     "startMs": 4299,
+     "endMs": 4458,
      "confidence": 1
     },
     {
      "text": "standing",
-     "startMs": 3920,
-     "endMs": 4308,
+     "startMs": 4458,
+     "endMs": 4870,
      "confidence": 1
     },
     {
      "text": "right",
-     "startMs": 4308,
-     "endMs": 4533,
-     "confidence": 1
-    },
-    {
-     "text": "there,",
-     "startMs": 4533,
-     "endMs": 4908,
-     "confidence": 1
-    },
-    {
-     "text": "take",
-     "startMs": 4908,
+     "startMs": 4870,
      "endMs": 5145,
      "confidence": 1
     },
     {
-     "text": "the",
+     "text": "there,",
      "startMs": 5145,
-     "endMs": 5283,
-     "confidence": 1
-    },
-    {
-     "text": "after",
-     "startMs": 5283,
      "endMs": 5620,
      "confidence": 1
     },
     {
-     "text": "photo.",
+     "text": "take",
      "startMs": 5620,
-     "endMs": 6508,
+     "endMs": 5870,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 5870,
+     "endMs": 6032,
+     "confidence": 1
+    },
+    {
+     "text": "after",
+     "startMs": 6032,
+     "endMs": 6408,
+     "confidence": 1
+    },
+    {
+     "text": "photo.",
+     "startMs": 6408,
+     "endMs": 7245,
      "confidence": 1
     }
    ],
@@ -1014,13 +1014,13 @@
      "en": "Throw out the water. Scrub the inside. Turn it over, or cover it.",
      "bn": "পানি ফেলে দিন, ভেতরটা ঘষে নিন, উল্টে রাখুন বা ঢেকে দিন।",
      "startMs": 150,
-     "endMs": 3438
+     "endMs": 3949
     },
     {
      "en": "Then, standing right there, take the after photo.",
      "bn": "তারপর সেখানে দাঁড়িয়েই পরের ছবি তুলুন।",
-     "startMs": 3788,
-     "endMs": 6207
+     "startMs": 4299,
+     "endMs": 6992
     }
    ]
   },
@@ -1028,90 +1028,90 @@
    "id": "points",
    "mood": "energetic",
    "audio": "voiceover/en/citizen/points.mp3",
-   "durationMs": 5237,
+   "durationMs": 5739,
    "words": [
     {
      "text": "You",
      "startMs": 150,
-     "endMs": 245,
+     "endMs": 287,
      "confidence": 1
     },
     {
      "text": "earn",
-     "startMs": 245,
-     "endMs": 508,
+     "startMs": 287,
+     "endMs": 574,
      "confidence": 1
     },
     {
      "text": "points",
-     "startMs": 508,
-     "endMs": 845,
+     "startMs": 574,
+     "endMs": 987,
      "confidence": 1
     },
     {
      "text": "for",
-     "startMs": 845,
-     "endMs": 970,
+     "startMs": 987,
+     "endMs": 1137,
      "confidence": 1
     },
     {
      "text": "every",
-     "startMs": 970,
-     "endMs": 1245,
+     "startMs": 1137,
+     "endMs": 1449,
      "confidence": 1
     },
     {
      "text": "place,",
-     "startMs": 1245,
-     "endMs": 1845,
+     "startMs": 1449,
+     "endMs": 2162,
      "confidence": 1
     },
     {
      "text": "and",
-     "startMs": 1845,
-     "endMs": 1970,
+     "startMs": 2162,
+     "endMs": 2287,
      "confidence": 1
     },
     {
      "text": "climb",
-     "startMs": 1970,
-     "endMs": 2233,
+     "startMs": 2287,
+     "endMs": 2624,
      "confidence": 1
     },
     {
      "text": "the",
-     "startMs": 2233,
-     "endMs": 2320,
+     "startMs": 2624,
+     "endMs": 2712,
      "confidence": 1
     },
     {
      "text": "leaderboard.",
-     "startMs": 2320,
-     "endMs": 3365,
+     "startMs": 2712,
+     "endMs": 3789,
      "confidence": 1
     },
     {
      "text": "Fake",
-     "startMs": 3365,
-     "endMs": 3563,
-     "confidence": 1
-    },
-    {
-     "text": "photos",
-     "startMs": 3563,
+     "startMs": 3789,
      "endMs": 4038,
      "confidence": 1
     },
     {
-     "text": "are",
+     "text": "photos",
      "startMs": 4038,
-     "endMs": 4138,
+     "endMs": 4513,
+     "confidence": 1
+    },
+    {
+     "text": "are",
+     "startMs": 4513,
+     "endMs": 4638,
      "confidence": 1
     },
     {
      "text": "rejected.",
-     "startMs": 4138,
-     "endMs": 5038,
+     "startMs": 4638,
+     "endMs": 5513,
      "confidence": 1
     }
    ],
@@ -1120,13 +1120,13 @@
      "en": "You earn points for every place, and climb the leaderboard.",
      "bn": "প্রতিটি জায়গার জন্য পয়েন্ট পাবেন, লিডারবোর্ডে উঠবেন।",
      "startMs": 150,
-     "endMs": 3015
+     "endMs": 3439
     },
     {
      "en": "Fake photos are rejected.",
      "bn": "ভুয়া ছবি বাতিল করা হয়।",
-     "startMs": 3365,
-     "endMs": 4787
+     "startMs": 3789,
+     "endMs": 5289
     }
    ]
   },
@@ -1134,96 +1134,96 @@
    "id": "cta",
    "mood": "hopeful",
    "audio": "voiceover/en/citizen/cta.mp3",
-   "durationMs": 6308,
+   "durationMs": 6530,
    "words": [
     {
      "text": "Right",
-     "startMs": 169,
-     "endMs": 419,
+     "startMs": 208,
+     "endMs": 483,
      "confidence": 1
     },
     {
      "text": "now…",
-     "startMs": 419,
-     "endMs": 1219,
+     "startMs": 483,
+     "endMs": 1308,
      "confidence": 1
     },
     {
      "text": "we",
-     "startMs": 1292,
-     "endMs": 1400,
+     "startMs": 1342,
+     "endMs": 1467,
      "confidence": 1
     },
     {
      "text": "need",
-     "startMs": 1400,
-     "endMs": 1625,
+     "startMs": 1467,
+     "endMs": 1692,
      "confidence": 1
     },
     {
      "text": "volunteers,",
-     "startMs": 1625,
-     "endMs": 2387,
+     "startMs": 1692,
+     "endMs": 2555,
      "confidence": 1
     },
     {
      "text": "like",
-     "startMs": 2387,
-     "endMs": 2612,
+     "startMs": 2555,
+     "endMs": 2780,
      "confidence": 1
     },
     {
      "text": "you.",
-     "startMs": 2612,
-     "endMs": 3500,
+     "startMs": 2780,
+     "endMs": 3617,
      "confidence": 1
     },
     {
      "text": "Today,",
-     "startMs": 3601,
-     "endMs": 4065,
+     "startMs": 3700,
+     "endMs": 4223,
      "confidence": 1
     },
     {
      "text": "look",
-     "startMs": 4065,
-     "endMs": 4265,
+     "startMs": 4223,
+     "endMs": 4423,
      "confidence": 1
     },
     {
      "text": "for",
-     "startMs": 4265,
-     "endMs": 4390,
+     "startMs": 4423,
+     "endMs": 4573,
      "confidence": 1
     },
     {
      "text": "one",
-     "startMs": 4390,
-     "endMs": 4640,
+     "startMs": 4573,
+     "endMs": 4823,
      "confidence": 1
     },
     {
      "text": "place",
-     "startMs": 4640,
-     "endMs": 4990,
+     "startMs": 4823,
+     "endMs": 5198,
      "confidence": 1
     },
     {
      "text": "near",
-     "startMs": 4990,
-     "endMs": 5215,
+     "startMs": 5198,
+     "endMs": 5423,
      "confidence": 1
     },
     {
      "text": "your",
-     "startMs": 5215,
-     "endMs": 5365,
+     "startMs": 5423,
+     "endMs": 5623,
      "confidence": 1
     },
     {
      "text": "home.",
-     "startMs": 5365,
-     "endMs": 6215,
+     "startMs": 5623,
+     "endMs": 6398,
      "confidence": 1
     }
    ],
@@ -1232,13 +1232,13 @@
      "en": "Right now… we need volunteers, like you.",
      "bn": "এখন আমাদের দরকার আপনার মতো স্বেচ্ছাসেবক।",
      "startMs": 150,
-     "endMs": 2952
+     "endMs": 3050
     },
     {
      "en": "Today, look for one place near your home.",
      "bn": "আজই আপনার বাড়ির আশেপাশে একটি জায়গা খুঁজে দেখুন।",
-     "startMs": 3601,
-     "endMs": 5858
+     "startMs": 3700,
+     "endMs": 6080
     }
    ]
   }
