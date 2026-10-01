@@ -1,0 +1,49 @@
+{
+ "report": {
+  "src": "app/report.mp4",
+  "marks": {
+   "home": 1577,
+   "tapReport": 5420,
+   "camera": 7108,
+   "location": 9612,
+   "details": 15684,
+   "submit": 23099,
+   "end": 29982
+  },
+  "durationMs": 29982
+ },
+ "hunt": {
+  "src": "app/hunt.mp4",
+  "marks": {
+   "home": 0,
+   "list": 1996,
+   "open": 7779,
+   "claim": 11962,
+   "after": 17511,
+   "board": 23826,
+   "end": 28643
+  },
+  "durationMs": 28643
+ },
+ "public": {
+  "src": "app/public.mp4",
+  "marks": {
+   "spot": 1465,
+   "map": 4314,
+   "ward": 22653,
+   "end": 28482
+  },
+  "durationMs": 28482
+ },
+ "staff": {
+  "src": "app/staff.mp4",
+  "marks": {
+   "queue": 2210,
+   "digest": 14502,
+   "admin": 19167,
+   "data": 24210,
+   "end": 26818
+  },
+  "durationMs": 26818
+ }
+}

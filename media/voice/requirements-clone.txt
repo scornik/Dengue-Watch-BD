@@ -1,4 +1,12 @@
-# Voice cloning (GPU recommended). Accept the model terms at https://huggingface.co/ai4bharat/IndicF5,
-# then `huggingface-cli login`.
--r requirements.txt
+# Voice cloning with AI4Bharat IndicF5 (GPU). Use Python 3.10 (IndicF5 needs numpy<=1.26.4):
+#   uv venv -p 3.10 .venv && uv pip install --python .venv/bin/python -r requirements-clone.txt \
+#     --extra-index-url https://download.pytorch.org/whl/cu121
+# Accept the model terms at https://huggingface.co/ai4bharat/IndicF5, then log in to Hugging Face.
+torch==2.5.1
+torchaudio==2.5.1
+transformers==4.48.0
+numpy==1.26.4
+soundfile
+uroman
+scipy
 git+https://github.com/ai4bharat/IndicF5.git

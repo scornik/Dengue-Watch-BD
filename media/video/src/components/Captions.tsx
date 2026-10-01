@@ -10,13 +10,15 @@ type Props = {
   layout: "vertical" | "landscape";
   /** Captions on a light or dark scene. */
   tone?: "light" | "dark";
+  /** Override where the caption box sits (px from the frame edges). */
+  area?: { left: number; right: number; bottom: number };
 };
 
 /**
  * Word-by-word Bangla captions. The words and their timings come from forced alignment of the
  * exact script (media/voice/narrate.py), so the text never differs from what is spoken.
  */
-export const Captions: React.FC<Props> = ({ words, layout, tone = "dark" }) => {
+export const Captions: React.FC<Props> = ({ words, layout, tone = "dark", area }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const nowMs = (frame / fps) * 1000;
@@ -45,9 +47,9 @@ export const Captions: React.FC<Props> = ({ words, layout, tone = "dark" }) => {
     <div
       style={{
         position: "absolute",
-        left: vertical ? 70 : 240,
-        right: vertical ? 70 : 240,
-        bottom: vertical ? 430 : 70,
+        left: area?.left ?? (vertical ? 70 : 240),
+        right: area?.right ?? (vertical ? 70 : 240),
+        bottom: area?.bottom ?? (vertical ? 270 : 70),
         display: "flex",
         justifyContent: "center",
         pointerEvents: "none",

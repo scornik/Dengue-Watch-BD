@@ -1,42 +1,57 @@
 {
   "id": "citizen",
-  "title": "ডেঙ্গুওয়াচ বিডি: নাগরিকদের জন্য",
-  "note": "Vertical 9:16 for Facebook Reels, WhatsApp status, TikTok and YouTube Shorts. Narration is written for the ear: numbers are spelled out so TTS and the aligner read them correctly. On-screen text lives in media/video/src/citizen/.",
+  "title": "ডেঙ্গুওয়াচ বিডি: কীভাবে ব্যবহার করবেন",
+  "note": "Vertical 9:16 tutorial for Reels, WhatsApp status, Shorts. Every scene shows the real app (screen recordings from media/capture). Volunteers do the work for now: do not say reports go to a city corporation team. Numbers are spelled out for the voice.",
   "scenes": [
     {
       "id": "hook",
       "mood": "serious",
-      "narration": "আপনার বাড়ির ছাদে, বারান্দায়, এসির ট্রেতে হয়তো এই মুহূর্তে জন্ম নিচ্ছে ডেঙ্গুর মশা।"
+      "narration": "ডেঙ্গুর মশা জন্মায় আমাদের বাড়ির আশেপাশেই, জমে থাকা পানিতে। চলুন, সবাই মিলে খুঁজে ধ্বংস করি।"
     },
     {
-      "id": "where",
-      "mood": "serious",
-      "narration": "এডিস মশা ডিম পাড়ে জমে থাকা পরিষ্কার পানিতে। টায়ার, বালতি, ড্রাম, ফুলের টব, নির্মাণাধীন ভবন।"
-    },
-    {
-      "id": "report",
+      "id": "open",
       "mood": "warm",
-      "narration": "ডেঙ্গুওয়াচ বিডিতে একটি ছবি তুলুন, মানচিত্রে জায়গাটি ঠিক করুন। ত্রিশ সেকেন্ডের কম সময় লাগে, নিবন্ধন লাগে না।"
+      "narration": "ফোনের ব্রাউজারে খুলুন ডেঙ্গুওয়াচ বিডি। কোনো অ্যাপ নামাতে হবে না, নিবন্ধনও লাগে না।"
     },
     {
-      "id": "privacy",
+      "id": "photo",
       "mood": "warm",
-      "narration": "মানুষের মুখ আর গাড়ির নম্বরপ্লেট ঝাপসা করা হয়। মানচিত্রে দেখানো হয় শুধু আনুমানিক অবস্থান।"
+      "narration": "লাল বোতাম চাপুন, তারপর জমে থাকা পানির ছবি তুলুন। ফোন নিজেই ছবিটি যাচাই করে দেয়।"
     },
     {
-      "id": "ward",
+      "id": "location",
       "mood": "warm",
-      "narration": "রিপোর্ট সরাসরি যায় আপনার ওয়ার্ডের দলের তালিকায়। পরিষ্কার করার পর তারা ঘটনাস্থলের ছবি দিয়ে প্রমাণ রাখেন, যা আপনিও দেখতে পাবেন।"
+      "narration": "মানচিত্র সরিয়ে পিনটি ঠিক জায়গায় বসান।"
     },
     {
-      "id": "hunter",
+      "id": "details",
+      "mood": "warm",
+      "narration": "কোন ধরনের পাত্র, আর লার্ভা দেখেছেন কি না, বেছে নিন। তারপর রিপোর্ট পাঠান। মানুষের মুখ আর গাড়ির নম্বর ঝাপসা করা হয়।"
+    },
+    {
+      "id": "hunt",
       "mood": "energetic",
-      "narration": "চাইলে আপনি নিজেও শিকারি হতে পারেন। কাছের একটি জায়গা বেছে নিন। পানি ফেলুন, ভেতরটা ঘষুন, ঢেকে দিন। পরের ছবি তুলে পয়েন্ট জিতুন, লিডারবোর্ডে উঠুন।"
+      "narration": "এবার শিকারি হোন। শিকার পাতায় দেখুন, কাছের কোন জায়গা পরিষ্কার করা দরকার।"
+    },
+    {
+      "id": "claim",
+      "mood": "energetic",
+      "narration": "একটি জায়গা বেছে নিয়ে চাপুন, এটা আমি ধ্বংস করব। জায়গাটি তিন ঘণ্টা আপনার জন্য রাখা থাকবে।"
+    },
+    {
+      "id": "clean",
+      "mood": "energetic",
+      "narration": "পানি ফেলে দিন, ভেতরটা ঘষে নিন, উল্টে রাখুন বা ঢেকে দিন। তারপর সেখানে দাঁড়িয়েই পরের ছবি তুলুন।"
+    },
+    {
+      "id": "points",
+      "mood": "energetic",
+      "narration": "প্রতিটি জায়গার জন্য পয়েন্ট পাবেন, লিডারবোর্ডে উঠবেন। ভুয়া ছবি যাচাইকারীরা বাতিল করেন।"
     },
     {
       "id": "cta",
       "mood": "hopeful",
-      "narration": "যে বালতির পানি আপনি ফেলছেন, সেখানে শত শত মশা আর জন্মাবে না। আজই শুরু করুন।"
+      "narration": "শুরুতে আমাদের দরকার আপনার মতো স্বেচ্ছাসেবক। আজই আপনার বাড়ির আশেপাশে একটি জায়গা খুঁজে দেখুন।"
     }
   ]
 }

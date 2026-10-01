@@ -3,11 +3,11 @@ import { TransitionSeries, linearTiming } from "@remotion/transitions";
 import { fade } from "@remotion/transitions/fade";
 import type React from "react";
 import { AbsoluteFill, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { AppClip } from "../components/AppClip";
 import { Captions } from "../components/Captions";
 import { Backdrop, Kinetic, Rise } from "../components/motion";
 import { Brand, Tag } from "../components/ui";
 import manifest from "../generated/story.json";
-import script from "../../../scripts/story.json";
 import { C, body, display } from "../theme";
 import { OUTRO_FRAMES, TRANSITION_FRAMES, sceneFrames, type Manifest, type ManifestScene } from "../timeline";
 
@@ -21,7 +21,19 @@ const Shot: React.FC<{ s: ManifestScene; first: boolean; name: string; role: str
   const { fps } = useVideoConfig();
   return (
     <AbsoluteFill>
-      {s.avatar ? (
+      {s.id === "build" ? (
+        <>
+          <Backdrop color={C.sky} seed="build" />
+          <div style={{ position: "absolute", top: 300, left: 260 }}>
+            <AppClip clip="report" from="camera" to="end" sceneFrames={sceneFrames(s, fps)} width={560} />
+          </div>
+          {s.avatar ? (
+            <div style={{ position: "absolute", top: 120, right: 60, width: 300, height: 300, borderRadius: "50%", overflow: "hidden", border: `8px solid ${C.white}` }}>
+              <Video src={staticFile(s.avatar)} muted objectFit="cover" style={{ width: "100%", height: "100%" }} />
+            </div>
+          ) : null}
+        </>
+      ) : s.avatar ? (
         <AbsoluteFill style={{ scale: String(interpolate(frame, [0, 10 * fps], [1.04, 1.1])) }}>
           <Video src={staticFile(s.avatar)} muted objectFit="cover" style={{ width: "100%", height: "100%" }} />
         </AbsoluteFill>
@@ -34,10 +46,12 @@ const Shot: React.FC<{ s: ManifestScene; first: boolean; name: string; role: str
         </>
       )}
       <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(11,13,28,0.55) 0%, rgba(11,13,28,0) 22%, rgba(11,13,28,0) 55%, rgba(11,13,28,0.75) 100%)" }} />
-      <div style={{ position: "absolute", top: 130, left: 80 }}>
-        <Brand />
-      </div>
-      {first ? (
+      {s.id === "build" ? null : (
+        <div style={{ position: "absolute", top: 130, left: 80 }}>
+          <Brand />
+        </div>
+      )}
+      {first && name ? (
         <Rise at={10} style={{ position: "absolute", left: 80, top: 1080 }}>
           <div style={{ fontFamily: display, fontWeight: 800, fontSize: 72, color: C.white }}>{name}</div>
           <div style={{ fontFamily: body, fontWeight: 700, fontSize: 40, color: C.marigold }}>{role}</div>
@@ -51,15 +65,8 @@ const NotWritten: React.FC = () => (
   <AbsoluteFill>
     <Backdrop color={C.ink} seed="todo" />
     <div style={{ position: "absolute", top: 160, left: 80, right: 80, display: "flex", flexDirection: "column", gap: 34 }}>
-      <Tag bg={C.marigold}>আপনার গল্প এখনো লেখা হয়নি</Tag>
-      <div style={{ fontFamily: body, fontWeight: 700, fontSize: 40, color: C.white, lineHeight: 1.5 }}>
-        Write media/scripts/story.json in your own words, then run media/voice/narrate.py story.
-      </div>
-      {script.scenes.map((sc) => (
-        <div key={sc.id} style={{ fontFamily: body, fontSize: 34, color: C.sky200, lineHeight: 1.4 }}>
-          <b style={{ color: C.white }}>{sc.id}</b>: {sc.prompt}
-        </div>
-      ))}
+      <Tag bg={C.marigold}>গল্পের অডিও এখনো তৈরি হয়নি</Tag>
+      <div style={{ fontFamily: body, fontWeight: 700, fontSize: 40, color: C.white, lineHeight: 1.5 }}>Run media/voice/narrate.py story.</div>
     </div>
   </AbsoluteFill>
 );

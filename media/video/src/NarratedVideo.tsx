@@ -12,6 +12,8 @@ export type SceneDef = {
   Component: React.FC<{ s: ManifestScene }>;
   /** Caption box colour to contrast with the scene background. */
   tone: "light" | "dark";
+  /** Caption placement for this scene, when the default would cover the content. */
+  captionArea?: { left: number; right: number; bottom: number };
   /** Transition into the NEXT scene. */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   out?: TransitionPresentation<any>;
@@ -62,7 +64,7 @@ export const NarratedVideo: React.FC<{ manifest: Manifest; scenes: SceneDef[]; l
         <AbsoluteFill>
           <def.Component s={s} />
           {s.avatar ? <AvatarBubble src={s.avatar} layout={layout} /> : null}
-          <Captions words={s.words} layout={layout} tone={def.tone} />
+          <Captions words={s.words} layout={layout} tone={def.tone} area={def.captionArea} />
           <Audio src={staticFile(s.audio)} />
         </AbsoluteFill>
       </TransitionSeries.Sequence>,

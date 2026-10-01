@@ -25,10 +25,14 @@ import subprocess
 import sys
 from pathlib import Path
 
-import numpy as np
-import soundfile as sf
-import torch
-import torchaudio
+try:
+    import numpy as np
+    import soundfile as sf
+    import torch
+    import torchaudio
+except ImportError:  # --attach-avatars needs only the standard library
+    if "--attach-avatars" not in sys.argv:
+        raise
 
 ROOT = Path(__file__).resolve().parent.parent
 SCRIPTS = ROOT / "scripts"

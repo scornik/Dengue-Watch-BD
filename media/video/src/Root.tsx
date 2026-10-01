@@ -17,7 +17,7 @@ export const RemotionRoot: React.FC = () => {
         fps={FPS}
         width={1080}
         height={1920}
-        defaultProps={{ siteUrl: "denguewatch.org.bd" }}
+        defaultProps={{ siteUrl: "dengue-watch-bd.vercel.app" }}
       />
       <Composition
         id="Govt"
@@ -26,7 +26,7 @@ export const RemotionRoot: React.FC = () => {
         fps={FPS}
         width={1920}
         height={1080}
-        defaultProps={{ siteUrl: "denguewatch.org.bd", contact: "team@denguewatch.org.bd" }}
+        defaultProps={{ siteUrl: "dengue-watch-bd.vercel.app", contact: "" }}
       />
       <Composition
         id="Story"
@@ -35,7 +35,7 @@ export const RemotionRoot: React.FC = () => {
         fps={FPS}
         width={1080}
         height={1920}
-        defaultProps={{ name: "আপনার নাম", role: "প্রতিষ্ঠাতা, ডেঙ্গুওয়াচ বিডি", siteUrl: "denguewatch.org.bd" }}
+        defaultProps={{ name: "", role: "ডেঙ্গুওয়াচ বিডির নির্মাতা", siteUrl: "dengue-watch-bd.vercel.app" }}
       />
     </Folder>
   );

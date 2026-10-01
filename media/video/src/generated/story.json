@@ -1,1 +1,442 @@
-{"video": "story", "engine": "none", "scenes": []}
+{
+ "video": "story",
+ "engine": "draft",
+ "scenes": [
+  {
+   "id": "wife",
+   "mood": "serious",
+   "audio": "voiceover/story/wife.mp3",
+   "durationMs": 4598,
+   "words": [
+    {
+     "text": "দুই",
+     "startMs": 301,
+     "endMs": 602,
+     "confidence": 0.979
+    },
+    {
+     "text": "সপ্তাহ",
+     "startMs": 602,
+     "endMs": 1365,
+     "confidence": 0.954
+    },
+    {
+     "text": "আগে",
+     "startMs": 1365,
+     "endMs": 2128,
+     "confidence": 0.972
+    },
+    {
+     "text": "আমার",
+     "startMs": 2128,
+     "endMs": 2430,
+     "confidence": 0.985
+    },
+    {
+     "text": "স্ত্রী",
+     "startMs": 2430,
+     "endMs": 2691,
+     "confidence": 0.79
+    },
+    {
+     "text": "ডেঙ্গুতে",
+     "startMs": 2691,
+     "endMs": 3172,
+     "confidence": 0.474
+    },
+    {
+     "text": "আক্রান্ত",
+     "startMs": 3172,
+     "endMs": 3775,
+     "confidence": 0.978
+    },
+    {
+     "text": "হন।",
+     "startMs": 3775,
+     "endMs": 4076,
+     "confidence": 0.995
+    }
+   ]
+  },
+  {
+   "id": "hospital",
+   "mood": "serious",
+   "audio": "voiceover/story/hospital.mp3",
+   "durationMs": 5555,
+   "words": [
+    {
+     "text": "হাসপাতালে",
+     "startMs": 160,
+     "endMs": 882,
+     "confidence": 0.91
+    },
+    {
+     "text": "গিয়ে",
+     "startMs": 882,
+     "endMs": 1083,
+     "confidence": 0.96
+    },
+    {
+     "text": "দেখলাম,",
+     "startMs": 1083,
+     "endMs": 2065,
+     "confidence": 0.987
+    },
+    {
+     "text": "সব",
+     "startMs": 2065,
+     "endMs": 2366,
+     "confidence": 0.981
+    },
+    {
+     "text": "হাসপাতাল",
+     "startMs": 2366,
+     "endMs": 3008,
+     "confidence": 0.873
+    },
+    {
+     "text": "রোগীতে",
+     "startMs": 3008,
+     "endMs": 3429,
+     "confidence": 0.719
+    },
+    {
+     "text": "ভরা।",
+     "startMs": 3429,
+     "endMs": 3850,
+     "confidence": 0.991
+    },
+    {
+     "text": "মানুষ",
+     "startMs": 3850,
+     "endMs": 4271,
+     "confidence": 0.997
+    },
+    {
+     "text": "মারা",
+     "startMs": 4271,
+     "endMs": 4552,
+     "confidence": 0.971
+    },
+    {
+     "text": "যাচ্ছে।",
+     "startMs": 4552,
+     "endMs": 4973,
+     "confidence": 0.969
+    }
+   ]
+  },
+  {
+   "id": "build",
+   "mood": "warm",
+   "audio": "voiceover/story/build.mp3",
+   "durationMs": 12648,
+   "words": [
+    {
+     "text": "স্ত্রীর",
+     "startMs": 180,
+     "endMs": 480,
+     "confidence": 0.976
+    },
+    {
+     "text": "পাশে",
+     "startMs": 480,
+     "endMs": 780,
+     "confidence": 0.979
+    },
+    {
+     "text": "হাসপাতালে",
+     "startMs": 780,
+     "endMs": 1341,
+     "confidence": 0.965
+    },
+    {
+     "text": "থাকতে",
+     "startMs": 1341,
+     "endMs": 1681,
+     "confidence": 0.981
+    },
+    {
+     "text": "থাকতেই",
+     "startMs": 1681,
+     "endMs": 2502,
+     "confidence": 0.886
+    },
+    {
+     "text": "আমি",
+     "startMs": 2502,
+     "endMs": 2762,
+     "confidence": 0.986
+    },
+    {
+     "text": "এই",
+     "startMs": 2762,
+     "endMs": 2942,
+     "confidence": 0.997
+    },
+    {
+     "text": "অ্যাপটি",
+     "startMs": 2942,
+     "endMs": 3322,
+     "confidence": 0.653
+    },
+    {
+     "text": "বানিয়েছি,",
+     "startMs": 3322,
+     "endMs": 4283,
+     "confidence": 0.984
+    },
+    {
+     "text": "যাতে",
+     "startMs": 4283,
+     "endMs": 5123,
+     "confidence": 0.997
+    },
+    {
+     "text": "মানুষ",
+     "startMs": 5123,
+     "endMs": 6024,
+     "confidence": 0.999
+    },
+    {
+     "text": "আর",
+     "startMs": 6024,
+     "endMs": 6244,
+     "confidence": 0.975
+    },
+    {
+     "text": "সরকারের",
+     "startMs": 6244,
+     "endMs": 6764,
+     "confidence": 0.943
+    },
+    {
+     "text": "সাহায্যে,",
+     "startMs": 6764,
+     "endMs": 7565,
+     "confidence": 0.981
+    },
+    {
+     "text": "সবাই",
+     "startMs": 7565,
+     "endMs": 7985,
+     "confidence": 0.843
+    },
+    {
+     "text": "মিলে",
+     "startMs": 7985,
+     "endMs": 8765,
+     "confidence": 0.749
+    },
+    {
+     "text": "এডিস",
+     "startMs": 8765,
+     "endMs": 9286,
+     "confidence": 0.803
+    },
+    {
+     "text": "মশার",
+     "startMs": 9286,
+     "endMs": 9766,
+     "confidence": 0.828
+    },
+    {
+     "text": "প্রজননস্থল",
+     "startMs": 9766,
+     "endMs": 10587,
+     "confidence": 0.885
+    },
+    {
+     "text": "খুঁজে",
+     "startMs": 10587,
+     "endMs": 11247,
+     "confidence": 0.89
+    },
+    {
+     "text": "ধ্বংস",
+     "startMs": 11247,
+     "endMs": 11707,
+     "confidence": 0.715
+    },
+    {
+     "text": "করতে",
+     "startMs": 11707,
+     "endMs": 11967,
+     "confidence": 0.999
+    },
+    {
+     "text": "পারি।",
+     "startMs": 11967,
+     "endMs": 12168,
+     "confidence": 0.999
+    }
+   ]
+  },
+  {
+   "id": "part",
+   "mood": "hopeful",
+   "audio": "voiceover/story/part.mp3",
+   "durationMs": 9297,
+   "words": [
+    {
+     "text": "জানি",
+     "startMs": 301,
+     "endMs": 641,
+     "confidence": 0.992
+    },
+    {
+     "text": "না",
+     "startMs": 641,
+     "endMs": 1443,
+     "confidence": 0.981
+    },
+    {
+     "text": "এটা",
+     "startMs": 1443,
+     "endMs": 1743,
+     "confidence": 0.968
+    },
+    {
+     "text": "কাজে",
+     "startMs": 1743,
+     "endMs": 2044,
+     "confidence": 0.984
+    },
+    {
+     "text": "আসবে",
+     "startMs": 2044,
+     "endMs": 2364,
+     "confidence": 0.783
+    },
+    {
+     "text": "কি",
+     "startMs": 2364,
+     "endMs": 2545,
+     "confidence": 0.899
+    },
+    {
+     "text": "না।",
+     "startMs": 2545,
+     "endMs": 3426,
+     "confidence": 0.942
+    },
+    {
+     "text": "তবু",
+     "startMs": 3426,
+     "endMs": 3967,
+     "confidence": 0.681
+    },
+    {
+     "text": "আমি",
+     "startMs": 3967,
+     "endMs": 4208,
+     "confidence": 0.998
+    },
+    {
+     "text": "আমার",
+     "startMs": 4208,
+     "endMs": 4468,
+     "confidence": 0.949
+    },
+    {
+     "text": "কাজটুকু",
+     "startMs": 4468,
+     "endMs": 5009,
+     "confidence": 0.869
+    },
+    {
+     "text": "করেছি।",
+     "startMs": 5009,
+     "endMs": 6351,
+     "confidence": 0.93
+    },
+    {
+     "text": "বাকিটা",
+     "startMs": 6351,
+     "endMs": 6892,
+     "confidence": 0.865
+    },
+    {
+     "text": "আপনাদের",
+     "startMs": 6892,
+     "endMs": 7674,
+     "confidence": 0.997
+    },
+    {
+     "text": "আর",
+     "startMs": 7674,
+     "endMs": 7914,
+     "confidence": 0.993
+    },
+    {
+     "text": "সরকারের",
+     "startMs": 7914,
+     "endMs": 8475,
+     "confidence": 0.977
+    },
+    {
+     "text": "হাতে।",
+     "startMs": 8475,
+     "endMs": 8716,
+     "confidence": 0.998
+    }
+   ]
+  },
+  {
+   "id": "ask",
+   "mood": "hopeful",
+   "audio": "voiceover/story/ask.mp3",
+   "durationMs": 4516,
+   "words": [
+    {
+     "text": "আজই",
+     "startMs": 221,
+     "endMs": 763,
+     "confidence": 0.675
+    },
+    {
+     "text": "আপনার",
+     "startMs": 763,
+     "endMs": 1124,
+     "confidence": 0.984
+    },
+    {
+     "text": "বাড়ির",
+     "startMs": 1124,
+     "endMs": 1606,
+     "confidence": 0.858
+    },
+    {
+     "text": "আশেপাশে",
+     "startMs": 1606,
+     "endMs": 2629,
+     "confidence": 0.825
+    },
+    {
+     "text": "একটি",
+     "startMs": 2629,
+     "endMs": 2910,
+     "confidence": 0.995
+    },
+    {
+     "text": "জায়গা",
+     "startMs": 2910,
+     "endMs": 3231,
+     "confidence": 0.933
+    },
+    {
+     "text": "খুঁজে",
+     "startMs": 3231,
+     "endMs": 3532,
+     "confidence": 0.85
+    },
+    {
+     "text": "দেখুন।",
+     "startMs": 3532,
+     "endMs": 3914,
+     "confidence": 0.987
+    }
+   ]
+  }
+ ]
+}
