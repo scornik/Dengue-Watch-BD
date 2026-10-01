@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { env } from "@/lib/env";
+import { CreatorCard } from "@/components/CreatorCard";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/about">): Promise<Metadata> {
   const { locale } = await params;
@@ -14,7 +15,8 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
   setRequestLocale(locale);
   const t = await getTranslations();
   return (
-    <article className="card space-y-3">
+    <div className="space-y-4">
+      <article className="card space-y-3">
       <h1 className="text-2xl font-bold">{t("about.title")}</h1>
       <p>{t("about.body")}</p>
       <p className="font-bold">{t("about.satellite")}</p>
@@ -36,11 +38,18 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
           </a>
         </li>
         <li>
+          <Link href="/contact" className="text-brand-700 underline">
+            {t("nav.contact")}
+          </Link>
+        </li>
+        <li>
           <a href={`${env.sourceUrl}/blob/main/docs/credits.md`} className="text-brand-700 underline" rel="noopener noreferrer">
             {t("about.credits")}
           </a>
         </li>
       </ul>
-    </article>
+      </article>
+      <CreatorCard />
+    </div>
   );
 }

@@ -55,3 +55,5 @@ export const canModerate = (r: Role) => r === "moderator" || r === "ward_admin" 
 export const canInspect = (r: Role) => r === "inspector" || r === "ward_admin" || r === "superadmin";
 export const canAdmin = (r: Role) => r === "ward_admin" || r === "superadmin";
 export const canResearch = (r: Role) => r === "researcher" || r === "superadmin";
+/** The support team reads the contact inbox. Ward admins work for city corporations, so they don't. */
+export const canSupport = (r: Role) => r === "moderator" || r === "superadmin";

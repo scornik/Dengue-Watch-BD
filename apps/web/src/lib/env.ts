@@ -9,6 +9,7 @@ export const env = {
   vapidPublicKey: process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? "",
   clipModelId: process.env.NEXT_PUBLIC_CLIP_MODEL_ID ?? "Xenova/clip-vit-base-patch32",
   sourceUrl: process.env.NEXT_PUBLIC_SOURCE_URL ?? "https://github.com/scornik/Dengue-Watch-BD",
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "ashik.elahi.cse@gmail.com",
 };
 
 export const functionsUrl = (name: string) => `${env.supabaseUrl}/functions/v1/${name}`;

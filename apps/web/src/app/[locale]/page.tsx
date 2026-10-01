@@ -6,6 +6,7 @@ import { Avatar } from "@/components/game/Avatar";
 import { Icon } from "@/components/Icon";
 import { select, type LeaderRow, type Scorecard } from "@/lib/publicApi";
 import { formatNumber } from "@/lib/format";
+import { CreatorCredit } from "@/components/CreatorCard";
 
 export const revalidate = 300;
 
@@ -133,9 +134,15 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         <Link href="/ward" prefetch={false} className="underline">
           {tw("allWards")}
         </Link>
+        <Link href="/contact" prefetch={false} className="underline" data-testid="footer-contact">
+          {tn("contact")}
+        </Link>
         <Link href="/staff" prefetch={false} className="underline">
           {tn("staff")}
         </Link>
+        <div className="flex w-full justify-center pt-1">
+          <CreatorCredit />
+        </div>
       </footer>
     </div>
   );

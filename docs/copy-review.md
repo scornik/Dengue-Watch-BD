@@ -22,7 +22,7 @@ Bangla numerals/plurals. Mark each row ✅ / ✏️ (suggest text) in a PR or is
 
 None.
 
-## All strings (426)
+## All strings (477)
 
 | Key | English | বাংলা | Review |
 | --- | --- | --- | --- |
@@ -45,6 +45,8 @@ None.
 | `nav.me` | Me | আমি | |
 | `nav.list` | All reports | সব রিপোর্ট | |
 | `nav.leaderboard` | Leaderboard | লিডারবোর্ড | |
+| `nav.contact` | Contact | যোগাযোগ | |
+| `nav.creator` | Creator | নির্মাতা | |
 | `home.cta` | Report standing water | জমে থাকা পানির রিপোর্ট করুন | |
 | `home.ctaHint` | Takes under 30 seconds. No sign-up needed. | ৩০ সেকেন্ডের কম সময় লাগে। নিবন্ধন লাগে না। | |
 | `home.howTitle` | How it works | যেভাবে কাজ করে | |
@@ -251,6 +253,7 @@ None.
 | `staff.roles.ward_admin` | Ward admin | ওয়ার্ড অ্যাডমিন | |
 | `staff.roles.researcher` | Researcher | গবেষক | |
 | `staff.roles.superadmin` | Super admin | সুপার অ্যাডমিন | |
+| `staff.inbox` | Support inbox | সাপোর্ট ইনবক্স | |
 | `mod.title` | Moderation queue | যাচাইয়ের তালিকা | |
 | `mod.empty` | Nothing to review. Thank you! | যাচাই করার কিছু নেই। ধন্যবাদ! | |
 | `mod.approve` | Approve | অনুমোদন | |
@@ -452,3 +455,51 @@ None.
 | `board.wardCleans` | {count} destroyed | {count}টি ধ্বংস | |
 | `board.wardHunters` | {count, plural, one {# hunter} other {# hunters}} | {count, plural, one {# শিকারি} other {# শিকারি}} | |
 | `board.wardsEmpty` | No ward has destroyed a spot this week yet. Make yours the first! | এই সপ্তাহে কোনো ওয়ার্ড এখনো জায়গা ধ্বংস করেনি। আপনার ওয়ার্ডকে প্রথম করুন! | |
+| `contact.title` | Contact | যোগাযোগ | |
+| `contact.intro` | A question, a problem, an idea, or want to add your ward? Write to us. | প্রশ্ন, সমস্যা, পরামর্শ, নাকি আপনার ওয়ার্ড যুক্ত করতে চান? আমাদের লিখুন। | |
+| `contact.emailTitle` | Email directly | সরাসরি ইমেইল | |
+| `contact.emailBody` | You can write to the creator directly: | নির্মাতাকে সরাসরি লিখতে পারেন: | |
+| `contact.formTitle` | Send a message to the support team | সাপোর্ট টিমকে বার্তা পাঠান | |
+| `contact.topic` | Topic | বিষয় | |
+| `contact.topics.question` | Question | প্রশ্ন | |
+| `contact.topics.problem` | Problem | সমস্যা | |
+| `contact.topics.idea` | Suggestion | পরামর্শ | |
+| `contact.topics.city_corporation` | City corporation / ward | সিটি করপোরেশন / ওয়ার্ড | |
+| `contact.topics.volunteer` | I want to volunteer | স্বেচ্ছাসেবক হতে চাই | |
+| `contact.topics.other` | Other | অন্যান্য | |
+| `contact.message` | Your message | আপনার বার্তা | |
+| `contact.name` | Name (optional) | নাম (ঐচ্ছিক) | |
+| `contact.reply` | Email or phone for a reply (optional) | উত্তর পেতে ইমেইল বা ফোন (ঐচ্ছিক) | |
+| `contact.privacy` | Only the support team reads this. It is never published. | বার্তাটি শুধু সাপোর্ট টিম পড়বে, কোথাও প্রকাশ হবে না। | |
+| `contact.send` | Send message | বার্তা পাঠান | |
+| `contact.sending` | Sending… | পাঠানো হচ্ছে… | |
+| `contact.sent` | Thank you! Your message has arrived. | ধন্যবাদ! আপনার বার্তা পৌঁছেছে। | |
+| `contact.sentReply` | If you left contact details, we will reply. | যোগাযোগের তথ্য দিলে আমরা উত্তর দেব। | |
+| `contact.another` | Send another | আরেকটি বার্তা | |
+| `contact.tooMany` | You have sent many messages. Please try again in an hour. | আপনি অনেকগুলো বার্তা পাঠিয়েছেন। এক ঘণ্টা পরে আবার চেষ্টা করুন। | |
+| `contact.tooShort` | Please write a little more (at least 5 characters). | বার্তাটি আরেকটু লিখুন (কমপক্ষে ৫ অক্ষর)। | |
+| `contact.error` | Could not send. Check your internet connection and try again. | পাঠানো যায়নি। ইন্টারনেট সংযোগ দেখে আবার চেষ্টা করুন। | |
+| `contact.count` | {count}/{max} | {count}/{max} | |
+| `creator.title` | Creator | নির্মাতা | |
+| `creator.madeBy` | Made by | বানিয়েছেন | |
+| `creator.role` | Creator of DengueWatch BD | ডেঙ্গুওয়াচ বিডির নির্মাতা | |
+| `creator.linkedin` | LinkedIn profile | LinkedIn প্রোফাইল | |
+| `creator.email` | Email | ইমেইল করুন | |
+| `creator.photoAlt` | Photo of {name} | {name}-এর ছবি | |
+| `inbox.title` | Support inbox | সাপোর্ট ইনবক্স | |
+| `inbox.tabNew` | New | নতুন | |
+| `inbox.tabRead` | Read | পড়া হয়েছে | |
+| `inbox.tabResolved` | Resolved | সমাধান | |
+| `inbox.tabAll` | All | সব | |
+| `inbox.empty` | No messages here. | এখানে কোনো বার্তা নেই। | |
+| `inbox.markRead` | Mark read | পড়া হয়েছে | |
+| `inbox.resolve` | Resolved | সমাধান হয়েছে | |
+| `inbox.reopen` | Reopen | আবার খুলুন | |
+| `inbox.note` | Team note | টিমের নোট | |
+| `inbox.saveNote` | Save note | নোট রাখুন | |
+| `inbox.reply` | Reply | উত্তর দিন | |
+| `inbox.noName` | No name given | নাম দেননি | |
+| `inbox.noContact` | No contact details | যোগাযোগের তথ্য নেই | |
+| `inbox.from` | Page: {page} | পাতা: {page} | |
+| `inbox.handled` | Last updated {time} | শেষ হালনাগাদ {time} | |
+| `inbox.loadMore` | Load more | আরও দেখুন | |
