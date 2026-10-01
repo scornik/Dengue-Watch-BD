@@ -1,0 +1,36 @@
+1
+00:00:00,150 --> 00:00:03,021
+Two weeks ago… my wife got dengue.
+
+2
+00:00:03,650 --> 00:00:07,295
+I saw that all the hospitals… are full of patients.
+
+3
+00:00:08,045 --> 00:00:09,228
+People are dying.
+
+4
+00:00:09,850 --> 00:00:13,439
+While I sat with my wife in the hospital, I built this app.
+
+5
+00:00:13,939 --> 00:00:20,947
+So that all of us, people and government together, can find and destroy the places where Aedes mosquitoes breed.
+
+6
+00:00:21,550 --> 00:00:23,025
+I don't know if it will help.
+
+7
+00:00:23,675 --> 00:00:25,048
+But I did my part.
+
+8
+00:00:25,698 --> 00:00:29,239
+The rest… is up to the people, and the government.
+
+9
+00:00:29,850 --> 00:00:32,230
+Today, look for one place near your home.
+

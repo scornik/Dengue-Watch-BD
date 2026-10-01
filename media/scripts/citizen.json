@@ -1,0 +1,57 @@
+{
+  "id": "citizen",
+  "title": "ডেঙ্গুওয়াচ বিডি: কীভাবে ব্যবহার করবেন",
+  "note": "Vertical 9:16 tutorial for Reels, WhatsApp status, Shorts. Every scene shows the real app (screen recordings from media/capture). Volunteers do the work for now: do not say reports go to a city corporation team. Numbers are spelled out for the voice.",
+  "scenes": [
+    {
+      "id": "hook",
+      "mood": "serious",
+      "narration": "ডেঙ্গুর মশা জন্মায় আমাদের বাড়ির আশেপাশেই, জমে থাকা পানিতে। চলুন, সবাই মিলে খুঁজে ধ্বংস করি।"
+    },
+    {
+      "id": "open",
+      "mood": "warm",
+      "narration": "ফোনের ব্রাউজারে খুলুন ডেঙ্গুওয়াচ বিডি। কোনো অ্যাপ নামাতে হবে না, নিবন্ধনও লাগে না।"
+    },
+    {
+      "id": "photo",
+      "mood": "warm",
+      "narration": "লাল বোতাম চাপুন, তারপর জমে থাকা পানির ছবি তুলুন। ফোন নিজেই ছবিটি যাচাই করে দেয়।"
+    },
+    {
+      "id": "location",
+      "mood": "warm",
+      "narration": "মানচিত্র সরিয়ে পিনটি ঠিক জায়গায় বসান।"
+    },
+    {
+      "id": "details",
+      "mood": "warm",
+      "narration": "কোন ধরনের পাত্র, আর লার্ভা দেখেছেন কি না, বেছে নিন। তারপর রিপোর্ট পাঠান। মানুষের মুখ আর গাড়ির নম্বর ঝাপসা করা হয়।"
+    },
+    {
+      "id": "hunt",
+      "mood": "energetic",
+      "narration": "এবার শিকারি হোন। শিকার পাতায় দেখুন, কাছের কোন জায়গা পরিষ্কার করা দরকার।"
+    },
+    {
+      "id": "claim",
+      "mood": "energetic",
+      "narration": "একটি জায়গা বেছে নিয়ে চাপুন, এটা আমি ধ্বংস করব। জায়গাটি তিন ঘণ্টা আপনার জন্য রাখা থাকবে।"
+    },
+    {
+      "id": "clean",
+      "mood": "energetic",
+      "narration": "পানি ফেলে দিন, ভেতরটা ঘষে নিন, উল্টে রাখুন বা ঢেকে দিন। তারপর সেখানে দাঁড়িয়েই পরের ছবি তুলুন।"
+    },
+    {
+      "id": "points",
+      "mood": "energetic",
+      "narration": "প্রতিটি জায়গার জন্য পয়েন্ট পাবেন, লিডারবোর্ডে উঠবেন। ভুয়া ছবি যাচাইকারীরা বাতিল করেন।"
+    },
+    {
+      "id": "cta",
+      "mood": "hopeful",
+      "narration": "শুরুতে আমাদের দরকার আপনার মতো স্বেচ্ছাসেবক। আজই আপনার বাড়ির আশেপাশে একটি জায়গা খুঁজে দেখুন।"
+    }
+  ]
+}

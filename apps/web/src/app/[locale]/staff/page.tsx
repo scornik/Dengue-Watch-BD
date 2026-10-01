@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { StaffGate } from "@/components/StaffGate";
-import { canAdmin, canInspect, canModerate, canResearch } from "@/lib/staff/useStaff";
+import { canAdmin, canInspect, canModerate, canResearch, canSupport } from "@/lib/staff/useStaff";
 import { getBrowserClient } from "@/lib/supabase/client";
 import { PushOptIn } from "@/components/PushOptIn";
 
@@ -38,6 +38,11 @@ export default function StaffHome() {
                   {t("admin.digest")}
                 </Link>
               </>
+            )}
+            {canSupport(profile.role) && (
+              <Link href="/staff/inbox" className="btn-secondary">
+                {t("staff.inbox")}
+              </Link>
             )}
             {canResearch(profile.role) && (
               <Link href="/data" className="btn-secondary">

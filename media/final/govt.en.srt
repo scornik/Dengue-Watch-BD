@@ -1,0 +1,60 @@
+1
+00:00:00,150 --> 00:00:04,154
+DengueWatch BD is an open source, citizen project.
+
+2
+00:00:04,904 --> 00:00:07,538
+Citizens send photos of standing water.
+
+3
+00:00:08,288 --> 00:00:12,497
+Volunteers clean it up… and everyone can see the progress.
+
+4
+00:00:13,117 --> 00:00:19,519
+Every report has a photo, a GPS location, the container type, and larvae information.
+
+5
+00:00:20,069 --> 00:00:24,063
+Reports within twenty five meters are joined into one site.
+
+6
+00:00:24,683 --> 00:00:30,534
+The open map shows reports by ward, environmental risk, and official case numbers.
+
+7
+00:00:31,084 --> 00:00:35,234
+Satellites cannot see containers. They only show where to look first.
+
+8
+00:00:35,850 --> 00:00:37,403
+Each ward has a scorecard.
+
+9
+00:00:37,953 --> 00:00:41,962
+How many places were found, how many were cleaned, and how fast.
+
+10
+00:00:42,583 --> 00:00:47,973
+If a city corporation wants, it can appoint an admin and inspectors for each ward.
+
+11
+00:00:48,423 --> 00:00:52,683
+They get their own work list… and close each place with an on-site photo.
+
+12
+00:00:53,283 --> 00:00:55,366
+Ward admins get a weekly summary.
+
+13
+00:00:55,816 --> 00:00:58,938
+And all anonymous data can be downloaded, for free.
+
+14
+00:00:59,550 --> 00:01:02,010
+Today, volunteers are doing this work.
+
+15
+00:01:02,660 --> 00:01:06,058
+If you want to add your ward… please, contact us.
+

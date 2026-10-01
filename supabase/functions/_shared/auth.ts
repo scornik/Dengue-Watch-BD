@@ -1,4 +1,4 @@
-// Service-only functions (notify-status, screen-report, weekly-digest) are called
+// Service-only functions (notify-status, screen-report, weekly-digest, notify-support) are called
 // by pg_cron with the key stored in Vault. Projects with the new API keys inject
 // SUPABASE_SERVICE_ROLE_KEY in a form that need not equal the legacy service_role
 // JWT the cron jobs send, so an exact match alone rejects them.

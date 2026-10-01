@@ -1,0 +1,89 @@
+{
+  "id": "citizen",
+  "title": "DengueWatch BD: how to use it",
+  "note": "English narration for a Bangladeshi audience: short sentences, common words, no idioms. Each line is spoken separately with a pause after it; '...' adds a breath inside a line. bn is the Bangla subtitle shown with the English captions.",
+  "scenes": [
+    {
+      "id": "hook",
+      "mood": "serious",
+      "lines": [
+        { "en": "Dengue mosquitoes are born... very close to us.", "bn": "ডেঙ্গুর মশা জন্মায় আমাদের খুব কাছেই।" },
+        { "en": "In still, clean water around our homes.", "bn": "বাড়ির আশেপাশে জমে থাকা পরিষ্কার পানিতে।" },
+        { "en": "Let's find them, and destroy them. Together.", "bn": "চলুন, সবাই মিলে খুঁজে ধ্বংস করি।" }
+      ]
+    },
+    {
+      "id": "open",
+      "mood": "warm",
+      "lines": [
+        { "en": "Open DengueWatch BD in your phone's browser.", "bn": "ফোনের ব্রাউজারে ডেঙ্গুওয়াচ বিডি খুলুন।" },
+        { "en": "No app to download. No sign up.", "bn": "অ্যাপ নামাতে হবে না। নিবন্ধনও লাগে না।" }
+      ]
+    },
+    {
+      "id": "photo",
+      "mood": "warm",
+      "lines": [
+        { "en": "Tap the red button.", "bn": "লাল বোতাম চাপুন।" },
+        { "en": "Take a photo of the standing water.", "bn": "জমে থাকা পানির ছবি তুলুন।" },
+        { "en": "Your phone checks the photo for you.", "bn": "ফোন নিজেই ছবিটি যাচাই করে।" }
+      ]
+    },
+    {
+      "id": "location",
+      "mood": "warm",
+      "lines": [
+        { "en": "Now, move the map... so the pin sits on the right spot.", "bn": "এবার মানচিত্র সরিয়ে পিনটি ঠিক জায়গায় বসান।" }
+      ]
+    },
+    {
+      "id": "details",
+      "mood": "warm",
+      "lines": [
+        { "en": "Choose the type of container.", "bn": "কোন ধরনের পাত্র, বেছে নিন।" },
+        { "en": "Did you see larvae? Tell us.", "bn": "লার্ভা দেখেছেন কি না, জানান।" },
+        { "en": "Then, send it. Faces and number plates are blurred.", "bn": "তারপর পাঠিয়ে দিন। মুখ আর গাড়ির নম্বর ঝাপসা করা হয়।" }
+      ]
+    },
+    {
+      "id": "hunt",
+      "mood": "energetic",
+      "lines": [
+        { "en": "Now... become a hunter!", "bn": "এবার শিকারি হোন!" },
+        { "en": "Open the Hunt tab, and see which places near you need cleaning.", "bn": "শিকার ট্যাবে দেখুন, কাছের কোন জায়গা পরিষ্কার করা দরকার।" }
+      ]
+    },
+    {
+      "id": "claim",
+      "mood": "energetic",
+      "lines": [
+        { "en": "Pick a place, and tap the green button.", "bn": "একটি জায়গা বেছে নিয়ে সবুজ বোতাম চাপুন।" },
+        { "en": "It is kept for you, for three hours.", "bn": "জায়গাটি তিন ঘণ্টা আপনার জন্য রাখা থাকবে।" }
+      ]
+    },
+    {
+      "id": "clean",
+      "mood": "energetic",
+      "lines": [
+        { "en": "Throw out the water. Scrub the inside. Turn it over, or cover it.", "bn": "পানি ফেলে দিন, ভেতরটা ঘষে নিন, উল্টে রাখুন বা ঢেকে দিন।" },
+        { "en": "Then, standing right there, take the after photo.", "bn": "তারপর সেখানে দাঁড়িয়েই পরের ছবি তুলুন।" }
+      ]
+    },
+    {
+      "id": "points",
+      "mood": "energetic",
+      "lines": [
+        { "en": "You earn points for every place, and climb the leaderboard.", "bn": "প্রতিটি জায়গার জন্য পয়েন্ট পাবেন, লিডারবোর্ডে উঠবেন।" },
+        { "en": "Fake photos are rejected.", "bn": "ভুয়া ছবি বাতিল করা হয়।" }
+      ]
+    },
+    {
+      "id": "cta",
+      "mood": "hopeful",
+      "lines": [
+        { "en": "Right now... we need volunteers, like you.", "bn": "এখন আমাদের দরকার আপনার মতো স্বেচ্ছাসেবক।" },
+        { "en": "Today, look for one place near your home.", "bn": "আজই আপনার বাড়ির আশেপাশে একটি জায়গা খুঁজে দেখুন।" }
+      ]
+    }
+  ]
+}

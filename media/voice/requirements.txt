@@ -1,0 +1,9 @@
+# Draft voice + forced alignment (CPU is fine). Install torch from the CPU index on machines without a GPU:
+#   pip install torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+torch>=2.4
+torchaudio>=2.4
+transformers>=4.45
+soundfile
+uroman
+numpy
+scipy

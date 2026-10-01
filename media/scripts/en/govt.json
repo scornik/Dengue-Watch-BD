@@ -1,0 +1,64 @@
+{
+  "id": "govt",
+  "title": "DengueWatch BD: an invitation to city corporations",
+  "note": "No government body is involved yet: this is an invitation. Volunteers run it today; a city corporation can appoint a ward admin and inspectors per ward. Plain English for officials who read English as a second language.",
+  "scenes": [
+    {
+      "id": "hook",
+      "mood": "serious",
+      "lines": [
+        { "en": "DengueWatch BD is an open source, citizen project.", "bn": "ডেঙ্গুওয়াচ বিডি একটি ওপেন সোর্স নাগরিক উদ্যোগ।" },
+        { "en": "Citizens send photos of standing water.", "bn": "নাগরিকেরা জমে থাকা পানির ছবি পাঠান।" },
+        { "en": "Volunteers clean it up... and everyone can see the progress.", "bn": "স্বেচ্ছাসেবকেরা তা পরিষ্কার করেন, আর সবাই অগ্রগতি দেখতে পান।" }
+      ]
+    },
+    {
+      "id": "data",
+      "mood": "calm",
+      "lines": [
+        { "en": "Every report has a photo, a GPS location, the container type, and larvae information.", "bn": "প্রতিটি রিপোর্টে থাকে ছবি, জিপিএস অবস্থান, পাত্রের ধরন আর লার্ভার তথ্য।" },
+        { "en": "Reports within twenty five meters are joined into one site.", "bn": "পঁচিশ মিটারের মধ্যে একই জায়গার রিপোর্ট একটি স্থানে যুক্ত হয়।" }
+      ]
+    },
+    {
+      "id": "map",
+      "mood": "calm",
+      "lines": [
+        { "en": "The open map shows reports by ward, environmental risk, and official case numbers.", "bn": "উন্মুক্ত মানচিত্রে দেখা যায় ওয়ার্ডভিত্তিক রিপোর্ট, পরিবেশগত ঝুঁকি আর সরকারি রোগীর সংখ্যা।" },
+        { "en": "Satellites cannot see containers. They only show where to look first.", "bn": "স্যাটেলাইট পাত্র দেখতে পায় না, শুধু দেখায় কোথায় আগে খুঁজতে হবে।" }
+      ]
+    },
+    {
+      "id": "scorecard",
+      "mood": "calm",
+      "lines": [
+        { "en": "Each ward has a scorecard.", "bn": "প্রতিটি ওয়ার্ডের একটি স্কোরকার্ড আছে।" },
+        { "en": "How many places were found, how many were cleaned, and how fast.", "bn": "কতগুলো জায়গা পাওয়া গেছে, কতগুলো পরিষ্কার হয়েছে, আর কত দ্রুত।" }
+      ]
+    },
+    {
+      "id": "join",
+      "mood": "confident",
+      "lines": [
+        { "en": "If a city corporation wants, it can appoint an admin and inspectors for each ward.", "bn": "সিটি করপোরেশন চাইলে প্রতিটি ওয়ার্ডে অ্যাডমিন ও পরিদর্শক নিয়োগ দিতে পারে।" },
+        { "en": "They get their own work list... and close each place with an on-site photo.", "bn": "তাঁরা পান নিজের কাজের তালিকা, আর ঘটনাস্থলের ছবি দিয়ে প্রতিটি জায়গা বন্ধ করেন।" }
+      ]
+    },
+    {
+      "id": "digest",
+      "mood": "confident",
+      "lines": [
+        { "en": "Ward admins get a weekly summary.", "bn": "ওয়ার্ড অ্যাডমিন পান সাপ্তাহিক সারাংশ।" },
+        { "en": "And all anonymous data can be downloaded, for free.", "bn": "আর নাম-পরিচয়হীন সব তথ্য বিনা মূল্যে ডাউনলোড করা যায়।" }
+      ]
+    },
+    {
+      "id": "cta",
+      "mood": "hopeful",
+      "lines": [
+        { "en": "Today, volunteers are doing this work.", "bn": "এখন কাজটি চালাচ্ছেন স্বেচ্ছাসেবকেরা।" },
+        { "en": "If you want to add your ward... please, contact us.", "bn": "আপনার ওয়ার্ড যুক্ত করতে চাইলে আমাদের সাথে যোগাযোগ করুন।" }
+      ]
+    }
+  ]
+}

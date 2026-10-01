@@ -1,0 +1,33 @@
+{
+  "id": "story",
+  "title": "কেন আমি ডেঙ্গুওয়াচ বিডি বানালাম",
+  "note": "Founder story, vertical 9:16, talking head. Translated from the founder's own words (English original below); nothing added except the last scene, a suggested call to action they can delete. Read it aloud before recording: change any word that does not sound like you.",
+  "original_en": "My wife got infected by dengue 2 weeks ago. I saw all the hospitals are filled up with so many patients and people are dying, so while attending my wife at hospital I have built this app so that we can prevent and remove this aedes mosquito breeding ground with all the people and governments help. I don't know whether it will help or not but still I did my part. Rest depends upon the people and government.",
+  "scenes": [
+    {
+      "id": "wife",
+      "mood": "serious",
+      "narration": "দুই সপ্তাহ আগে আমার স্ত্রী ডেঙ্গুতে আক্রান্ত হন।"
+    },
+    {
+      "id": "hospital",
+      "mood": "serious",
+      "narration": "হাসপাতালে গিয়ে দেখলাম, সব হাসপাতাল রোগীতে ভরা। মানুষ মারা যাচ্ছে।"
+    },
+    {
+      "id": "build",
+      "mood": "warm",
+      "narration": "স্ত্রীর পাশে হাসপাতালে থাকতে থাকতেই আমি এই অ্যাপটি বানিয়েছি, যাতে মানুষ আর সরকারের সাহায্যে, সবাই মিলে এডিস মশার প্রজননস্থল খুঁজে ধ্বংস করতে পারি।"
+    },
+    {
+      "id": "part",
+      "mood": "hopeful",
+      "narration": "জানি না এটা কাজে আসবে কি না। তবু আমি আমার কাজটুকু করেছি। বাকিটা আপনাদের আর সরকারের হাতে।"
+    },
+    {
+      "id": "ask",
+      "mood": "hopeful",
+      "narration": "আজই আপনার বাড়ির আশেপাশে একটি জায়গা খুঁজে দেখুন।"
+    }
+  ]
+}

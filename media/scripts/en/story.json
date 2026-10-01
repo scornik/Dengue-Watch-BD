@@ -1,0 +1,42 @@
+{
+  "id": "story",
+  "title": "Why I built DengueWatch BD",
+  "note": "The founder's own words, lightly edited for speech; nothing added except the last line (a call to action). Read by an AI voice, which the video and posts say.",
+  "scenes": [
+    {
+      "id": "wife",
+      "mood": "serious",
+      "lines": [{ "en": "Two weeks ago... my wife got dengue.", "bn": "দুই সপ্তাহ আগে আমার স্ত্রী ডেঙ্গুতে আক্রান্ত হন।" }]
+    },
+    {
+      "id": "hospital",
+      "mood": "serious",
+      "lines": [
+        { "en": "I saw that all the hospitals... are full of patients.", "bn": "দেখলাম, সব হাসপাতাল রোগীতে ভরা।" },
+        { "en": "People are dying.", "bn": "মানুষ মারা যাচ্ছে।" }
+      ]
+    },
+    {
+      "id": "build",
+      "mood": "warm",
+      "lines": [
+        { "en": "While I sat with my wife in the hospital, I built this app.", "bn": "স্ত্রীর পাশে হাসপাতালে থাকতে থাকতেই আমি এই অ্যাপটি বানিয়েছি।" },
+        { "en": "So that all of us, people and government together, can find and destroy the places where Aedes mosquitoes breed.", "bn": "যাতে মানুষ আর সরকার, সবাই মিলে এডিস মশার প্রজননস্থল খুঁজে ধ্বংস করতে পারি।" }
+      ]
+    },
+    {
+      "id": "part",
+      "mood": "hopeful",
+      "lines": [
+        { "en": "I don't know if it will help.", "bn": "জানি না এটা কাজে আসবে কি না।" },
+        { "en": "But I did my part.", "bn": "তবু আমি আমার কাজটুকু করেছি।" },
+        { "en": "The rest... is up to the people, and the government.", "bn": "বাকিটা আপনাদের আর সরকারের হাতে।" }
+      ]
+    },
+    {
+      "id": "ask",
+      "mood": "hopeful",
+      "lines": [{ "en": "Today, look for one place near your home.", "bn": "আজই আপনার বাড়ির আশেপাশে একটি জায়গা খুঁজে দেখুন।" }]
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "app": {
     "name": "DengueWatch BD",
     "tagline": "Report Aedes breeding sites. See them cleared.",
-    "description": "Citizens report standing water where Aedes mosquitoes breed. Ward teams clear it and close each site with a photo.",
+    "description": "Citizens report standing water where Aedes mosquitoes breed. Volunteer hunters clear it and close each site with a photo.",
     "skip": "Skip to content",
     "offline": "You are offline. Reports will be sent when you are back online.",
     "language": "বাংলা",
@@ -20,7 +20,9 @@
     "hunt": "Hunt",
     "me": "Me",
     "list": "All reports",
-    "leaderboard": "Leaderboard"
+    "leaderboard": "Leaderboard",
+    "contact": "Contact",
+    "creator": "Creator"
   },
   "home": {
     "cta": "Report standing water",
@@ -28,7 +30,7 @@
     "howTitle": "How it works",
     "step1": "Take a photo of standing water: tires, buckets, drums, AC trays, flower tubs, rooftops, drains, construction sites.",
     "step2": "Pin the location. Tell us if you saw larvae.",
-    "step3": "Your ward team gets it in their queue and must close it with an on-site photo.",
+    "step3": "It goes on the public spot list; a volunteer hunter or ward inspector closes it with an on-site photo.",
     "step4": "Follow progress on the public map and ward scorecards.",
     "cleanTitle": "Can you clean it now?",
     "cleanBody": "Empty the water, scrub the inside, and cover or turn it upside down. Aedes eggs stick to container walls for months.",
@@ -139,7 +141,7 @@
   },
   "done": {
     "title": "Thank you!",
-    "body": "Your report was sent to the ward team.",
+    "body": "Your report is in. Volunteer hunters nearby can now see it.",
     "queuedTitle": "Saved on your phone",
     "queuedBody": "We will send it as soon as you are online.",
     "cleanTitle": "Cleaned it yourself? Great. Next time:",
@@ -254,7 +256,8 @@
       "ward_admin": "Ward admin",
       "researcher": "Researcher",
       "superadmin": "Super admin"
-    }
+    },
+    "inbox": "Support inbox"
   },
   "mod": {
     "title": "Moderation queue",
@@ -336,7 +339,7 @@
   },
   "about": {
     "title": "About DengueWatch BD",
-    "body": "An open-source civic project. Citizens report possible Aedes breeding sites; city corporation ward teams clear them; everyone can see the follow-through. We complement Mosquito Alert (icddr,b), which collects mosquito photos.",
+    "body": "An open-source civic project. Citizens report possible Aedes breeding sites; volunteers clear them, and city corporations can add ward inspectors if they choose; everyone can see the follow-through. We complement Mosquito Alert (icddr,b), which collects mosquito photos.",
     "satellite": "Satellites cannot see container-sized breeding sites. We use them only to rank wards by environmental risk.",
     "source": "Source code",
     "credits": "Credits"
@@ -482,5 +485,61 @@
     "wardCleans": "{count} destroyed",
     "wardHunters": "{count, plural, one {# hunter} other {# hunters}}",
     "wardsEmpty": "No ward has destroyed a spot this week yet. Make yours the first!"
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "A question, a problem, an idea, or want to add your ward? Write to us.",
+    "emailTitle": "Email directly",
+    "emailBody": "You can write to the creator directly:",
+    "formTitle": "Send a message to the support team",
+    "topic": "Topic",
+    "topics": {
+      "question": "Question",
+      "problem": "Problem",
+      "idea": "Suggestion",
+      "city_corporation": "City corporation / ward",
+      "volunteer": "I want to volunteer",
+      "other": "Other"
+    },
+    "message": "Your message",
+    "name": "Name (optional)",
+    "reply": "Email or phone for a reply (optional)",
+    "privacy": "Only the support team reads this. It is never published.",
+    "send": "Send message",
+    "sending": "Sending…",
+    "sent": "Thank you! Your message has arrived.",
+    "sentReply": "If you left contact details, we will reply.",
+    "another": "Send another",
+    "tooMany": "You have sent many messages. Please try again in an hour.",
+    "tooShort": "Please write a little more (at least 5 characters).",
+    "error": "Could not send. Check your internet connection and try again.",
+    "count": "{count}/{max}"
+  },
+  "creator": {
+    "title": "Creator",
+    "madeBy": "Made by",
+    "role": "Creator of DengueWatch BD",
+    "linkedin": "LinkedIn profile",
+    "email": "Email",
+    "photoAlt": "Photo of {name}"
+  },
+  "inbox": {
+    "title": "Support inbox",
+    "tabNew": "New",
+    "tabRead": "Read",
+    "tabResolved": "Resolved",
+    "tabAll": "All",
+    "empty": "No messages here.",
+    "markRead": "Mark read",
+    "resolve": "Resolved",
+    "reopen": "Reopen",
+    "note": "Team note",
+    "saveNote": "Save note",
+    "reply": "Reply",
+    "noName": "No name given",
+    "noContact": "No contact details",
+    "from": "Page: {page}",
+    "handled": "Last updated {time}",
+    "loadMore": "Load more"
   }
 }

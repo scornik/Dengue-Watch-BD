@@ -428,3 +428,7 @@ verify_jwt = true
 
 [functions.weekly-digest]
 verify_jwt = true
+
+[functions.notify-support]
+verify_jwt = true
+import_map = "./functions/deno.json"

@@ -1,0 +1,15 @@
+{
+  "name": "denguewatch-app-capture",
+  "version": "1.0.0",
+  "description": "Screen recordings of the real app for the launch videos. See media/README.md.",
+  "scripts": {
+    "record": "node record.mjs"
+  },
+  "license": "AGPL-3.0-only",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
+    "playwright-core": "1.56"
+  },
+  "private": true,
+  "type": "module"
+}

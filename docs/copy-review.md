@@ -22,13 +22,13 @@ Bangla numerals/plurals. Mark each row ✅ / ✏️ (suggest text) in a PR or is
 
 None.
 
-## All strings (426)
+## All strings (477)
 
 | Key | English | বাংলা | Review |
 | --- | --- | --- | --- |
 | `app.name` | DengueWatch BD | ডেঙ্গুওয়াচ বিডি | |
 | `app.tagline` | Report Aedes breeding sites. See them cleared. | এডিস মশার প্রজননস্থল জানান। পরিষ্কার হতে দেখুন। | |
-| `app.description` | Citizens report standing water where Aedes mosquitoes breed. Ward teams clear it and close each site with a photo. | নাগরিকেরা জমে থাকা পানির ছবি পাঠান, যেখানে এডিস মশা জন্মায়। ওয়ার্ডের দল তা পরিষ্কার করে ছবি দিয়ে বন্ধ করে। | |
+| `app.description` | Citizens report standing water where Aedes mosquitoes breed. Volunteer hunters clear it and close each site with a photo. | নাগরিকেরা জমে থাকা পানির ছবি পাঠান, যেখানে এডিস মশা জন্মায়। স্বেচ্ছাসেবক শিকারিরা তা পরিষ্কার করে ছবি দিয়ে বন্ধ করেন। | |
 | `app.skip` | Skip to content | মূল অংশে যান | |
 | `app.offline` | You are offline. Reports will be sent when you are back online. | আপনি অফলাইনে আছেন। অনলাইনে ফিরলে রিপোর্ট পাঠানো হবে। | |
 | `app.language` | বাংলা | English | |
@@ -45,12 +45,14 @@ None.
 | `nav.me` | Me | আমি | |
 | `nav.list` | All reports | সব রিপোর্ট | |
 | `nav.leaderboard` | Leaderboard | লিডারবোর্ড | |
+| `nav.contact` | Contact | যোগাযোগ | |
+| `nav.creator` | Creator | নির্মাতা | |
 | `home.cta` | Report standing water | জমে থাকা পানির রিপোর্ট করুন | |
 | `home.ctaHint` | Takes under 30 seconds. No sign-up needed. | ৩০ সেকেন্ডের কম সময় লাগে। নিবন্ধন লাগে না। | |
 | `home.howTitle` | How it works | যেভাবে কাজ করে | |
 | `home.step1` | Take a photo of standing water: tires, buckets, drums, AC trays, flower tubs, rooftops, drains, construction sites. | জমে থাকা পানির ছবি তুলুন: টায়ার, বালতি, ড্রাম, এসির ট্রে, ফুলের টব, ছাদ, ড্রেন, নির্মাণাধীন ভবন। | |
 | `home.step2` | Pin the location. Tell us if you saw larvae. | মানচিত্রে জায়গা ঠিক করুন। লার্ভা দেখেছেন কি না জানান। | |
-| `home.step3` | Your ward team gets it in their queue and must close it with an on-site photo. | রিপোর্টটি আপনার ওয়ার্ডের দলের তালিকায় যায়; তারা ঘটনাস্থলের ছবি দিয়ে এটি বন্ধ করবে। | |
+| `home.step3` | It goes on the public spot list; a volunteer hunter or ward inspector closes it with an on-site photo. | রিপোর্টটি সবার জন্য খোলা তালিকায় যায়; একজন স্বেচ্ছাসেবক শিকারি বা ওয়ার্ড পরিদর্শক ঘটনাস্থলের ছবি দিয়ে এটি বন্ধ করবেন। | |
 | `home.step4` | Follow progress on the public map and ward scorecards. | উন্মুক্ত মানচিত্র ও ওয়ার্ড স্কোরকার্ডে অগ্রগতি দেখুন। | |
 | `home.cleanTitle` | Can you clean it now? | এখনই পরিষ্কার করতে পারবেন? | |
 | `home.cleanBody` | Empty the water, scrub the inside, and cover or turn it upside down. Aedes eggs stick to container walls for months. | পানি ফেলে দিন, ভেতরের দেয়াল ঘষে পরিষ্কার করুন, তারপর ঢেকে রাখুন বা উল্টে রাখুন। এডিসের ডিম পাত্রের গায়ে মাসের পর মাস লেগে থাকে। | |
@@ -147,7 +149,7 @@ None.
 | `report.otpRequired` | Please verify your phone number to keep reporting. | আরও রিপোর্ট পাঠাতে আপনার ফোন নম্বর যাচাই করুন। | |
 | `report.queuedOffline` | Saved offline. It will upload automatically when you are online. | অফলাইনে সংরক্ষিত। অনলাইনে এলে নিজে থেকেই পাঠানো হবে। | |
 | `done.title` | Thank you! | ধন্যবাদ! | |
-| `done.body` | Your report was sent to the ward team. | আপনার রিপোর্ট ওয়ার্ডের দলের কাছে পাঠানো হয়েছে। | |
+| `done.body` | Your report is in. Volunteer hunters nearby can now see it. | আপনার রিপোর্ট জমা হয়েছে। কাছের স্বেচ্ছাসেবক শিকারিরা এখন এটি দেখতে পাবেন। | |
 | `done.queuedTitle` | Saved on your phone | আপনার ফোনে সংরক্ষিত | |
 | `done.queuedBody` | We will send it as soon as you are online. | অনলাইনে এলেই আমরা পাঠিয়ে দেব। | |
 | `done.cleanTitle` | Cleaned it yourself? Great. Next time: | নিজে পরিষ্কার করেছেন? চমৎকার। পরের বার: | |
@@ -251,6 +253,7 @@ None.
 | `staff.roles.ward_admin` | Ward admin | ওয়ার্ড অ্যাডমিন | |
 | `staff.roles.researcher` | Researcher | গবেষক | |
 | `staff.roles.superadmin` | Super admin | সুপার অ্যাডমিন | |
+| `staff.inbox` | Support inbox | সাপোর্ট ইনবক্স | |
 | `mod.title` | Moderation queue | যাচাইয়ের তালিকা | |
 | `mod.empty` | Nothing to review. Thank you! | যাচাই করার কিছু নেই। ধন্যবাদ! | |
 | `mod.approve` | Approve | অনুমোদন | |
@@ -322,7 +325,7 @@ None.
 | `data.research` | Researchers: sign in for the report-level anonymised export. | গবেষকেরা: রিপোর্ট-স্তরের নাম-পরিচয়হীন তথ্যের জন্য লগইন করুন। | |
 | `data.researchCsv` | Download report-level CSV | রিপোর্ট-স্তরের CSV ডাউনলোড | |
 | `about.title` | About DengueWatch BD | ডেঙ্গুওয়াচ বিডি সম্পর্কে | |
-| `about.body` | An open-source civic project. Citizens report possible Aedes breeding sites; city corporation ward teams clear them; everyone can see the follow-through. We complement Mosquito Alert (icddr,b), which collects mosquito photos. | একটি ওপেন সোর্স নাগরিক উদ্যোগ। নাগরিকেরা সম্ভাব্য এডিস প্রজননস্থলের রিপোর্ট করেন; সিটি করপোরেশনের ওয়ার্ড দল তা পরিষ্কার করে; সবাই অগ্রগতি দেখতে পান। আমরা মশার ছবি সংগ্রহকারী মসকিটো অ্যালার্টের (আইসিডিডিআর,বি) পরিপূরক। | |
+| `about.body` | An open-source civic project. Citizens report possible Aedes breeding sites; volunteers clear them, and city corporations can add ward inspectors if they choose; everyone can see the follow-through. We complement Mosquito Alert (icddr,b), which collects mosquito photos. | একটি ওপেন সোর্স নাগরিক উদ্যোগ। নাগরিকেরা সম্ভাব্য এডিস প্রজননস্থলের রিপোর্ট করেন; স্বেচ্ছাসেবকেরা তা পরিষ্কার করেন, আর সিটি করপোরেশন চাইলে ওয়ার্ড পরিদর্শক যুক্ত করতে পারে; সবাই অগ্রগতি দেখতে পান। আমরা মশার ছবি সংগ্রহকারী মসকিটো অ্যালার্টের (আইসিডিডিআর,বি) পরিপূরক। | |
 | `about.satellite` | Satellites cannot see container-sized breeding sites. We use them only to rank wards by environmental risk. | স্যাটেলাইট পাত্রের মতো ছোট প্রজননস্থল দেখতে পায় না। আমরা এটি শুধু ওয়ার্ডগুলোকে পরিবেশগত ঝুঁকি অনুযায়ী সাজাতে ব্যবহার করি। | |
 | `about.source` | Source code | সোর্স কোড | |
 | `about.credits` | Credits | কৃতজ্ঞতা | |
@@ -452,3 +455,51 @@ None.
 | `board.wardCleans` | {count} destroyed | {count}টি ধ্বংস | |
 | `board.wardHunters` | {count, plural, one {# hunter} other {# hunters}} | {count, plural, one {# শিকারি} other {# শিকারি}} | |
 | `board.wardsEmpty` | No ward has destroyed a spot this week yet. Make yours the first! | এই সপ্তাহে কোনো ওয়ার্ড এখনো জায়গা ধ্বংস করেনি। আপনার ওয়ার্ডকে প্রথম করুন! | |
+| `contact.title` | Contact | যোগাযোগ | |
+| `contact.intro` | A question, a problem, an idea, or want to add your ward? Write to us. | প্রশ্ন, সমস্যা, পরামর্শ, নাকি আপনার ওয়ার্ড যুক্ত করতে চান? আমাদের লিখুন। | |
+| `contact.emailTitle` | Email directly | সরাসরি ইমেইল | |
+| `contact.emailBody` | You can write to the creator directly: | নির্মাতাকে সরাসরি লিখতে পারেন: | |
+| `contact.formTitle` | Send a message to the support team | সাপোর্ট টিমকে বার্তা পাঠান | |
+| `contact.topic` | Topic | বিষয় | |
+| `contact.topics.question` | Question | প্রশ্ন | |
+| `contact.topics.problem` | Problem | সমস্যা | |
+| `contact.topics.idea` | Suggestion | পরামর্শ | |
+| `contact.topics.city_corporation` | City corporation / ward | সিটি করপোরেশন / ওয়ার্ড | |
+| `contact.topics.volunteer` | I want to volunteer | স্বেচ্ছাসেবক হতে চাই | |
+| `contact.topics.other` | Other | অন্যান্য | |
+| `contact.message` | Your message | আপনার বার্তা | |
+| `contact.name` | Name (optional) | নাম (ঐচ্ছিক) | |
+| `contact.reply` | Email or phone for a reply (optional) | উত্তর পেতে ইমেইল বা ফোন (ঐচ্ছিক) | |
+| `contact.privacy` | Only the support team reads this. It is never published. | বার্তাটি শুধু সাপোর্ট টিম পড়বে, কোথাও প্রকাশ হবে না। | |
+| `contact.send` | Send message | বার্তা পাঠান | |
+| `contact.sending` | Sending… | পাঠানো হচ্ছে… | |
+| `contact.sent` | Thank you! Your message has arrived. | ধন্যবাদ! আপনার বার্তা পৌঁছেছে। | |
+| `contact.sentReply` | If you left contact details, we will reply. | যোগাযোগের তথ্য দিলে আমরা উত্তর দেব। | |
+| `contact.another` | Send another | আরেকটি বার্তা | |
+| `contact.tooMany` | You have sent many messages. Please try again in an hour. | আপনি অনেকগুলো বার্তা পাঠিয়েছেন। এক ঘণ্টা পরে আবার চেষ্টা করুন। | |
+| `contact.tooShort` | Please write a little more (at least 5 characters). | বার্তাটি আরেকটু লিখুন (কমপক্ষে ৫ অক্ষর)। | |
+| `contact.error` | Could not send. Check your internet connection and try again. | পাঠানো যায়নি। ইন্টারনেট সংযোগ দেখে আবার চেষ্টা করুন। | |
+| `contact.count` | {count}/{max} | {count}/{max} | |
+| `creator.title` | Creator | নির্মাতা | |
+| `creator.madeBy` | Made by | বানিয়েছেন | |
+| `creator.role` | Creator of DengueWatch BD | ডেঙ্গুওয়াচ বিডির নির্মাতা | |
+| `creator.linkedin` | LinkedIn profile | LinkedIn প্রোফাইল | |
+| `creator.email` | Email | ইমেইল করুন | |
+| `creator.photoAlt` | Photo of {name} | {name}-এর ছবি | |
+| `inbox.title` | Support inbox | সাপোর্ট ইনবক্স | |
+| `inbox.tabNew` | New | নতুন | |
+| `inbox.tabRead` | Read | পড়া হয়েছে | |
+| `inbox.tabResolved` | Resolved | সমাধান | |
+| `inbox.tabAll` | All | সব | |
+| `inbox.empty` | No messages here. | এখানে কোনো বার্তা নেই। | |
+| `inbox.markRead` | Mark read | পড়া হয়েছে | |
+| `inbox.resolve` | Resolved | সমাধান হয়েছে | |
+| `inbox.reopen` | Reopen | আবার খুলুন | |
+| `inbox.note` | Team note | টিমের নোট | |
+| `inbox.saveNote` | Save note | নোট রাখুন | |
+| `inbox.reply` | Reply | উত্তর দিন | |
+| `inbox.noName` | No name given | নাম দেননি | |
+| `inbox.noContact` | No contact details | যোগাযোগের তথ্য নেই | |
+| `inbox.from` | Page: {page} | পাতা: {page} | |
+| `inbox.handled` | Last updated {time} | শেষ হালনাগাদ {time} | |
+| `inbox.loadMore` | Load more | আরও দেখুন | |

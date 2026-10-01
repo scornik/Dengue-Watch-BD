@@ -1,0 +1,1060 @@
+{
+ "video": "govt",
+ "engine": "kokoro:am_michael",
+ "scenes": [
+  {
+   "id": "hook",
+   "mood": "serious",
+   "audio": "voiceover/en/govt/hook.mp3",
+   "durationMs": 12946,
+   "words": [
+    {
+     "text": "DengueWatch",
+     "startMs": 204,
+     "endMs": 916,
+     "confidence": 1
+    },
+    {
+     "text": "BD",
+     "startMs": 916,
+     "endMs": 1466,
+     "confidence": 1
+    },
+    {
+     "text": "is",
+     "startMs": 1466,
+     "endMs": 1591,
+     "confidence": 1
+    },
+    {
+     "text": "an",
+     "startMs": 1591,
+     "endMs": 1716,
+     "confidence": 1
+    },
+    {
+     "text": "open",
+     "startMs": 1716,
+     "endMs": 2129,
+     "confidence": 1
+    },
+    {
+     "text": "source,",
+     "startMs": 2129,
+     "endMs": 2879,
+     "confidence": 1
+    },
+    {
+     "text": "citizen",
+     "startMs": 2879,
+     "endMs": 3391,
+     "confidence": 1
+    },
+    {
+     "text": "project.",
+     "startMs": 3391,
+     "endMs": 4704,
+     "confidence": 1
+    },
+    {
+     "text": "Citizens",
+     "startMs": 4954,
+     "endMs": 5529,
+     "confidence": 1
+    },
+    {
+     "text": "send",
+     "startMs": 5529,
+     "endMs": 5879,
+     "confidence": 1
+    },
+    {
+     "text": "photos",
+     "startMs": 5879,
+     "endMs": 6454,
+     "confidence": 1
+    },
+    {
+     "text": "of",
+     "startMs": 6454,
+     "endMs": 6554,
+     "confidence": 1
+    },
+    {
+     "text": "standing",
+     "startMs": 6554,
+     "endMs": 7066,
+     "confidence": 1
+    },
+    {
+     "text": "water.",
+     "startMs": 7066,
+     "endMs": 8129,
+     "confidence": 1
+    },
+    {
+     "text": "Volunteers",
+     "startMs": 8347,
+     "endMs": 9109,
+     "confidence": 1
+    },
+    {
+     "text": "clean",
+     "startMs": 9109,
+     "endMs": 9409,
+     "confidence": 1
+    },
+    {
+     "text": "it",
+     "startMs": 9409,
+     "endMs": 9522,
+     "confidence": 1
+    },
+    {
+     "text": "up…",
+     "startMs": 9522,
+     "endMs": 10322,
+     "confidence": 1
+    },
+    {
+     "text": "and",
+     "startMs": 10348,
+     "endMs": 10523,
+     "confidence": 1
+    },
+    {
+     "text": "everyone",
+     "startMs": 10523,
+     "endMs": 11098,
+     "confidence": 1
+    },
+    {
+     "text": "can",
+     "startMs": 11098,
+     "endMs": 11310,
+     "confidence": 1
+    },
+    {
+     "text": "see",
+     "startMs": 11310,
+     "endMs": 11523,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 11523,
+     "endMs": 11635,
+     "confidence": 1
+    },
+    {
+     "text": "progress.",
+     "startMs": 11635,
+     "endMs": 12773,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "DengueWatch BD is an open source, citizen project.",
+     "bn": "ডেঙ্গুওয়াচ বিডি একটি ওপেন সোর্স নাগরিক উদ্যোগ।",
+     "startMs": 150,
+     "endMs": 4154
+    },
+    {
+     "en": "Citizens send photos of standing water.",
+     "bn": "নাগরিকেরা জমে থাকা পানির ছবি পাঠান।",
+     "startMs": 4904,
+     "endMs": 7538
+    },
+    {
+     "en": "Volunteers clean it up… and everyone can see the progress.",
+     "bn": "স্বেচ্ছাসেবকেরা তা পরিষ্কার করেন, আর সবাই অগ্রগতি দেখতে পান।",
+     "startMs": 8288,
+     "endMs": 12497
+    }
+   ]
+  },
+  {
+   "id": "data",
+   "mood": "calm",
+   "audio": "voiceover/en/govt/data.mp3",
+   "durationMs": 11546,
+   "words": [
+    {
+     "text": "Every",
+     "startMs": 150,
+     "endMs": 441,
+     "confidence": 1
+    },
+    {
+     "text": "report",
+     "startMs": 441,
+     "endMs": 916,
+     "confidence": 1
+    },
+    {
+     "text": "has",
+     "startMs": 916,
+     "endMs": 1104,
+     "confidence": 1
+    },
+    {
+     "text": "a",
+     "startMs": 1104,
+     "endMs": 1229,
+     "confidence": 1
+    },
+    {
+     "text": "photo,",
+     "startMs": 1229,
+     "endMs": 2279,
+     "confidence": 1
+    },
+    {
+     "text": "a",
+     "startMs": 2279,
+     "endMs": 2416,
+     "confidence": 1
+    },
+    {
+     "text": "GPS",
+     "startMs": 2416,
+     "endMs": 3116,
+     "confidence": 1
+    },
+    {
+     "text": "location,",
+     "startMs": 3116,
+     "endMs": 4141,
+     "confidence": 1
+    },
+    {
+     "text": "the",
+     "startMs": 4141,
+     "endMs": 4241,
+     "confidence": 1
+    },
+    {
+     "text": "container",
+     "startMs": 4241,
+     "endMs": 4829,
+     "confidence": 1
+    },
+    {
+     "text": "type,",
+     "startMs": 4829,
+     "endMs": 5241,
+     "confidence": 1
+    },
+    {
+     "text": "and",
+     "startMs": 5241,
+     "endMs": 5379,
+     "confidence": 1
+    },
+    {
+     "text": "larvae",
+     "startMs": 5379,
+     "endMs": 5804,
+     "confidence": 1
+    },
+    {
+     "text": "information.",
+     "startMs": 5804,
+     "endMs": 7109,
+     "confidence": 1
+    },
+    {
+     "text": "Reports",
+     "startMs": 7109,
+     "endMs": 7609,
+     "confidence": 1
+    },
+    {
+     "text": "within",
+     "startMs": 7609,
+     "endMs": 7946,
+     "confidence": 1
+    },
+    {
+     "text": "twenty",
+     "startMs": 7946,
+     "endMs": 8296,
+     "confidence": 1
+    },
+    {
+     "text": "five",
+     "startMs": 8296,
+     "endMs": 8659,
+     "confidence": 1
+    },
+    {
+     "text": "meters",
+     "startMs": 8659,
+     "endMs": 9471,
+     "confidence": 1
+    },
+    {
+     "text": "are",
+     "startMs": 9471,
+     "endMs": 9684,
+     "confidence": 1
+    },
+    {
+     "text": "joined",
+     "startMs": 9684,
+     "endMs": 10146,
+     "confidence": 1
+    },
+    {
+     "text": "into",
+     "startMs": 10146,
+     "endMs": 10421,
+     "confidence": 1
+    },
+    {
+     "text": "one",
+     "startMs": 10421,
+     "endMs": 10734,
+     "confidence": 1
+    },
+    {
+     "text": "site.",
+     "startMs": 10734,
+     "endMs": 11484,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "Every report has a photo, a GPS location, the container type, and larvae information.",
+     "bn": "প্রতিটি রিপোর্টে থাকে ছবি, জিপিএস অবস্থান, পাত্রের ধরন আর লার্ভার তথ্য।",
+     "startMs": 150,
+     "endMs": 6552
+    },
+    {
+     "en": "Reports within twenty five meters are joined into one site.",
+     "bn": "পঁচিশ মিটারের মধ্যে একই জায়গার রিপোর্ট একটি স্থানে যুক্ত হয়।",
+     "startMs": 7102,
+     "endMs": 11096
+    }
+   ]
+  },
+  {
+   "id": "map",
+   "mood": "calm",
+   "audio": "voiceover/en/govt/map.mp3",
+   "durationMs": 11151,
+   "words": [
+    {
+     "text": "The",
+     "startMs": 150,
+     "endMs": 276,
+     "confidence": 1
+    },
+    {
+     "text": "open",
+     "startMs": 276,
+     "endMs": 664,
+     "confidence": 1
+    },
+    {
+     "text": "map",
+     "startMs": 664,
+     "endMs": 1001,
+     "confidence": 1
+    },
+    {
+     "text": "shows",
+     "startMs": 1001,
+     "endMs": 1339,
+     "confidence": 1
+    },
+    {
+     "text": "reports",
+     "startMs": 1339,
+     "endMs": 1839,
+     "confidence": 1
+    },
+    {
+     "text": "by",
+     "startMs": 1839,
+     "endMs": 2064,
+     "confidence": 1
+    },
+    {
+     "text": "ward,",
+     "startMs": 2064,
+     "endMs": 3001,
+     "confidence": 1
+    },
+    {
+     "text": "environmental",
+     "startMs": 3001,
+     "endMs": 3801,
+     "confidence": 1
+    },
+    {
+     "text": "risk,",
+     "startMs": 3801,
+     "endMs": 4489,
+     "confidence": 1
+    },
+    {
+     "text": "and",
+     "startMs": 4489,
+     "endMs": 4601,
+     "confidence": 1
+    },
+    {
+     "text": "official",
+     "startMs": 4601,
+     "endMs": 5051,
+     "confidence": 1
+    },
+    {
+     "text": "case",
+     "startMs": 5051,
+     "endMs": 5389,
+     "confidence": 1
+    },
+    {
+     "text": "numbers.",
+     "startMs": 5389,
+     "endMs": 6514,
+     "confidence": 1
+    },
+    {
+     "text": "Satellites",
+     "startMs": 6600,
+     "endMs": 7150,
+     "confidence": 1
+    },
+    {
+     "text": "cannot",
+     "startMs": 7150,
+     "endMs": 7537,
+     "confidence": 1
+    },
+    {
+     "text": "see",
+     "startMs": 7537,
+     "endMs": 7775,
+     "confidence": 1
+    },
+    {
+     "text": "containers.",
+     "startMs": 7775,
+     "endMs": 8925,
+     "confidence": 1
+    },
+    {
+     "text": "They",
+     "startMs": 8925,
+     "endMs": 9100,
+     "confidence": 1
+    },
+    {
+     "text": "only",
+     "startMs": 9100,
+     "endMs": 9425,
+     "confidence": 1
+    },
+    {
+     "text": "show",
+     "startMs": 9425,
+     "endMs": 9700,
+     "confidence": 1
+    },
+    {
+     "text": "where",
+     "startMs": 9700,
+     "endMs": 9887,
+     "confidence": 1
+    },
+    {
+     "text": "to",
+     "startMs": 9887,
+     "endMs": 9975,
+     "confidence": 1
+    },
+    {
+     "text": "look",
+     "startMs": 9975,
+     "endMs": 10187,
+     "confidence": 1
+    },
+    {
+     "text": "first.",
+     "startMs": 10187,
+     "endMs": 11000,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "The open map shows reports by ward, environmental risk, and official case numbers.",
+     "bn": "উন্মুক্ত মানচিত্রে দেখা যায় ওয়ার্ডভিত্তিক রিপোর্ট, পরিবেশগত ঝুঁকি আর সরকারি রোগীর সংখ্যা।",
+     "startMs": 150,
+     "endMs": 6001
+    },
+    {
+     "en": "Satellites cannot see containers. They only show where to look first.",
+     "bn": "স্যাটেলাইট পাত্র দেখতে পায় না, শুধু দেখায় কোথায় আগে খুঁজতে হবে।",
+     "startMs": 6551,
+     "endMs": 10701
+    }
+   ]
+  },
+  {
+   "id": "scorecard",
+   "mood": "calm",
+   "audio": "voiceover/en/govt/scorecard.mp3",
+   "durationMs": 6712,
+   "words": [
+    {
+     "text": "Each",
+     "startMs": 150,
+     "endMs": 430,
+     "confidence": 1
+    },
+    {
+     "text": "ward",
+     "startMs": 430,
+     "endMs": 742,
+     "confidence": 1
+    },
+    {
+     "text": "has",
+     "startMs": 742,
+     "endMs": 905,
+     "confidence": 1
+    },
+    {
+     "text": "a",
+     "startMs": 905,
+     "endMs": 967,
+     "confidence": 1
+    },
+    {
+     "text": "scorecard.",
+     "startMs": 967,
+     "endMs": 2192,
+     "confidence": 1
+    },
+    {
+     "text": "How",
+     "startMs": 2253,
+     "endMs": 2378,
+     "confidence": 1
+    },
+    {
+     "text": "many",
+     "startMs": 2378,
+     "endMs": 2591,
+     "confidence": 1
+    },
+    {
+     "text": "places",
+     "startMs": 2591,
+     "endMs": 3066,
+     "confidence": 1
+    },
+    {
+     "text": "were",
+     "startMs": 3066,
+     "endMs": 3241,
+     "confidence": 1
+    },
+    {
+     "text": "found,",
+     "startMs": 3241,
+     "endMs": 4141,
+     "confidence": 1
+    },
+    {
+     "text": "how",
+     "startMs": 4141,
+     "endMs": 4316,
+     "confidence": 1
+    },
+    {
+     "text": "many",
+     "startMs": 4316,
+     "endMs": 4541,
+     "confidence": 1
+    },
+    {
+     "text": "were",
+     "startMs": 4541,
+     "endMs": 4703,
+     "confidence": 1
+    },
+    {
+     "text": "cleaned,",
+     "startMs": 4703,
+     "endMs": 5253,
+     "confidence": 1
+    },
+    {
+     "text": "and",
+     "startMs": 5253,
+     "endMs": 5366,
+     "confidence": 1
+    },
+    {
+     "text": "how",
+     "startMs": 5366,
+     "endMs": 5591,
+     "confidence": 1
+    },
+    {
+     "text": "fast.",
+     "startMs": 5591,
+     "endMs": 6491,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "Each ward has a scorecard.",
+     "bn": "প্রতিটি ওয়ার্ডের একটি স্কোরকার্ড আছে।",
+     "startMs": 150,
+     "endMs": 1703
+    },
+    {
+     "en": "How many places were found, how many were cleaned, and how fast.",
+     "bn": "কতগুলো জায়গা পাওয়া গেছে, কতগুলো পরিষ্কার হয়েছে, আর কত দ্রুত।",
+     "startMs": 2253,
+     "endMs": 6262
+    }
+   ]
+  },
+  {
+   "id": "join",
+   "mood": "confident",
+   "audio": "voiceover/en/govt/join.mp3",
+   "durationMs": 10700,
+   "words": [
+    {
+     "text": "If",
+     "startMs": 150,
+     "endMs": 262,
+     "confidence": 1
+    },
+    {
+     "text": "a",
+     "startMs": 262,
+     "endMs": 387,
+     "confidence": 1
+    },
+    {
+     "text": "city",
+     "startMs": 387,
+     "endMs": 687,
+     "confidence": 1
+    },
+    {
+     "text": "corporation",
+     "startMs": 687,
+     "endMs": 1437,
+     "confidence": 1
+    },
+    {
+     "text": "wants,",
+     "startMs": 1437,
+     "endMs": 2274,
+     "confidence": 1
+    },
+    {
+     "text": "it",
+     "startMs": 2274,
+     "endMs": 2412,
+     "confidence": 1
+    },
+    {
+     "text": "can",
+     "startMs": 2412,
+     "endMs": 2537,
+     "confidence": 1
+    },
+    {
+     "text": "appoint",
+     "startMs": 2537,
+     "endMs": 2899,
+     "confidence": 1
+    },
+    {
+     "text": "an",
+     "startMs": 2899,
+     "endMs": 3099,
+     "confidence": 1
+    },
+    {
+     "text": "admin",
+     "startMs": 3099,
+     "endMs": 3762,
+     "confidence": 1
+    },
+    {
+     "text": "and",
+     "startMs": 3762,
+     "endMs": 3874,
+     "confidence": 1
+    },
+    {
+     "text": "inspectors",
+     "startMs": 3874,
+     "endMs": 4587,
+     "confidence": 1
+    },
+    {
+     "text": "for",
+     "startMs": 4587,
+     "endMs": 4737,
+     "confidence": 1
+    },
+    {
+     "text": "each",
+     "startMs": 4737,
+     "endMs": 4999,
+     "confidence": 1
+    },
+    {
+     "text": "ward.",
+     "startMs": 4999,
+     "endMs": 5990,
+     "confidence": 1
+    },
+    {
+     "text": "They",
+     "startMs": 5990,
+     "endMs": 6139,
+     "confidence": 1
+    },
+    {
+     "text": "get",
+     "startMs": 6139,
+     "endMs": 6314,
+     "confidence": 1
+    },
+    {
+     "text": "their",
+     "startMs": 6314,
+     "endMs": 6527,
+     "confidence": 1
+    },
+    {
+     "text": "own",
+     "startMs": 6527,
+     "endMs": 6789,
+     "confidence": 1
+    },
+    {
+     "text": "work",
+     "startMs": 6789,
+     "endMs": 7039,
+     "confidence": 1
+    },
+    {
+     "text": "list…",
+     "startMs": 7039,
+     "endMs": 7787,
+     "confidence": 1
+    },
+    {
+     "text": "and",
+     "startMs": 7787,
+     "endMs": 7878,
+     "confidence": 1
+    },
+    {
+     "text": "close",
+     "startMs": 7878,
+     "endMs": 8253,
+     "confidence": 1
+    },
+    {
+     "text": "each",
+     "startMs": 8253,
+     "endMs": 8478,
+     "confidence": 1
+    },
+    {
+     "text": "place",
+     "startMs": 8478,
+     "endMs": 8790,
+     "confidence": 1
+    },
+    {
+     "text": "with",
+     "startMs": 8790,
+     "endMs": 8915,
+     "confidence": 1
+    },
+    {
+     "text": "an",
+     "startMs": 8915,
+     "endMs": 9040,
+     "confidence": 1
+    },
+    {
+     "text": "on-site",
+     "startMs": 9040,
+     "endMs": 9590,
+     "confidence": 1
+    },
+    {
+     "text": "photo.",
+     "startMs": 9590,
+     "endMs": 10528,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "If a city corporation wants, it can appoint an admin and inspectors for each ward.",
+     "bn": "সিটি করপোরেশন চাইলে প্রতিটি ওয়ার্ডে অ্যাডমিন ও পরিদর্শক নিয়োগ দিতে পারে।",
+     "startMs": 150,
+     "endMs": 5540
+    },
+    {
+     "en": "They get their own work list… and close each place with an on-site photo.",
+     "bn": "তাঁরা পান নিজের কাজের তালিকা, আর ঘটনাস্থলের ছবি দিয়ে প্রতিটি জায়গা বন্ধ করেন।",
+     "startMs": 5990,
+     "endMs": 10250
+    }
+   ]
+  },
+  {
+   "id": "digest",
+   "mood": "confident",
+   "audio": "voiceover/en/govt/digest.mp3",
+   "durationMs": 6255,
+   "words": [
+    {
+     "text": "Ward",
+     "startMs": 162,
+     "endMs": 475,
+     "confidence": 1
+    },
+    {
+     "text": "admins",
+     "startMs": 475,
+     "endMs": 1037,
+     "confidence": 1
+    },
+    {
+     "text": "get",
+     "startMs": 1037,
+     "endMs": 1175,
+     "confidence": 1
+    },
+    {
+     "text": "a",
+     "startMs": 1175,
+     "endMs": 1275,
+     "confidence": 1
+    },
+    {
+     "text": "weekly",
+     "startMs": 1275,
+     "endMs": 1712,
+     "confidence": 1
+    },
+    {
+     "text": "summary.",
+     "startMs": 1712,
+     "endMs": 2683,
+     "confidence": 1
+    },
+    {
+     "text": "And",
+     "startMs": 2683,
+     "endMs": 2786,
+     "confidence": 1
+    },
+    {
+     "text": "all",
+     "startMs": 2786,
+     "endMs": 3111,
+     "confidence": 1
+    },
+    {
+     "text": "anonymous",
+     "startMs": 3111,
+     "endMs": 3736,
+     "confidence": 1
+    },
+    {
+     "text": "data",
+     "startMs": 3736,
+     "endMs": 4074,
+     "confidence": 1
+    },
+    {
+     "text": "can",
+     "startMs": 4074,
+     "endMs": 4186,
+     "confidence": 1
+    },
+    {
+     "text": "be",
+     "startMs": 4186,
+     "endMs": 4336,
+     "confidence": 1
+    },
+    {
+     "text": "downloaded,",
+     "startMs": 4336,
+     "endMs": 5224,
+     "confidence": 1
+    },
+    {
+     "text": "for",
+     "startMs": 5224,
+     "endMs": 5399,
+     "confidence": 1
+    },
+    {
+     "text": "free.",
+     "startMs": 5399,
+     "endMs": 6174,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "Ward admins get a weekly summary.",
+     "bn": "ওয়ার্ড অ্যাডমিন পান সাপ্তাহিক সারাংশ।",
+     "startMs": 150,
+     "endMs": 2233
+    },
+    {
+     "en": "And all anonymous data can be downloaded, for free.",
+     "bn": "আর নাম-পরিচয়হীন সব তথ্য বিনা মূল্যে ডাউনলোড করা যায়।",
+     "startMs": 2683,
+     "endMs": 5805
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "mood": "hopeful",
+   "audio": "voiceover/en/govt/cta.mp3",
+   "durationMs": 7108,
+   "words": [
+    {
+     "text": "Today,",
+     "startMs": 150,
+     "endMs": 758,
+     "confidence": 1
+    },
+    {
+     "text": "volunteers",
+     "startMs": 758,
+     "endMs": 1521,
+     "confidence": 1
+    },
+    {
+     "text": "are",
+     "startMs": 1521,
+     "endMs": 1658,
+     "confidence": 1
+    },
+    {
+     "text": "doing",
+     "startMs": 1658,
+     "endMs": 1996,
+     "confidence": 1
+    },
+    {
+     "text": "this",
+     "startMs": 1996,
+     "endMs": 2221,
+     "confidence": 1
+    },
+    {
+     "text": "work.",
+     "startMs": 2221,
+     "endMs": 3121,
+     "confidence": 1
+    },
+    {
+     "text": "If",
+     "startMs": 3260,
+     "endMs": 3415,
+     "confidence": 1
+    },
+    {
+     "text": "you",
+     "startMs": 3415,
+     "endMs": 3515,
+     "confidence": 1
+    },
+    {
+     "text": "want",
+     "startMs": 3515,
+     "endMs": 3702,
+     "confidence": 1
+    },
+    {
+     "text": "to",
+     "startMs": 3702,
+     "endMs": 3840,
+     "confidence": 1
+    },
+    {
+     "text": "add",
+     "startMs": 3840,
+     "endMs": 4140,
+     "confidence": 1
+    },
+    {
+     "text": "your",
+     "startMs": 4140,
+     "endMs": 4327,
+     "confidence": 1
+    },
+    {
+     "text": "ward…",
+     "startMs": 4327,
+     "endMs": 5270,
+     "confidence": 1
+    },
+    {
+     "text": "please,",
+     "startMs": 5270,
+     "endMs": 5682,
+     "confidence": 1
+    },
+    {
+     "text": "contact",
+     "startMs": 5682,
+     "endMs": 6282,
+     "confidence": 1
+    },
+    {
+     "text": "us.",
+     "startMs": 6282,
+     "endMs": 6882,
+     "confidence": 1
+    }
+   ],
+   "lines": [
+    {
+     "en": "Today, volunteers are doing this work.",
+     "bn": "এখন কাজটি চালাচ্ছেন স্বেচ্ছাসেবকেরা।",
+     "startMs": 150,
+     "endMs": 2610
+    },
+    {
+     "en": "If you want to add your ward… please, contact us.",
+     "bn": "আপনার ওয়ার্ড যুক্ত করতে চাইলে আমাদের সাথে যোগাযোগ করুন।",
+     "startMs": 3260,
+     "endMs": 6658
+    }
+   ]
+  }
+ ]
+}
