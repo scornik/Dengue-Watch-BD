@@ -22,8 +22,10 @@ Bangla first, English second. Open source under **AGPL-3.0**. Product spec: [`do
 | `workers/satellite` | Sentinel-2/Landsat ward risk (weekly) |
 | `workers/thumbs` | Face/number-plate blurring for public thumbnails of reports and volunteer after photos (every 5 min) |
 | `workers/detector` | P3: YOLO classifier trained on moderator labels |
-| `docs/` | [Spec](docs/SPEC.md), [security review](docs/security-review-2026-10-01.md), [credits](docs/credits.md), [Bangla copy review](docs/copy-review.md), [operations: backup/restore, load test, monitoring](docs/operations.md) |
+| `docs/` | [Deployment guide](docs/DEPLOYMENT.md), [Spec](docs/SPEC.md), [security review](docs/security-review-2026-10-01.md), [credits](docs/credits.md), [Bangla copy review](docs/copy-review.md), [operations: backup/restore, load test, monitoring](docs/operations.md) |
 | `scripts/` | `loadtest.mjs` (reports/minute through the real pipeline), `copy-review.mjs` |
+
+> **Full step-by-step guide with every setting explained: [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).**
 
 ## Local setup (under 10 commands)
 
