@@ -28,7 +28,7 @@ None.
 | --- | --- | --- | --- |
 | `app.name` | DengueWatch BD | ডেঙ্গুওয়াচ বিডি | |
 | `app.tagline` | Report Aedes breeding sites. See them cleared. | এডিস মশার প্রজননস্থল জানান। পরিষ্কার হতে দেখুন। | |
-| `app.description` | Citizens report standing water where Aedes mosquitoes breed. Ward teams clear it and close each site with a photo. | নাগরিকেরা জমে থাকা পানির ছবি পাঠান, যেখানে এডিস মশা জন্মায়। ওয়ার্ডের দল তা পরিষ্কার করে ছবি দিয়ে বন্ধ করে। | |
+| `app.description` | Citizens report standing water where Aedes mosquitoes breed. Volunteer hunters clear it and close each site with a photo. | নাগরিকেরা জমে থাকা পানির ছবি পাঠান, যেখানে এডিস মশা জন্মায়। স্বেচ্ছাসেবক শিকারিরা তা পরিষ্কার করে ছবি দিয়ে বন্ধ করেন। | |
 | `app.skip` | Skip to content | মূল অংশে যান | |
 | `app.offline` | You are offline. Reports will be sent when you are back online. | আপনি অফলাইনে আছেন। অনলাইনে ফিরলে রিপোর্ট পাঠানো হবে। | |
 | `app.language` | বাংলা | English | |
@@ -50,7 +50,7 @@ None.
 | `home.howTitle` | How it works | যেভাবে কাজ করে | |
 | `home.step1` | Take a photo of standing water: tires, buckets, drums, AC trays, flower tubs, rooftops, drains, construction sites. | জমে থাকা পানির ছবি তুলুন: টায়ার, বালতি, ড্রাম, এসির ট্রে, ফুলের টব, ছাদ, ড্রেন, নির্মাণাধীন ভবন। | |
 | `home.step2` | Pin the location. Tell us if you saw larvae. | মানচিত্রে জায়গা ঠিক করুন। লার্ভা দেখেছেন কি না জানান। | |
-| `home.step3` | Your ward team gets it in their queue and must close it with an on-site photo. | রিপোর্টটি আপনার ওয়ার্ডের দলের তালিকায় যায়; তারা ঘটনাস্থলের ছবি দিয়ে এটি বন্ধ করবে। | |
+| `home.step3` | It goes on the public spot list; a volunteer hunter or ward inspector closes it with an on-site photo. | রিপোর্টটি সবার জন্য খোলা তালিকায় যায়; একজন স্বেচ্ছাসেবক শিকারি বা ওয়ার্ড পরিদর্শক ঘটনাস্থলের ছবি দিয়ে এটি বন্ধ করবেন। | |
 | `home.step4` | Follow progress on the public map and ward scorecards. | উন্মুক্ত মানচিত্র ও ওয়ার্ড স্কোরকার্ডে অগ্রগতি দেখুন। | |
 | `home.cleanTitle` | Can you clean it now? | এখনই পরিষ্কার করতে পারবেন? | |
 | `home.cleanBody` | Empty the water, scrub the inside, and cover or turn it upside down. Aedes eggs stick to container walls for months. | পানি ফেলে দিন, ভেতরের দেয়াল ঘষে পরিষ্কার করুন, তারপর ঢেকে রাখুন বা উল্টে রাখুন। এডিসের ডিম পাত্রের গায়ে মাসের পর মাস লেগে থাকে। | |
@@ -147,7 +147,7 @@ None.
 | `report.otpRequired` | Please verify your phone number to keep reporting. | আরও রিপোর্ট পাঠাতে আপনার ফোন নম্বর যাচাই করুন। | |
 | `report.queuedOffline` | Saved offline. It will upload automatically when you are online. | অফলাইনে সংরক্ষিত। অনলাইনে এলে নিজে থেকেই পাঠানো হবে। | |
 | `done.title` | Thank you! | ধন্যবাদ! | |
-| `done.body` | Your report was sent to the ward team. | আপনার রিপোর্ট ওয়ার্ডের দলের কাছে পাঠানো হয়েছে। | |
+| `done.body` | Your report is in. Volunteer hunters nearby can now see it. | আপনার রিপোর্ট জমা হয়েছে। কাছের স্বেচ্ছাসেবক শিকারিরা এখন এটি দেখতে পাবেন। | |
 | `done.queuedTitle` | Saved on your phone | আপনার ফোনে সংরক্ষিত | |
 | `done.queuedBody` | We will send it as soon as you are online. | অনলাইনে এলেই আমরা পাঠিয়ে দেব। | |
 | `done.cleanTitle` | Cleaned it yourself? Great. Next time: | নিজে পরিষ্কার করেছেন? চমৎকার। পরের বার: | |
@@ -322,7 +322,7 @@ None.
 | `data.research` | Researchers: sign in for the report-level anonymised export. | গবেষকেরা: রিপোর্ট-স্তরের নাম-পরিচয়হীন তথ্যের জন্য লগইন করুন। | |
 | `data.researchCsv` | Download report-level CSV | রিপোর্ট-স্তরের CSV ডাউনলোড | |
 | `about.title` | About DengueWatch BD | ডেঙ্গুওয়াচ বিডি সম্পর্কে | |
-| `about.body` | An open-source civic project. Citizens report possible Aedes breeding sites; city corporation ward teams clear them; everyone can see the follow-through. We complement Mosquito Alert (icddr,b), which collects mosquito photos. | একটি ওপেন সোর্স নাগরিক উদ্যোগ। নাগরিকেরা সম্ভাব্য এডিস প্রজননস্থলের রিপোর্ট করেন; সিটি করপোরেশনের ওয়ার্ড দল তা পরিষ্কার করে; সবাই অগ্রগতি দেখতে পান। আমরা মশার ছবি সংগ্রহকারী মসকিটো অ্যালার্টের (আইসিডিডিআর,বি) পরিপূরক। | |
+| `about.body` | An open-source civic project. Citizens report possible Aedes breeding sites; volunteers clear them, and city corporations can add ward inspectors if they choose; everyone can see the follow-through. We complement Mosquito Alert (icddr,b), which collects mosquito photos. | একটি ওপেন সোর্স নাগরিক উদ্যোগ। নাগরিকেরা সম্ভাব্য এডিস প্রজননস্থলের রিপোর্ট করেন; স্বেচ্ছাসেবকেরা তা পরিষ্কার করেন, আর সিটি করপোরেশন চাইলে ওয়ার্ড পরিদর্শক যুক্ত করতে পারে; সবাই অগ্রগতি দেখতে পান। আমরা মশার ছবি সংগ্রহকারী মসকিটো অ্যালার্টের (আইসিডিডিআর,বি) পরিপূরক। | |
 | `about.satellite` | Satellites cannot see container-sized breeding sites. We use them only to rank wards by environmental risk. | স্যাটেলাইট পাত্রের মতো ছোট প্রজননস্থল দেখতে পায় না। আমরা এটি শুধু ওয়ার্ডগুলোকে পরিবেশগত ঝুঁকি অনুযায়ী সাজাতে ব্যবহার করি। | |
 | `about.source` | Source code | সোর্স কোড | |
 | `about.credits` | Credits | কৃতজ্ঞতা | |
