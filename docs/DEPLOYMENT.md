@@ -235,6 +235,8 @@ VAPID_SUBJECT=mailto:team@denguewatch.org.bd
 SITE_URL=https://denguewatch.org.bd
 RESEND_API_KEY=<Resend API key>
 DIGEST_FROM=DengueWatch BD <digest@mail.denguewatch.org.bd>
+SUPPORT_NOTIFY_TO=ashik.elahi.cse@gmail.com
+SUPPORT_FROM=DengueWatch BD <support@mail.denguewatch.org.bd>
 ```
 
 ```bash
@@ -248,12 +250,12 @@ You can also set them one by one in the dashboard: Edge Functions → Secrets. `
 
 ```bash
 supabase functions deploy submit-report --no-verify-jwt --import-map supabase/functions/deno.json
-supabase functions deploy screen-report notify-status weekly-digest --import-map supabase/functions/deno.json
+supabase functions deploy screen-report notify-status weekly-digest notify-support --import-map supabase/functions/deno.json
 ```
 
 `--import-map` is needed because the shared `deno.json` sits in `supabase/functions/`, not in each function folder; without it the bundler fails with `Relative import path "@supabase/supabase-js" not prefixed with / or ./ or ../`. Add `--use-api` if Docker is not running.
 
-`submit-report` is deployed with `--no-verify-jwt` so the offline queue can always reach it. The function checks the user's sign-in itself and refuses requests without one. The other three only accept the service-role key, which only the scheduled jobs have.
+`submit-report` is deployed with `--no-verify-jwt` so the offline queue can always reach it. The function checks the user's sign-in itself and refuses requests without one. The other four only accept the service-role key, which only the scheduled jobs have.
 
 #### 3.2.7 Let the scheduled jobs call the functions
 
@@ -405,6 +407,8 @@ Photo screening has tiers. The free tiers are on by default and are enough for l
 | `DEVICE_HASH_SALT` | **Yes** | 64 random hex chars | Device ids are stored only as `sha256(id + salt)`, so the database never holds raw device ids. Changing it resets per-device limits. |
 | `ALLOWED_ORIGINS` | **Yes** | `https://your.domain` | See above |
 | `SITE_URL` | **Yes** | `https://your.domain` | Links inside push notifications and digest emails |
+| `SUPPORT_NOTIFY_TO` | No | `you@example.com, teammate@example.com` | Who is emailed for every new contact-form message (needs `RESEND_API_KEY`). Without it, messages only wait in `/staff/inbox` |
+| `SUPPORT_FROM` | No | `DengueWatch BD <support@your.domain>` | Sender of those emails; defaults to `DIGEST_FROM` |
 | `OTP_REQUIRED_AFTER` | No | `5` | After this many reports without a verified phone, reports go to moderators first (or are blocked if phone OTP is on) |
 | `PHONE_OTP_ENABLED` | No | `false` | Keep `false`: needs an SMS provider and a phone-verify screen that does not exist yet |
 | `PAID_AI_ENABLED` | No | `false` | Server-side screening on/off (see above) |
@@ -439,7 +443,7 @@ Photo screening has tiers. The free tiers are on by default and are enough for l
 git pull
 supabase db push                                   # new migrations, if any
 supabase functions deploy submit-report --no-verify-jwt --import-map supabase/functions/deno.json
-supabase functions deploy screen-report notify-status weekly-digest --import-map supabase/functions/deno.json
+supabase functions deploy screen-report notify-status weekly-digest notify-support --import-map supabase/functions/deno.json
 ```
 
 Vercel and Northflank rebuild automatically from `main`. Read `DECISIONS.md` for anything that changes behaviour.

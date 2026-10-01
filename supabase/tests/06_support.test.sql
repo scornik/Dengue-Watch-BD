@@ -1,7 +1,7 @@
 -- Support inbox: anyone with a session can send; only moderators and superadmins read and update.
 begin;
 create extension if not exists pgtap with schema extensions;
-select plan(18);
+select plan(23);
 
 insert into auth.users (id, email, aud, role, instance_id, is_anonymous) values
   ('00000000-0000-0000-0000-0000000000e1', null, 'authenticated', 'authenticated', '00000000-0000-0000-0000-000000000000', true),
@@ -50,6 +50,19 @@ select is((select handled_by::text from public.support_messages where topic = 'q
   '00000000-0000-0000-0000-0000000000e2', 'the server records who handled it');
 select throws_ok($$update public.support_messages set message = 'edited' where topic = 'question'$$, '42501', null,
   'staff cannot rewrite what a citizen wrote');
+
+-- ---- email notifications: only the Edge Function (service role) claims messages ----
+select throws_ok($$select * from public.claim_support_notifications(5)$$, '42501', null,
+  'staff cannot claim messages for emailing');
+reset role;
+set local role service_role;
+select is((select count(*)::int from public.claim_support_notifications(3)), 3, 'service role claims up to the limit');
+select is((select count(*)::int from public.claim_support_notifications(10)), 2, 'claimed messages are not handed out twice');
+update public.support_messages set notified_at = now();
+update public.support_messages set notify_claimed_at = now() - interval '1 hour';
+select is((select count(*)::int from public.claim_support_notifications(10)), 0, 'emailed messages are never claimed again');
+update public.support_messages set notified_at = null where topic = 'question';
+select is((select count(*)::int from public.claim_support_notifications(10)), 1, 'a stale claim (failed send) is retried');
 
 select * from finish();
 rollback;
