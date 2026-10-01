@@ -12,8 +12,8 @@ Rules every post follows:
 | Video | File | Best on |
 | --- | --- | --- |
 | Founder story (30 s, 9:16) | `story-en.mp4` | Facebook (your profile, then share to groups), TikTok, Reels, LinkedIn |
-| How to use it (63 s, 9:16) | `citizen-en.mp4` | Facebook Reels, TikTok, YouTube Shorts, neighbourhood and university groups |
-| For city corporations (61 s, 16:9) | `govt-en.mp4` | LinkedIn, YouTube, email to councillors and DNCC/DSCC officials |
+| How to use it (65 s, 9:16) | `citizen-en.mp4` | Facebook Reels, TikTok, YouTube Shorts, neighbourhood and university groups |
+| For city corporations (63 s, 16:9) | `govt-en.mp4` | LinkedIn, YouTube, email to councillors and DNCC/DSCC officials |
 
 Suggested order: **story first** (day 0, your own profile), **how-to** the next day into groups, **city corporation** video on LinkedIn once the first reports come in.
 
@@ -190,12 +190,12 @@ DengueWatch BD is an open-source citizen project: citizens report standing water
 ডেঙ্গুওয়াচ বিডি: সিটি করপোরেশনের জন্য আমন্ত্রণ।
 
 0:00 What it is
-0:12 What every report contains
+0:11 What every report contains
 0:22 Open map, environmental risk and case numbers
 0:32 Ward scorecards
-0:39 Ward admins and inspectors (optional)
-0:49 Weekly summary and open data
-0:55 Add your ward
+0:38 Ward admins and inspectors (optional)
+0:48 Weekly summary and open data
+0:54 Add your ward
 
 App: https://dengue-watch-bd.vercel.app
 Source code (AGPL-3.0): https://github.com/scornik/Dengue-Watch-BD
