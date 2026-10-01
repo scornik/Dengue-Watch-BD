@@ -6,12 +6,15 @@ import { createClient } from "@supabase/supabase-js";
 import * as webpush from "@negrel/webpush";
 import { json } from "../_shared/cors.ts";
 import { vapidJwks } from "../_shared/vapid.ts";
+import { isAllowedPushEndpoint, withTimeout } from "../_shared/push.ts";
 import { statusMessage, type Locale, type Status } from "../_shared/i18n.ts";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const SITE_URL = (Deno.env.get("SITE_URL") ?? "").replace(/\/$/, "");
 const NOTIFY: Status[] = ["verified", "assigned", "cleared", "not_found"];
+const SEND_TIMEOUT_MS = 8_000;
+const SEND_BATCH = 10;
 
 const admin = createClient(SUPABASE_URL, SERVICE_KEY, { auth: { persistSession: false, autoRefreshToken: false } });
 
@@ -54,20 +57,37 @@ Deno.serve(async (req) => {
       const { data: subs } = ids.length
         ? await admin.from("push_subscriptions").select("*").in("user_id", ids)
         : { data: [] };
+      const valid: Sub[] = [];
       for (const s of (subs ?? []) as Sub[]) {
-        const msg = statusMessage(s.locale, ev.to_status);
-        const path = s.locale === "en" ? "/en/mine" : "/mine";
-        try {
-          await srv
-            .subscribe({ endpoint: s.endpoint, keys: { p256dh: s.p256dh, auth: s.auth } })
-            .pushTextMessage(JSON.stringify({ ...msg, url: `${SITE_URL}${path}`, tag: `site-${ev.site_id}`, lang: s.locale }), {});
-          sent++;
-        } catch (e) {
-          if (e instanceof webpush.PushMessageError && e.isGone()) {
-            await admin.from("push_subscriptions").delete().eq("id", s.id);
-            gone++;
-          }
+        if (isAllowedPushEndpoint(s.endpoint)) {
+          valid.push(s);
+        } else {
+          // Not a known push service: never contact it, and drop the row.
+          await admin.from("push_subscriptions").delete().eq("id", s.id);
+          gone++;
         }
+      }
+      // Small parallel batches with a per-send timeout, so one slow endpoint
+      // cannot stall the run.
+      for (let b = 0; b < valid.length; b += SEND_BATCH) {
+        await Promise.all(valid.slice(b, b + SEND_BATCH).map(async (s) => {
+          const msg = statusMessage(s.locale, ev.to_status);
+          const path = s.locale === "en" ? "/en/mine" : "/mine";
+          try {
+            await withTimeout(
+              srv
+                .subscribe({ endpoint: s.endpoint, keys: { p256dh: s.p256dh, auth: s.auth } })
+                .pushTextMessage(JSON.stringify({ ...msg, url: `${SITE_URL}${path}`, tag: `site-${ev.site_id}`, lang: s.locale }), {}),
+              SEND_TIMEOUT_MS,
+            );
+            sent++;
+          } catch (e) {
+            if (e instanceof webpush.PushMessageError && e.isGone()) {
+              await admin.from("push_subscriptions").delete().eq("id", s.id);
+              gone++;
+            }
+          }
+        }));
       }
     }
     await admin.from("site_events").update({ notified_at: new Date().toISOString() }).eq("id", ev.id);

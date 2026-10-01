@@ -10,6 +10,7 @@ import { bumpXp, myStats, uploadAvatar, type MyStats } from "@/lib/game/client";
 import { BADGES, levelFor } from "@/lib/game/rules";
 import { getBrowserClient } from "@/lib/supabase/client";
 import { formatNumber } from "@/lib/format";
+import { Icon } from "@/components/Icon";
 
 async function fetchCard() {
   const stats = await myStats().catch(() => null);
@@ -31,6 +32,7 @@ export function HunterCard() {
   const t = useTranslations("me");
   const tl = useTranslations("level");
   const tb = useTranslations("badge");
+  const tn = useTranslations("nav");
   const locale = useLocale();
   const n = (v: number) => formatNumber(v, locale);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -75,7 +77,14 @@ export function HunterCard() {
   }
 
   const lvl = levelFor(stats.points);
-  const badgeStats = { points: stats.points, pointsWeek: stats.points_week, cleans: stats.cleans, reports: stats.reports, rankWeek };
+  const badgeStats = {
+    points: stats.points,
+    pointsWeek: stats.points_week,
+    cleans: stats.cleans,
+    reports: stats.reports,
+    rankWeek,
+    streakWeeks: stats.streak_weeks,
+  };
 
   const onPhoto = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
@@ -130,6 +139,7 @@ export function HunterCard() {
           <StripeBar value={lvl.progress} label={tl(lvl.key)} tone="dark" />
           <p className="mt-1 text-xs text-white/75">
             {lvl.next ? t("nextLevel", { xp: n(lvl.toNext), level: tl(lvl.next.key) }) : t("maxLevel")}
+            {stats.points_pending > 0 && <> · {t("pending", { xp: n(stats.points_pending) })}</>}
           </p>
           <dl className="mt-4 grid grid-cols-4 gap-2 text-center">
             {[
@@ -152,6 +162,21 @@ export function HunterCard() {
         <p className="px-5 pb-3 text-[0.7rem] text-white/60">{t("photoHint")}</p>
       </section>
 
+      <section className="flex items-center gap-3 rounded-3xl bg-white p-4 ring-1 ring-sky-200" data-testid="streak">
+        <span
+          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${stats.streak_weeks > 0 ? "bg-blood text-white" : "bg-sky text-muted"}`}
+        >
+          <Icon name="flame" size={26} />
+        </span>
+        <span className="min-w-0">
+          <span className="font-display block text-lg">{t("streak", { weeks: stats.streak_weeks })}</span>
+          <span className="block text-xs text-muted">{t("streakHint")}</span>
+          <span className="block text-xs text-muted">
+            {t("limits", { cleans: n(stats.tier_cleans), claims: n(stats.tier_claims) })}
+          </span>
+        </span>
+      </section>
+
       {editing && (
         <div className="card">
           <HandleForm
@@ -166,10 +191,10 @@ export function HunterCard() {
 
       <div className="grid grid-cols-2 gap-3">
         <button type="button" onClick={share} className="btn-secondary">
-          📣 {t("share")}
+          <Icon name="share" /> {t("shareShort")}
         </button>
         <Link href="/leaderboard" prefetch={false} className="btn-secondary">
-          🏆 #{n(stats.rank ?? 0)}
+          <Icon name="trophy" /> {tn("leaderboard")}
         </Link>
       </div>
 

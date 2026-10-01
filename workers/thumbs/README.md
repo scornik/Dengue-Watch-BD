@@ -16,6 +16,11 @@ prefix) in `thumbs/worker.py`.
 including a missing model file, nothing is uploaded and the row is set to
 `thumb_status = 'failed'`. An unblurred image is never published.
 
+**Rejected cleanups.** After the thumbnail passes, each run deletes `public-thumbs/c/{id}.jpg`
+for cleanups with `status = 'rejected'` and a `thumb_public_path`, then sets
+`thumb_public_path = NULL`. A missing object counts as deleted; a storage error leaves the row
+for the next run.
+
 ```
 python -m thumbs.main [--batch-size N]
 ```
@@ -28,7 +33,9 @@ configuration error.
 
 1. The original is downloaded from the source's private bucket through the Storage REST API,
    using the service-role key.
-2. Pillow decodes it and applies the **EXIF orientation**. The image then becomes a plain
+2. Only JPEG is accepted, and the header is checked first: more than 40 MP (decompression
+   bomb) fails the row before any pixel is decoded. Pillow then decodes it (libjpeg scales
+   down by 1/2-1/8 when that still covers 4096 px) and applies the **EXIF orientation**. The image then becomes a plain
    pixel array, which drops all metadata: EXIF including GPS, ICC and XMP. Very large images
    are capped at 4096 px on the long side.
 3. **Detectors run on the full-resolution image**, before any downscale, so small faces and
@@ -54,8 +61,8 @@ configuration error.
 | Outcome | Causes | What happens |
 | --- | --- | --- |
 | `ok` | Thumbnail built and uploaded | Row set to `ok` with the public path |
-| `failed` | No photo path; original missing (404, or 400 not_found); undecodable image; detector error or unavailable model; size limit | Row set to `failed`, `thumb_public_path = NULL`, nothing uploaded |
-| retry | Network or 5xx error on download or upload | Row stays `pending` and is retried on the next run. After 3 consecutive transient errors the run stops early |
+| `failed` | No photo path, or a path outside the expected layout (`YYYY/MM/<uuid>.jpg` for reports, `<uuid>/<name>` for cleanups; never `..`, `%`, `\` or control characters); original missing (404, or 400 not_found); undecodable, non-JPEG or over-40 MP image; detector error or unavailable model; size limit | Row set to `failed`, `thumb_public_path = NULL`, nothing uploaded |
+| retry | Network or 5xx error on download or upload | Row goes back to `pending` and is retried on the next run. After 3 consecutive transient errors the run stops early |
 
 To re-queue failed rows after fixing a deployment:
 `UPDATE reports SET thumb_status = 'pending' WHERE thumb_status = 'failed';` (same for
@@ -76,8 +83,11 @@ SELECT … FROM reports
    FOR UPDATE SKIP LOCKED
 ```
 
-The row lock is held only while that one photo is processed. Overlapping runs skip locked
-rows, so a photo is never processed twice. Each run handles up to `BATCH_SIZE` rows per
+The claimed row is set to `failed` and committed **before** the photo is processed, then set
+to `ok` (or back to `pending` for a transient error). A photo that crashes the process (OOM,
+codec segfault) therefore stays `failed` instead of being retried first on every run, and a
+crash never publishes anything. The committed `failed` also keeps overlapping runs away (with
+SKIP LOCKED during the claim itself), so a photo is never processed twice. Each run handles up to `BATCH_SIZE` rows per
 source.
 
 `ai_label <> 'not_relevant'` also skips rows whose `ai_label` is still `NULL`, meaning not yet

@@ -28,8 +28,8 @@ describe("rewardFor", () => {
 
 describe("badges and handles", () => {
   it("awards badges from stats", () => {
-    const s = { points: 70, pointsWeek: 30, cleans: 5, reports: 2, rankWeek: 3 };
-    expect(BADGES.filter((b) => b.earned(s)).map((b) => b.key)).toEqual(["firstReport", "firstClean", "clean5", "top10"]);
+    const s = { points: 70, pointsWeek: 30, cleans: 5, reports: 2, rankWeek: 3, streakWeeks: 4 };
+    expect(BADGES.filter((b) => b.earned(s)).map((b) => b.key)).toEqual(["streak4", "firstReport", "firstClean", "clean5", "top10"]);
   });
   it("validates hunter names like the database", () => {
     expect(validHandle("MoshaShikari")).toBe(true);

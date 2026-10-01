@@ -40,11 +40,12 @@ export function XpChip() {
     <Link
       href="/me"
       prefetch={false}
-      className="font-display inline-flex min-h-11 items-center gap-1 rounded-full bg-marigold px-3 text-sm text-ink"
+      className="font-display inline-flex min-h-11 items-center gap-1 whitespace-nowrap rounded-full bg-marigold px-2.5 text-sm text-ink"
       data-testid="xp-chip"
     >
       <span aria-hidden="true">★</span>
-      {formatNumber(xp, locale)} XP
+      {formatNumber(xp, locale)}
+      <span className="sr-only min-[400px]:not-sr-only"> XP</span>
     </Link>
   );
 }

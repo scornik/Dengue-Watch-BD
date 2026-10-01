@@ -1,6 +1,7 @@
 """Photo -> privacy-safe public thumbnail. Pure (no network/DB); detectors are injected.
 
-Steps: decode with Pillow -> apply EXIF orientation -> drop all metadata -> cap working size
+Steps: check the JPEG header (format, pixel count) -> decode with Pillow (at reduced scale when
+far larger than needed) -> apply EXIF orientation -> drop all metadata -> cap working size
 -> run every detector on the full-resolution image -> blur each padded box (pixelate + Gaussian)
 -> downscale to THUMB_MAX_SIDE (default 320) -> progressive, optimised 4:2:0 JPEG
 (quality 50, no EXIF), <= 1 MB. Defaults are small on purpose: storage and bandwidth cost money.
@@ -10,6 +11,7 @@ Any error raises; the caller must then NOT publish.
 from __future__ import annotations
 
 import io
+import warnings
 from collections.abc import Sequence
 from dataclasses import dataclass
 
@@ -22,6 +24,10 @@ from .detectors import Box, Detector
 DEFAULT_MAX_SIDE = 320
 DEFAULT_QUALITY = 50
 MAX_WORK_SIDE = 4096  # bounds memory/CPU for huge uploads; still far above thumbnail size
+# Checked from the header before any pixel is decoded: a tiny file can claim 60000x60000
+# (decompression bomb). Phone cameras stay well below this.
+MAX_PIXELS = 40_000_000
+ACCEPTED_FORMATS = ("JPEG",)  # both source buckets only take image/jpeg
 
 
 class ThumbnailError(RuntimeError):
@@ -49,9 +55,37 @@ class Thumbnail:
     size: tuple[int, int]
 
 
+def _draft_size(w: int, h: int) -> tuple[int, int]:
+    """Smallest decode size (same aspect) whose long side is still >= MAX_WORK_SIDE."""
+    k = min(1.0, MAX_WORK_SIDE / max(w, h))
+    return max(1, int(w * k)), max(1, int(h * k))
+
+
 def decode(data: bytes) -> np.ndarray:
-    """Bytes -> upright RGB array with no metadata attached."""
-    with Image.open(io.BytesIO(data)) as im:
+    """Bytes -> upright RGB array with no metadata attached.
+
+    Raises ThumbnailError for non-JPEG input or a header claiming more than MAX_PIXELS.
+    """
+    with warnings.catch_warnings():
+        # Pillow's own bomb check only warns below 2x MAX_IMAGE_PIXELS; make it fatal.
+        warnings.simplefilter("error", Image.DecompressionBombWarning)
+        return _decode(data)
+
+
+def _decode(data: bytes) -> np.ndarray:
+    try:
+        im = Image.open(io.BytesIO(data), formats=list(ACCEPTED_FORMATS))
+    except Image.UnidentifiedImageError as exc:
+        raise ThumbnailError("not a JPEG image") from exc
+    except (Image.DecompressionBombError, Image.DecompressionBombWarning) as exc:
+        raise ThumbnailError(f"image too large: {exc}") from exc
+    with im:
+        w, h = im.size  # from the header only; nothing decoded yet
+        if w <= 0 or h <= 0 or w * h > MAX_PIXELS:
+            raise ThumbnailError(f"image too large: {w}x{h}")
+        # Let libjpeg decode at 1/2, 1/4 or 1/8 scale while the long side still covers
+        # MAX_WORK_SIDE; detection then runs on the same working size as before.
+        im.draft("RGB", _draft_size(w, h))
         im.load()
         upright = ImageOps.exif_transpose(im)
         rgb = upright.convert("RGB")

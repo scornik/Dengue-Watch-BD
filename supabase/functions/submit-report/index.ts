@@ -1,14 +1,18 @@
 // submit-report: the only way citizens create reports.
 //
 // multipart/form-data: meta (JSON, see _shared/report.ts) + photo (JPEG)
+// 0. require a signed-in user (anonymous Supabase sign-in counts): 401 otherwise
 // 1. validate meta (zod) and photo (JPEG, <= 8 MB)
 // 2. rules tier: rate limits (10/h, 30/day per device) and phone OTP after N reports
 // 3. strip EXIF, upload to private bucket report-photos
 // 4. insert report (trigger sets ward, merges into a site, re-checks limits)
 // 5. log the on-device screening result; optionally queue paid screening
 //
-// Deploy with --no-verify-jwt: anonymous and offline-queued requests may carry
-// only the anon key. A valid user JWT, if present, sets reporter_id.
+// Deploy with --no-verify-jwt (CORS preflight carries no JWT); the function
+// checks the user JWT itself. Requests with only the anon key (or an expired
+// session) get 401, which the offline queue treats as retryable and re-acquires
+// a session on its next flush. reporter_id is therefore always set, so rate
+// limits cannot be dodged by rotating the client-chosen device_id.
 import { createClient } from "@supabase/supabase-js";
 import { corsHeaders, json } from "../_shared/cors.ts";
 import { isJpeg, JpegError, stripJpegMetadata } from "../_shared/jpeg.ts";
@@ -37,6 +41,9 @@ Deno.serve(async (req) => {
   if (req.method !== "POST") return json({ error: "method not allowed" }, 405, cors);
   if (!SALT) return json({ error: "server misconfigured: DEVICE_HASH_SALT" }, 500, cors);
 
+  const reporter = await reporterFromAuth(req);
+  if (!reporter) return json({ error: "sign in required", code: "auth_required" }, 401, cors);
+
   let form: FormData;
   try {
     form = await req.formData();
@@ -63,7 +70,6 @@ Deno.serve(async (req) => {
 
   // 2. Rules tier
   const deviceHash = await sha256Hex(`${meta.device_id}:${SALT}`);
-  const reporter = await reporterFromAuth(req);
   const { data: quota, error: qErr } = await admin.rpc("report_quota", { p_device_hash: deviceHash }).single<{
     last_hour: number;
     last_day: number;
@@ -76,7 +82,7 @@ Deno.serve(async (req) => {
     return json({ error: "rate_limited", code: "rate_limited" }, 429, { ...cors, "Retry-After": "3600" });
   }
   let aiLabel = meta.ai_label;
-  if (quota.total >= OTP_AFTER && !reporter?.phoneVerified) {
+  if (quota.total >= OTP_AFTER && !reporter.phoneVerified) {
     if (OTP_ENABLED) return json({ error: "phone verification required", code: "otp_required" }, 403, cors);
     // Free fallback without SMS: repeat reporters' reports go to human review first.
     if (aiLabel === "likely") aiLabel = "unclear";
@@ -100,7 +106,7 @@ Deno.serve(async (req) => {
     .from("reports")
     .insert({
       id: meta.id,
-      reporter_id: reporter?.id ?? null,
+      reporter_id: reporter.id,
       photo_path: path,
       geom: `SRID=4326;POINT(${meta.lng} ${meta.lat})`,
       accuracy_m: meta.accuracy_m,

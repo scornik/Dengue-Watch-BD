@@ -22,7 +22,7 @@ Bangla first, English second. Open source under **AGPL-3.0**. Product spec: [`do
 | `workers/satellite` | Sentinel-2/Landsat ward risk (weekly) |
 | `workers/thumbs` | Face/number-plate blurring for public thumbnails of reports and volunteer after photos (every 5 min) |
 | `workers/detector` | P3: YOLO classifier trained on moderator labels |
-| `docs/` | [Spec](docs/SPEC.md), [credits](docs/credits.md), [Bangla copy review](docs/copy-review.md), [operations: backup/restore, load test, monitoring](docs/operations.md) |
+| `docs/` | [Spec](docs/SPEC.md), [security review](docs/security-review-2026-10-01.md), [credits](docs/credits.md), [Bangla copy review](docs/copy-review.md), [operations: backup/restore, load test, monitoring](docs/operations.md) |
 | `scripts/` | `loadtest.mjs` (reports/minute through the real pipeline), `copy-review.mjs` |
 
 ## Local setup (under 10 commands)
@@ -133,7 +133,7 @@ Every Monday 08:00 Asia/Dhaka, `weekly-digest` emails each ward admin a per-ward
 | Report a spot | +5 (revoked if the report turns out not relevant) |
 | Destroy a spot | +20, +10 if larvae were seen, +10 if open more than 3 days (+10 only if you reported it yourself) |
 
-Claims last 3 hours; a hunter can hold 3 spots and destroy 10 a day. Rules: `game_rules()` in `supabase/migrations/20260930000100_volunteer_game.sql`, mirrored in `apps/web/src/lib/game/rules.ts`. Moderators review "Cleanup proofs" in `/staff/moderate` and can reverse a fake one, which reopens the spot and takes the points back.
+Report points arrive when a moderator verifies the spot (or approves its cleanup). Clean points show at once on the hunter's own card and reach the public leaderboard after 48 h unless a moderator reverses them. Claims last 3 hours. Limits grow with confirmed XP: new hunters hold 1 spot and destroy 3 a day, then 2/6, then 3/10. The after photo must be taken within 80 m of the spot's public (approximate) point. Hunters also get a weekly streak and a ward-vs-ward weekly board. Rules: `game_rules()` in `supabase/migrations/20260930000100_volunteer_game.sql`, mirrored in `apps/web/src/lib/game/rules.ts`. Moderators review "Cleanup proofs" in `/staff/moderate` and can reverse a fake one, which reopens the spot and takes the points back.
 
 ## Photos and compression
 

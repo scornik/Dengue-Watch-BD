@@ -6,12 +6,17 @@ import { prepareAvatar } from "@/lib/image/compress";
 export type MyStats = {
   handle: string | null;
   avatar_path: string | null;
+  /** All XP including points still confirming. */
   points: number;
+  points_pending: number;
   points_week: number;
   cleans: number;
   reports: number;
   rank: number | null;
   active_claims: number;
+  streak_weeks: number;
+  tier_claims: number;
+  tier_cleans: number;
 };
 
 export type Claim = { id: string; site_id: string; status: string; expires_at: string; points: number };
@@ -61,7 +66,7 @@ export async function uploadAvatar(file: File): Promise<string | null> {
   const blob = await prepareAvatar(file);
   // New name each time so caches/CDN never show the old face.
   const path = `${u.user.id}/${Date.now()}.jpg`;
-  const up = await sb.storage.from("avatars").upload(path, blob, { contentType: "image/jpeg", upsert: true });
+  const up = await sb.storage.from("avatars").upload(path, blob, { contentType: "image/jpeg" });
   if (up.error) return null;
   const { error } = await sb.from("profiles").update({ avatar_path: path }).eq("id", u.user.id);
   return error ? null : path;

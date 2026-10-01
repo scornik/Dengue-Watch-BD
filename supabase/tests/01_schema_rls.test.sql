@@ -29,8 +29,9 @@ update public.profiles set role = 'researcher' where id = '00000000-0000-0000-00
 
 -- Staff invite applied on signup
 insert into public.staff_invites (email, role, ward_id) values ('invited@test.bd', 'inspector', 2);
-insert into auth.users (id, email, aud, role, instance_id) values
-  ('00000000-0000-0000-0000-000000000010', 'Invited@test.bd', 'authenticated', 'authenticated', '00000000-0000-0000-0000-000000000000');
+-- Magic-link sign-in confirms the email; only then does the invite apply.
+insert into auth.users (id, email, aud, role, instance_id, email_confirmed_at) values
+  ('00000000-0000-0000-0000-000000000010', 'Invited@test.bd', 'authenticated', 'authenticated', '00000000-0000-0000-0000-000000000000', now());
 select results_eq(
   $$select role::text, ward_id from public.profiles where id = '00000000-0000-0000-0000-000000000010'$$,
   $$values ('inspector', 2)$$,

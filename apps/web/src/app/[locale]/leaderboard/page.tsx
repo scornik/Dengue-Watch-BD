@@ -8,6 +8,16 @@ import { levelFor } from "@/lib/game/rules";
 
 export const revalidate = 60;
 
+type WardRow = {
+  ward_id: number;
+  city_corp: string;
+  ward_no: number;
+  name_bn: string;
+  name_en: string;
+  cleans_week: number;
+  hunters_week: number;
+};
+
 const PODIUM = [
   { place: 1, height: "h-28", ring: "ring-marigold" },
   { place: 2, height: "h-20", ring: "ring-sky-200" },
@@ -17,14 +27,24 @@ const PODIUM = [
 export default async function LeaderboardPage({ params, searchParams }: PageProps<"/[locale]/leaderboard">) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const week = (await searchParams).all === undefined;
+  const sp = await searchParams;
+  const mode = sp.wards !== undefined ? "wards" : sp.all !== undefined ? "all" : "week";
+  const week = mode === "week";
   const t = await getTranslations("board");
   const tl = await getTranslations("level");
   const tm = await getTranslations("me");
   const n = (v: number) => formatNumber(v, locale);
 
   const rankCol = week ? "rank_week" : "rank";
-  const rows = await select<LeaderRow[]>(
+  const wards =
+    mode === "wards"
+      ? await select<WardRow[]>(
+          "public_ward_board",
+          "select=ward_id,city_corp,ward_no,name_bn,name_en,cleans_week,hunters_week&cleans_week=gt.0&order=cleans_week.desc,hunters_week.desc&limit=30",
+          { next: { revalidate: 60 } },
+        ).catch(() => [] as WardRow[])
+      : [];
+  const rows = mode === "wards" ? [] : await select<LeaderRow[]>(
     "public_leaderboard",
     `select=handle,avatar_path,points,points_week,cleans,reports,rank,rank_week${week ? "&points_week=gt.0" : "&points=gt.0"}&order=${rankCol},handle&limit=50`,
     { next: { revalidate: 60 } },
@@ -38,10 +58,11 @@ export default async function LeaderboardPage({ params, searchParams }: PageProp
     <div className="space-y-5">
       <section className="-mx-4 -mt-4 bg-ink px-5 pb-5 pt-6 text-white">
         <h1 className="text-3xl">🏆 {t("title")}</h1>
-        <nav className="mt-4 grid grid-cols-2 gap-1 rounded-full bg-white/10 p-1" aria-label={t("title")}>
+        <nav className="mt-4 grid grid-cols-3 gap-1 rounded-full bg-white/10 p-1" aria-label={t("title")}>
           {[
-            { href: "/leaderboard", on: week, label: t("week") },
-            { href: "/leaderboard?all", on: !week, label: t("all") },
+            { href: "/leaderboard", on: mode === "week", label: t("week") },
+            { href: "/leaderboard?all", on: mode === "all", label: t("all") },
+            { href: "/leaderboard?wards", on: mode === "wards", label: t("tabWards") },
           ].map((tab) => (
             <Link
               key={tab.href}
@@ -87,9 +108,37 @@ export default async function LeaderboardPage({ params, searchParams }: PageProp
         )}
       </section>
 
-      <MyRankRow week={week} />
+      {mode === "wards" ? (
+        <section aria-labelledby="wards-h" className="space-y-2">
+          <h2 id="wards-h" className="text-xl">
+            {t("wardsTitle")}
+          </h2>
+          {wards.length === 0 ? (
+            <p className="card text-muted">{t("wardsEmpty")}</p>
+          ) : (
+            <ol className="card divide-y divide-sky-200 p-0" data-testid="ward-board">
+              {wards.map((w, i) => (
+                <li key={w.ward_id}>
+                  <Link href={`/ward/${w.ward_id}`} prefetch={false} className="flex items-center gap-3 px-4 py-3">
+                    <span className={`font-display w-8 text-center text-lg ${i < 3 ? "text-marigold-700" : "text-muted"}`}>{n(i + 1)}</span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate font-bold">{locale === "bn" ? w.name_bn : w.name_en}</span>
+                      <span className="block text-xs text-muted">
+                        {w.city_corp} · {t("wardHunters", { count: w.hunters_week })}
+                      </span>
+                    </span>
+                    <span className="font-display text-neem-700">{t("wardCleans", { count: n(w.cleans_week) })}</span>
+                  </Link>
+                </li>
+              ))}
+            </ol>
+          )}
+        </section>
+      ) : (
+        <MyRankRow week={week} />
+      )}
 
-      {rows.length === 0 ? (
+      {mode === "wards" ? null : rows.length === 0 ? (
         <div className="card space-y-3 text-center">
           <p className="text-muted">{t("empty")}</p>
           <Link href="/sites" prefetch={false} className="btn-hunt">

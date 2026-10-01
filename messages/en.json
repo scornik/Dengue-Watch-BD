@@ -157,7 +157,8 @@
     "notifyUnsupported": "Notifications are not supported on this browser.",
     "tipsTitle": "Keep your home free of breeding sites:",
     "points": "+{points} XP",
-    "cleanNow": "Destroy it yourself for more XP"
+    "cleanNow": "Destroy it yourself for more XP",
+    "pointsLater": "+{points} XP when a moderator checks it"
   },
   "mine": {
     "title": "My reports",
@@ -276,7 +277,9 @@
     "tabCleanups": "Cleanup proofs",
     "rejectCleanup": "Fake: reverse it",
     "cleanupBy": "{handle} · {meters} m from the spot",
-    "noCleanups": "No cleanups to check."
+    "noCleanups": "No cleanups to check.",
+    "approveCleanup": "Looks right",
+    "hunterRecord": "{cleans} destroyed · {rejected} reversed"
   },
   "insp": {
     "title": "Ward queue",
@@ -402,13 +405,16 @@
     "errHandle": "Pick a hunter name first.",
     "errClaimed": "Another hunter is already on this one.",
     "errTooMany": "You already hold 3 spots. Finish one first.",
-    "errDaily": "That's 10 today. Come back tomorrow!",
+    "errDaily": "You've reached today's limit. Confirmed XP raises it.",
     "errExpired": "Your 3 hours ran out. Claim it again.",
     "errNotOpen": "This spot is already closed.",
     "errPhoto": "The photo didn't upload. Try again.",
     "errGps": "Turn on location to prove you're at the spot.",
     "errGeneric": "Something went wrong. Try again.",
-    "tooFarShort": "You're too far from the spot. Get within 50 m and retake."
+    "tooFarShort": "You're too far from the spot. Get within 50 m and retake.",
+    "confirming": "Counts on the leaderboard within 48 h unless a moderator finds a problem.",
+    "nextSpot": "Next spot near here",
+    "retake": "Retake photo"
   },
   "me": {
     "title": "My hunter card",
@@ -439,7 +445,12 @@
     "setupTitle": "Become a hunter",
     "setupBody": "Pick a name to claim spots and join the leaderboard.",
     "staff": "Staff sign-in",
-    "keepError": "That did not work. Check the email or code and try again."
+    "keepError": "That did not work. Check the email or code and try again.",
+    "pending": "{xp} XP confirming",
+    "streak": "{weeks, plural, one {# week} other {# weeks}} in a row",
+    "streakHint": "Destroy or report one spot every week to keep your streak.",
+    "limits": "Today: up to {cleans} spots, {claims} at a time",
+    "shareShort": "Share"
   },
   "level": {
     "l1": "Rookie Hunter",
@@ -455,7 +466,8 @@
     "firstClean": "First spot destroyed",
     "clean5": "5 destroyed",
     "clean25": "25 destroyed",
-    "top10": "Weekly top 10"
+    "top10": "Weekly top 10",
+    "streak4": "4-week streak"
   },
   "board": {
     "title": "Leaderboard",
@@ -464,6 +476,11 @@
     "you": "You",
     "empty": "No hunters yet. Be the first!",
     "join": "Become a hunter",
-    "xp": "{points} XP"
+    "xp": "{points} XP",
+    "tabWards": "Wards",
+    "wardsTitle": "Ward vs ward, this week",
+    "wardCleans": "{count} destroyed",
+    "wardHunters": "{count, plural, one {# hunter} other {# hunters}}",
+    "wardsEmpty": "No ward has destroyed a spot this week yet. Make yours the first!"
   }
 }

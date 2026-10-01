@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import re
 from dataclasses import dataclass
 from urllib.parse import quote
 
@@ -13,8 +14,24 @@ CLEANUP_BUCKET = "cleanup-photos"  # private: volunteer cleanup "after" photos
 THUMB_BUCKET = "public-thumbs"  # public
 
 
+# Object keys come from DB rows; only plain relative paths may reach a storage URL. The
+# character set excludes '%', '\\', '?', '#', whitespace and control characters.
+_SAFE_KEY = re.compile(r"[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*")
+
+
 class ObjectNotFound(Exception):
     pass
+
+
+class InvalidKey(ValueError):
+    pass
+
+
+def check_key(key: str) -> str:
+    """Return `key` if it is a plain relative object path, else raise InvalidKey."""
+    if not _SAFE_KEY.fullmatch(key) or any(p in (".", "..") for p in key.split("/")):
+        raise InvalidKey(f"unsafe storage key: {key!r}")
+    return key
 
 
 @dataclass(frozen=True, slots=True)
@@ -34,13 +51,17 @@ class StorageConfig:
         return {"Authorization": f"Bearer {self.service_key}", "apikey": self.service_key}
 
     def object_url(self, bucket: str, key: str) -> str:
-        return f"{self.url}/storage/v1/object/{quote(bucket)}/{quote(key.lstrip('/'))}"
+        return f"{self.url}/storage/v1/object/{quote(bucket)}/{quote(check_key(key))}"
+
+
+def _not_found(resp: httpx.Response) -> bool:
+    # Supabase Storage reports a missing object as 404, or 400 with "not_found" in older versions.
+    return resp.status_code == 404 or (resp.status_code == 400 and "not" in resp.text.lower())
 
 
 def download(client: httpx.Client, cfg: StorageConfig, bucket: str, key: str) -> bytes:
     resp = client.get(cfg.object_url(bucket, key), headers=cfg.headers())
-    # Supabase Storage reports a missing object as 404, or 400 with "not_found" in older versions.
-    if resp.status_code == 404 or (resp.status_code == 400 and "not" in resp.text.lower()):
+    if _not_found(resp):
         raise ObjectNotFound(f"{bucket}/{key}")
     resp.raise_for_status()
     return resp.content
@@ -59,4 +80,12 @@ def upload_jpeg(
         },
         content=data,
     )
+    resp.raise_for_status()
+
+
+def delete_object(client: httpx.Client, cfg: StorageConfig, bucket: str, key: str) -> None:
+    """Delete one object; an already-missing object counts as deleted (idempotent)."""
+    resp = client.delete(cfg.object_url(bucket, key), headers=cfg.headers())
+    if _not_found(resp):
+        return
     resp.raise_for_status()

@@ -174,3 +174,49 @@ def test_env_style_overrides_still_apply(noisy_jpeg):
 def test_low_quality_setting_still_encodes(noisy_jpeg):
     thumb = make_thumbnail(noisy_jpeg(), [StubDetector([])], ThumbSettings(quality=20))
     assert _open(thumb.jpeg).format == "JPEG"
+
+
+# --- decompression bombs: reject from the header, before decoding pixels ----------------
+
+
+def _claim_size(jpeg: bytes, w: int, h: int) -> bytes:
+    """Rewrite the SOF0 frame header so a tiny JPEG claims to be w x h pixels."""
+    i = jpeg.index(b"\xff\xc0")
+    return jpeg[: i + 5] + h.to_bytes(2, "big") + w.to_bytes(2, "big") + jpeg[i + 9 :]
+
+
+def test_huge_dimension_header_is_rejected_before_decoding(noisy_jpeg, monkeypatch):
+    bomb = _claim_size(noisy_jpeg(size=(64, 64)), 60000, 60000)
+    assert len(bomb) < 50_000
+
+    def no_load(self):
+        raise AssertionError("pixels decoded before the size check")
+
+    monkeypatch.setattr(JpegImagePlugin.JpegImageFile, "load", no_load)
+    with pytest.raises(ThumbnailError, match="too large"):
+        decode(_claim_size(noisy_jpeg(size=(64, 64)), 8000, 6000))  # 48 MP > 40 MP cap
+    with pytest.raises(ThumbnailError, match="too large"):
+        decode(bomb)  # 3600 MP: Pillow's own check fires first, still a ThumbnailError
+
+
+def test_non_jpeg_input_is_rejected():
+    buf = io.BytesIO()
+    Image.new("RGB", (32, 32)).save(buf, "PNG")
+    with pytest.raises(ThumbnailError, match="not a JPEG"):
+        decode(buf.getvalue())
+
+
+def test_large_photo_decodes_at_reduced_scale_within_work_side(noisy_jpeg, monkeypatch):
+    drafted = []
+    real_draft = JpegImagePlugin.JpegImageFile.draft
+
+    def spy(self, mode, size):
+        res = real_draft(self, mode, size)
+        drafted.append(self.size)
+        return res
+
+    monkeypatch.setattr(JpegImagePlugin.JpegImageFile, "draft", spy)
+    arr = decode(_smooth_photo(size=(12000, 3000)))  # 36 MP panorama: allowed
+    assert drafted == [(6000, 1500)]  # libjpeg decoded at 1/2 scale
+    assert arr.shape == (1024, 4096, 3)
+    assert decode(noisy_jpeg(size=(800, 600))).shape == (600, 800, 3)  # normal photo unchanged

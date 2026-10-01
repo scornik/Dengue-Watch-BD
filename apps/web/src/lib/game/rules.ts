@@ -1,4 +1,4 @@
-// Mirrors public.game_rules() in supabase/migrations/20260930000100_volunteer_game.sql.
+// Mirrors public.game_rules() in supabase/migrations/20261001000100_security_hardening.sql.
 export const RULES = {
   report: 5,
   clean: 20,
@@ -6,8 +6,17 @@ export const RULES = {
   larvaeBonus: 10,
   overdueBonus: 10,
   claimHours: 3,
-  radiusM: 50,
+  confirmHours: 48,
+  // Measured from the public (~50 m snapped) point, exactly as the server does.
+  radiusM: 80,
 } as const;
+
+// Daily limits grow with confirmed XP (anti-abuse that also reads as progression).
+export const TIERS = [
+  { min: 0, claims: 1, cleans: 3 },
+  { min: 50, claims: 2, cleans: 6 },
+  { min: 150, claims: 3, cleans: 10 },
+] as const;
 
 export const LEVELS = [
   { key: "l1", min: 0 },
@@ -40,6 +49,7 @@ export function rewardFor(site: { larvae: boolean; firstReportedAt: string | Dat
 }
 
 export const BADGES = [
+  { key: "streak4", icon: "🔥", earned: (s: Stats) => (s.streakWeeks ?? 0) >= 4 },
   { key: "firstReport", icon: "📸", earned: (s: Stats) => s.reports >= 1 },
   { key: "firstClean", icon: "🪣", earned: (s: Stats) => s.cleans >= 1 },
   { key: "clean5", icon: "🌿", earned: (s: Stats) => s.cleans >= 5 },
@@ -47,7 +57,7 @@ export const BADGES = [
   { key: "top10", icon: "🏆", earned: (s: Stats) => s.rankWeek !== null && s.rankWeek <= 10 && s.pointsWeek > 0 },
 ] as const;
 
-export type Stats = { points: number; pointsWeek: number; cleans: number; reports: number; rankWeek: number | null };
+export type Stats = { points: number; pointsWeek: number; cleans: number; reports: number; rankWeek: number | null; streakWeeks?: number };
 
 /** Hunter names: 3–24 chars, no spaces or characters that break URLs/markup (same as the DB check). */
 export function validHandle(h: string): boolean {

@@ -6,6 +6,7 @@ import { select, PUBLIC_SITE_COLUMNS, type PublicSite } from "@/lib/publicApi";
 import { formatDate } from "@/lib/format";
 import { StatusBadge } from "@/components/StatusBadge";
 import { SitePhoto } from "@/components/sites/SiteCard";
+import { Icon } from "@/components/Icon";
 import { HuntPanel } from "@/components/sites/HuntPanel";
 import { SITE_ICONS } from "@/components/report/siteIcons";
 
@@ -77,8 +78,8 @@ export default async function SitePage({ params }: PageProps<"/[locale]/sites/[i
       <HuntPanel site={site} />
 
       <div className="grid grid-cols-2 gap-2">
-        <Link href="/sites" prefetch={false} className="btn-ghost">
-          ← {tsi("title")}
+        <Link href="/sites" prefetch={false} className="btn-ghost whitespace-nowrap">
+          <Icon name="back" /> {tsi("title")}
         </Link>
         {site.ward_id && (
           <Link href={`/ward/${site.ward_id}`} prefetch={false} className="btn-ghost">
