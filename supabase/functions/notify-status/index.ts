@@ -5,6 +5,7 @@
 import { createClient } from "@supabase/supabase-js";
 import * as webpush from "@negrel/webpush";
 import { json } from "../_shared/cors.ts";
+import { bearer, isServiceToken } from "../_shared/auth.ts";
 import { vapidJwks } from "../_shared/vapid.ts";
 import { isAllowedPushEndpoint, withTimeout } from "../_shared/push.ts";
 import { statusMessage, type Locale, type Status } from "../_shared/i18n.ts";
@@ -35,8 +36,7 @@ async function server(): Promise<webpush.ApplicationServer | null> {
 
 Deno.serve(async (req) => {
   if (req.method !== "POST") return json({ error: "method not allowed" }, 405);
-  const token = req.headers.get("Authorization")?.replace(/^Bearer\s+/i, "") ?? "";
-  if (token !== SERVICE_KEY) return json({ error: "forbidden" }, 403);
+  if (!isServiceToken(bearer(req), SERVICE_KEY)) return json({ error: "forbidden" }, 403);
 
   const { data: events, error } = await admin
     .from("site_events")

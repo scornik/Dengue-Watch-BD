@@ -7,6 +7,7 @@
 // Invalid provider output keeps ai_label = unclear.
 import { createClient } from "@supabase/supabase-js";
 import { json } from "../_shared/cors.ts";
+import { bearer, isServiceToken } from "../_shared/auth.ts";
 import { providerFromEnv } from "../_shared/vision.ts";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
@@ -28,8 +29,7 @@ type Row = { id: string; photo_path: string; ai_label: string; ai_source: string
 Deno.serve(async (req) => {
   if (req.method !== "POST") return json({ error: "method not allowed" }, 405);
   // Service role only (pg_cron / submit-report). verify_jwt already checked the signature.
-  const token = req.headers.get("Authorization")?.replace(/^Bearer\s+/i, "") ?? "";
-  if (token !== SERVICE_KEY) return json({ error: "forbidden" }, 403);
+  if (!isServiceToken(bearer(req), SERVICE_KEY)) return json({ error: "forbidden" }, 403);
   if (!ENABLED) return json({ skipped: "PAID_AI_ENABLED is not true" }, 200);
 
   const provider = providerFromEnv((k) => Deno.env.get(k));
