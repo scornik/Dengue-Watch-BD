@@ -71,13 +71,17 @@ from (values (1, 'MoshaShikari'), (2, 'Rima_Mirpur'), (3, 'DhakaDengueBuster'), 
              (5, 'Nusrat.Uttara'), (6, 'LarvaeHunter')) as h(n, handle)
 where p.id = ('00000000-0000-0000-0000-00000000de' || lpad(h.n::text, 2, '0'))::uuid;
 
+-- Hunters are assigned by position in the random pick (1 and 2 -> hunter 1, ...,
+-- 11+ -> hunter 6), so every demo hunter has cleans and the leaderboard is never
+-- empty for one of them; ledger rows are confirmed so they count immediately.
 with picked as (
-  select s.id, s.geom, s.first_reported_at, row_number() over (order by s.first_reported_at) as rn
-  from public.sites s where s.status in ('new', 'verified') order by random() limit 18
+  select x.id, x.geom, x.first_reported_at, row_number() over () as rn
+  from (select s.id, s.geom, s.first_reported_at
+        from public.sites s where s.status in ('new', 'verified') order by random() limit 18) x
 ), done as (
   insert into public.cleanups (site_id, volunteer_id, status, claimed_at, expires_at, done_at,
                                after_photo_path, after_geom, points, thumb_status)
-  select p.id, ('00000000-0000-0000-0000-00000000de' || lpad((1 + least(5, (p.rn % 11) / 2))::text, 2, '0'))::uuid, 'done',
+  select p.id, ('00000000-0000-0000-0000-00000000de' || lpad((1 + least(5, (p.rn - 1) / 2))::text, 2, '0'))::uuid, 'done',
          least(now(), p.first_reported_at + interval '20 hours'), least(now(), p.first_reported_at + interval '23 hours'),
          least(now(), p.first_reported_at + interval '22 hours'),
          'demo/after.jpg', p.geom, 20 + case when p.rn % 3 = 0 then 10 else 0 end, 'failed'
@@ -88,8 +92,8 @@ with picked as (
          after_photo_path = 'cleanup-photos/demo/after.jpg', after_photo_geom = s.geom, cleared_cleanup_id = d.id
   from done d where s.id = d.site_id
 )
-insert into public.points_ledger (user_id, kind, points, site_id, cleanup_id, created_at)
-select volunteer_id, 'clean', points, site_id, id, done_at from done;
+insert into public.points_ledger (user_id, kind, points, site_id, cleanup_id, created_at, confirmed_at)
+select volunteer_id, 'clean', points, site_id, id, done_at, done_at from done;
 
 -- Demo environmental risk for the current week.
 insert into public.ward_risk (ward_id, week, ndvi, ndwi, ndbi, lst_c, rain_14d_mm, report_density, cases_area, score, level, method_version)

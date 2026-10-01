@@ -4,6 +4,7 @@
 // admins use the printable page (/staff/digest). Idempotent per week+recipient.
 import { createClient } from "@supabase/supabase-js";
 import { json } from "../_shared/cors.ts";
+import { bearer, isServiceToken } from "../_shared/auth.ts";
 import { digestSubject, previousWeek, renderDigestHtml, type DigestRow } from "../_shared/digest.ts";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
@@ -16,8 +17,7 @@ const admin = createClient(SUPABASE_URL, SERVICE_KEY, { auth: { persistSession: 
 
 Deno.serve(async (req) => {
   if (req.method !== "POST") return json({ error: "method not allowed" }, 405);
-  const token = req.headers.get("Authorization")?.replace(/^Bearer\s+/i, "") ?? "";
-  if (token !== SERVICE_KEY) return json({ error: "forbidden" }, 403);
+  if (!isServiceToken(bearer(req), SERVICE_KEY)) return json({ error: "forbidden" }, 403);
 
   const body = await req.json().catch(() => ({}));
   const week = body.week_start ? { date: body.week_start, start: `${body.week_start}T00:00:00+06:00` } : previousWeek();
